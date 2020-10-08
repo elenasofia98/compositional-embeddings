@@ -1,7 +1,10 @@
 import tensorflow as tf
-from embedding_utilities import BaselineAdditiveModel, Parser, PreprocessingWord2VecEmbedding, OOVWordException
 import numpy as np
 from scipy.stats import spearmanr
+
+from baseline.BaselineAdditiveModel import BaselineAdditiveModel
+from preprocessing.w2v_preprocessing_embedding import PreprocessingWord2VecEmbedding, OOVWordException
+from writer.writer_utility import Parser
 
 
 class Oracle:
@@ -12,16 +15,36 @@ class Oracle:
         self.correlations[len(self.correlations)] = {'value': value, 'first': first, 'second': second}
 
 
+class UnexpectedValueInLine(ValueError):
+    def __init__(self, line):
+        message = 'Value Error occurred during the reading of line:\n' + str(line)
+        super().__init__(message)
+
+
+class LineReader:
+    def readline(self, line):
+        pass
+
+
+class CS10LineReader(LineReader):
+    def readline(self, line):
+        try:
+            value = float(line[4])
+            first = line[0:2]
+            second = line[2:4]
+
+            return value, first, second
+        except ValueError:
+            raise UnexpectedValueInLine(line)
+
+
 class CorrelationCouplesOracle(Oracle):
-    def __init__(self, path, value_index=0, first_index=0, first_end=None, second_index=0, second_end=None):
+    def __init__(self, path):
         self.path = path
         super().__init__()
-        self.collect_correlations(value_index, first_index, first_end, second_index, second_end)
 
-    def collect_correlations(self, value_index=0, first_index=0, first_end=None, second_index=0, second_end=None):
+    def collect_correlations(self, reader: LineReader, index_range: range):
         parser = Parser(self.path, '\t')
-        index_range = range(1, 6)
-
         with parser:
             while True:
                 line = parser.get_example_from_line_next_line(index_range)
@@ -29,19 +52,9 @@ class CorrelationCouplesOracle(Oracle):
                     break
 
                 try:
-                    value = float(line[value_index])
-                    if first_end is not None:
-                        first = line[first_index:first_end]
-                    else:
-                        first = [line[first_index]]
-
-                    if second_end is not None:
-                        second = line[second_index:second_end]
-                    else:
-                        second = [line[second_index]]
-
+                    value, first, second = reader.readline(line)
                     super().add_correlations(value, first, second)
-                except ValueError:
+                except UnexpectedValueInLine:
                     continue
 
 
@@ -77,7 +90,6 @@ class Tester:
         self.embedded_oracle = embedded_oracle
 
     def test_similarity_of_predictions(self, model, evaluator: SimilarityEvaluator):
-
         first_couples_predictions = model.predict(
             np.array([np.array(self.embedded_oracle.oracle.correlations[x]['first_embedded'])
                       for x in self.embedded_oracle.oracle.correlations]))
@@ -98,7 +110,9 @@ class Tester:
                                                  for x in self.embedded_oracle.oracle.correlations])
 
 
-oracle = CorrelationCouplesOracle('data/CS10_test/a/AN_CS10_test.txt', 4, 0, 2, 2, 4)
+oracle = CorrelationCouplesOracle('data/CS10_test/a/AN_CS10_test.txt')
+oracle.collect_correlations(CS10LineReader(), range(1, 6))
+
 print(oracle.correlations)
 embedded_oracle = EmbeddedOracle(oracle,
                                  PreprocessingWord2VecEmbedding(
