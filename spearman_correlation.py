@@ -121,7 +121,7 @@ embedded_oracle = EmbeddedOracle(oracle,
 tester = Tester(embedded_oracle)
 evaluator = SimilarityEvaluator('cosine_similarity')
 
-model: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor.h5')
+model: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor_noun_only.h5')
 baseline: BaselineAdditiveModel = BaselineAdditiveModel()
 
 print(str(type(model)) + '-->')

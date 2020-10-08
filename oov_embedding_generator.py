@@ -54,8 +54,8 @@ def compare_with_baseline(model_mse, baseline_type, test_data, test_target):
         return 1 - model_mse / baseline.calculate_mse()
 
 
-def save(model, test, training):
-    model.save('oov_sequential_predictor.h5')
+def save(model_path, model, test, training):
+    model.save(model_path)
 
     (test_data, test_target) = test
     test_saver = ExampleToNumpy(data=test_data, target=test_target)
@@ -118,4 +118,4 @@ r = compare_with_baseline(test_history[1], 'additive', test_data, test_target)
 print(f'R, current model against additive model:{r}')
 
 
-save(model, (test_data, test_target), (train_data, train_target))
+save('oov_sequential_predictor_noun_only.h5', model, (test_data, test_target), (train_data, train_target))
