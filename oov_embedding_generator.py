@@ -4,8 +4,12 @@ import random
 import os
 
 from tensorflow.python.keras.callbacks import History
-from embedding_utilities import BaselineAdditiveModel, ExampleToNumpy, ExampleWriter, PreprocessingWord2VecEmbedding
 from gensim.models import KeyedVectors
+
+from baseline.BaselineAdditiveModel import BaselineAdditiveModel
+from example_to_numpy.example_to_numpy import ExampleToNumpy
+from preprocessing.w2v_preprocessing_embedding import PreprocessingWord2VecEmbedding
+from writer.writer_utility import ExampleWriter
 
 
 def write_w2v_exaples_from_to(paths, output_path):
