@@ -1,0 +1,1187 @@
+ID	Word	W1	W2	DEF_SYNT
+1	hiccup	breathe	spasmodically	(S1 (S (VP (VP (VB breathe) (ADVP (RB spasmodically))) (, ,) (CC and) (VP (VB make) (NP (DT a) (NN sound))))))#
+2	hiccough	breathe	spasmodically	(S1 (S (VP (VP (VB breathe) (ADVP (RB spasmodically))) (, ,) (CC and) (VP (VB make) (NP (DT a) (NN sound))))))#
+3	sigh	breathe	deeply	(S1 (S (NP (ADJP (JJ heave) (CC or) (JJ utter)) (DT a) (NN sigh)) (: ;) (VP (VB breathe) (ADVP (RB deeply) (CC and) (RB heavily)))))#
+4	sneeze	exhale	spasmodically	(S1 (S (VP (VB exhale) (ADVP (RB spasmodically)) (, ,) (PP (IN as) (SBAR (WHADVP (WRB when)) (S (NP (DT an) (NN irritant)) (VP (VBD entered) (NP (NP (CD one) (POS 's)) (NN nose)))))))))#
+5	pant	breathe	noisily	(S1 (S (VP (VB breathe) (ADVP (RB noisily)) (, ,) (PP (IN as) (SBAR (WHADVP (WRB when)) (S (NP (CD one)) (VP (VBZ is) (VP (VBN exhausted)))))))))#
+6	puff	breathe	noisily	(S1 (S (VP (VB breathe) (ADVP (RB noisily)) (, ,) (PP (IN as) (SBAR (WHADVP (WRB when)) (S (NP (CD one)) (VP (VBZ is) (VP (VBN exhausted)))))))))#
+7	gasp	breathe	noisily	(S1 (S (VP (VB breathe) (ADVP (RB noisily)) (, ,) (PP (IN as) (SBAR (WHADVP (WRB when)) (S (NP (CD one)) (VP (VBZ is) (VP (VBN exhausted)))))))))#
+8	heave	breathe	noisily	(S1 (S (VP (VB breathe) (ADVP (RB noisily)) (, ,) (PP (IN as) (SBAR (WHADVP (WRB when)) (S (NP (CD one)) (VP (VBZ is) (VP (VBN exhausted)))))))))#
+9	cough	exhale	abruptly	(S1 (S (VP (VB exhale) (ADVP (RB abruptly)) (, ,) (SBAR (IN as) (WHADVP (WRB when)) (S (NP (PRP one)) (VP (VBZ has) (NP (DT a) (NN chest) (NN cold) (CC or) (NN congestion))))))))#
+10	snort	exhaling	hard	(S1 (S (VP (VB make) (S (NP (DT a) (NN snorting)) (VP (VB sound) (PP (IN by) (S (VP (VBG exhaling) (ADVP (RB hard))))))))))#
+11	huff	blow	hard	(S1 (S (VP (VB blow) (ADVP (RB hard) (CC and) (RB loudly)))))#
+12	chuff	blow	hard	(S1 (S (VP (VB blow) (ADVP (RB hard) (CC and) (RB loudly)))))#
+13	insufflate	breathe	hard	(S1 (S (VP (VP (VB blow)) (CC or) (VP (VB breathe) (ADVP (RB hard)) (PP (IN on) (CC or) (PP (IN into)))))))#
+14	sniff	inhale	audibly	(S1 (S (VP (VB inhale) (ADVP (RB audibly)) (PP (IN through) (NP (DT the) (NN nose))))))#
+15	sniffle	inhale	audibly	(S1 (S (VP (VB inhale) (ADVP (RB audibly)) (PP (IN through) (NP (DT the) (NN nose))))))#
+16	freeze	behave	coldly	(S1 (S (ADVP (RB suddenly)) (VP (VB behave) (ADVP (RB coldly) (CC and) (RB formally)))))#
+17	wanton	behave	extremely	(S1 (S (VP (VB behave) (ADVP (RB extremely) (RB cruelly) (CC and) (RB brutally)))))#
+18	bungle	behaving	clumsily	(S1 (S (VP (VB spoil) (PP (IN by) (S (VP (VBG behaving) (ADVP (RB clumsily) (CC or) (RB foolishly))))))))#
+19	sleep	be	asleep	(S1 (S (VP (VB be) (ADVP (RB asleep)))))#
+20	kip	be	asleep	(S1 (S (VP (VB be) (ADVP (RB asleep)))))#
+21	slumber	be	asleep	(S1 (S (VP (VB be) (ADVP (RB asleep)))))#
+22	oversleep	sleep	longer	(S1 (S (VP (VB sleep) (ADVP (ADVP (RBR longer)) (SBAR (IN than) (S (VP (VBN intended))))))))#
+23	snore	breathe	noisily	(S1 (S (VP (VB breathe) (ADVP (RB noisily)) (PP (IN during) (NP (NP (CD one) (POS 's)) (NN sleep))))))#
+24	reawaken	awaken	once	(S1 (S (VP (VB awaken) (ADVP (RB once) (RB again)))))#
+25	affect	act	physically	(S1 (S (S (VP (VB act) (ADVP (RB physically) (RB on)))) (: ;) (S (VP (VB have) (NP (DT an) (NN effect)) (PP (IN upon))))))#
+26	crane	see	better	(S1 (S (VP (VB stretch) (PRN (-LRB- -LRB-) (NP (DT the) (NN neck)) (-RRB- -RRB-)) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB see) (ADVP (RB better)))))))))#
+27	beam	smile	radiantly	(S1 (S (S (VP (VBP smile) (ADVP (RB radiantly)))) (: ;) (S (VP (VB express) (NP (NN joy)) (PP (IN through) (NP (NP (CD one) (POS 's)) (JJ facial) (NN expression)))))))#
+28	smirk	smile	affectedly	(S1 (S (VP (VBP smile) (ADVP (RB affectedly) (CC or) (RB derisively)))))#
+29	simper	smile	affectedly	(S1 (S (VP (VBP smile) (ADVP (RB affectedly) (CC or) (RB derisively)))))#
+30	fleer	smirk	contemptuously	(S1 (S (VP (TO to) (VP (VB smirk) (ADVP (RB contemptuously))))))#
+31	bray	laugh	loudly	(S1 (S (VP (VB laugh) (ADVP (RB loudly) (CC and) (RB harshly)))))#
+32	roar	laugh	unrestrainedly	(S1 (S (VP (VB laugh) (ADVP (RB unrestrainedly) (CC and) (RB heartily)))))#
+33	howl	laugh	unrestrainedly	(S1 (S (VP (VB laugh) (ADVP (RB unrestrainedly) (CC and) (RB heartily)))))#
+34	snicker	laugh	quietly	(S1 (S (VP (VB laugh) (ADVP (RB quietly)))))#
+35	snigger	laugh	quietly	(S1 (S (VP (VB laugh) (ADVP (RB quietly)))))#
+36	giggle	laugh	nervously	(S1 (S (VP (VB laugh) (ADVP (RB nervously)))))#
+37	titter	laugh	nervously	(S1 (S (VP (VB laugh) (ADVP (RB nervously)))))#
+38	guffaw	laugh	boisterously	(S1 (S (VP (VB laugh) (ADVP (RB boisterously)))))#
+39	sneer	smile	contemptuously	(S1 (S (VP (VBP smile) (ADVP (RB contemptuously)))))#
+40	dress	arrange	attractively	(S1 (S (VP (VB arrange) (ADVP (RB attractively)))))#
+41	arrange	arrange	attractively	(S1 (S (VP (VB arrange) (ADVP (RB attractively)))))#
+42	set	arrange	attractively	(S1 (S (VP (VB arrange) (ADVP (RB attractively)))))#
+43	coif	arrange	attractively	(S1 (S (VP (VB arrange) (ADVP (RB attractively)))))#
+44	coiffe	arrange	attractively	(S1 (S (VP (VB arrange) (ADVP (RB attractively)))))#
+45	coiffure	arrange	attractively	(S1 (S (VP (VB arrange) (ADVP (RB attractively)))))#
+46	gauffer	make	wavy	(S1 (S (VP (VB make) (ADVP (RB wavy)) (PP (IN with) (NP (DT a) (JJ heated) (NN goffering) (NN iron))))))#
+47	goffer	make	wavy	(S1 (S (VP (VB make) (ADVP (RB wavy)) (PP (IN with) (NP (DT a) (JJ heated) (NN goffering) (NN iron))))))#
+48	underdress	dress	informally	(S1 (S (VP (VB dress) (ADVP (RB informally) (CC and) (RB casually)))))#
+49	overclothe	dress	too	(S1 (S (VP (VB dress) (ADVP (RB too) (RB warmly)))))#
+50	vest	clothe	formally	(S1 (S (VP (VB clothe) (ADVP (RB formally)) (PRN (: ;) (ADVP (RB especially)) (PP (IN in) (NP (JJ ecclesiastical) (NNS robes)))))))#
+51	robe	clothe	formally	(S1 (S (VP (VB clothe) (ADVP (RB formally)) (PRN (: ;) (ADVP (RB especially)) (PP (IN in) (NP (JJ ecclesiastical) (NNS robes)))))))#
+52	propagate	multiply	sexually	(S1 (S (VP (VB multiply) (ADVP (RB sexually) (CC or) (RB asexually)))))#
+53	pullulate	breed	freely	(S1 (S (VP (VB breed) (ADVP (RB freely) (CC and) (RB abundantly)))))#
+54	soothe	feel	better	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB feel) (ADVP (RB better))))))))#
+55	wail	cry	weakly	(S1 (S (VP (VB cry) (ADVP (RB weakly) (CC or) (RB softly)))))#
+56	whimper	cry	weakly	(S1 (S (VP (VB cry) (ADVP (RB weakly) (CC or) (RB softly)))))#
+57	mewl	cry	weakly	(S1 (S (VP (VB cry) (ADVP (RB weakly) (CC or) (RB softly)))))#
+58	pule	cry	weakly	(S1 (S (VP (VB cry) (ADVP (RB weakly) (CC or) (RB softly)))))#
+59	bawl	cry	loudly	(S1 (S (VP (VB cry) (ADVP (RB loudly)))))#
+60	superfetate	is	already	(S1 (S (VP (VB conceive) (SBAR (WHADVP (WRB when)) (S (NP (DT a) (NN fetus)) (VP (VBZ is) (ADVP (RB already)) (ADJP (JJ present)) (PP (IN in) (NP (DT the) (NN uterus)))))))))#
+61	extravasate	pour	forth	(S1 (NP (NN geology) (: :) (S (VP (VBP cause) (NP (NP (JJ molten) (NN material)) (, ,) (PP (JJ such) (IN as) (NP (FW lava))) (, ,)) (S (VP (TO to) (VP (VB pour) (ADVP (RB forth)))))))))#
+62	stream	exude	profusely	(S1 (S (VP (VBP exude) (ADVP (RB profusely)))))#
+63	pull	strain	abnormally	(S1 (S (VP (VB strain) (ADVP (RB abnormally)))))#
+64	overstretch	strain	abnormally	(S1 (S (VP (VB strain) (ADVP (RB abnormally)))))#
+65	obstipate	constipate	severely	(S1 (S (VP (VB constipate) (ADVP (RB severely)))))#
+66	frazzle	exhaust	physically	(S1 (S (VP (VB exhaust) (ADVP (RB physically) (CC or) (RB emotionally)))))#
+67	gnash	grind	together	(S1 (S (VP (VB grind) (ADVP (RB together)) (, ,) (PP (IN of) (NP (NNS teeth))))))#
+68	manipulate	treat	manually	(S1 (S (VP (VB treat) (ADVP (RB manually)) (, ,) (PP (IN as) (PP (IN with) (NP (NN massage)))) (, ,) (PP (IN for) (NP (JJ therapeutic) (NN purposed))))))#
+69	digitalize	benefits	maximally	(S1 (S (NP (VB administer) (NNS digitalis)) (ADJP (JJ such) (SBAR (IN that) (S (NP (DT the) (NN patient)) (VP (VBZ benefits) (ADVP (RB maximally)) (PP (IN without) (S (VP (VBG getting) (NP (JJ adverse) (NNS effects)))))))))))#
+70	medicate	treat	medicinally	(S1 (S (VP (VP (VB treat) (ADVP (RB medicinally))) (, ,) (VP (VB treat) (PP (IN with) (NP (NN medicine)))))))#
+71	medicine	treat	medicinally	(S1 (S (VP (VP (VB treat) (ADVP (RB medicinally))) (, ,) (VP (VB treat) (PP (IN with) (NP (NN medicine)))))))#
+72	mutilate	injure	severely	(S1 (S (VP (VB destroy) (CC or) (VB injure) (ADVP (RB severely)))))#
+73	mar	injure	severely	(S1 (S (VP (VB destroy) (CC or) (VB injure) (ADVP (RB severely)))))#
+74	maim	wound	seriously	(S1 (S (VP (VP (VB injure) (CC or) (VB wound) (ADVP (RB seriously))) (CC and) (VP (VB leave) (NP (JJ permanent) (NN disfiguration) (CC or) (NN mutilation))))))#
+75	twist	twist	suddenly	(S1 (S (VP (VBP twist) (ADVP (RB suddenly) (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB sprain))))))))#
+76	sprain	twist	suddenly	(S1 (S (VP (VBP twist) (ADVP (RB suddenly) (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB sprain))))))))#
+77	wrench	twist	suddenly	(S1 (S (VP (VBP twist) (ADVP (RB suddenly) (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB sprain))))))))#
+78	turn	twist	suddenly	(S1 (S (VP (VBP twist) (ADVP (RB suddenly) (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB sprain))))))))#
+79	wrick	twist	suddenly	(S1 (S (VP (VBP twist) (ADVP (RB suddenly) (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB sprain))))))))#
+80	rick	twist	suddenly	(S1 (S (VP (VBP twist) (ADVP (RB suddenly) (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB sprain))))))))#
+81	subluxate	dislocate	slightly	(S1 (S (VP (VP (VB sprain)) (CC or) (VP (VB dislocate) (ADVP (RB slightly))))))#
+82	disable	injure	permanently	(S1 (S (VP (VB injure) (ADVP (RB permanently)))))#
+83	invalid	injure	permanently	(S1 (S (VP (VB injure) (ADVP (RB permanently)))))#
+84	incapacitate	injure	permanently	(S1 (S (VP (VB injure) (ADVP (RB permanently)))))#
+85	handicap	injure	permanently	(S1 (S (VP (VB injure) (ADVP (RB permanently)))))#
+86	relapse	go	back	(S1 (S (VP (VB go) (ADVP (RB back) (PP (TO to) (NP (JJ bad) (NN behavior)))))))#
+87	lapse	go	back	(S1 (S (VP (VB go) (ADVP (RB back) (PP (TO to) (NP (JJ bad) (NN behavior)))))))#
+88	recidivate	go	back	(S1 (S (VP (VB go) (ADVP (RB back) (PP (TO to) (NP (JJ bad) (NN behavior)))))))#
+89	regress	go	back	(S1 (S (VP (VB go) (ADVP (RB back) (PP (TO to) (NP (JJ bad) (NN behavior)))))))#
+90	retrogress	go	back	(S1 (S (VP (VB go) (ADVP (RB back) (PP (TO to) (NP (JJ bad) (NN behavior)))))))#
+91	regrow	grow	anew	(S1 (S (VP (VP (VB grow) (ADVP (RB anew))) (CC or) (VP (VB continue) (NP (NN growth)) (PP (IN after) (NP (NP (DT an) (NN injury)) (CC or) (NP (NN interruption))))))))#
+92	spring	develop	suddenly	(S1 (S (VP (VB develop) (ADVP (RB suddenly)))))#
+93	tumble	turn	skillfully	(S1 (S (VP (VP (VB do) (NP (NNS gymnastics))) (, ,) (VP (VB roll)) (CC and) (VP (VB turn) (ADVP (RB skillfully))))))#
+94	refracture	was	previously	(S1 (NP (NP (NN break)) (PRN (-LRB- -LRB-) (NP (DT a) (NN bone)) (-RRB- -RRB-)) (SBAR (WHNP (WDT that)) (S (VP (VBD was) (ADVP (RB previously)) (VP (VBN broken) (CC but) (VBN mended) (PP (IN in) (NP (DT an) (JJ abnormal) (NN way)))))))))#
+95	snuff	inhale	audibly	(S1 (S (VP (VB inhale) (ADVP (RB audibly)) (PP (IN through) (NP (DT the) (NN nose))))))#
+96	speciate	evolve	so	(S1 (S (VP (VB evolve) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VP (VB lead) (PP (TO to) (NP (DT a) (JJ new) (NNS species)))) (CC or) (VP (VB develop) (PP (IN in) (NP (NP (DT a) (NN way)) (VP (ADVP (RBS most)) (VBN suited) (PP (TO to) (NP (DT the) (NN environment))))))))))))))#
+97	specialize	evolve	so	(S1 (S (VP (VB evolve) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VP (VB lead) (PP (TO to) (NP (DT a) (JJ new) (NNS species)))) (CC or) (VP (VB develop) (PP (IN in) (NP (NP (DT a) (NN way)) (VP (ADVP (RBS most)) (VBN suited) (PP (TO to) (NP (DT the) (NN environment))))))))))))))#
+98	specialise	evolve	so	(S1 (S (VP (VB evolve) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VP (VB lead) (PP (TO to) (NP (DT a) (JJ new) (NNS species)))) (CC or) (VP (VB develop) (PP (IN in) (NP (NP (DT a) (NN way)) (VP (ADVP (RBS most)) (VBN suited) (PP (TO to) (NP (DT the) (NN environment))))))))))))))#
+99	jump	go	back	(S1 (S (S (VP (VB go) (ADVP (RB back) (CC and) (RB forth)))) (: ;) (S (VP (VB swing) (ADVP (RB back) (CC and) (RB forth)) (PP (IN between) (NP (NP (CD two) (NNS states)) (CC or) (NP (NNS conditions))))))))#
+100	revolutionize	change	radically	(S1 (S (VP (VB change) (ADVP (RB radically)))))#
+101	revolutionise	change	radically	(S1 (S (VP (VB change) (ADVP (RB radically)))))#
+102	overturn	change	radically	(S1 (S (VP (VB change) (ADVP (RB radically)))))#
+103	exchange	change	around	(S1 (S (S (VP (VB change) (PRT (RP over)))) (, ,) (S (VP (VB change) (ADVP (RB around)))) (, ,) (PP (IN as) (PP (TO to) (NP (DT a) (JJ new) (NN order) (CC or) (NN sequence))))))#
+104	fall	pass	suddenly	(S1 (S (VP (VB pass) (ADVP (RB suddenly) (CC and) (RB passively)) (PP (IN into) (NP (NP (DT a) (NN state)) (PP (IN of) (NP (NN body) (CC or) (NN mind))))))))#
+105	readjust	adjust	anew	(S1 (S (VP (VB adjust) (ADVP (RB anew)))))#
+106	readapt	adjust	anew	(S1 (S (VP (VB adjust) (ADVP (RB anew)))))#
+107	reconstruct	reform	socially	(S1 (S (VP (VP (VB cause) (S (NP (NN somebody)) (VP (TO to) (VP (VB adapt))))) (CC or) (VP (VB reform) (ADVP (RB socially) (CC or) (RB politically))))))#
+108	taper	diminish	gradually	(S1 (S (VP (VB diminish) (ADVP (RB gradually)))))#
+109	vanish	decrease	rapidly	(S1 (S (VP (VP (VB decrease) (ADVP (RB rapidly))) (CC and) (VP (VB disappear)))))#
+110	fly	decrease	rapidly	(S1 (S (VP (VP (VB decrease) (ADVP (RB rapidly))) (CC and) (VP (VB disappear)))))#
+111	vaporize	decrease	rapidly	(S1 (S (VP (VP (VB decrease) (ADVP (RB rapidly))) (CC and) (VP (VB disappear)))))#
+112	soar	move	upward	(S1 (S (VP (VB go) (CC or) (VB move) (ADVP (RB upward)))))#
+113	pyramid	increase	rapidly	(S1 (S (VP (VP (VB increase) (ADVP (RB rapidly))) (CC and) (ADVP (RB progressively)) (VP (VB step) (PP (IN by) (NP (NN step))) (PP (IN on) (NP (DT a) (JJ broad) (NN base)))))))#
+114	acculturate	assimilate	culturally	(S1 (S (VP (VB assimilate) (ADVP (RB culturally)))))#
+115	gentrify	renovate	so	(S1 (S (VP (VB renovate) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB make) (S (NP (PRP it)) (VP (VB conform) (PP (TO to) (NP (NN middle-class) (NNS aspirations))))))))))))#
+116	bulletproof	make	bulletproof	(S1 (S (VP (VB make) (ADVP (RB bulletproof)))))#
+117	feed	introduce	continuously	(S1 (S (VP (VB introduce) (ADVP (RB continuously)))))#
+118	concatenate	joining	so	(S1 (S (VP (VB add) (PP (IN by) (S (VP (VBG linking) (CC or) (VBG joining) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB form) (NP (DT a) (NN chain) (CC or) (NN series))))))))))))#
+119	compound	add	together	(S1 (S (VP (VB put) (CC or) (VB add) (ADVP (RB together)))))#
+120	combine	add	together	(S1 (S (VP (VB put) (CC or) (VB add) (ADVP (RB together)))))#
+121	better	get	better	(S1 (S (VP (VB get) (ADVP (RB better)))))#
+122	improve	get	better	(S1 (S (VP (VB get) (ADVP (RB better)))))#
+123	ameliorate	get	better	(S1 (S (VP (VB get) (ADVP (RB better)))))#
+124	meliorate	get	better	(S1 (S (VP (VB get) (ADVP (RB better)))))#
+125	inundate	cover	completely	(S1 (S (VP (VB fill) (CC or) (VB cover) (ADVP (RB completely)) (, ,) (ADVP (RB usually)) (PP (IN with) (NP (NN water))))))#
+126	deluge	cover	completely	(S1 (S (VP (VB fill) (CC or) (VB cover) (ADVP (RB completely)) (, ,) (ADVP (RB usually)) (PP (IN with) (NP (NN water))))))#
+127	submerge	cover	completely	(S1 (S (VP (VB fill) (CC or) (VB cover) (ADVP (RB completely)) (, ,) (ADVP (RB usually)) (PP (IN with) (NP (NN water))))))#
+128	die	be	damned	(S1 (S (S (VP (VB suffer) (NP (JJ spiritual) (NN death)))) (: ;) (S (VP (VB be) (ADVP (RB damned)) (PRN (-LRB- -LRB-) (PP (IN in) (NP (DT the) (JJ religious) (NN sense))) (-RRB- -RRB-))))))#
+129	potentiate	act	synergistically	(S1 (S (VP (VP (VB increase) (NP (NP (DT the) (NN effect)) (PP (IN of)))) (CC or) (VP (VB act) (ADVP (RB synergistically)) (PP (IN with) (NP (-LRB- -LRB-) (NP (NP (DT a) (NN drug)) (CC or) (NP (DT a) (ADJP (JJ physiological) (CC or) (JJ biochemical)) (NN phenomenon))) (-RRB- -RRB-)))))))#
+130	retouch	alter	so	(S1 (S (VP (VB alter) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB produce) (NP (DT a) (ADJP (RBR more) (JJ desirable)) (NN appearance)))))))))#
+131	mushroom	spread	fast	(S1 (S (VP (VP (VB grow)) (CC and) (VP (VB spread) (ADVP (RB fast))))))#
+132	pare	decrease	gradually	(S1 (S (VP (VB decrease) (ADVP (RB gradually) (CC or) (RB bit)) (PP (IN by) (NP (NN bit))))))#
+133	blast	mature	imperfectly	(S1 (S (VP (VP (VB shrivel)) (CC or) (VP (VBP wither) (CC or) (VBP mature) (ADVP (RB imperfectly))))))#
+134	weld	unite	closely	(S1 (S (VP (VB unite) (ADVP (RB closely) (CC or) (RB intimately)))))#
+135	triple	increase	threefold	(S1 (S (VP (VB increase) (ADVP (RB threefold)))))#
+136	treble	increase	threefold	(S1 (S (VP (VB increase) (ADVP (RB threefold)))))#
+137	quintuple	increase	fivefold	(S1 (S (VP (VB increase) (ADVP (RB fivefold)))))#
+138	proliferate	increase	rapidly	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VP (VB grow)) (CC or) (VP (VB increase) (ADVP (RB rapidly)))))))))#
+139	swell	expand	abnormally	(S1 (S (VP (VB expand) (ADVP (RB abnormally)))))#
+140	intumesce	expand	abnormally	(S1 (S (VP (VB expand) (ADVP (RB abnormally)))))#
+141	tumefy	expand	abnormally	(S1 (S (VP (VB expand) (ADVP (RB abnormally)))))#
+142	tumesce	expand	abnormally	(S1 (S (VP (VB expand) (ADVP (RB abnormally)))))#
+143	copolymerize	polymerize	together	(S1 (S (VP (VB polymerize) (ADVP (RB together)))))#
+144	copolymerise	polymerize	together	(S1 (S (VP (VB polymerize) (ADVP (RB together)))))#
+145	mobilize	move	around	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB move) (ADVP (RB around))))))))#
+146	mobilise	move	around	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB move) (ADVP (RB around))))))))#
+147	circulate	move	around	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB move) (ADVP (RB around))))))))#
+148	teach	accustom	gradually	(S1 (S (VP (VB accustom) (ADVP (RB gradually)) (PP (TO to) (NP (DT some) (NN action) (CC or) (NN attitude))))))#
+149	postdate	being	later	(S1 (S (VP (VB establish) (NP (NN something)) (PP (IN as) (S (VP (VBG being) (ADVP (RB later)) (ADVP (JJ relative) (PP (TO to) (NP (NN something) (RB else))))))))))#
+150	recode	rearrange	mentally	(S1 (S (S (VP (VB put) (PP (IN into) (NP (DT a) (JJ different) (NN code))))) (: ;) (S (VP (VB rearrange) (ADVP (RB mentally))))))#
+151	serialize	arrange	serially	(S1 (S (VP (VB arrange) (ADVP (RB serially)))))#
+152	serialise	arrange	serially	(S1 (S (VP (VB arrange) (ADVP (RB serially)))))#
+153	mangle	injure	severely	(S1 (S (VP (VB destroy) (CC or) (VB injure) (ADVP (RB severely)))))#
+154	reset	adjust	again	(S1 (S (VP (VB adjust) (ADVP (RB again)) (PP (IN after) (NP (DT an) (JJ initial) (NN failure))))))#
+155	tweak	adjust	finely	(S1 (S (VP (VB adjust) (ADVP (RB finely)))))#
+156	burst	burst	outward	(S1 (S (VP (VBP burst) (ADVP (RB outward)) (, ,) (ADVP (RB usually)) (PP (IN with) (NP (NN noise))))))#
+157	boom	grow	vigorously	(S1 (S (VP (VB grow) (ADVP (RB vigorously)))))#
+158	thrive	grow	vigorously	(S1 (S (VP (VB grow) (ADVP (RB vigorously)))))#
+159	flourish	grow	vigorously	(S1 (S (VP (VB grow) (ADVP (RB vigorously)))))#
+160	luxuriate	thrive	profusely	(S1 (S (VP (VP (VB thrive) (ADVP (RB profusely))) (CC or) (VP (VB flourish) (ADVP (RB extensively))))))#
+161	obliterate	remove	completely	(S1 (S (VP (VB remove) (ADVP (RB completely)) (PP (IN from) (NP (NN recognition) (CC or) (NN memory))))))#
+162	efface	remove	completely	(S1 (S (VP (VB remove) (ADVP (RB completely)) (PP (IN from) (NP (NN recognition) (CC or) (NN memory))))))#
+163	refocus	put	again	(S1 (S (VP (VP (VB put) (ADVP (RB again)) (PP (IN into) (NP (NN focus)))) (CC or) (VP (VB focus) (NP (JJR more)) (ADVP (RB sharply))))))#
+164	deafen	make	soundproof	(S1 (S (VP (VB make) (ADVP (RB soundproof)))))#
+165	lengthen	become	long	(S1 (S (VP (VB become) (ADVP (RB long) (CC or) (RB longer)))))#
+166	prolong	last	longer	(S1 (S (S (VP (VB lengthen) (PP (IN in) (NP (NN time))))) (: ;) (S (VP (VB cause) (S (VP (TO to) (VP (VB be) (CC or) (VB last) (ADVP (RBR longer)))))))))#
+167	protract	last	longer	(S1 (S (S (VP (VB lengthen) (PP (IN in) (NP (NN time))))) (: ;) (S (VP (VB cause) (S (VP (TO to) (VP (VB be) (CC or) (VB last) (ADVP (RBR longer)))))))))#
+168	elongate	make	long	(S1 (S (VP (VB make) (ADVP (RB long) (CC or) (RB longer)) (PP (IN by) (S (VP (VBG pulling) (CC and) (VBG stretching)))))))#
+169	overcook	cook	too	(S1 (S (VP (VB cook) (ADVP (RB too) (RB long)))))#
+170	bust	break	open	(S1 (S (VP (VB break) (ADVP (RB open) (CC or) (RB apart)) (ADVP (RB suddenly) (CC and) (RB forcefully)))))#
+171	smash	break	suddenly	(S1 (S (VP (VB break) (ADVP (RB suddenly)) (PP (IN into) (NP (NP (NNS pieces)) (, ,) (PP (IN as) (PP (IN from) (NP (DT a) (JJ violent) (NN blow)))))))))#
+172	snap	break	suddenly	(S1 (S (S (VP (VB break) (ADVP (RB suddenly)))) (CC and) (ADVP (RB abruptly)) (, ,) (PP (IN as) (PP (IN under) (NP (NN tension))))))#
+173	anticipate	occur	earlier	(S1 (S (VP (VP (VB be) (NP (NP (DT a) (NN forerunner)) (PP (IN of)))) (CC or) (VP (VB occur) (ADVP (RBR earlier) (IN than))))))#
+174	recur	occur	again	(S1 (S (VP (VP (VB happen)) (CC or) (VP (VB occur) (ADVP (RB again))))))#
+175	repeat	occur	again	(S1 (S (VP (VP (VB happen)) (CC or) (VP (VB occur) (ADVP (RB again))))))#
+176	iterate	performed	again	(S1 (S (VP (VB run) (CC or) (VB be) (VP (VBN performed) (ADVP (RB again))))))#
+177	concur	happen	simultaneously	(S1 (S (VP (VB happen) (ADVP (RB simultaneously)))))#
+178	coincide	happen	simultaneously	(S1 (S (VP (VB happen) (ADVP (RB simultaneously)))))#
+179	recommence	begin	again	(S1 (S (VP (VB begin) (ADVP (RB again)))))#
+180	jumpstart	re-start	vigorously	(S1 (S (VP (VP (VB start)) (CC or) (VP (VB re-start) (ADVP (RB vigorously))))))#
+181	jump-start	re-start	vigorously	(S1 (S (VP (VP (VB start)) (CC or) (VP (VB re-start) (ADVP (RB vigorously))))))#
+182	resume	begin	anew	(S1 (S (VP (VP (VB take) (PRT (RP up))) (CC or) (VP (VB begin) (ADVP (RB anew))))))#
+183	restart	begin	anew	(S1 (S (VP (VP (VB take) (PRT (RP up))) (CC or) (VP (VB begin) (ADVP (RB anew))))))#
+184	re-start	begin	anew	(S1 (S (VP (VP (VB take) (PRT (RP up))) (CC or) (VP (VB begin) (ADVP (RB anew))))))#
+185	obstinate	persist	stubbornly	(S1 (S (VP (VB persist) (ADVP (RB stubbornly)))))#
+186	predecease	die	before	(S1 (S (S (VP (VBP die) (ADVP (RB before)))) (: ;) (S (VP (VBP die) (ADVP (RBR earlier) (IN than))))))#
+187	sublime	condense	right	(S1 (S (VP (VP (VB vaporize)) (CC and) (ADVP (RB then)) (VP (VB condense) (ADVP (RB right) (RB back) (RB again))))))#
+188	sublimate	condense	right	(S1 (S (VP (VP (VB vaporize)) (CC and) (ADVP (RB then)) (VP (VB condense) (ADVP (RB right) (RB back) (RB again))))))#
+189	converge	come	together	(S1 (S (VP (VBN come) (ADVP (RB together)) (SBAR (RB so) (IN as) (S (VP (TO to) (VP (VB form) (NP (DT a) (JJ single) (NN product)))))))))#
+190	federate	band	together	(S1 (S (VP (VP (VB unite) (PP (IN on) (NP (DT a) (JJ federal) (NN basis)))) (CC or) (VP (VB band) (ADVP (RB together)) (PP (IN as) (NP (DT a) (NN league)))))))#
+191	federalize	band	together	(S1 (S (VP (VP (VB unite) (PP (IN on) (NP (DT a) (JJ federal) (NN basis)))) (CC or) (VP (VB band) (ADVP (RB together)) (PP (IN as) (NP (DT a) (NN league)))))))#
+192	federalise	band	together	(S1 (S (VP (VP (VB unite) (PP (IN on) (NP (DT a) (JJ federal) (NN basis)))) (CC or) (VP (VB band) (ADVP (RB together)) (PP (IN as) (NP (DT a) (NN league)))))))#
+193	preheat	heat	beforehand	(S1 (S (VP (VB heat) (ADVP (RB beforehand)))))#
+194	quick-freeze	freeze	rapidly	(S1 (S (VP (VB freeze) (ADVP (RB rapidly)) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB preserve) (NP (DT the) (JJ natural) (NNS juices) (CC and) (NNS flavors)))))))))#
+195	flash-freeze	freeze	rapidly	(S1 (S (VP (VB freeze) (ADVP (RB rapidly)) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB preserve) (NP (DT the) (JJ natural) (NNS juices) (CC and) (NNS flavors)))))))))#
+196	singe	burn	superficially	(S1 (S (VP (VB burn) (ADVP (RB superficially) (CC or) (RB lightly)))))#
+197	swinge	burn	superficially	(S1 (S (VP (VB burn) (ADVP (RB superficially) (CC or) (RB lightly)))))#
+198	torch	burn	maliciously	(S1 (S (VP (VB burn) (ADVP (RB maliciously)) (, ,) (PP (IN as) (PP (IN by) (NP (NN arson)))))))#
+199	char	burn	slightly	(S1 (S (VP (VB burn) (ADVP (RB slightly) (CC and) (RB superficially) (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB affect) (NP (NN color)))))))))#
+200	transfigure	change	completely	(S1 (S (VP (VB change) (ADVP (RB completely)) (NP (NP (DT the) (NN nature) (CC or) (NN appearance)) (PP (IN of))))))#
+201	transmogrify	change	completely	(S1 (S (VP (VB change) (ADVP (RB completely)) (NP (NP (DT the) (NN nature) (CC or) (NN appearance)) (PP (IN of))))))#
+202	invert	turn	inside	(S1 (S (VP (VB turn) (ADVP (RB inside)) (ADVP (RB out) (CC or) (RB upside) (RB down)))))#
+203	desolate	ruin	utterly	(S1 (S (VP (VP (VB cause) (NP (JJ extensive) (NN destruction))) (CC or) (VP (VB ruin) (ADVP (RB utterly))))))#
+204	ravage	ruin	utterly	(S1 (S (VP (VP (VB cause) (NP (JJ extensive) (NN destruction))) (CC or) (VP (VB ruin) (ADVP (RB utterly))))))#
+205	scourge	ruin	utterly	(S1 (S (VP (VP (VB cause) (NP (JJ extensive) (NN destruction))) (CC or) (VP (VB ruin) (ADVP (RB utterly))))))#
+206	enervate	weaken	mentally	(S1 (S (VP (VB weaken) (ADVP (RB mentally) (CC or) (RB morally)))))#
+207	phase	adjust	so	(S1 (S (VP (VB adjust) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB be) (PP (IN in) (NP (DT a) (VBN synchronized) (NN condition))))))))))#
+208	conjugate	unite	chemically	(S1 (S (VP (VB unite) (ADVP (RB chemically)) (SBAR (IN so) (IN that) (S (NP (DT the) (NN product)) (VP (VBZ is) (VP (ADVP (RB easily)) (VBN broken) (PRT (RP down)) (PP (IN into) (NP (DT the) (JJ original) (NNS compounds))))))))))#
+209	reintegrate	integrate	again	(S1 (S (VP (VB integrate) (ADVP (RB again)))))#
+210	restructure	form	anew	(S1 (S (VP (VP (VB construct) (CC or) (VB form) (ADVP (RB anew))) (CC or) (VP (VB provide) (PP (IN with) (NP (DT a) (JJ new) (NN structure)))))))#
+211	reconstitute	form	anew	(S1 (S (VP (VP (VB construct) (CC or) (VB form) (ADVP (RB anew))) (CC or) (VP (VB provide) (PP (IN with) (NP (DT a) (JJ new) (NN structure)))))))#
+212	interlock	work	together	(S1 (S (VP (VB coordinate) (PP (IN in) (NP (NP (PDT such) (DT a) (NN way)) (SBAR (WHNP (WDT that)) (S (NP (DT all) (NNS parts)) (VP (VBP work) (ADVP (RB together)) (ADVP (RB effectively))))))))))#
+213	mesh	work	together	(S1 (S (VP (VB coordinate) (PP (IN in) (NP (NP (PDT such) (DT a) (NN way)) (SBAR (WHNP (WDT that)) (S (NP (DT all) (NNS parts)) (VP (VBP work) (ADVP (RB together)) (ADVP (RB effectively))))))))))#
+214	expatriate	move	away	(S1 (S (VP (VP (VB move) (ADVP (RB away) (PP (IN from) (NP (NP (CD one) (POS 's)) (JJ native) (NN country))))) (CC and) (VP (VB adopt) (NP (DT a) (JJ new) (NN residence)) (ADVP (RB abroad))))))#
+215	even	make	even	(S1 (S (VP (VB make) (ADVP (RB even) (CC or) (ADVP (RBR more) (RB even))))))#
+216	homologize	make	homologous	(S1 (S (VP (VB make) (ADVP (RB homologous)))))#
+217	homologise	make	homologous	(S1 (S (VP (VB make) (ADVP (RB homologous)))))#
+218	evanesce	disappear	gradually	(S1 (S (VP (VB disappear) (ADVP (RB gradually)))))#
+219	fleet	disappear	gradually	(S1 (S (VP (VB disappear) (ADVP (RB gradually)))))#
+220	peep	appear	as	(S1 (S (VP (VB appear) (ADVP (RB as) (RB though) (PP (IN from) (NP (NN hiding)))))))#
+221	gleam	appear	briefly	(S1 (S (VP (VB appear) (ADVP (RB briefly)))))#
+222	flash	appear	briefly	(S1 (S (VP (VB appear) (ADVP (RB briefly)))))#
+223	resurface	appear	again	(S1 (S (VP (VB appear) (ADVP (RB again)))))#
+224	reappear	appear	again	(S1 (S (VP (VB appear) (ADVP (RB again)))))#
+225	re-emerge	appear	again	(S1 (S (VP (VB appear) (ADVP (RB again)))))#
+226	slash	cut	drastically	(S1 (VP (VBN cut) (ADVP (RB drastically))))#
+227	slump	fall	heavily	(S1 (S (S (VP (VB fall) (ADVP (RB heavily) (CC or) (RB suddenly)))) (: ;) (S (VP (VB decline) (ADVP (RB markedly))))))#
+228	sink	fall	heavily	(S1 (S (S (VP (VB fall) (ADVP (RB heavily) (CC or) (RB suddenly)))) (: ;) (S (VP (VB decline) (ADVP (RB markedly))))))#
+229	accelerate	move	faster	(S1 (S (VP (VB move) (ADVP (RBR faster)))))#
+230	speed	move	faster	(S1 (S (VP (VB move) (ADVP (RBR faster)))))#
+231	retard	move	more	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VP (VB move) (ADVP (RBR more) (RB slowly))) (CC or) (VP (VB operate) (PP (IN at) (NP (DT a) (JJR slower) (NN rate))))))))))#
+232	slow	move	more	(S1 (S (S (VP (VB lose) (NP (NN velocity)))) (: ;) (S (VP (VB move) (ADVP (RBR more) (RB slowly))))))#
+233	replenish	had	previously	(S1 (S (VP (VB fill) (NP (NP (NN something)) (SBAR (WHNP (WDT that)) (S (VP (VBD had) (ADVP (RB previously)) (VP (VBN been) (VP (VBN emptied))))))))))#
+234	refill	had	previously	(S1 (S (VP (VB fill) (NP (NP (NN something)) (SBAR (WHNP (WDT that)) (S (VP (VBD had) (ADVP (RB previously)) (VP (VBN been) (VP (VBN emptied))))))))))#
+235	louden	become	loud	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB become) (ADVP (RB loud))))))))#
+236	squelch	crush	completely	(S1 (S (VP (VB suppress) (CC or) (VB crush) (ADVP (RB completely)))))#
+237	quell	crush	completely	(S1 (S (VP (VB suppress) (CC or) (VB crush) (ADVP (RB completely)))))#
+238	align	arrange	so	(S1 (S (VP (VP (VB place) (PP (IN in) (NP (DT a) (NN line)))) (CC or) (VP (VB arrange) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB be) (ADJP (JJ parallel) (CC or) (JJ straight))))))))))#
+239	aline	arrange	so	(S1 (S (VP (VP (VB place) (PP (IN in) (NP (DT a) (NN line)))) (CC or) (VP (VB arrange) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB be) (ADJP (JJ parallel) (CC or) (JJ straight))))))))))#
+240	realign	align	anew	(S1 (S (VP (VB align) (ADVP (RB anew) (CC or) (RB better)))))#
+241	realine	align	anew	(S1 (S (VP (VB align) (ADVP (RB anew) (CC or) (RB better)))))#
+242	misalign	align	imperfectly	(S1 (S (VP (VB align) (ADVP (RB imperfectly) (CC or) (RB badly)))))#
+243	re-incorporate	incorporate	again	(S1 (S (VP (VB incorporate) (ADVP (RB again) (CC or) (RB anew)))))#
+244	automatize	operate	automatically	(S1 (S (VP (VP (VB make) (S (ADJP (JJ automatic)))) (CC or) (VP (VB control) (CC or) (VB operate) (ADVP (RB automatically))))))#
+245	automatise	operate	automatically	(S1 (S (VP (VP (VB make) (S (ADJP (JJ automatic)))) (CC or) (VP (VB control) (CC or) (VB operate) (ADVP (RB automatically))))))#
+246	automate	operate	automatically	(S1 (S (VP (VP (VB make) (S (ADJP (JJ automatic)))) (CC or) (VP (VB control) (CC or) (VB operate) (ADVP (RB automatically))))))#
+247	seclude	keep	away	(S1 (S (VP (VB keep) (ADVP (RB away) (PP (IN from) (NP (NNS others)))))))#
+248	preisolate	isolate	beforehand	(S1 (S (VP (VB isolate) (ADVP (RB beforehand)))))#
+249	spume	become	bubbly	(S1 (S (VP (VP (VB make) (NP (NN froth) (CC or) (NN foam))) (CC and) (VP (VB become) (ADVP (RB bubbly))))))#
+250	suds	become	bubbly	(S1 (S (VP (VP (VB make) (NP (NN froth) (CC or) (NN foam))) (CC and) (VP (VB become) (ADVP (RB bubbly))))))#
+251	rerun	perform	again	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB perform) (ADVP (RB again))))))))#
+252	recharge	charge	anew	(S1 (S (VP (VB charge) (ADVP (RB anew)))))#
+253	introvert	turn	inside	(S1 (S (VP (VB turn) (ADVP (RB inside)))))#
+254	reheat	heat	again	(S1 (S (VP (VB heat) (ADVP (RB again)))))#
+255	crescendo	grow	louder	(S1 (S (VP (VB grow) (ADVP (RBR louder)))))#
+256	murder	alter	so	(S1 (S (VP (VB alter) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB make) (NP (NN unrecognizable)))))))))#
+257	leap	pass	abruptly	(S1 (S (VP (VB pass) (ADVP (RB abruptly)) (PP (IN from) (NP (CD one) (NN state) (CC or) (NN topic))) (PP (TO to) (NP (DT another))))))#
+258	gradate	pass	imperceptibly	(S1 (S (VP (VB pass) (ADVP (RB imperceptibly)) (PP (IN from) (NP (NP (CD one) (NN degree)) (, ,) (NP (NN shade)) (, ,) (CC or) (NP (NP (NN tone)) (PP (IN into) (NP (DT another)))))))))#
+259	relive	experience	again	(S1 (S (VP (VB experience) (ADVP (RB again)) (, ,) (ADVP (RB often)) (PP (IN in) (NP (DT the) (NN imagination))))))#
+260	consume	engage	fully	(S1 (S (VP (VB engage) (ADVP (RB fully)))))#
+261	retrain	train	again	(S1 (S (VP (VB train) (ADVP (RB again)))))#
+262	housebreak	live	cleanly	(S1 (NP (NP (NN train)) (PRN (-LRB- -LRB-) (NP (DT a) (NN pet)) (-RRB- -RRB-)) (SBAR (S (VP (TO to) (VP (VB live) (ADVP (RB cleanly)) (PP (IN in) (NP (DT a) (NN house)))))))))#
+263	house-train	live	cleanly	(S1 (NP (NP (NN train)) (PRN (-LRB- -LRB-) (NP (DT a) (NN pet)) (-RRB- -RRB-)) (SBAR (S (VP (TO to) (VP (VB live) (ADVP (RB cleanly)) (PP (IN in) (NP (DT a) (NN house)))))))))#
+264	indoctrinate	teach	uncritically	(S1 (S (VP (VB teach) (NP (NNS doctrines)) (S (VP (TO to) (VP (: ;) (VB teach) (ADVP (RB uncritically))))))))#
+265	brainwash	indoctrinate	forcibly	(S1 (S (S (VP (VB submit) (S (VP (TO to) (VP (VB brainwashing)))))) (: ;) (S (VP (VB indoctrinate) (ADVP (RB forcibly))))))#
+266	drum	study	intensively	(S1 (S (VP (VB study) (ADVP (RB intensively)) (, ,) (SBAR (IN as) (S (PP (IN before) (NP (DT an) (NN exam))))))))#
+267	swot	study	intensively	(S1 (S (VP (VB study) (ADVP (RB intensively)) (, ,) (SBAR (IN as) (S (PP (IN before) (NP (DT an) (NN exam))))))))#
+268	nag	urge	constantly	(S1 (S (VP (VP (VB remind)) (CC or) (VP (VB urge) (ADVP (RB constantly))))))#
+269	monumentalize	memorialize	lastingly	(S1 (S (VP (VB record) (CC or) (VB memorialize) (ADVP (RB lastingly)) (PP (IN with) (NP (DT a) (NN monument))))))#
+270	monumentalise	memorialize	lastingly	(S1 (S (VP (VB record) (CC or) (VB memorialize) (ADVP (RB lastingly)) (PP (IN with) (NP (DT a) (NN monument))))))#
+271	misremember	remember	incorrectly	(S1 (S (VP (VB remember) (ADVP (RB incorrectly)))))#
+272	misidentify	identify	incorrectly	(S1 (S (VP (VB identify) (ADVP (RB incorrectly)))))#
+273	throw	think	clearly	(S1 (S (VP (VB be) (ADJP (JJ confusing) (CC or) (JJ perplexing)) (S (VP (TO to) (VP (: ;) (VB cause) (S (VP (TO to) (VP (VB be) (ADJP (JJ unable) (S (VP (TO to) (VP (VB think) (ADVP (RB clearly)))))))))))))))#
+274	befuddle	think	clearly	(S1 (S (VP (VB be) (ADJP (JJ confusing) (CC or) (JJ perplexing)) (S (VP (TO to) (VP (: ;) (VB cause) (S (VP (TO to) (VP (VB be) (ADJP (JJ unable) (S (VP (TO to) (VP (VB think) (ADVP (RB clearly)))))))))))))))#
+275	fuddle	think	clearly	(S1 (S (VP (VB be) (ADJP (JJ confusing) (CC or) (JJ perplexing)) (S (VP (TO to) (VP (: ;) (VB cause) (S (VP (TO to) (VP (VB be) (ADJP (JJ unable) (S (VP (TO to) (VP (VB think) (ADVP (RB clearly)))))))))))))))#
+276	bedevil	think	clearly	(S1 (S (VP (VB be) (ADJP (JJ confusing) (CC or) (JJ perplexing)) (S (VP (TO to) (VP (: ;) (VB cause) (S (VP (TO to) (VP (VB be) (ADJP (JJ unable) (S (VP (TO to) (VP (VB think) (ADVP (RB clearly)))))))))))))))#
+277	discombobulate	think	clearly	(S1 (S (VP (VB be) (ADJP (JJ confusing) (CC or) (JJ perplexing)) (S (VP (TO to) (VP (: ;) (VB cause) (S (VP (TO to) (VP (VB be) (ADJP (JJ unable) (S (VP (TO to) (VP (VB think) (ADVP (RB clearly)))))))))))))))#
+278	misread	interpret	wrongly	(S1 (S (VP (VB interpret) (ADVP (RB wrongly)))))#
+279	reread	read	anew	(S1 (S (S (VP (VB read) (ADVP (RB anew)))) (: ;) (S (VP (VB read) (ADVP (RB again))))))#
+280	numerate	read	out	(S1 (S (VP (VB read) (ADVP (RB out) (RB loud)) (SBAR (IN as) (S (VP (NNS words) (NP (VBN written) (NNS numbers))))))))#
+281	brainstorm	thinking	intensely	(S1 (S (VP (VB try) (S (VP (TO to) (VP (VB solve) (NP (DT a) (NN problem)) (PP (IN by) (S (VP (VBG thinking) (ADVP (RB intensely)) (PP (IN about) (NP (PRP it))))))))))))#
+282	meditate	reflect	deeply	(S1 (S (VP (VB reflect) (ADVP (RB deeply)) (PP (IN on) (NP (DT a) (NN subject))))))#
+283	ponder	reflect	deeply	(S1 (S (VP (VB reflect) (ADVP (RB deeply)) (PP (IN on) (NP (DT a) (NN subject))))))#
+284	excogitate	reflect	deeply	(S1 (S (VP (VB reflect) (ADVP (RB deeply)) (PP (IN on) (NP (DT a) (NN subject))))))#
+285	contemplate	reflect	deeply	(S1 (S (VP (VB reflect) (ADVP (RB deeply)) (PP (IN on) (NP (DT a) (NN subject))))))#
+286	muse	reflect	deeply	(S1 (S (VP (VB reflect) (ADVP (RB deeply)) (PP (IN on) (NP (DT a) (NN subject))))))#
+287	reflect	reflect	deeply	(S1 (S (VP (VB reflect) (ADVP (RB deeply)) (PP (IN on) (NP (DT a) (NN subject))))))#
+288	mull	reflect	deeply	(S1 (S (VP (VB reflect) (ADVP (RB deeply)) (PP (IN on) (NP (DT a) (NN subject))))))#
+289	ruminate	reflect	deeply	(S1 (S (VP (VB reflect) (ADVP (RB deeply)) (PP (IN on) (NP (DT a) (NN subject))))))#
+290	speculate	reflect	deeply	(S1 (S (VP (VB reflect) (ADVP (RB deeply)) (PP (IN on) (NP (DT a) (NN subject))))))#
+291	reason	think	logically	(S1 (S (VP (VBP think) (ADVP (RB logically)))))#
+292	ratiocinate	reason	methodologically	(S1 (S (VP (VB reason) (ADVP (RB methodologically) (CC and) (RB logically)))))#
+293	theorise	believe	especially	(S1 (S (TO to) (VP (VBP believe) (ADVP (RB especially)) (PP (IN on) (NP (ADJP (JJ uncertain) (CC or) (JJ tentative)) (NNS grounds))))))#
+294	conjecture	believe	especially	(S1 (S (TO to) (VP (VBP believe) (ADVP (RB especially)) (PP (IN on) (NP (ADJP (JJ uncertain) (CC or) (JJ tentative)) (NNS grounds))))))#
+295	hypothesize	believe	especially	(S1 (S (TO to) (VP (VBP believe) (ADVP (RB especially)) (PP (IN on) (NP (ADJP (JJ uncertain) (CC or) (JJ tentative)) (NNS grounds))))))#
+296	hypothesise	believe	especially	(S1 (S (TO to) (VP (VBP believe) (ADVP (RB especially)) (PP (IN on) (NP (ADJP (JJ uncertain) (CC or) (JJ tentative)) (NNS grounds))))))#
+297	hypothecate	believe	especially	(S1 (S (TO to) (VP (VBP believe) (ADVP (RB especially)) (PP (IN on) (NP (ADJP (JJ uncertain) (CC or) (JJ tentative)) (NNS grounds))))))#
+298	prorate	assess	proportionally	(S1 (S (VP (VB divide) (CC or) (VB assess) (ADVP (RB proportionally)))))#
+299	miscalculate	calculate	incorrectly	(S1 (S (VP (VB calculate) (ADVP (RB incorrectly)))))#
+300	misestimate	calculate	incorrectly	(S1 (S (VP (VB calculate) (ADVP (RB incorrectly)))))#
+301	recalculate	calculate	anew	(S1 (S (VP (VB calculate) (ADVP (RB anew)))))#
+302	parse	analyze	syntactically	(S1 (S (VP (VB analyze) (ADVP (RB syntactically)) (PP (IN by) (S (VP (VBG assigning) (NP (DT a) (JJ constituent) (NN structure)) (PP (TO to) (NP (-LRB- -LRB-) (NP (DT a) (NN sentence)) (-RRB- -RRB-)))))))))#
+303	synthesize	combine	so	(S1 (S (VP (VB combine) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB form) (NP (DT a) (ADJP (RBR more) (JJ complex)) (, ,) (NN product)))))))))#
+304	synthesise	combine	so	(S1 (S (VP (VB combine) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB form) (NP (DT a) (ADJP (RBR more) (JJ complex)) (, ,) (NN product)))))))))#
+305	re-explore	explore	anew	(S1 (S (VP (VB explore) (ADVP (RB anew)))))#
+306	reconsider	consider	again	(S1 (S (S (VP (VB consider) (ADVP (RB again)))) (: ;) (S (VP (VB give) (NP (JJ new) (NN consideration)) (PP (TO to) (PRN (: ;) (ADVP (RB usually)) (PP (IN with) (NP (NP (DT a) (NN view)) (PP (TO to) (NP (NN changing)))))))))))#
+307	reclassify	classify	anew	(S1 (S (VP (VP (VB classify) (ADVP (RB anew))) (, ,) (VP (VB change) (NP (DT the) (JJ previous) (NN classification))))))#
+308	collate	compare	critically	(S1 (S (VP (VB compare) (ADVP (RB critically)) (: ;) (PP (IN of) (NP (NNS texts))))))#
+309	double-check	check	once	(S1 (S (VP (VB check) (ADVP (RB once) (RBR more)) (S (VP (TO to) (VP (VB be) (ADJP (RB absolutely) (JJ sure))))))))#
+310	misjudge	judge	incorrectly	(S1 (S (VP (VB judge) (ADVP (RB incorrectly)))))#
+311	estimate	judge	tentatively	(S1 (S (VP (VP (VB judge) (ADVP (RB tentatively))) (CC or) (VP (VB form) (NP (NP (DT an) (NN estimate)) (PP (IN of) (NP (-LRB- -LRB-) (NP (NNS quantities) (CC or) (NN time)) (-RRB- -RRB-))))))))#
+312	approximate	judge	tentatively	(S1 (S (VP (VP (VB judge) (ADVP (RB tentatively))) (CC or) (VP (VB form) (NP (NP (DT an) (NN estimate)) (PP (IN of) (NP (-LRB- -LRB-) (NP (NNS quantities) (CC or) (NN time)) (-RRB- -RRB-))))))))#
+313	approve	think	well	(S1 (S (S (VP (VB judge) (S (VP (TO to) (VP (VB be) (ADJP (JJ right) (CC or) (JJ commendable))))))) (: ;) (S (VP (VB think) (ADVP (RB well)) (PP (IN of))))))#
+314	rubberstamp	approve	automatically	(S1 (S (VP (VB approve) (ADVP (RB automatically)))))#
+315	hand-pick	pick	personally	(S1 (S (VP (VB pick) (ADVP (RB personally) (CC and) (RB very) (RB carefully)))))#
+316	prejudge	judge	beforehand	(S1 (S (VP (VB judge) (ADVP (RB beforehand)) (, ,) (PP (ADVP (RB especially)) (IN without) (NP (JJ sufficient) (NN evidence))))))#
+317	reappraise	appraise	anew	(S1 (S (VP (VB appraise) (ADVP (RB anew)))))#
+318	abstract	consider	abstractly	(S1 (S (S (VP (VB consider) (NP (DT a) (NN concept)) (PP (IN without) (S (VP (VBG thinking) (PP (IN of) (NP (DT a) (JJ specific) (NN example)))))))) (: ;) (S (VP (VB consider) (ADVP (RB abstractly) (CC or) (RB theoretically))))))#
+319	respect	regard	highly	(S1 (S (S (VP (VB regard) (ADVP (RB highly)))) (: ;) (S (VP (VB think) (NP (JJ much)) (PP (IN of))))))#
+320	prize	regard	highly	(S1 (S (S (VP (VB regard) (ADVP (RB highly)))) (: ;) (S (VP (VB think) (NP (JJ much)) (PP (IN of))))))#
+321	prise	regard	highly	(S1 (S (S (VP (VB regard) (ADVP (RB highly)))) (: ;) (S (VP (VB think) (NP (JJ much)) (PP (IN of))))))#
+322	review	examine	again	(S1 (S (S (VP (VB look) (PP (IN at) (ADVP (RB again))))) (: ;) (S (VP (VB examine) (ADVP (RB again))))))#
+323	reexamine	examine	again	(S1 (S (S (VP (VB look) (PP (IN at) (ADVP (RB again))))) (: ;) (S (VP (VB examine) (ADVP (RB again))))))#
+324	scrutinize	examine	carefully	(S1 (S (VP (VB examine) (ADVP (RB carefully)) (PP (IN for) (NP (NP (NN accuracy)) (PP (IN with) (NP (NP (DT the) (NN intent)) (PP (IN of) (NP (NN verification))))))))))#
+325	scrutinise	examine	carefully	(S1 (S (VP (VB examine) (ADVP (RB carefully)) (PP (IN for) (NP (NP (NN accuracy)) (PP (IN with) (NP (NP (DT the) (NN intent)) (PP (IN of) (NP (NN verification))))))))))#
+326	inspect	examine	carefully	(S1 (S (VP (VB examine) (ADVP (RB carefully)) (PP (IN for) (NP (NP (NN accuracy)) (PP (IN with) (NP (NP (DT the) (NN intent)) (PP (IN of) (NP (NN verification))))))))))#
+327	screen	examine	methodically	(S1 (S (VP (VB examine) (ADVP (RB methodically)))))#
+328	seal	decide	irrevocably	(S1 (S (VP (VB decide) (ADVP (RB irrevocably)))))#
+329	adjudicate	settle	conclusively	(S1 (S (S (VP (VB bring) (PP (TO to) (NP (DT an) (NN end))))) (: ;) (S (VP (VB settle) (ADVP (RB conclusively))))))#
+330	miscreate	make	badly	(S1 (S (VP (VP (VB shape) (CC or) (VB form)) (CC or) (VP (VB make) (ADVP (RB badly))))))#
+331	reshape	shape	anew	(S1 (S (VP (VB shape) (ADVP (RB anew) (CC or) (RB differently)))))#
+332	predestine	determine	beforehand	(S1 (S (VP (VP (VB foreordain)) (CC or) (VP (VB determine) (ADVP (RB beforehand))))))#
+333	foreordain	determine	beforehand	(S1 (S (VP (VP (VB foreordain)) (CC or) (VP (VB determine) (ADVP (RB beforehand))))))#
+334	preordain	determine	beforehand	(S1 (S (VP (VP (VB foreordain)) (CC or) (VP (VB determine) (ADVP (RB beforehand))))))#
+335	dwell	think	moodily	(S1 (S (VP (VB think) (ADVP (RB moodily) (CC or) (RB anxiously)) (PP (IN about) (NP (NN something))))))#
+336	conspire	swear	together	(S1 (S (VP (VP (VB engage) (PP (IN in) (NP (VBG plotting)))) (CC or) (VP (VB enter) (PP (IN into) (NP (DT a) (NN conspiracy)))) (, ,) (VP (VB swear) (ADVP (RB together))))))#
+337	cabal	swear	together	(S1 (S (VP (VP (VB engage) (PP (IN in) (NP (VBG plotting)))) (CC or) (VP (VB enter) (PP (IN into) (NP (DT a) (NN conspiracy)))) (, ,) (VP (VB swear) (ADVP (RB together))))))#
+338	complot	swear	together	(S1 (S (VP (VP (VB engage) (PP (IN in) (NP (VBG plotting)))) (CC or) (VP (VB enter) (PP (IN into) (NP (DT a) (NN conspiracy)))) (, ,) (VP (VB swear) (ADVP (RB together))))))#
+339	conjure	swear	together	(S1 (S (VP (VP (VB engage) (PP (IN in) (NP (VBG plotting)))) (CC or) (VP (VB enter) (PP (IN into) (NP (DT a) (NN conspiracy)))) (, ,) (VP (VB swear) (ADVP (RB together))))))#
+340	machinate	swear	together	(S1 (S (VP (VP (VB engage) (PP (IN in) (NP (VBG plotting)))) (CC or) (VP (VB enter) (PP (IN into) (NP (DT a) (NN conspiracy)))) (, ,) (VP (VB swear) (ADVP (RB together))))))#
+341	coconspire	conspire	together	(S1 (S (VP (VBP conspire) (ADVP (RB together)))))#
+342	dally	consider	not	(S1 (S (VP (VB consider) (ADVP (RB not) (RB very) (RB seriously)))))#
+343	trifle	consider	not	(S1 (S (VP (VB consider) (ADVP (RB not) (RB very) (RB seriously)))))#
+344	await	look	forward	(S1 (S (VP (VBP look) (ADVP (RB forward)) (PP (TO to) (NP (NP (DT the) (JJ probable) (NN occurrence)) (PP (IN of)))))))#
+345	wait	look	forward	(S1 (S (VP (VBP look) (ADVP (RB forward)) (PP (TO to) (NP (NP (DT the) (JJ probable) (NN occurrence)) (PP (IN of)))))))#
+346	previse	realize	beforehand	(S1 (S (VP (VB realize) (ADVP (RB beforehand)))))#
+347	foreknow	realize	beforehand	(S1 (S (VP (VB realize) (ADVP (RB beforehand)))))#
+348	foresee	realize	beforehand	(S1 (S (VP (VB realize) (ADVP (RB beforehand)))))#
+349	plant	put	firmly	(S1 (S (VP (VBD put) (ADVP (RB firmly)) (PP (IN in) (NP (DT the) (NN mind))))))#
+350	implant	put	firmly	(S1 (S (VP (VBD put) (ADVP (RB firmly)) (PP (IN in) (NP (DT the) (NN mind))))))#
+351	re-create	form	anew	(S1 (S (S (VP (VB form) (ADVP (RB anew)) (PP (IN in) (NP (DT the) (NN imagination))))) (: ;) (S (VP (VP (VB recollect)) (CC and) (VP (VB re-form) (PP (IN in) (NP (DT the) (NN mind))))))))#
+352	yak	talk	profusely	(S1 (S (VP (VB talk) (ADVP (RB profusely)))))#
+353	gab	talk	profusely	(S1 (S (VP (VB talk) (ADVP (RB profusely)))))#
+354	relay	pass	along	(S1 (S (VP (VB pass) (ADVP (RB along)))))#
+355	clamp	inflict	forcefully	(S1 (S (VP (VP (VB impose)) (CC or) (VP (VB inflict) (ADVP (RB forcefully))))))#
+356	demand	request	urgently	(S1 (S (VP (VB request) (ADVP (RB urgently) (CC and) (RB forcefully)))))#
+357	adjure	command	solemnly	(S1 (S (VP (VB command) (ADVP (RB solemnly)))))#
+358	appeal	request	earnestly	(S1 (S (S (VP (VB request) (ADVP (RB earnestly)) (PRN (-LRB- -LRB-) (NP (NP (NN something)) (PP (IN from) (NP (NN somebody)))) (-RRB- -RRB-)))) (: ;) (S (VP (VB ask) (PP (IN for) (NP (NN aid) (CC or) (NN protection)))))))#
+359	invoke	request	earnestly	(S1 (S (S (VP (VB request) (ADVP (RB earnestly)) (PRN (-LRB- -LRB-) (NP (NP (NN something)) (PP (IN from) (NP (NN somebody)))) (-RRB- -RRB-)))) (: ;) (S (VP (VB ask) (PP (IN for) (NP (NN aid) (CC or) (NN protection)))))))#
+360	supplicate	ask	humbly	(S1 (S (VP (VB ask) (ADVP (RB humbly)) (PRN (-LRB- -LRB-) (PP (IN for) (NP (NN something))) (-RRB- -RRB-)))))#
+361	plead	request	earnestly	(S1 (S (VP (VP (VB appeal)) (CC or) (VP (VB request) (ADVP (RB earnestly))))))#
+362	bid	request	earnestly	(S1 (S (VP (VP (VB ask) (PP (IN for))) (CC or) (VP (VB request) (ADVP (RB earnestly))))))#
+363	beseech	request	earnestly	(S1 (S (VP (VP (VB ask) (PP (IN for))) (CC or) (VP (VB request) (ADVP (RB earnestly))))))#
+364	entreat	request	earnestly	(S1 (S (VP (VP (VB ask) (PP (IN for))) (CC or) (VP (VB request) (ADVP (RB earnestly))))))#
+365	press	request	earnestly	(S1 (S (VP (VP (VB ask) (PP (IN for))) (CC or) (VP (VB request) (ADVP (RB earnestly))))))#
+366	commune	communicate	intimately	(S1 (S (S (VP (VB communicate) (ADVP (RB intimately)) (PP (IN with)))) (: ;) (S (VP (VB be) (PP (IN in) (NP (NP (DT a) (NN state)) (PP (IN of) (NP (JJ heightened) (, ,) (JJ intimate) (NN receptivity)))))))))#
+367	clinch	settle	conclusively	(S1 (S (VP (VB settle) (ADVP (RB conclusively)))))#
+368	dissuade	turn	away	(S1 (S (VP (VB turn) (ADVP (RB away) (PP (IN from) (PP (IN by) (NP (NN persuasion))))))))#
+369	deter	turn	away	(S1 (S (VP (VB turn) (ADVP (RB away) (PP (IN from) (PP (IN by) (NP (NN persuasion))))))))#
+370	re-argue	argue	again	(S1 (S (VP (VB argue) (ADVP (RB again)))))#
+371	spar	fight	verbally	(S1 (S (VP (VB fight) (ADVP (RB verbally)))))#
+372	brawl	quarrel	noisily	(S1 (S (VP (TO to) (VP (VB quarrel) (ADVP (RB noisily)) (, ,) (ADVP (RB angrily) (CC or) (RB disruptively))))))#
+373	wrangle	quarrel	noisily	(S1 (S (VP (TO to) (VP (VB quarrel) (ADVP (RB noisily)) (, ,) (ADVP (RB angrily) (CC or) (RB disruptively))))))#
+374	digress	turn	aside	(S1 (S (VP (VP (VB lose) (NP (NN clarity))) (CC or) (VP (VB turn) (ADVP (RB aside)) (PP (ADVP (RB especially)) (IN from) (NP (NP (DT the) (JJ main) (NN subject)) (PP (IN of) (NP (NP (NN attention) (CC or) (NN course)) (PP (IN of) (NP (NN argument))) (PP (IN in) (NP (NP (NN writing)) (, ,) (NP (NN thinking)) (, ,) (CC or) (NP (NN speaking))))))))))))#
+375	stray	turn	aside	(S1 (S (VP (VP (VB lose) (NP (NN clarity))) (CC or) (VP (VB turn) (ADVP (RB aside)) (PP (ADVP (RB especially)) (IN from) (NP (NP (DT the) (JJ main) (NN subject)) (PP (IN of) (NP (NP (NN attention) (CC or) (NN course)) (PP (IN of) (NP (NN argument))) (PP (IN in) (NP (NP (NN writing)) (, ,) (NP (NN thinking)) (, ,) (CC or) (NP (NN speaking))))))))))))#
+376	divagate	turn	aside	(S1 (S (VP (VP (VB lose) (NP (NN clarity))) (CC or) (VP (VB turn) (ADVP (RB aside)) (PP (ADVP (RB especially)) (IN from) (NP (NP (DT the) (JJ main) (NN subject)) (PP (IN of) (NP (NP (NN attention) (CC or) (NN course)) (PP (IN of) (NP (NN argument))) (PP (IN in) (NP (NP (NN writing)) (, ,) (NP (NN thinking)) (, ,) (CC or) (NP (NN speaking))))))))))))#
+377	wander	turn	aside	(S1 (S (VP (VP (VB lose) (NP (NN clarity))) (CC or) (VP (VB turn) (ADVP (RB aside)) (PP (ADVP (RB especially)) (IN from) (NP (NP (DT the) (JJ main) (NN subject)) (PP (IN of) (NP (NP (NN attention) (CC or) (NN course)) (PP (IN of) (NP (NN argument))) (PP (IN in) (NP (NP (NN writing)) (, ,) (NP (NN thinking)) (, ,) (CC or) (NP (NN speaking))))))))))))#
+378	tap	request	urgently	(S1 (S (S (VP (VB make) (NP (DT a) (NN solicitation) (CC or) (NN entreaty)) (PP (IN for) (NP (NN something))))) (: ;) (S (VP (VB request) (ADVP (RB urgently) (CC or) (RB persistently))))))#
+379	seduce	entice	away	(S1 (S (VP (VB lure) (CC or) (VB entice) (ADVP (RB away) (PP (IN from) (NP (NP (NN duty)) (, ,) (NP (NNS principles)) (, ,) (CC or) (NP (JJ proper) (NN conduct))))))))#
+380	interpellate	question	formally	(S1 (S (VP (VB question) (ADVP (RB formally)) (PP (IN about) (NP (NN policy) (CC or) (NN government) (NN business))))))#
+381	stag	inquire	secretly	(S1 (S (VP (VP (VB watch)) (, ,) (VP (VB observe)) (, ,) (CC or) (VP (VB inquire) (ADVP (RB secretly))))))#
+382	snoop	inquire	secretly	(S1 (S (VP (VP (VB watch)) (, ,) (VP (VB observe)) (, ,) (CC or) (VP (VB inquire) (ADVP (RB secretly))))))#
+383	sleuth	inquire	secretly	(S1 (S (VP (VP (VB watch)) (, ,) (VP (VB observe)) (, ,) (CC or) (VP (VB inquire) (ADVP (RB secretly))))))#
+384	probe	examine	thoroughly	(S1 (S (VP (VB question) (CC or) (VB examine) (ADVP (RB thoroughly) (CC and) (RB closely)))))#
+385	convoke	call	together	(S1 (S (VP (VB call) (ADVP (RB together)))))#
+386	convene	call	together	(S1 (S (VP (VB call) (ADVP (RB together)))))#
+387	ban	prohibit	especially	(S1 (S (VP (VBP prohibit) (ADVP (RB especially)) (PP (IN by) (NP (NP (JJ legal) (NN means)) (CC or) (NP (JJ social) (NN pressure)))))))#
+388	consent	respond	favorably	(S1 (S (VP (VB give) (NP (DT an) (JJ affirmative) (NN reply)) (S (VP (TO to) (VP (: ;) (VB respond) (ADVP (RB favorably)) (PP (TO to))))))))#
+389	rebuff	reject	outright	(S1 (S (VP (VB reject) (ADVP (RB outright) (CC and) (RB bluntly)))))#
+390	snub	reject	outright	(S1 (S (VP (VB reject) (ADVP (RB outright) (CC and) (RB bluntly)))))#
+391	repel	reject	outright	(S1 (S (VP (VB reject) (ADVP (RB outright) (CC and) (RB bluntly)))))#
+392	revoke	cancel	officially	(S1 (S (VP (VB cancel) (ADVP (RB officially)))))#
+393	annul	cancel	officially	(S1 (S (VP (VB cancel) (ADVP (RB officially)))))#
+394	countermand	cancel	officially	(S1 (S (VP (VB cancel) (ADVP (RB officially)))))#
+395	repeal	cancel	officially	(S1 (S (VP (VB cancel) (ADVP (RB officially)))))#
+396	rescind	cancel	officially	(S1 (S (VP (VB cancel) (ADVP (RB officially)))))#
+397	vacate	cancel	officially	(S1 (S (VP (VB cancel) (ADVP (RB officially)))))#
+398	recount	count	again	(S1 (S (VP (VB count) (ADVP (RB again)))))#
+399	succumb	consent	reluctantly	(S1 (S (VP (VB consent) (ADVP (RB reluctantly)))))#
+400	clash	disagree	violently	(S1 (S (VP (VB disagree) (ADVP (RB violently)))))#
+401	visa	approve	officially	(S1 (S (VP (VB approve) (ADVP (RB officially)))))#
+402	avoid	keep	away	(S1 (S (S (VP (VB stay) (ADJP (JJ clear)) (PP (IN from)))) (: ;) (S (VP (VB keep) (ADVP (RB away)) (PP (IN from)))) (: ;) (S (VP (VB keep) (PP (IN out) (PP (IN of) (NP (NP (DT the) (NN way)) (PP (IN of) (NP (NN someone) (CC or) (NN something))))))))))#
+403	shun	stay	away	(S1 (S (S (VP (VP (VB avoid)) (CC and) (VP (VB stay) (ADVP (RB away) (PP (IN from) (ADVP (RB deliberately))))))) (: ;) (S (VP (VB stay) (ADJP (JJ clear)) (PP (IN of))))))#
+404	eschew	stay	away	(S1 (S (S (VP (VP (VB avoid)) (CC and) (VP (VB stay) (ADVP (RB away) (PP (IN from) (ADVP (RB deliberately))))))) (: ;) (S (VP (VB stay) (ADJP (JJ clear)) (PP (IN of))))))#
+405	moot	think	about	(S1 (S (S (VP (VB think) (ADVP (RB about) (RB carefully)))) (: ;) (S (VP (VB weigh)))))#
+406	bandy	discuss	lightly	(S1 (S (VP (VB discuss) (ADVP (RB lightly)))))#
+407	reply	react	verbally	(S1 (S (VP (VB react) (ADVP (RB verbally)))))#
+408	avow	admit	openly	(S1 (S (S (VP (VB admit) (ADVP (RB openly) (CC and) (RB bluntly)))) (: ;) (S (VP (VB make) (NP (DT no) (NNS bones)) (PP (IN about))))))#
+409	avouch	admit	openly	(S1 (S (S (VP (VB admit) (ADVP (RB openly) (CC and) (RB bluntly)))) (: ;) (S (VP (VB make) (NP (DT no) (NNS bones)) (PP (IN about))))))#
+410	reprimand	rebuke	formally	(S1 (S (VP (VB rebuke) (ADVP (RB formally)))))#
+411	censure	rebuke	formally	(S1 (S (VP (VB rebuke) (ADVP (RB formally)))))#
+412	criminate	rebuke	formally	(S1 (S (VP (VB rebuke) (ADVP (RB formally)))))#
+413	savage	criticize	harshly	(S1 (S (VP (VB criticize) (ADVP (RB harshly) (CC or) (RB violently)))))#
+414	pillory	criticize	harshly	(S1 (S (VP (VB criticize) (ADVP (RB harshly) (CC or) (RB violently)))))#
+415	crucify	criticize	harshly	(S1 (S (VP (VB criticize) (ADVP (RB harshly) (CC or) (RB violently)))))#
+416	chastise	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely)))))#
+417	castigate	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely)))))#
+418	objurgate	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely)))))#
+419	flame	criticize	harshly	(S1 (S (VP (VBP criticize) (ADVP (RB harshly)) (, ,) (PP (ADVP (RB usually)) (IN via) (NP (DT an) (JJ electronic) (NN medium))))))#
+420	rebuke	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+421	trounce	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+422	reproof	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+423	lecture	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+424	jaw	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+425	scold	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+426	chide	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+427	berate	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+428	remonstrate	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+429	lambaste	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+430	lambast	censure	severely	(S1 (S (VP (VB censure) (ADVP (RB severely) (CC or) (RB angrily)))))#
+431	belabor	attack	verbally	(S1 (S (VP (VB attack) (ADVP (RB verbally)) (PP (IN with) (NP (JJ harsh) (NN criticism))))))#
+432	belabour	attack	verbally	(S1 (S (VP (VB attack) (ADVP (RB verbally)) (PP (IN with) (NP (JJ harsh) (NN criticism))))))#
+433	orate	talk	pompously	(S1 (S (VP (VB talk) (ADVP (RB pompously)))))#
+434	bloviate	orate	verbosely	(S1 (S (VP (VB orate) (ADVP (RB verbosely) (CC and) (RB windily)))))#
+435	unteach	learned	earlier	(S1 (S (S (VP (VB cause) (S (VP (TO to) (VP (VB disbelieve)))))) (: ;) (S (VP (VB teach) (S (NP (NN someone)) (NP (NP (DT the) (NN contrary)) (PP (IN of) (SBAR (WHNP (WP what)) (S (NP (PRP he) (CC or) (PRP she)) (VP (VBD had) (VP (VBN learned) (ADVP (RBR earlier)))))))))))))#
+436	typify	express	indirectly	(S1 (S (S (VP (VP (VB express) (ADVP (RB indirectly)) (PP (IN by) (NP (DT an) (NN image)))) (, ,) (VP (VB form)) (, ,) (CC or) (VP (VB model)))) (: ;) (S (VP (VB be) (NP (DT a) (NN symbol))))))#
+437	symbolize	express	indirectly	(S1 (S (S (VP (VP (VB express) (ADVP (RB indirectly)) (PP (IN by) (NP (DT an) (NN image)))) (, ,) (VP (VB form)) (, ,) (CC or) (VP (VB model)))) (: ;) (S (VP (VB be) (NP (DT a) (NN symbol))))))#
+438	symbolise	express	indirectly	(S1 (S (S (VP (VP (VB express) (ADVP (RB indirectly)) (PP (IN by) (NP (DT an) (NN image)))) (, ,) (VP (VB form)) (, ,) (CC or) (VP (VB model)))) (: ;) (S (VP (VB be) (NP (DT a) (NN symbol))))))#
+439	misrepresent	represent	falsely	(S1 (S (VP (VB represent) (ADVP (RB falsely)))))#
+440	belie	represent	falsely	(S1 (S (VP (VB represent) (ADVP (RB falsely)))))#
+441	impersonate	are	not	(S1 (S (VP (VB pretend) (S (VP (TO to) (VP (VB be) (NP (NP (NN someone)) (SBAR (S (NP (PRP you)) (VP (VBP are) (ADVP (RB not) (: ;) (RB sometimes)) (PP (IN with) (NP (JJ fraudulent) (NNS intentions)))))))))))))#
+442	re-emphasise	emphasize	anew	(S1 (S (VP (VB emphasize) (ADVP (RB anew)))))#
+443	re-emphasize	emphasize	anew	(S1 (S (VP (VB emphasize) (ADVP (RB anew)))))#
+444	rail	criticize	severely	(S1 (S (VP (VB criticize) (ADVP (RB severely)))))#
+445	peck	bother	persistently	(S1 (S (VP (VB bother) (ADVP (RB persistently)) (PP (IN with) (NP (JJ trivial) (NNS complaints))))))#
+446	hen-peck	bother	persistently	(S1 (S (VP (VB bother) (ADVP (RB persistently)) (PP (IN with) (NP (JJ trivial) (NNS complaints))))))#
+447	assassinate	damage	seriously	(S1 (S (VP (VB destroy) (CC or) (VB damage) (ADVP (RB seriously)) (, ,) (PP (IN as) (PP (IN of) (NP (NP (NN someone) (POS 's)) (NN reputation)))))))#
+448	badmouth	speak	unfavorably	(S1 (S (VP (VB speak) (ADVP (RB unfavorably)) (PP (IN about)))))#
+449	malign	speak	unfavorably	(S1 (S (VP (VB speak) (ADVP (RB unfavorably)) (PP (IN about)))))#
+450	traduce	speak	unfavorably	(S1 (S (VP (VB speak) (ADVP (RB unfavorably)) (PP (IN about)))))#
+451	critique	appraise	critically	(S1 (S (VP (VB appraise) (ADVP (RB critically)))))#
+452	referee	evaluate	professionally	(S1 (S (VP (VB evaluate) (ADVP (RB professionally)) (NP (NP (DT a) (NN colleague) (POS 's)) (NN work)))))#
+453	overpraise	praise	excessively	(S1 (S (VP (VBP praise) (ADVP (RB excessively)))))#
+454	glory	rejoice	proudly	(S1 (S (VP (VB rejoice) (ADVP (RB proudly)))))#
+455	acclaim	praise	vociferously	(S1 (S (VP (VBP praise) (ADVP (RB vociferously)))))#
+456	hail	praise	vociferously	(S1 (S (VP (VBP praise) (ADVP (RB vociferously)))))#
+457	herald	praise	vociferously	(S1 (S (VP (VBP praise) (ADVP (RB vociferously)))))#
+458	boo	show	displeasure	(S1 (S (VP (VB show) (ADVP (RB displeasure)) (, ,) (PP (IN as) (PP (IN after) (NP (DT a) (NN performance) (CC or) (NN speech)))))))#
+459	hiss	show	displeasure	(S1 (S (VP (VB show) (ADVP (RB displeasure)) (, ,) (PP (IN as) (PP (IN after) (NP (DT a) (NN performance) (CC or) (NN speech)))))))#
+460	rip	abuse	strongly	(S1 (S (VP (VP (VB criticize)) (CC or) (VP (VB abuse) (ADVP (RB strongly) (CC and) (RB violently))))))#
+461	whang	attack	forcefully	(S1 (S (VP (VB attack) (ADVP (RB forcefully)))))#
+462	reconsecrate	consecrate	anew	(S1 (S (VP (VB consecrate) (ADVP (RB anew)) (, ,) (SBAR (IN as) (S (PP (IN after) (NP (DT a) (NN desecration))))))))#
+463	caution	warn	strongly	(S1 (S (S (VP (VB warn) (ADVP (RB strongly)))) (: ;) (S (VP (VB put) (PP (IN on) (NP (NN guard)))))))#
+464	reacquaint	familiarize	anew	(S1 (S (VP (VB familiarize) (ADVP (RB anew)))))#
+465	propound	put	forward	(S1 (S (VP (VBN put) (ADVP (RB forward)) (, ,) (PP (IN as) (PP (IN of) (NP (DT an) (NN idea)))))))#
+466	consult	advise	professionally	(S1 (S (VP (VB advise) (ADVP (RB professionally)))))#
+467	collogue	confer	secretly	(S1 (S (VP (VB confer) (ADVP (RB secretly)))))#
+468	state	put	before	(S1 (S (VP (VBD put) (ADVP (RB before)))))#
+469	volunteer	tell	voluntarily	(S1 (S (VP (VB tell) (ADVP (RB voluntarily)))))#
+470	flatter	praise	somewhat	(S1 (S (VP (VBP praise) (ADVP (RB somewhat)) (ADVP (RB dishonestly)))))#
+471	blandish	praise	somewhat	(S1 (S (VP (VBP praise) (ADVP (RB somewhat)) (ADVP (RB dishonestly)))))#
+472	stroke	treat	gingerly	(S1 (S (VP (VB treat) (ADVP (RB gingerly) (CC or) (RB carefully)))))#
+473	eulogize	praise	formally	(S1 (S (VP (VBP praise) (ADVP (RB formally) (CC and) (RB eloquently)))))#
+474	eulogise	praise	formally	(S1 (S (VP (VBP praise) (ADVP (RB formally) (CC and) (RB eloquently)))))#
+475	rave	praise	enthusiastically	(S1 (S (VP (VBP praise) (ADVP (RB enthusiastically)))))#
+476	gush	praise	enthusiastically	(S1 (S (VP (VBP praise) (ADVP (RB enthusiastically)))))#
+477	pledge	promise	solemnly	(S1 (S (VP (VB promise) (ADVP (RB solemnly) (CC and) (RB formally)))))#
+478	plight	promise	solemnly	(S1 (S (VP (VB promise) (ADVP (RB solemnly) (CC and) (RB formally)))))#
+479	commit	give	entirely	(S1 (VP (VB give) (ADVP (RB entirely)) (PP (TO to) (NP (NP (DT a) (JJ specific) (NN person)) (, ,) (NP (NN activity)) (, ,) (CC or) (NP (NN cause))))))#
+480	rededicate	dedicate	anew	(S1 (S (VP (VB dedicate) (ADVP (RB anew)))))#
+481	reinsure	insure	again	(S1 (S (VP (VB insure) (ADVP (RB again)) (PP (IN by) (S (VP (VBG assuming) (NP (NP (DT all)) (CC or) (NP (NP (DT a) (NN part)) (PP (IN of) (NP (NP (DT the) (NN liability)) (PP (IN of) (NP (NP (DT an) (NN insurance) (NN company)) (VP (ADVP (RB already)) (VBG covering) (NP (DT a) (NN risk)))))))))))))))#
+482	reintroduce	introduce	anew	(S1 (S (VP (VB introduce) (ADVP (RB anew)))))#
+483	re-introduce	introduce	anew	(S1 (S (VP (VB introduce) (ADVP (RB anew)))))#
+484	reconvict	convict	anew	(S1 (S (VP (VB convict) (ADVP (RB anew)))))#
+485	heckle	challenge	aggressively	(S1 (S (VP (VB challenge) (ADVP (RB aggressively)))))#
+486	whine	complain	whiningly	(S1 (S (VP (VB complain) (ADVP (RB whiningly)))))#
+487	grizzle	complain	whiningly	(S1 (S (VP (VB complain) (ADVP (RB whiningly)))))#
+488	yammer	complain	whiningly	(S1 (S (VP (VB complain) (ADVP (RB whiningly)))))#
+489	yawp	complain	whiningly	(S1 (S (VP (VB complain) (ADVP (RB whiningly)))))#
+490	condescend	treat	condescendingly	(S1 (S (VP (VB treat) (ADVP (RB condescendingly)))))#
+491	coo	cry	softly	(S1 (S (VP (VB cry) (ADVP (RB softly)) (, ,) (PP (IN as) (PP (IN of) (NP (NNS pigeons)))))))#
+492	lament	regret	strongly	(S1 (S (VP (VB regret) (ADVP (RB strongly)))))#
+493	bewail	regret	strongly	(S1 (S (VP (VB regret) (ADVP (RB strongly)))))#
+494	bemoan	regret	strongly	(S1 (S (VP (VB regret) (ADVP (RB strongly)))))#
+495	whisper	speak	softly	(S1 (S (VP (VBP speak) (ADVP (RB softly)) (: ;) (PP (IN in) (NP (DT a) (JJ low) (NN voice))))))#
+496	venture	put	forward	(S1 (S (VP (VBN put) (ADVP (RB forward)) (, ,) (PP (IN of) (NP (DT a) (NN guess))) (, ,) (PP (IN in) (NP (NP (NN spite)) (PP (IN of) (NP (JJ possible) (NN refutation))))))))#
+497	hazard	put	forward	(S1 (S (VP (VBN put) (ADVP (RB forward)) (, ,) (PP (IN of) (NP (DT a) (NN guess))) (, ,) (PP (IN in) (NP (NP (NN spite)) (PP (IN of) (NP (JJ possible) (NN refutation))))))))#
+498	redetermine	establish	again	(S1 (S (VP (VP (VB fix)) (, ,) (VP (VB find)) (, ,) (CC or) (VP (VB establish) (ADVP (RB again))))))#
+499	reformulate	develop	again	(S1 (S (S (VP (VB formulate) (CC or) (VB develop) (ADVP (RB again)))) (, ,) (PP (IN of) (NP (NP (DT an) (VBN improved) (NN theory)) (CC or) (NP (NN hypothesis))))))#
+500	convey	pass	on	(S1 (S (S (VP (VB make) (VP (VBN known)))) (: ;) (S (VP (VB pass) (ADVP (RB on)) (, ,) (PP (IN of) (NP (NN information)))))))#
+501	imply	state	indirectly	(S1 (S (VP (VP (VB express)) (CC or) (VP (VB state) (ADVP (RB indirectly))))))#
+502	connote	state	indirectly	(S1 (S (VP (VP (VB express)) (CC or) (VP (VB state) (ADVP (RB indirectly))))))#
+503	unwrap	was	previously	(S1 (S (VP (VB make) (S (VP (VBN known) (PP (TO to) (NP (NP (DT the) (JJ public) (NN information)) (SBAR (SBAR (WHNP (WDT that)) (S (VP (VBD was) (ADVP (RB previously)) (VP (VBN known) (PP (ADVP (RB only)) (TO to) (NP (DT a) (JJ few) (NNS people))))))) (CC or) (SBAR (WHNP (WDT that)) (S (VP (VBD was) (VP (VBN meant) (S (VP (TO to) (VP (VB be) (VP (VBN kept) (NP (DT a) (NN secret))))))))))))))))))#
+504	disclose	was	previously	(S1 (S (VP (VB make) (S (VP (VBN known) (PP (TO to) (NP (NP (DT the) (JJ public) (NN information)) (SBAR (SBAR (WHNP (WDT that)) (S (VP (VBD was) (ADVP (RB previously)) (VP (VBN known) (PP (ADVP (RB only)) (TO to) (NP (DT a) (JJ few) (NNS people))))))) (CC or) (SBAR (WHNP (WDT that)) (S (VP (VBD was) (VP (VBN meant) (S (VP (TO to) (VP (VB be) (VP (VBN kept) (NP (DT a) (NN secret))))))))))))))))))#
+505	reveal	was	previously	(S1 (S (VP (VB make) (S (VP (VBN known) (PP (TO to) (NP (NP (DT the) (JJ public) (NN information)) (SBAR (SBAR (WHNP (WDT that)) (S (VP (VBD was) (ADVP (RB previously)) (VP (VBN known) (PP (ADVP (RB only)) (TO to) (NP (DT a) (JJ few) (NNS people))))))) (CC or) (SBAR (WHNP (WDT that)) (S (VP (VBD was) (VP (VBN meant) (S (VP (TO to) (VP (VB be) (VP (VBN kept) (NP (DT a) (NN secret))))))))))))))))))#
+506	divulge	was	previously	(S1 (S (VP (VB make) (S (VP (VBN known) (PP (TO to) (NP (NP (DT the) (JJ public) (NN information)) (SBAR (SBAR (WHNP (WDT that)) (S (VP (VBD was) (ADVP (RB previously)) (VP (VBN known) (PP (ADVP (RB only)) (TO to) (NP (DT a) (JJ few) (NNS people))))))) (CC or) (SBAR (WHNP (WDT that)) (S (VP (VBD was) (VP (VBN meant) (S (VP (TO to) (VP (VB be) (VP (VBN kept) (NP (DT a) (NN secret))))))))))))))))))#
+507	bewray	reveal	unintentionally	(S1 (S (VP (VB reveal) (ADVP (RB unintentionally)))))#
+508	confide	tell	confidentially	(S1 (S (S (VP (VB reveal) (PP (IN in) (ADJP (JJ private))))) (: ;) (S (VP (VB tell) (ADVP (RB confidentially))))))#
+509	misspell	spell	incorrectly	(S1 (S (VP (VB spell) (ADVP (RB incorrectly)))))#
+510	recite	repeat	aloud	(S1 (S (VP (VB repeat) (ADVP (RB aloud)) (PP (IN from) (NP (NN memory))))))#
+511	list	name	individually	(S1 (S (S (VP (VB give) (CC or) (VB make) (NP (NP (DT a) (NN list)) (PP (IN of))))) (: ;) (S (VP (VB name) (ADVP (RB individually)))) (: ;) (S (VP (VB give) (NP (NP (DT the) (NNS names)) (PP (IN of)))))))#
+512	enumerate	specify	individually	(S1 (S (VP (VB specify) (ADVP (RB individually)))))#
+513	itemize	specify	individually	(S1 (S (VP (VB specify) (ADVP (RB individually)))))#
+514	itemise	specify	individually	(S1 (S (VP (VB specify) (ADVP (RB individually)))))#
+515	define	fix	definitely	(S1 (S (VP (VP (VB decide) (PP (IN upon))) (CC or) (VP (VB fix) (ADVP (RB definitely))))))#
+516	miscount	count	wrongly	(S1 (S (VP (VB count) (ADVP (RB wrongly)))))#
+517	disambiguate	state	unambiguously	(S1 (S (VP (VP (VB state) (ADVP (RB unambiguously))) (CC or) (VP (VB remove) (NP (NNS ambiguities)) (PP (IN from))))))#
+518	echo	say	again	(S1 (S (TO to) (VP (VP (VBP say) (ADVP (RB again))) (CC or) (VP (VBP imitate)))))#
+519	cuckoo	repeat	monotonously	(S1 (S (VP (VB repeat) (ADVP (RB monotonously)) (, ,) (SBAR (IN like) (S (NP (DT a) (NN cuckoo)) (VP (VBZ repeats) (NP (PRP$ his) (NN call))))))))#
+520	parrot	repeat	mindlessly	(S1 (S (VP (VB repeat) (ADVP (RB mindlessly)))))#
+521	reiterate	perform	again	(S1 (S (VP (TO to) (VP (VP (VB say)) (, ,) (VP (VB state)) (, ,) (CC or) (VP (VB perform) (ADVP (RB again)))))))#
+522	ingeminate	perform	again	(S1 (S (VP (TO to) (VP (VP (VB say)) (, ,) (VP (VB state)) (, ,) (CC or) (VP (VB perform) (ADVP (RB again)))))))#
+523	restate	perform	again	(S1 (S (VP (TO to) (VP (VP (VB say)) (, ,) (VP (VB state)) (, ,) (CC or) (VP (VB perform) (ADVP (RB again)))))))#
+524	retell	perform	again	(S1 (S (VP (TO to) (VP (VP (VB say)) (, ,) (VP (VB state)) (, ,) (CC or) (VP (VB perform) (ADVP (RB again)))))))#
+525	retranslate	translate	again	(S1 (S (VP (VB translate) (ADVP (RB again)))))#
+526	mistranslate	translate	incorrectly	(S1 (S (VP (VB translate) (ADVP (RB incorrectly)))))#
+527	dogmatize	speak	dogmatically	(S1 (S (VP (VBP speak) (ADVP (RB dogmatically)))))#
+528	dogmatise	speak	dogmatically	(S1 (S (VP (VBP speak) (ADVP (RB dogmatically)))))#
+529	cheek	speak	impudently	(S1 (S (VP (VBP speak) (ADVP (RB impudently)) (PP (TO to)))))#
+530	announce	announce	publicly	(S1 (S (VP (VB announce) (ADVP (RB publicly) (CC or) (RB officially)))))#
+531	rebroadcast	broadcast	again	(S1 (S (VP (VB broadcast) (ADVP (RB again)) (, ,) (PP (IN as) (PP (IN of) (NP (DT a) (NN film)))))))#
+532	headline	publicize	widely	(S1 (S (VP (VB publicize) (ADVP (RB widely) (CC or) (RB highly)) (, ,) (SBAR (IN as) (S (ADVP (IN if) (PP (IN with) (NP (DT a) (NN headline)))))))))#
+533	ballyhoo	advertize	noisily	(S1 (S (VP (VB advertize) (ADVP (RB noisily) (CC or) (RB blatantly)))))#
+534	bill	advertise	especially	(S1 (S (VP (VBP advertise) (ADVP (RB especially)) (PP (IN by) (NP (NNS posters) (CC or) (NNS placards))))))#
+535	articulate	state	clearly	(S1 (S (VP (VP (VB express)) (CC or) (VP (VB state) (ADVP (RB clearly))))))#
+536	enunciate	state	clearly	(S1 (S (VP (VP (VB express)) (CC or) (VP (VB state) (ADVP (RB clearly))))))#
+537	retroflex	curled	back	(S1 (S (VP (VB articulate) (PRN (-LRB- -LRB-) (NP (DT a) (NN consonant)) (-RRB- -RRB-)) (SBAR (IN with) (S (NP (DT the) (NN tongue)) (VP (VBD curled) (ADVP (RB back)) (PP (IN against) (NP (DT the) (NN palate)))))))))#
+538	bumble	speak	haltingly	(S1 (S (VP (VBP speak) (ADVP (RB haltingly)))))#
+539	stutter	speak	haltingly	(S1 (S (VP (VBP speak) (ADVP (RB haltingly)))))#
+540	stammer	speak	haltingly	(S1 (S (VP (VBP speak) (ADVP (RB haltingly)))))#
+541	falter	speak	haltingly	(S1 (S (VP (VBP speak) (ADVP (RB haltingly)))))#
+542	actualize	describe	realistically	(S1 (S (VP (VP (VB represent)) (CC or) (VP (VB describe) (ADVP (RB realistically))))))#
+543	actualise	describe	realistically	(S1 (S (VP (VP (VB represent)) (CC or) (VP (VB describe) (ADVP (RB realistically))))))#
+544	harangue	address	forcefully	(S1 (S (VP (VB deliver) (NP (NP (DT a) (NN harangue)) (SBAR (S (VP (TO to) (VP (: ;) (VB address) (ADVP (RB forcefully))))))))))#
+545	telepathize	communicate	nonverbally	(S1 (S (VP (VB communicate) (ADVP (RB nonverbally)) (PP (IN by) (NP (NN telepathy))))))#
+546	telepathise	communicate	nonverbally	(S1 (S (VP (VB communicate) (ADVP (RB nonverbally)) (PP (IN by) (NP (NN telepathy))))))#
+547	rewrite	write	differently	(S1 (S (S (VP (VB write) (ADVP (RB differently)))) (: ;) (S (VP (VB alter) (NP (NP (DT the) (NN writing)) (PP (IN of)))))))#
+548	tape	register	electronically	(S1 (S (VP (VB register) (ADVP (RB electronically)))))#
+549	reshoot	shoot	again	(S1 (S (VP (VB shoot) (ADVP (RB again)))))#
+550	jot	write	briefly	(S1 (S (S (VP (VB write) (ADVP (RB briefly) (CC or) (RB hurriedly)))) (: ;) (S (VP (VB write) (NP (NP (DT a) (JJ short) (NN note)) (PP (IN of)))))))#
+551	sketch	describe	roughly	(S1 (S (VP (VP (VB describe) (ADVP (RB roughly) (CC or) (RB briefly))) (CC or) (VP (VB give) (NP (NP (DT the) (JJ main) (NNS points)) (CC or) (NP (NP (NN summary)) (PP (IN of))))))))#
+552	outline	describe	roughly	(S1 (S (VP (VP (VB describe) (ADVP (RB roughly) (CC or) (RB briefly))) (CC or) (VP (VB give) (NP (NP (DT the) (JJ main) (NNS points)) (CC or) (NP (NP (NN summary)) (PP (IN of))))))))#
+553	recapitulate	summarize	briefly	(S1 (S (VP (VB summarize) (ADVP (RB briefly)))))#
+554	recap	summarize	briefly	(S1 (S (VP (VB summarize) (ADVP (RB briefly)))))#
+555	aver	affirm	solemnly	(S1 (S (VP (TO to) (VP (VP (VB declare)) (CC or) (VP (VB affirm) (ADVP (RB solemnly) (CC and) (RB formally)) (PP (IN as) (NP (JJ true))))))))#
+556	swan	affirm	solemnly	(S1 (S (VP (TO to) (VP (VP (VB declare)) (CC or) (VP (VB affirm) (ADVP (RB solemnly) (CC and) (RB formally)) (PP (IN as) (NP (JJ true))))))))#
+557	reaffirm	affirm	once	(S1 (S (VP (VB affirm) (ADVP (RB once) (RB again)))))#
+558	reconfirm	confirm	again	(S1 (S (VP (VB confirm) (ADVP (RB again)))))#
+559	misquote	quote	incorrectly	(S1 (S (VP (VB quote) (ADVP (RB incorrectly)))))#
+560	append	say	further	(S1 (S (VP (VP (VB state)) (CC or) (VP (VB say) (ADVP (RB further))))))#
+561	supply	say	further	(S1 (S (VP (VP (VB state)) (CC or) (VP (VB say) (ADVP (RB further))))))#
+562	term	name	formally	(S1 (S (VP (VP (VB name) (ADVP (RB formally))) (CC or) (VP (VB designate) (PP (IN with) (NP (DT a) (NN term)))))))#
+563	e-mail	communicate	electronically	(S1 (S (VP (VB communicate) (ADVP (RB electronically)) (PP (IN on) (NP (DT the) (NN computer))))))#
+564	email	communicate	electronically	(S1 (S (VP (VB communicate) (ADVP (RB electronically)) (PP (IN on) (NP (DT the) (NN computer))))))#
+565	netmail	communicate	electronically	(S1 (S (VP (VB communicate) (ADVP (RB electronically)) (PP (IN on) (NP (DT the) (NN computer))))))#
+566	yack	talk	incessantly	(S1 (S (VP (VB talk) (ADVP (RB incessantly) (CC and) (RB tiresomely)))))#
+567	blather	talk	foolishly	(S1 (S (VP (TO to) (VP (VB talk) (ADVP (RB foolishly))))))#
+568	blether	talk	foolishly	(S1 (S (VP (TO to) (VP (VB talk) (ADVP (RB foolishly))))))#
+569	blither	talk	foolishly	(S1 (S (VP (TO to) (VP (VB talk) (ADVP (RB foolishly))))))#
+570	flirt	behave	amorously	(S1 (S (VP (VB talk) (CC or) (VB behave) (ADVP (RB amorously)) (, ,) (PP (IN without) (NP (JJ serious) (NNS intentions))))))#
+571	butterfly	behave	amorously	(S1 (S (VP (VB talk) (CC or) (VB behave) (ADVP (RB amorously)) (, ,) (PP (IN without) (NP (JJ serious) (NNS intentions))))))#
+572	coquet	behave	amorously	(S1 (S (VP (VB talk) (CC or) (VB behave) (ADVP (RB amorously)) (, ,) (PP (IN without) (NP (JJ serious) (NNS intentions))))))#
+573	coquette	behave	amorously	(S1 (S (VP (VB talk) (CC or) (VB behave) (ADVP (RB amorously)) (, ,) (PP (IN without) (NP (JJ serious) (NNS intentions))))))#
+574	philander	behave	amorously	(S1 (S (VP (VB talk) (CC or) (VB behave) (ADVP (RB amorously)) (, ,) (PP (IN without) (NP (JJ serious) (NNS intentions))))))#
+575	chat	talk	socially	(S1 (S (VP (VB talk) (ADVP (RB socially)) (PP (IN without) (S (VP (VBG exchanging) (NP (ADJP (RB too) (JJ much)) (NN information))))))))#
+576	chitchat	talk	socially	(S1 (S (VP (VB talk) (ADVP (RB socially)) (PP (IN without) (S (VP (VBG exchanging) (NP (ADJP (RB too) (JJ much)) (NN information))))))))#
+577	chit-chat	talk	socially	(S1 (S (VP (VB talk) (ADVP (RB socially)) (PP (IN without) (S (VP (VBG exchanging) (NP (ADJP (RB too) (JJ much)) (NN information))))))))#
+578	chaffer	talk	socially	(S1 (S (VP (VB talk) (ADVP (RB socially)) (PP (IN without) (S (VP (VBG exchanging) (NP (ADJP (RB too) (JJ much)) (NN information))))))))#
+579	natter	talk	socially	(S1 (S (VP (VB talk) (ADVP (RB socially)) (PP (IN without) (S (VP (VBG exchanging) (NP (ADJP (RB too) (JJ much)) (NN information))))))))#
+580	gossip	talk	socially	(S1 (S (VP (VB talk) (ADVP (RB socially)) (PP (IN without) (S (VP (VBG exchanging) (NP (ADJP (RB too) (JJ much)) (NN information))))))))#
+581	claver	talk	socially	(S1 (S (VP (VB talk) (ADVP (RB socially)) (PP (IN without) (S (VP (VBG exchanging) (NP (ADJP (RB too) (JJ much)) (NN information))))))))#
+582	rap	talk	volubly	(S1 (S (VP (VB talk) (ADVP (RB volubly)))))#
+583	mumble	talk	indistinctly	(S1 (S (VP (VBP talk) (ADVP (RB indistinctly)) (: ;) (ADVP (RB usually)) (PP (IN in) (NP (DT a) (JJ low) (NN voice))))))#
+584	mussitate	talk	indistinctly	(S1 (S (VP (VBP talk) (ADVP (RB indistinctly)) (: ;) (ADVP (RB usually)) (PP (IN in) (NP (DT a) (JJ low) (NN voice))))))#
+585	wrawl	cry	loudly	(S1 (S (VP (VB cry) (ADVP (RB loudly)) (, ,) (PP (IN as) (PP (IN of) (NP (NNS animals)))))))#
+586	bleat	cry	plaintively	(S1 (S (VP (VB cry) (ADVP (RB plaintively)))))#
+587	blate	cry	plaintively	(S1 (S (VP (VB cry) (ADVP (RB plaintively)))))#
+588	blat	cry	plaintively	(S1 (S (VP (VB cry) (ADVP (RB plaintively)))))#
+589	baa	cry	plaintively	(S1 (S (VP (VB cry) (ADVP (RB plaintively)))))#
+590	croon	sing	softly	(S1 (S (VP (VB sing) (ADVP (RB softly)))))#
+591	rubbish	attack	strongly	(S1 (S (VP (VB attack) (ADVP (RB strongly)))))#
+592	gulp	swallowing	too	(S1 (S (ADJP (JJ utter) (CC or) (VB make)) (NP (NP (DT a) (NN noise)) (, ,) (PP (IN as) (SBAR (WHADVP (WRB when)) (S (VP (VBG swallowing) (ADVP (RB too) (RB quickly)))))))))#
+593	traverse	deny	formally	(S1 (S (VP (VB deny) (ADVP (RB formally)) (PRN (-LRB- -LRB-) (NP (NP (DT an) (NN allegation)) (PP (IN of) (NP (NN fact))) (PP (IN by) (NP (DT the) (VBG opposing) (NN party)))) (-RRB- -RRB-)) (PP (IN in) (NP (DT a) (JJ legal) (NN suit))))))#
+594	fumble	play	cleanly	(S1 (S (VP (VP (VB drop) (CC or) (VB juggle)) (CC or) (VP (VB fail) (S (VP (TO to) (VP (VB play) (ADVP (RB cleanly)) (NP (DT a) (NN grounder)))))))))#
+595	replay	play	again	(S1 (S (VP (VB play) (ADVP (RB again)))))#
+596	front	confront	bodily	(S1 (S (VP (VBP confront) (ADVP (RB bodily)))))#
+597	breast	confront	bodily	(S1 (S (VP (VBP confront) (ADVP (RB bodily)))))#
+598	demolish	defeat	soundly	(S1 (S (VP (VB defeat) (ADVP (RB soundly)))))#
+599	destroy	defeat	soundly	(S1 (S (VP (VB defeat) (ADVP (RB soundly)))))#
+600	rearm	arm	anew	(S1 (S (VP (VB arm) (ADVP (RB anew)))))#
+601	re-arm	arm	anew	(S1 (S (VP (VB arm) (ADVP (RB anew)))))#
+602	remilitarize	militarize	anew	(S1 (S (VP (VB militarize) (ADVP (RB anew)))))#
+603	remilitarise	militarize	anew	(S1 (S (VP (VB militarize) (ADVP (RB anew)))))#
+604	romp	win	easily	(S1 (S (VP (VB win) (ADVP (RB easily)))))#
+605	worst	defeat	thoroughly	(S1 (S (VP (VB defeat) (ADVP (RB thoroughly)))))#
+606	pip	defeat	thoroughly	(S1 (S (VP (VB defeat) (ADVP (RB thoroughly)))))#
+607	wallop	defeat	soundly	(S1 (S (VP (VB defeat) (ADVP (RB soundly) (CC and) (RB utterly)))))#
+608	whomp	beat	overwhelmingly	(S1 (S (VP (VB beat) (ADVP (RB overwhelmingly)))))#
+609	spreadeagle	defeat	disastrously	(S1 (S (VP (VB defeat) (ADVP (RB disastrously)))))#
+610	rout	defeat	disastrously	(S1 (S (VP (VB defeat) (ADVP (RB disastrously)))))#
+611	outfight	fight	better	(S1 (S (S (VP (TO to) (VP (VB fight) (ADVP (RBR better) (IN than))))) (: ;) (VP (VB get) (NP (NP (DT the) (JJR better)) (PP (IN of))))))#
+612	harass	attacking	repeatedly	(S1 (S (VP (VB exhaust) (PP (IN by) (S (VP (VBG attacking) (ADVP (RB repeatedly))))))))#
+613	reassail	assail	again	(S1 (S (VP (VB assail) (ADVP (RB again)))))#
+614	chop	hit	sharply	(S1 (S (VP (VB hit) (ADVP (RB sharply)))))#
+615	storm	attack	suddenly	(S1 (S (NP (NP (NN attack)) (PP (IN by) (NP (NN storm)))) (: ;) (VP (VB attack) (ADVP (RB suddenly)))))#
+616	invade	march	aggressively	(S1 (S (VP (VB march) (ADVP (RB aggressively)) (PP (IN into) (NP (NP (DT another) (VBZ 's) (NN territory)) (PP (IN by) (NP (NP (JJ military) (NN force)) (PP (IN for) (NP (NP (DT the) (NNS purposes)) (PP (IN of) (NP (NN conquest) (CC and) (NN occupation))))))))))))#
+617	beleaguer	surround	so	(S1 (S (VP (VBP surround) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB force) (S (VP (TO to) (VP (VB give) (PRT (RP up))))))))))))#
+618	surround	surround	so	(S1 (S (VP (VBP surround) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB force) (S (VP (TO to) (VP (VB give) (PRT (RP up))))))))))))#
+619	overprotect	protect	excessively	(S1 (S (VP (VB protect) (ADVP (RB excessively)))))#
+620	underplay	play	lower	(S1 (S (VP (VB play) (ADVP (ADVP (NP (DT a) (NN card)) (RBR lower)) (PP (IN than) (NP (-LRB- -LRB-) (NP (DT a) (JJ held) (JJ high) (NN card)) (-RRB- -RRB-)))))))#
+621	still-fish	resting	still	(S1 (S (VP (NN fish) (PP (IN with) (NP (NP (DT the) (NN line) (CC and) (NN bait)) (UCP (VP (VBG resting) (ADVP (RB still))) (CC or) (ADJP (JJ stationary) (PP (IN in) (NP (DT the) (NN water))))))))))#
+622	shuttlecock	toss	fro	(S1 (S (VP (VP (VB send)) (CC or) (VP (VB toss) (ADVP (TO to) (CC and) (RB fro))) (, ,) (PP (IN like) (NP (DT a) (NN shuttlecock))))))#
+623	undershoot	shoot	short	(S1 (S (VP (VB shoot) (ADVP (RB short) (PP (IN of) (NP (NP (QP (CC or) (IN below))) (PRN (-LRB- -LRB-) (NP (DT a) (NN target)) (-RRB- -RRB-))))))))#
+624	squander	spend	extravagantly	(S1 (S (VP (VB spend) (ADVP (RB extravagantly)))))#
+625	ware	spend	extravagantly	(S1 (S (VP (VB spend) (ADVP (RB extravagantly)))))#
+626	spare	use	frugally	(S1 (S (VP (VB use) (ADVP (RB frugally) (CC or) (RB carefully)))))#
+627	use	consume	fully	(S1 (S (VP (VP (VB use) (PRT (RP up))) (, ,) (VP (VB consume) (ADVP (RB fully))))))#
+628	expend	consume	fully	(S1 (S (VP (VP (VB use) (PRT (RP up))) (, ,) (VP (VB consume) (ADVP (RB fully))))))#
+629	ply	use	diligently	(S1 (S (VP (VB use) (ADVP (RB diligently)))))#
+630	misapply	apply	badly	(S1 (S (S (VP (VB apply) (PP (TO to) (NP (DT a) (JJ wrong) (NN thing) (CC or) (NN person))))) (: ;) (S (VP (VB apply) (ADVP (RB badly) (CC or) (RB incorrectly))))))#
+631	recycle	use	again	(S1 (S (VP (VB use) (ADVP (RB again)) (PP (IN after) (NP (NN processing))))))#
+632	reprocess	use	again	(S1 (S (VP (VB use) (ADVP (RB again)) (PP (IN after) (NP (NN processing))))))#
+633	reuse	use	again	(S1 (S (VP (VB use) (ADVP (RB again)) (PP (IN after) (NP (NN processing))))))#
+634	overexploit	exploit	excessively	(S1 (S (VP (VB exploit) (ADVP (RB excessively)))))#
+635	overstrain	strain	excessively	(S1 (S (VP (VB strain) (ADVP (RB excessively)))))#
+636	overextend	strain	excessively	(S1 (S (VP (VB strain) (ADVP (RB excessively)))))#
+637	picnic	eat	alfresco	(S1 (S (VP (VB eat) (ADVP (RB alfresco)) (, ,) (PP (IN in) (NP (DT the) (JJ open) (NN air))))))#
+638	wolf	eat	hastily	(S1 (S (VP (VB eat) (ADVP (RB hastily)))))#
+639	slurp	eat	noisily	(S1 (S (VP (VB eat) (ADVP (RB noisily)))))#
+640	tipple	drink	moderately	(S1 (S (VP (VB drink) (ADVP (RB moderately) (CC but) (RB regularly)))))#
+641	bib	drink	moderately	(S1 (S (VP (VB drink) (ADVP (RB moderately) (CC but) (RB regularly)))))#
+642	fare	eat	well	(S1 (S (VP (VB eat) (ADVP (RB well)))))#
+643	nosh	eat	lightly	(S1 (S (S (VP (VB eat) (NP (DT a) (NN snack)))) (: ;) (S (VP (VB eat) (ADVP (RB lightly))))))#
+644	snack	eat	lightly	(S1 (S (S (VP (VB eat) (NP (DT a) (NN snack)))) (: ;) (S (VP (VB eat) (ADVP (RB lightly))))))#
+645	nibble	eat	intermittently	(S1 (S (S (VP (VB eat) (ADVP (RB intermittently)))) (: ;) (S (VP (VB take) (NP (JJ small) (NNS bites)) (PP (IN of))))))#
+646	browse	eat	lightly	(S1 (S (VP (VB eat) (ADVP (RB lightly)) (, ,) (S (VP (VB try) (NP (JJ different) (NNS dishes)))))))#
+647	graze	eat	lightly	(S1 (S (VP (VB eat) (ADVP (RB lightly)) (, ,) (S (VP (VB try) (NP (JJ different) (NNS dishes)))))))#
+648	chomp	chew	noisily	(S1 (S (VP (VB chew) (ADVP (RB noisily)))))#
+649	champ	chew	noisily	(S1 (S (VP (VB chew) (ADVP (RB noisily)))))#
+650	raven	feed	greedily	(S1 (S (VP (VB feed) (ADVP (RB greedily)))))#
+651	overfeed	feed	excessively	(S1 (S (VP (VB feed) (ADVP (RB excessively)))))#
+652	breastfeed	give	suck	(S1 (VP (VB give) (ADVP (RB suck)) (PP (TO to))))#
+653	suckle	give	suck	(S1 (VP (VB give) (ADVP (RB suck)) (PP (TO to))))#
+654	wet-nurse	give	suck	(S1 (VP (VB give) (ADVP (RB suck)) (PP (TO to))))#
+655	lactate	give	suck	(S1 (VP (VB give) (ADVP (RB suck)) (PP (TO to))))#
+656	diet	eat	sparingly	(S1 (S (VP (VB eat) (ADVP (RB sparingly)) (, ,) (PP (IN for) (NP (NP (NN health) (NNS reasons)) (CC or) (S (VP (TO to) (VP (VB lose) (NP (NN weight))))))))))#
+657	inebriate	drink	excessively	(S1 (S (VP (VP (VB become) (ADJP (JJ drunk))) (CC or) (VP (VB drink) (ADVP (RB excessively))))))#
+658	wallow	delight	greatly	(S1 (S (VP (VBP delight) (ADVP (RB greatly)) (PP (IN in)))))#
+659	gorge	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+660	ingurgitate	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+661	overindulge	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+662	glut	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+663	englut	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+664	engorge	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+665	overgorge	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+666	overeat	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+667	gormandize	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+668	gormandise	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+669	gourmandize	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+670	binge	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+671	satiate	eat	immodestly	(S1 (S (S (VP (VP (VB overeat)) (CC or) (VP (VB eat) (ADVP (RB immodestly))))) (: ;) (S (VP (VB make) (NP (NP (DT a) (NN pig)) (PP (IN of) (NP (PRP oneself))))))))#
+672	fritter	spend	frivolously	(S1 (S (VP (VB spend) (ADVP (RB frivolously) (CC and) (RB unwisely)))))#
+673	dissipate	spend	frivolously	(S1 (S (VP (VB spend) (ADVP (RB frivolously) (CC and) (RB unwisely)))))#
+674	devour	eat	greedily	(S1 (S (VP (VB eat) (ADVP (RB greedily)))))#
+675	guttle	eat	greedily	(S1 (S (VP (VB eat) (ADVP (RB greedily)))))#
+676	munch	chew	noisily	(S1 (S (VP (VB chew) (ADVP (RB noisily)))))#
+677	trap	hold	fast	(S1 (S (VP (TO to) (VP (VP (VB hold) (ADVP (RB fast))) (CC or) (VP (VB prevent) (PP (IN from) (S (VP (VBG moving)))))))))#
+678	paw	touch	clumsily	(S1 (S (VP (VB touch) (ADVP (RB clumsily)))))#
+679	nab	seize	suddenly	(S1 (S (VP (VB seize) (ADVP (RB suddenly)))))#
+680	wrest	seizing	forcibly	(S1 (S (VP (VB obtain) (PP (IN by) (S (VP (VBG seizing) (ADVP (RB forcibly) (CC or) (RB violently) (, ,) (ADVP (RB also))) (ADVP (RB metaphorically))))))))#
+681	clasp	hold	firmly	(S1 (S (VP (VB hold) (ADVP (RB firmly) (CC and) (RB tightly)))))#
+682	conglutinate	stick	together	(S1 (S (VP (VB stick) (ADVP (RB together)))))#
+683	crimp	curl	tightly	(S1 (S (VP (VB curl) (ADVP (RB tightly)))))#
+684	crape	curl	tightly	(S1 (S (VP (VB curl) (ADVP (RB tightly)))))#
+685	frizz	curl	tightly	(S1 (S (VP (VB curl) (ADVP (RB tightly)))))#
+686	grip	hold	fast	(S1 (S (VP (VB hold) (ADVP (RB fast) (CC or) (RB firmly)))))#
+687	wield	handle	effectively	(S1 (S (VP (VB handle) (ADVP (RB effectively)))))#
+688	manage	handle	effectively	(S1 (S (VP (VB handle) (ADVP (RB effectively)))))#
+689	interpenetrate	penetrate	mutually	(S1 (S (VP (VP (VB penetrate) (ADVP (RB mutually))) (CC or) (VP (VB be) (VP (VBN interlocked))))))#
+690	permeate	penetrate	mutually	(S1 (S (VP (VP (VB penetrate) (ADVP (RB mutually))) (CC or) (VP (VB be) (VP (VBN interlocked))))))#
+691	perforate	pass	through	(S1 (S (VP (VB pass) (ADVP (IN into) (CC or) (RB through)) (, ,) (PP (ADVP (RB often)) (IN by) (S (VP (VBG overcoming) (NP (NN resistance))))))))#
+692	jab	thrust	abruptly	(S1 (S (VP (VP (VB poke)) (CC or) (VP (VBN thrust) (ADVP (RB abruptly))))))#
+693	prod	thrust	abruptly	(S1 (S (VP (VP (VB poke)) (CC or) (VP (VBN thrust) (ADVP (RB abruptly))))))#
+694	stab	thrust	abruptly	(S1 (S (VP (VP (VB poke)) (CC or) (VP (VBN thrust) (ADVP (RB abruptly))))))#
+695	poke	thrust	abruptly	(S1 (S (VP (VP (VB poke)) (CC or) (VP (VBN thrust) (ADVP (RB abruptly))))))#
+696	maul	injure	badly	(S1 (S (VP (VB injure) (ADVP (RB badly)) (PP (IN by) (S (VP (VBG beating)))))))#
+697	dab	hit	lightly	(S1 (S (VP (VBP hit) (ADVP (RB lightly)))))#
+698	pat	hit	lightly	(S1 (S (VP (VBP hit) (ADVP (RB lightly)))))#
+699	slam	strike	violently	(S1 (S (VP (VBP strike) (ADVP (RB violently)))))#
+700	beak	hit	lightly	(S1 (S (VP (VBN hit) (ADVP (RB lightly)) (PP (IN with) (NP (DT a) (VBG picking) (NN motion))))))#
+701	percuss	tap	firmly	(S1 (S (VP (VB strike) (CC or) (VB tap) (ADVP (RB firmly)))))#
+702	worry	rub	constantly	(S1 (S (VP (VB touch) (CC or) (VB rub) (ADVP (RB constantly)))))#
+703	resmudge	smudge	again	(S1 (S (VP (VB smudge) (ADVP (RB again)))))#
+704	amputate	remove	surgically	(S1 (S (VP (VB remove) (ADVP (RB surgically)))))#
+705	undercut	cut	obliquely	(S1 (S (VP (VB cut) (ADVP (RB obliquely)) (PP (IN into) (PRN (-LRB- -LRB-) (NP (DT a) (NN tree)) (-RRB- -RRB-)) (PP (IN below) (NP (DT the) (JJ main) (NN cut))) (CC and) (PP (IN on) (NP (NP (DT the) (NN side)) (SBAR (WHPP (IN toward) (WHNP (WDT which))) (S (NP (DT the) (NN tree)) (VP (MD will) (VP (VB fall)))))))))))#
+706	snick	cut	slightly	(S1 (S (VP (VB cut) (ADVP (RB slightly)) (, ,) (PP (IN with) (NP (DT a) (NN razor))))))#
+707	rough-hew	hew	roughly	(S1 (S (VP (VB hew) (ADVP (RB roughly)) (, ,) (PP (IN without) (S (VP (VBG finishing) (NP (DT the) (NN surface))))))))#
+708	roughcast	hew	roughly	(S1 (S (VP (VB hew) (ADVP (RB roughly)) (, ,) (PP (IN without) (S (VP (VBG finishing) (NP (DT the) (NN surface))))))))#
+709	ruck	drawn	together	(S1 (S (VP (VB become) (VP (VBN wrinkled) (CC or) (VBN drawn) (ADVP (RB together))))))#
+710	convolve	twist	together	(S1 (S (VP (VB curl) (, ,) (VB wind) (, ,) (CC or) (VBP twist) (ADVP (RB together)))))#
+711	retie	tie	again	(S1 (S (VP (VB tie) (ADVP (RB again) (CC or) (RB anew)))))#
+712	hog-tie	tie	together	(S1 (S (VP (VB tie) (ADVP (RB together)) (NP (NP (NN somebody) (POS 's)) (NNS limbs)))))#
+713	join	come	together	(S1 (S (VP (VP (VB make) (NP (NN contact))) (CC or) (VP (VB come) (ADVP (RB together))))))#
+714	conjoin	come	together	(S1 (S (VP (VP (VB make) (NP (NN contact))) (CC or) (VP (VB come) (ADVP (RB together))))))#
+715	mismatch	match	badly	(S1 (S (S (VP (VB match) (ADVP (RB badly)))) (: ;) (S (VP (VB match) (NP (NP (CD two) (NNS objects)) (CC or) (NP (NP (NNS people)) (SBAR (WHNP (WDT that)) (S (VP (VBP do) (RB not) (VP (VB go) (ADVP (RB together))))))))))))#
+716	fair	blend	smoothly	(S1 (S (VP (VB join) (SBAR (IN so) (IN that) (S (NP (DT the) (JJ external) (NNS surfaces)) (VP (VB blend) (ADVP (RB smoothly))))))))#
+717	cement	make	fast	(S1 (S (VP (VB make) (ADVP (RB fast)) (SBAR (IN as) (IN if) (S (PP (IN with) (NP (NN cement))))))))#
+718	scrape	scratch	repeatedly	(S1 (S (VP (VBP scratch) (ADVP (RB repeatedly)))))#
+719	grate	scratch	repeatedly	(S1 (S (VP (VBP scratch) (ADVP (RB repeatedly)))))#
+720	ransack	search	thoroughly	(S1 (S (VP (VB search) (ADVP (RB thoroughly)))))#
+721	gash	cut	open	(S1 (S (VP (VB cut) (ADVP (RB open)))))#
+722	resew	sew	again	(S1 (S (VP (VB sew) (ADVP (RB again)))))#
+723	shut	move	so	(S1 (S (S (VP (VB move) (ADVP (RB so)) (SBAR (IN that) (S (NP (DT an) (NN opening) (CC or) (NN passage)) (VP (VBZ is) (VP (VBN obstructed))))))) (: ;) (S (VP (VB make) (VP (VBN shut))))))#
+724	reopen	open	again	(S1 (S (VP (VB open) (ADVP (RB again) (CC or) (RB anew)))))#
+725	attract	moving	away	(S1 (S (VP (VB exert) (NP (NP (DT a) (NN force)) (PP (IN on) (S (-LRB- -LRB-) (NP (DT a) (NN body)) (-RRB- -RRB-) (VP (VBG causing) (S (NP (PRP it)) (VP (TO to) (VP (VB approach) (CC or) (VB prevent) (NP (PRP it)) (PP (IN from) (S (VP (VBG moving) (ADVP (RB away)))))))))))))))#
+726	reseal	seal	again	(S1 (S (VP (VB seal) (ADVP (RB again)))))#
+727	repaint	paint	again	(S1 (S (VP (VB paint) (ADVP (RB again)))))#
+728	recoil	spring	back	(S1 (S (VP (VB spring) (ADVP (RB back)) (, ,) (PP (IN as) (PP (IN from) (NP (DT a) (JJ forceful) (NN thrust)))))))#
+729	slosh	splash	copiously	(S1 (S (VP (VB spill) (CC or) (VB splash) (ADVP (RB copiously) (CC or) (RB clumsily)))))#
+730	slush	splash	copiously	(S1 (S (VP (VB spill) (CC or) (VB splash) (ADVP (RB copiously) (CC or) (RB clumsily)))))#
+731	slather	spread	thickly	(S1 (S (VP (VB spread) (ADVP (RB thickly)))))#
+732	redeploy	deploy	anew	(S1 (S (VP (VB deploy) (ADVP (RB anew)))))#
+733	redistribute	distribute	anew	(S1 (S (VP (VB distribute) (ADVP (RB anew)))))#
+734	garner	get	together	(S1 (S (VP (VP (VB assemble)) (CC or) (VP (VB get) (ADVP (RB together))))))#
+735	collect	get	together	(S1 (S (VP (VP (VB assemble)) (CC or) (VP (VB get) (ADVP (RB together))))))#
+736	nickel-and-dime	accumulate	gradually	(S1 (S (VP (VBP accumulate) (ADVP (RB gradually)))))#
+737	compress	press	together	(S1 (S (VP (VB squeeze) (CC or) (VB press) (ADVP (RB together)))))#
+738	squeeze	press	together	(S1 (S (VP (VB squeeze) (CC or) (VB press) (ADVP (RB together)))))#
+739	compact	press	together	(S1 (S (VP (VB squeeze) (CC or) (VB press) (ADVP (RB together)))))#
+740	straiten	squeeze	together	(S1 (S (VP (VB squeeze) (ADVP (RB together)))))#
+741	deterge	wipe	away	(S1 (S (S (VP (VB wipe) (ADVP (RB away)))) (: ;) (S (VP (TO to) (VP (VB wash) (ADVP (RP off) (CC or) (RP out))))) (, ,) (S (VP (VB cleanse) (: ;) (ADVP (RB chiefly)) (PP (IN in) (NP (JJ medical) (NN use))) (: :) (S (VP (TO to) (VP (VB clear) (PRT (RP away)) (NP (NP (JJ foul) (NN matter)) (PP (IN from) (NP (DT the) (NN body)))))))))))#
+742	grit	clench	together	(S1 (S (VP (VB clench) (ADVP (RB together)))))#
+743	hug	fit	closely	(S1 (S (VP (VB fit) (ADVP (RB closely) (CC or) (RB tightly)))))#
+744	swat	hit	swiftly	(S1 (S (VP (VBN hit) (ADVP (RB swiftly)) (PP (IN with) (NP (DT a) (JJ violent) (NN blow))))))#
+745	sock	hit	hard	(S1 (S (VP (VB hit) (ADVP (RB hard)))))#
+746	bop	hit	hard	(S1 (S (VP (VB hit) (ADVP (RB hard)))))#
+747	whop	hit	hard	(S1 (S (VP (VB hit) (ADVP (RB hard)))))#
+748	whap	hit	hard	(S1 (S (VP (VB hit) (ADVP (RB hard)))))#
+749	bonk	hit	hard	(S1 (S (VP (VB hit) (ADVP (RB hard)))))#
+750	bash	hit	hard	(S1 (S (VP (VB hit) (ADVP (RB hard)))))#
+751	flog	beat	severely	(S1 (S (VP (VB beat) (ADVP (RB severely)) (PP (IN with) (NP (DT a) (NN whip) (CC or) (NN rod))))))#
+752	manhandle	handle	roughly	(S1 (S (VP (VB handle) (ADVP (RB roughly)))))#
+753	clout	strike	hard	(S1 (S (VP (VB strike) (ADVP (RB hard)) (, ,) (PP (ADVP (RB especially)) (IN with) (NP (DT the) (NN fist))))))#
+754	clobber	beat	thoroughly	(S1 (S (VP (VB beat) (ADVP (RB thoroughly) (CC and) (RB conclusively)) (PP (IN in) (NP (DT a) (NN competition) (CC or) (NN fight))))))#
+755	drub	beat	thoroughly	(S1 (S (VP (VB beat) (ADVP (RB thoroughly) (CC and) (RB conclusively)) (PP (IN in) (NP (DT a) (NN competition) (CC or) (NN fight))))))#
+756	thrash	beat	thoroughly	(S1 (S (VP (VB beat) (ADVP (RB thoroughly) (CC and) (RB conclusively)) (PP (IN in) (NP (DT a) (NN competition) (CC or) (NN fight))))))#
+757	thump	hit	hard	(S1 (VP (VBN hit) (ADVP (RB hard)) (PP (IN with) (NP (NP (DT the) (NN hand)) (, ,) (NP (NN fist)) (, ,) (CC or) (NP (DT some) (JJ heavy) (NN instrument))))))#
+758	slug	strike	heavily	(S1 (S (VP (VB strike) (ADVP (RB heavily)) (, ,) (PP (ADVP (RB especially)) (IN with) (NP (NP (DT the) (NN fist)) (CC or) (NP (DT a) (NN bat)))))))#
+759	slog	strike	heavily	(S1 (S (VP (VB strike) (ADVP (RB heavily)) (, ,) (PP (ADVP (RB especially)) (IN with) (NP (NP (DT the) (NN fist)) (CC or) (NP (DT a) (NN bat)))))))#
+760	whack	hit	hard	(S1 (S (VP (VB hit) (ADVP (RB hard)))))#
+761	wham	hit	hard	(S1 (S (VP (VB hit) (ADVP (RB hard)))))#
+762	thresh	beat	hard	(S1 (S (VP (VB give) (NP (NP (DT a) (NN thrashing)) (SBAR (S (VP (TO to) (VP (: ;) (VB beat) (ADVP (RB hard))))))))))#
+763	lam	beat	hard	(S1 (S (VP (VB give) (NP (NP (DT a) (NN thrashing)) (SBAR (S (VP (TO to) (VP (: ;) (VB beat) (ADVP (RB hard))))))))))#
+764	flail	beat	hard	(S1 (S (VP (VB give) (NP (NP (DT a) (NN thrashing)) (SBAR (S (VP (TO to) (VP (: ;) (VB beat) (ADVP (RB hard))))))))))#
+765	buffet	beat	repeatedly	(S1 (S (INTJ (VB strike)) (, ,) (VP (VBD beat) (ADVP (RB repeatedly)))))#
+766	fetch	take	back	(S1 (S (VP (VP (VB go) (CC or) (VB come) (NP (IN after))) (CC and) (VP (VB bring) (CC or) (VB take) (ADVP (RB back))))))#
+767	recapture	capture	again	(S1 (S (VP (VB capture) (ADVP (RB again)))))#
+768	brandish	swing	back	(S1 (S (VP (VB move) (CC or) (VB swing) (ADVP (RB back) (CC and) (RB forth)))))#
+769	abduct	pull	away	(S1 (S (VP (VB pull) (ADVP (RB away) (PP (IN from) (NP (DT the) (NN body)))))))#
+770	plunk	pull	lightly	(S1 (S (VP (VB pull) (ADVP (RB lightly) (CC but) (RB sharply)) (PP (IN with) (NP (DT a) (JJ plucking) (NN motion))))))#
+771	trail	drag	loosely	(S1 (S (S (VP (VBP drag) (ADVP (RB loosely)) (PP (IN along) (NP (DT a) (NN surface))))) (: ;) (S (VP (VBP allow) (S (VP (TO to) (VP (NN sweep) (NP (DT the) (NN ground)))))))))#
+772	tow	drag	behind	(S1 (S (VP (VB drag) (ADVP (RB behind)))))#
+773	hale	draw	slowly	(S1 (S (VP (VB draw) (ADVP (RB slowly) (CC or) (RB heavily)))))#
+774	upheave	lift	forcefully	(S1 (S (VP (VB lift) (ADVP (RB forcefully)) (PP (IN from) (PP (IN beneath))))))#
+775	twinge	squeeze	tightly	(S1 (S (VP (VBP squeeze) (ADVP (RB tightly)) (PP (IN between) (NP (DT the) (NNS fingers))))))#
+776	tweet	squeeze	tightly	(S1 (S (VP (VBP squeeze) (ADVP (RB tightly)) (PP (IN between) (NP (DT the) (NNS fingers))))))#
+777	filter	pass	through	(S1 (S (VP (VB pass) (ADVP (RB through)))))#
+778	resift	sift	anew	(S1 (S (VP (VB sift) (ADVP (RB anew)))))#
+779	entangle	twist	together	(S1 (S (VP (VBP twist) (ADVP (RB together) (CC or) (RB entwine)) (PP (IN into) (NP (DT a) (JJ confusing) (NN mass))))))#
+780	tangle	twist	together	(S1 (S (VP (VBP twist) (ADVP (RB together) (CC or) (RB entwine)) (PP (IN into) (NP (DT a) (JJ confusing) (NN mass))))))#
+781	putter	move	around	(S1 (S (VP (VB move) (ADVP (RB around)) (ADVP (RB aimlessly)))))#
+782	potter	move	around	(S1 (S (VP (VB move) (ADVP (RB around)) (ADVP (RB aimlessly)))))#
+783	dangle	hang	freely	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VP (VB dangle)) (CC or) (VP (VB hang) (ADVP (RB freely)))))))))#
+784	reload	load	anew	(S1 (S (VP (VB load) (ADVP (RB anew)))))#
+785	stow	packing	tightly	(S1 (S (VP (VB fill) (PP (IN by) (S (VP (VBG packing) (ADVP (RB tightly))))))))#
+786	park	place	temporarily	(S1 (S (VP (VB place) (ADVP (RB temporarily)))))#
+787	ensconce	fix	firmly	(S1 (S (VP (VB fix) (ADVP (RB firmly)))))#
+788	misplace	position	wrongly	(S1 (S (S (VP (VP (VB place)) (CC or) (VP (VB position) (ADVP (RB wrongly))))) (: ;) (S (VP (VB put) (PP (IN in) (NP (DT the) (JJ wrong) (NN position)))))))#
+789	hurtle	throw	forcefully	(S1 (S (VP (VB throw) (ADVP (RB forcefully)))))#
+790	shy	throw	quickly	(S1 (S (VP (VB throw) (ADVP (RB quickly)))))#
+791	propel	move	forward	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB move) (ADVP (RB forward)) (PP (IN with) (NP (NN force)))))))))#
+792	impel	move	forward	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB move) (ADVP (RB forward)) (PP (IN with) (NP (NN force)))))))))#
+793	toenail	drive	obliquely	(S1 (S (VP (VB drive) (ADVP (RB obliquely)))))#
+794	intertwine	twist	together	(S1 (S (VP (VB spin) (, ,) (VB wind) (, ,) (CC or) (VBP twist) (ADVP (RB together)))))#
+795	entwine	twist	together	(S1 (S (VP (VB spin) (, ,) (VB wind) (, ,) (CC or) (VBP twist) (ADVP (RB together)))))#
+796	enlace	twist	together	(S1 (S (VP (VB spin) (, ,) (VB wind) (, ,) (CC or) (VBP twist) (ADVP (RB together)))))#
+797	interlace	twist	together	(S1 (S (VP (VB spin) (, ,) (VB wind) (, ,) (CC or) (VBP twist) (ADVP (RB together)))))#
+798	untwine	twined	together	(S1 (S (VP (VB undo) (SBAR (WHNP (WP what)) (S (VP (VBZ has) (VP (VBN been) (VP (VBN twined) (ADVP (RB together))))))))))#
+799	unweave	woven	together	(S1 (S (VP (VB undo) (NP (NP (NNS strands)) (SBAR (WHNP (WDT that)) (S (VP (VBP have) (VP (VBN been) (VP (VBN woven) (ADVP (RB together)))))))))))#
+800	vandalize	destroy	wantonly	(S1 (S (VP (VB destroy) (ADVP (RB wantonly)) (, ,) (PP (IN as) (PP (IN through) (NP (NP (NNS acts)) (PP (IN of) (NP (NN vandalism)))))))))#
+801	vandalise	destroy	wantonly	(S1 (S (VP (VB destroy) (ADVP (RB wantonly)) (, ,) (PP (IN as) (PP (IN through) (NP (NP (NNS acts)) (PP (IN of) (NP (NN vandalism)))))))))#
+802	relace	lace	again	(S1 (S (VP (VB lace) (ADVP (RB again)))))#
+803	swamp	fill	quickly	(S1 (S (S (VP (VB fill) (ADVP (RB quickly)) (PP (IN beyond) (NP (NN capacity))))) (: ;) (S (ADVP (IN as) (PP (IN with) (NP (DT a) (NN liquid)))))))#
+804	malfunction	function	improperly	(S1 (S (VP (VB fail) (S (VP (TO to) (VP (VP (VB function)) (CC or) (VP (VB function) (ADVP (RB improperly)))))))))#
+805	misfunction	function	improperly	(S1 (S (VP (VB fail) (S (VP (TO to) (VP (VP (VB function)) (CC or) (VP (VB function) (ADVP (RB improperly)))))))))#
+806	lounge	recline	comfortably	(S1 (S (VP (VP (VB sit)) (CC or) (VP (VB recline) (ADVP (RB comfortably))))))#
+807	engraft	set	securely	(S1 (S (VP (VP (VB fix)) (CC or) (VP (VB set) (ADVP (RB securely) (CC or) (RB deeply))))))#
+808	imbed	set	securely	(S1 (S (VP (VP (VB fix)) (CC or) (VP (VB set) (ADVP (RB securely) (CC or) (RB deeply))))))#
+809	entrench	fix	firmly	(S1 (S (VP (VB fix) (ADVP (RB firmly) (CC or) (RB securely)))))#
+810	intrench	fix	firmly	(S1 (S (VP (VB fix) (ADVP (RB firmly) (CC or) (RB securely)))))#
+811	spring-clean	done	only	(S1 (S (ADVP (RB thoroughly)) (VP (VB clean) (NP (NP (DT the) (JJ entire) (NN house)) (, ,) (VP (ADVP (RB often)) (VBN done) (ADVP (RB only) (RB once)) (NP (DT a) (NN year)))))))#
+812	tarnish	used	metaphorically	(S1 (S (S (VP (VB make) (S (ADJP (JJ dirty) (CC or) (JJ spotty))))) (, ,) (SBAR (IN as) (FRAG (PP (IN by) (NP (NP (NN exposure)) (PP (TO to) (NP (NN air))))) (: ;) (ADVP (RB also)) (VP (VBN used) (ADVP (RB metaphorically)))))))#
+813	sprawl	spread	out	(S1 (S (VP (VB sit) (CC or) (VB lie) (PP (IN with) (NP (NP (NP (CD one) (POS 's)) (NNS limbs)) (VP (VBN spread) (ADVP (RB out))))))))#
+814	transect	divide	transversely	(S1 (S (VP (VP (VB cut) (PRT (RP across))) (CC or) (VP (VB divide) (ADVP (RB transversely))))))#
+815	sculpt	whittling	away	(S1 (S (VP (VB shape) (-LRB- -LRB-) (NP (NP (DT a) (NN material)) (PP (IN like) (NP (NN stone) (CC or) (NN wood)))) (-RRB- -RRB-) (PP (IN by) (S (VP (VBG whittling) (ADVP (RB away)) (PP (IN at) (NP (PRP it)))))))))#
+816	sculpture	whittling	away	(S1 (S (VP (VB shape) (-LRB- -LRB-) (NP (NP (DT a) (NN material)) (PP (IN like) (NP (NN stone) (CC or) (NN wood)))) (-RRB- -RRB-) (PP (IN by) (S (VP (VBG whittling) (ADVP (RB away)) (PP (IN at) (NP (PRP it)))))))))#
+817	lacerate	tear	irregularly	(S1 (S (VP (VB cut) (CC or) (VB tear) (ADVP (RB irregularly)))))#
+818	subvert	destroy	completely	(S1 (S (VP (VB destroy) (ADVP (RB completely)))))#
+819	wreck	break	forcefully	(S1 (S (VP (VB smash) (CC or) (VB break) (ADVP (RB forcefully)))))#
+820	wrack	break	forcefully	(S1 (S (VP (VB smash) (CC or) (VB break) (ADVP (RB forcefully)))))#
+821	replant	plant	again	(S1 (S (VP (VB plant) (ADVP (RB again) (CC or) (RB anew)))))#
+822	reinstall	install	again	(S1 (S (VP (VB install) (ADVP (RB again)))))#
+823	rend	torn	violently	(S1 (S (VP (VP (VB tear)) (CC or) (VP (VB be) (VP (VBN torn) (ADVP (RB violently)))))))#
+824	rupture	separate	abruptly	(S1 (S (VP (VP (VB separate)) (CC or) (VP (VB cause) (S (VP (TO to) (VP (VB separate) (ADVP (RB abruptly)))))))))#
+825	redeposit	deposit	anew	(S1 (S (VP (VB deposit) (ADVP (RB anew)))))#
+826	divaricate	spread	apart	(S1 (S (VP (VBP spread) (ADVP (RB apart)))))#
+827	shove	push	roughly	(S1 (S (VP (VB push) (ADVP (RB roughly)))))#
+828	reticulate	divide	so	(S1 (S (VP (VBP divide) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB form) (NP (DT a) (NN network)))))))))#
+829	coapt	fit	tightly	(S1 (S (VP (VP (VB fit) (ADVP (RB tightly))) (CC and) (VP (VB fasten)))))#
+830	beplaster	cover	conspicuously	(S1 (S (VP (VB cover) (ADVP (RB conspicuously) (CC or) (RB thickly)) (, ,) (PP (IN as) (PP (IN by) (S (VP (VBG pasting) (NP (NN something)) (PP (IN on)))))))))#
+831	bootleg	distribute	illegally	(S1 (S (VP (VB produce) (CC or) (VB distribute) (ADVP (RB illegally)))))#
+832	preconceive	conceive	beforehand	(S1 (S (VP (VB conceive) (ADVP (RB beforehand)))))#
+833	redesign	design	anew	(S1 (S (VP (VP (VB design) (ADVP (RB anew))) (, ,) (VP (VB make) (NP (DT a) (JJ new) (NN design)) (PP (IN for))))))#
+834	prearrange	arrange	beforehand	(S1 (S (VP (VB arrange) (ADVP (RB beforehand)))))#
+835	rebuild	build	again	(S1 (S (VP (VB build) (ADVP (RB again)))))#
+836	reassemble	assemble	once	(S1 (S (VP (VB assemble) (ADVP (RB once) (RB again)) (, ,) (PP (IN after) (S (VP (VBG taking) (NP (NN something)) (ADVP (RB apart))))))))#
+837	recast	model	anew	(S1 (S (VP (VP (VB cast)) (CC or) (VP (VB model) (ADVP (RB anew))))))#
+838	reforge	model	anew	(S1 (S (VP (VP (VB cast)) (CC or) (VP (VB model) (ADVP (RB anew))))))#
+839	preform	shape	beforehand	(S1 (S (VP (VP (VB form) (CC or) (VB shape) (ADVP (RB beforehand))) (CC or) (VP (VB determine) (NP (NP (DT the) (NN shape)) (PP (IN of) (ADVP (RB beforehand))))))))#
+840	precook	cook	beforehand	(S1 (S (VP (VB cook) (ADVP (RB beforehand)) (SBAR (IN so) (IN that) (S (NP (DT the) (JJ actual) (NN preparation)) (VP (MD will) (RB n't) (VP (VB take) (ADVP (RB long)))))))))#
+841	quilt	stitching	together	(S1 (S (VP (VB create) (PP (IN by) (S (VP (VBG stitching) (ADVP (RB together))))))))#
+842	rework	use	again	(S1 (S (VP (VB use) (ADVP (RB again)) (PP (IN in) (NP (JJ altered) (NN form))))))#
+843	streamline	contour	economically	(S1 (S (VP (VB contour) (ADVP (RB economically) (CC or) (RB efficiently)))))#
+844	calligraph	write	beautifully	(S1 (S (VP (VB write) (ADVP (RB beautifully) (CC and) (RB ornamentally)))))#
+845	doodle	draw	aimlessly	(S1 (S (S (VP (VB make) (NP (DT a) (NN doodle)))) (: ;) (S (VP (VB draw) (ADVP (RB aimlessly))))))#
+846	recopy	copy	again	(S1 (S (VP (VB copy) (ADVP (RB again)))))#
+847	cinematize	adopt	so	(S1 (S (VP (VP (VB make) (NP (DT a) (NN film)) (PP (IN of))) (CC or) (VP (VB adopt) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB make) (PP (IN into) (NP (DT a) (NN film)))))))))))#
+848	cinematise	adopt	so	(S1 (S (VP (VP (VB make) (NP (DT a) (NN film)) (PP (IN of))) (CC or) (VP (VB adopt) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB make) (PP (IN into) (NP (DT a) (NN film)))))))))))#
+849	scamp	perform	hastily	(S1 (S (VP (VB perform) (ADVP (RB hastily) (CC and) (RB carelessly)))))#
+850	grandstand	perform	ostentatiously	(S1 (S (VP (VB perform) (ADVP (RB ostentatiously)) (UCP (SBAR (IN in) (NN order) (S (VP (TO to) (VP (VB impress) (NP (DT the) (NN audience)))))) (CC and) (PP (IN with) (NP (NP (DT an) (NN eye)) (PP (TO to) (NP (DT the) (NN applause)))))))))#
+851	underperform	perform	too	(S1 (S (VP (VB perform) (ADVP (RB too) (RB rarely)))))#
+852	symphonize	sound	together	(S1 (S (VP (VB play) (CC or) (VB sound) (ADVP (RB together)) (, ,) (PP (IN in) (NP (NN harmony))))))#
+853	symphonise	sound	together	(S1 (S (VP (VB play) (CC or) (VB sound) (ADVP (RB together)) (, ,) (PP (IN in) (NP (NN harmony))))))#
+854	reduplicate	perform	again	(S1 (S (VP (VP (VB make) (CC or) (VB do)) (CC or) (VP (VB perform) (ADVP (RB again))))))#
+855	replicate	perform	again	(S1 (S (VP (VP (VB make) (CC or) (VB do)) (CC or) (VP (VB perform) (ADVP (RB again))))))#
+856	triplicate	reproduce	threefold	(S1 (S (VP (VB reproduce) (ADVP (RB threefold)))))#
+857	quadruplicate	reproduce	fourfold	(S1 (S (VP (VB reproduce) (ADVP (RB fourfold)))))#
+858	reprint	print	anew	(S1 (S (VP (VBP print) (ADVP (RB anew)))))#
+859	reissue	print	anew	(S1 (S (VP (VBP print) (ADVP (RB anew)))))#
+860	reinvent	create	anew	(S1 (S (VP (VP (VB create) (ADVP (RB anew))) (CC and) (VP (VB make) (PRT (RP over))))))#
+861	preassemble	be	easily	(S1 (S (VP (TO to) (VP (VB manufacture) (NP (NP (NNS sections)) (PP (IN of) (NP (-LRB- -LRB-) (NP (DT a) (NN building)) (-RRB- -RRB-)))) (, ,) (PP (ADVP (RB especially)) (IN in) (NP (DT a) (NN factory))) (, ,) (SBAR (RB so) (IN that) (S (NP (PRP they)) (VP (MD can) (VP (VB be) (ADVP (RB easily)) (VP (VP (VBN transported) (PP (TO to))) (CC and) (VP (ADVP (RB rapidly)) (VBN assembled) (PP (IN on) (NP (NP (DT a) (NN building) (NN site)) (PP (IN of) (NP (NNS buildings)))))))))))))))#
+862	misprint	print	incorrectly	(S1 (S (VP (VBP print) (ADVP (RB incorrectly)))))#
+863	scrawl	write	carelessly	(S1 (S (VP (VB write) (ADVP (RB carelessly)))))#
+864	enkindle	call	forth	(S1 (S (VP (VB call) (ADVP (RB forth)) (PRN (-LRB- -LRB-) (NP (NP (NNS emotions)) (, ,) (NP (NNS feelings)) (, ,) (CC and) (NP (NNS responses))) (-RRB- -RRB-)))))#
+865	kindle	call	forth	(S1 (S (VP (VB call) (ADVP (RB forth)) (PRN (-LRB- -LRB-) (NP (NP (NNS emotions)) (, ,) (NP (NNS feelings)) (, ,) (CC and) (NP (NNS responses))) (-RRB- -RRB-)))))#
+866	rekindle	arouse	again	(S1 (S (VP (VB arouse) (ADVP (RB again)))))#
+867	wow	impress	greatly	(S1 (S (VP (VB impress) (ADVP (RB greatly)))))#
+868	grudge	admit	unwillingly	(S1 (S (VP (VP (VB accept)) (CC or) (VP (VB admit) (ADVP (RB unwillingly))))))#
+869	hate	dislike	intensely	(S1 (S (S (VP (VB dislike) (ADVP (RB intensely)))) (: ;) (S (VP (VB feel) (NP (NN antipathy) (CC or) (NN aversion)) (PP (IN towards))))))#
+870	detest	dislike	intensely	(S1 (S (S (VP (VB dislike) (ADVP (RB intensely)))) (: ;) (S (VP (VB feel) (NP (NN antipathy) (CC or) (NN aversion)) (PP (IN towards))))))#
+871	adore	love	intensely	(S1 (S (VP (VB love) (ADVP (RB intensely)))))#
+872	idolize	love	unquestioningly	(S1 (S (S (VP (VP (VB love) (ADVP (RB unquestioningly) (CC and) (RB uncritically))) (CC or) (VP (TO to) (VP (NN excess))))) (: ;) (S (VP (VB venerate) (PP (IN as) (NP (DT an) (NN idol)))))))#
+873	idolise	love	unquestioningly	(S1 (S (S (VP (VP (VB love) (ADVP (RB unquestioningly) (CC and) (RB uncritically))) (CC or) (VP (TO to) (VP (NN excess))))) (: ;) (S (VP (VB venerate) (PP (IN as) (NP (DT an) (NN idol)))))))#
+874	worship	love	unquestioningly	(S1 (S (S (VP (VP (VB love) (ADVP (RB unquestioningly) (CC and) (RB uncritically))) (CC or) (VP (TO to) (VP (NN excess))))) (: ;) (S (VP (VB venerate) (PP (IN as) (NP (DT an) (NN idol)))))))#
+875	hero-worship	love	unquestioningly	(S1 (S (S (VP (VP (VB love) (ADVP (RB unquestioningly) (CC and) (RB uncritically))) (CC or) (VP (TO to) (VP (NN excess))))) (: ;) (S (VP (VB venerate) (PP (IN as) (NP (DT an) (NN idol)))))))#
+876	revere	love	unquestioningly	(S1 (S (S (VP (VP (VB love) (ADVP (RB unquestioningly) (CC and) (RB uncritically))) (CC or) (VP (TO to) (VP (NN excess))))) (: ;) (S (VP (VB venerate) (PP (IN as) (NP (DT an) (NN idol)))))))#
+877	terrify	frighten	greatly	(S1 (S (S (VP (VB fill) (PP (IN with) (NP (NN terror))))) (: ;) (S (VP (VB frighten) (ADVP (RB greatly))))))#
+878	terrorize	frighten	greatly	(S1 (S (S (VP (VB fill) (PP (IN with) (NP (NN terror))))) (: ;) (S (VP (VB frighten) (ADVP (RB greatly))))))#
+879	terrorise	frighten	greatly	(S1 (S (S (VP (VB fill) (PP (IN with) (NP (NN terror))))) (: ;) (S (VP (VB frighten) (ADVP (RB greatly))))))#
+880	preoccupy	occupy	urgently	(S1 (S (VP (VP (VB engage) (CC or) (VB engross) (NP (NP (DT the) (NN interest) (CC or) (NN attention)) (PP (IN of) (ADVP (RB beforehand))))) (CC or) (VP (VB occupy) (ADVP (RB urgently) (CC or) (RB obsessively))))))#
+881	hassle	annoy	continually	(S1 (S (VP (VB annoy) (ADVP (RB continually) (CC or) (RB chronically)))))#
+882	chivy	annoy	continually	(S1 (S (VP (VB annoy) (ADVP (RB continually) (CC or) (RB chronically)))))#
+883	chivvy	annoy	continually	(S1 (S (VP (VB annoy) (ADVP (RB continually) (CC or) (RB chronically)))))#
+884	chevy	annoy	continually	(S1 (S (VP (VB annoy) (ADVP (RB continually) (CC or) (RB chronically)))))#
+885	chevvy	annoy	continually	(S1 (S (VP (VB annoy) (ADVP (RB continually) (CC or) (RB chronically)))))#
+886	plague	annoy	continually	(S1 (S (VP (VB annoy) (ADVP (RB continually) (CC or) (RB chronically)))))#
+887	molest	annoy	continually	(S1 (S (VP (VB annoy) (ADVP (RB continually) (CC or) (RB chronically)))))#
+888	bemuse	confused	emotionally	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB be) (VP (VBN confused) (ADVP (RB emotionally)))))))))#
+889	fuss	worry	unnecessarily	(S1 (S (VP (VB worry) (ADVP (RB unnecessarily) (CC or) (RB excessively)))))#
+890	enrage	make	violently	(S1 (S (S (VP (VBN put) (PP (IN into) (NP (DT a) (NN rage))))) (: ;) (VP (VBP make) (ADVP (RB violently)) (ADJP (JJ angry)))))#
+891	frustrate	treat	cruelly	(S1 (S (VP (VB treat) (ADVP (RB cruelly)))))#
+892	titillate	excite	pleasurably	(S1 (S (VP (VB excite) (ADVP (RB pleasurably) (CC or) (RB erotically)))))#
+893	displease	give	displeasure	(S1 (VP (VB give) (ADVP (RB displeasure)) (PP (TO to))))#
+894	estrange	had	formerly	(S1 (S (VP (VB arouse) (NP (NN hostility) (CC or) (NN indifference)) (PP (IN in) (SBAR (WHADVP (WRB where)) (S (NP (EX there)) (VP (VBD had) (ADVP (RB formerly)) (VP (VBN been) (NP (NP (NN love)) (, ,) (NP (NN affection)) (, ,) (CC or) (NP (NN friendliness)))))))))))#
+895	alienate	had	formerly	(S1 (S (VP (VB arouse) (NP (NN hostility) (CC or) (NN indifference)) (PP (IN in) (SBAR (WHADVP (WRB where)) (S (NP (EX there)) (VP (VBD had) (ADVP (RB formerly)) (VP (VBN been) (NP (NP (NN love)) (, ,) (NP (NN affection)) (, ,) (CC or) (NP (NN friendliness)))))))))))#
+896	alien	had	formerly	(S1 (S (VP (VB arouse) (NP (NN hostility) (CC or) (NN indifference)) (PP (IN in) (SBAR (WHADVP (WRB where)) (S (NP (EX there)) (VP (VBD had) (ADVP (RB formerly)) (VP (VBN been) (NP (NP (NN love)) (, ,) (NP (NN affection)) (, ,) (CC or) (NP (NN friendliness)))))))))))#
+897	disaffect	had	formerly	(S1 (S (VP (VB arouse) (NP (NN hostility) (CC or) (NN indifference)) (PP (IN in) (SBAR (WHADVP (WRB where)) (S (NP (EX there)) (VP (VBD had) (ADVP (RB formerly)) (VP (VBN been) (NP (NP (NN love)) (, ,) (NP (NN affection)) (, ,) (CC or) (NP (NN friendliness)))))))))))#
+898	begrudge	wish	ill	(S1 (S (VP (VP (VB wish) (ADVP (RB ill))) (CC or) (VP (VB allow) (ADVP (RB unwillingly))))))#
+899	desire	want	strongly	(S1 (S (S (VP (VB feel) (CC or) (VB have) (NP (DT a) (NN desire)) (PP (IN for)))) (: ;) (S (VP (VB want) (ADVP (RB strongly))))))#
+900	hanker	desire	strongly	(S1 (S (VP (VBP desire) (ADVP (RB strongly) (CC or) (RB persistently)))))#
+901	long	desire	strongly	(S1 (S (VP (VBP desire) (ADVP (RB strongly) (CC or) (RB persistently)))))#
+902	revisit	visit	again	(S1 (S (VP (VB visit) (ADVP (RB again)))))#
+903	depart	move	away	(S1 (S (VP (VB move) (ADVP (RB away) (PP (IN from) (NP (DT a) (NN place)))) (PP (IN into) (NP (DT another) (NN direction))))))#
+904	re-enter	enter	again	(S1 (S (VP (VB enter) (ADVP (RB again)))))#
+905	migrate	settle	there	(S1 (S (VP (VP (VB move) (PP (IN from) (NP (CD one) (NN country) (CC or) (NN region))) (PP (TO to) (NP (DT another)))) (CC and) (VP (VB settle) (ADVP (RB there))))))#
+906	transmigrate	settle	there	(S1 (S (VP (VP (VB move) (PP (IN from) (NP (CD one) (NN country) (CC or) (NN region))) (PP (TO to) (NP (DT another)))) (CC and) (VP (VB settle) (ADVP (RB there))))))#
+907	trundle	move	heavily	(S1 (S (VP (VB move) (ADVP (RB heavily)))))#
+908	wobble	move	unsteadily	(S1 (S (VP (VB move) (ADVP (RB unsteadily)))))#
+909	coggle	move	unsteadily	(S1 (S (VP (VB move) (ADVP (RB unsteadily)))))#
+910	sidle	move	sideways	(S1 (S (VP (VB move) (ADVP (RB sideways)))))#
+911	sashay	move	sideways	(S1 (S (VP (VB move) (ADVP (RB sideways)))))#
+912	pronk	jump	straight	(S1 (S (VP (VBP jump) (ADVP (RB straight)) (ADVP (RB up)))))#
+913	skid	move	obliquely	(S1 (S (S (VP (VB move) (ADVP (RB obliquely) (CC or) (RB sideways)))) (, ,) (ADVP (RB usually)) (PP (IN in) (NP (DT an) (JJ uncontrolled) (NN manner)))))#
+914	slue	move	obliquely	(S1 (S (S (VP (VB move) (ADVP (RB obliquely) (CC or) (RB sideways)))) (, ,) (ADVP (RB usually)) (PP (IN in) (NP (DT an) (JJ uncontrolled) (NN manner)))))#
+915	slew	move	obliquely	(S1 (S (S (VP (VB move) (ADVP (RB obliquely) (CC or) (RB sideways)))) (, ,) (ADVP (RB usually)) (PP (IN in) (NP (DT an) (JJ uncontrolled) (NN manner)))))#
+916	slide	move	obliquely	(S1 (S (S (VP (VB move) (ADVP (RB obliquely) (CC or) (RB sideways)))) (, ,) (ADVP (RB usually)) (PP (IN in) (NP (DT an) (JJ uncontrolled) (NN manner)))))#
+917	side-slip	slide	sideways	(S1 (S (VP (VB slide) (ADVP (RB sideways)) (PP (IN through) (NP (DT the) (NN air))) (PP (IN in) (NP (NP (DT a) (JJ downward) (NN direction)) (PP (IN in) (NP (NP (DT an) (NN airplane)) (PP (IN along) (NP (DT an) (JJ inclined) (JJ lateral) (NN axis))))))))))#
+918	waft	carried	along	(S1 (S (VP (VB be) (VP (VBN driven) (CC or) (VBN carried) (ADVP (RB along)) (, ,) (PP (IN as) (PP (IN by) (NP (DT the) (NN air))))))))#
+919	rock	move	back	(S1 (S (S (VP (VB move) (ADVP (RB back) (CC and) (RB forth)))) (CC or) (ADVP (RB sideways))))#
+920	sway	move	back	(S1 (S (S (VP (VB move) (ADVP (RB back) (CC and) (RB forth)))) (CC or) (ADVP (RB sideways))))#
+921	swag	sway	heavily	(S1 (S (VP (VB sway) (ADVP (RB heavily) (CC or) (RB unsteadily)))))#
+922	oscillate	side	regularly	(S1 (S (VP (VB move) (CC or) (VB swing) (PP (IN from) (NP (NN side))) (S (VP (TO to) (VP (VB side) (ADVP (RB regularly))))))))#
+923	flicker	move	back	(S1 (S (VP (VB move) (ADVP (RB back) (CC and) (RB forth)) (ADVP (RB very) (RB rapidly)))))#
+924	flitter	move	back	(S1 (S (VP (VB move) (ADVP (RB back) (CC and) (RB forth)) (ADVP (RB very) (RB rapidly)))))#
+925	quiver	move	back	(S1 (S (VP (VB move) (ADVP (RB back) (CC and) (RB forth)) (ADVP (RB very) (RB rapidly)))))#
+926	throb	contract	rhythmically	(S1 (S (S (VP (VP (VB expand)) (CC and) (VP (VB contract) (ADVP (RB rhythmically))))) (: ;) (S (VP (VB beat) (ADVP (RB rhythmically))))))#
+927	palpitate	beat	rapidly	(S1 (S (VP (VB beat) (ADVP (RB rapidly)))))#
+928	teeter	move	unsteadily	(S1 (S (VP (VB move) (ADVP (RB unsteadily)) (, ,) (PP (IN with) (NP (DT a) (VBG rocking) (NN motion))))))#
+929	seesaw	move	unsteadily	(S1 (S (VP (VB move) (ADVP (RB unsteadily)) (, ,) (PP (IN with) (NP (DT a) (VBG rocking) (NN motion))))))#
+930	totter	move	unsteadily	(S1 (S (VP (VB move) (ADVP (RB unsteadily)) (, ,) (PP (IN with) (NP (DT a) (VBG rocking) (NN motion))))))#
+931	gallivant	wander	aimlessly	(S1 (S (VP (VBP wander) (ADVP (RB aimlessly)) (PP (IN in) (NP (NP (NN search)) (PP (IN of) (NP (NN pleasure))))))))#
+932	gad	wander	aimlessly	(S1 (S (VP (VBP wander) (ADVP (RB aimlessly)) (PP (IN in) (NP (NP (NN search)) (PP (IN of) (NP (NN pleasure))))))))#
+933	frolic	play	boisterously	(S1 (S (VP (VB play) (ADVP (RB boisterously)))))#
+934	lark	play	boisterously	(S1 (S (VP (VB play) (ADVP (RB boisterously)))))#
+935	rollick	play	boisterously	(S1 (S (VP (VB play) (ADVP (RB boisterously)))))#
+936	skylark	play	boisterously	(S1 (S (VP (VB play) (ADVP (RB boisterously)))))#
+937	disport	play	boisterously	(S1 (S (VP (VB play) (ADVP (RB boisterously)))))#
+938	sport	play	boisterously	(S1 (S (VP (VB play) (ADVP (RB boisterously)))))#
+939	cavort	play	boisterously	(S1 (S (VP (VB play) (ADVP (RB boisterously)))))#
+940	gambol	play	boisterously	(S1 (S (VP (VB play) (ADVP (RB boisterously)))))#
+941	buck	jump	vertically	(S1 (S (VP (VB jump) (ADVP (RB vertically)) (, ,) (PP (IN with) (NP (NP (NNS legs)) (ADJP (JJ stiff) (CC and) (JJ back) (JJ arched)))))))#
+942	scend	heave	upward	(S1 (S (VP (VB rise) (CC or) (VB heave) (ADVP (RB upward)) (PP (IN under) (NP (NP (DT the) (NN influence)) (PP (IN of) (NP (NP (DT a) (JJ natural) (NN force)) (PP (JJ such) (IN as) (NP (DT a) (NN wave))))))))))#
+943	crawl	move	slowly	(S1 (S (VP (VB move) (ADVP (RB slowly)) (: ;) (PP (IN in) (NP (NP (DT the) (NN case)) (PP (IN of) (NP (NP (NNS people) (CC or) (NNS animals)) (PP (IN with) (NP (NP (DT the) (NN body)) (PP (IN near) (NP (DT the) (NN ground))))))))))))#
+944	creep	move	slowly	(S1 (S (VP (VB move) (ADVP (RB slowly)) (: ;) (PP (IN in) (NP (NP (DT the) (NN case)) (PP (IN of) (NP (NP (NNS people) (CC or) (NNS animals)) (PP (IN with) (NP (NP (DT the) (NN body)) (PP (IN near) (NP (DT the) (NN ground))))))))))))#
+945	slither	move	unobtrusively	(S1 (S (VP (TO to) (VP (VP (VB pass)) (CC or) (VP (VB move) (ADVP (RB unobtrusively) (CC or) (RB smoothly)))))))#
+946	coast	move	effortlessly	(S1 (S (VP (VB move) (ADVP (RB effortlessly)) (: ;) (PP (IN by) (NP (NP (NN force)) (PP (IN of) (NP (NN gravity))))))))#
+947	glide	move	smoothly	(S1 (S (VP (VB move) (ADVP (RB smoothly) (CC and) (RB effortlessly)))))#
+948	tremble	jerk	quickly	(S1 (S (VP (VB move) (CC or) (VB jerk) (ADVP (RB quickly) (CC and) (RB involuntarily)) (ADVP (RB up) (CC and) (RB down) (CC or) (RB sideways)))))#
+949	judder	vibrate	rapidly	(S1 (S (VP (VP (VB shake)) (CC or) (VP (VB vibrate) (ADVP (RB rapidly) (CC and) (RB intensively))))))#
+950	capsize	overturn	accidentally	(S1 (S (VP (VB overturn) (ADVP (RB accidentally)))))#
+951	budge	move	very	(S1 (S (VP (VB move) (ADVP (RB very) (RB slightly)))))#
+952	breeze	proceed	quickly	(S1 (S (VP (TO to) (VP (VB proceed) (ADVP (RB quickly) (CC and) (RB easily))))))#
+953	jiggle	move	fro	(S1 (S (VP (VB move) (ADVP (TO to) (CC and) (RB fro)))))#
+954	wiggle	move	fro	(S1 (S (VP (VB move) (ADVP (TO to) (CC and) (RB fro)))))#
+955	luff	blowing	equally	(S1 (NP (NN flap) (SBAR (WHADVP (WRB when)) (S (NP (DT the) (NN wind)) (VP (VBZ is) (VP (VBG blowing) (ADVP (RB equally)) (PP (IN on) (NP (DT both) (NNS sides)))))))))#
+956	scurry	proceed	hurriedly	(S1 (S (VP (TO to) (VP (VP (VB move) (PP (IN about))) (CC or) (VP (VB proceed) (ADVP (RB hurriedly)))))))#
+957	scamper	proceed	hurriedly	(S1 (S (VP (TO to) (VP (VP (VB move) (PP (IN about))) (CC or) (VP (VB proceed) (ADVP (RB hurriedly)))))))#
+958	scuttle	proceed	hurriedly	(S1 (S (VP (TO to) (VP (VP (VB move) (PP (IN about))) (CC or) (VP (VB proceed) (ADVP (RB hurriedly)))))))#
+959	swim	be	afloat	(S1 (S (VP (VP (VB be) (ADVP (RB afloat) (RB either)) (PP (IN on) (CC or) (IN below) (NP (DT a) (JJ liquid) (NN surface)))) (CC and) (RB not) (VP (VB sink) (PP (TO to) (NP (DT the) (NN bottom)))))))#
+960	circumnavigate	travel	around	(S1 (S (VP (VP (VB travel) (ADVP (RB around))) (, ,) (CC either) (PP (IN by) (NP (NN plane) (CC or) (NN ship))))))#
+961	sneak	go	stealthily	(S1 (S (VP (TO to) (VP (VB go) (ADVP (RB stealthily) (CC or) (RB furtively))))))#
+962	pussyfoot	go	stealthily	(S1 (S (VP (TO to) (VP (VB go) (ADVP (RB stealthily) (CC or) (RB furtively))))))#
+963	ford	's	shallow	(S1 (S (VP (VB cross) (NP (NP (DT a) (NN river)) (SBAR (WHADVP (WRB where)) (S (NP (PRP it)) (VP (VBZ 's) (ADVP (RB shallow)))))))))#
+964	decussate	intersect	so	(S1 (S (VP (VB cross) (CC or) (VB intersect) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB form) (NP (DT a) (NN cross)))))))))#
+965	slink	walk	stealthily	(S1 (S (VP (VBP walk) (ADVP (RB stealthily)))))#
+966	prowl	move	about	(S1 (S (VP (VB move) (ADVP (ADVP (RB about) (RB in)) (CC or) (ADVP (RB as) (IN if))) (PP (IN in) (NP (DT a) (JJ predatory) (NN manner))))))#
+967	skulk	move	stealthily	(S1 (S (VP (VB move) (ADVP (RB stealthily)))))#
+968	toddle	walk	unsteadily	(S1 (S (VP (VBP walk) (ADVP (RB unsteadily)))))#
+969	dodder	walk	unsteadily	(S1 (S (VP (VBP walk) (ADVP (RB unsteadily)))))#
+970	waddle	walk	unsteadily	(S1 (S (VP (VBP walk) (ADVP (RB unsteadily)))))#
+971	footslog	walk	heavily	(S1 (S (VP (VB walk) (ADVP (RB heavily) (CC and) (RB firmly)) (, ,) (PP (PP (IN as) (SBAR (WHADVP (WRB when)) (FRAG (ADJP (JJ weary))))) (, ,) (CC or) (PP (IN through) (NP (NN mud)))))))#
+972	plod	walk	heavily	(S1 (S (VP (VB walk) (ADVP (RB heavily) (CC and) (RB firmly)) (, ,) (PP (PP (IN as) (SBAR (WHADVP (WRB when)) (FRAG (ADJP (JJ weary))))) (, ,) (CC or) (PP (IN through) (NP (NN mud)))))))#
+973	trudge	walk	heavily	(S1 (S (VP (VB walk) (ADVP (RB heavily) (CC and) (RB firmly)) (, ,) (PP (PP (IN as) (SBAR (WHADVP (WRB when)) (FRAG (ADJP (JJ weary))))) (, ,) (CC or) (PP (IN through) (NP (NN mud)))))))#
+974	clamber	climb	awkwardly	(S1 (S (VP (VB climb) (ADVP (RB awkwardly)) (, ,) (SBAR (IN as) (IN if) (S (PP (IN by) (S (VP (VBG scrambling)))))))))#
+975	shin	climb	awkwardly	(S1 (S (VP (VB climb) (ADVP (RB awkwardly)) (, ,) (SBAR (IN as) (IN if) (S (PP (IN by) (S (VP (VBG scrambling)))))))))#
+976	shinny	climb	awkwardly	(S1 (S (VP (VB climb) (ADVP (RB awkwardly)) (, ,) (SBAR (IN as) (IN if) (S (PP (IN by) (S (VP (VBG scrambling)))))))))#
+977	escalade	climb	up	(S1 (S (VP (VB climb) (ADVP (RB up) (CC and) (RB over)))))#
+978	stalk	walk	stiffly	(S1 (S (VP (VBP walk) (ADVP (RB stiffly)))))#
+979	flounce	walk	emphatically	(S1 (S (VP (VBP walk) (ADVP (RB emphatically)))))#
+980	exhibit	walk	ostentatiously	(S1 (S (VP (VBP walk) (ADVP (RB ostentatiously)))))#
+981	stomp	walk	heavily	(S1 (S (VP (VBP walk) (ADVP (RB heavily)))))#
+982	outrun	run	faster	(S1 (S (VP (VB run) (ADVP (RBR faster) (IN than)))))#
+983	sprint	run	very	(S1 (S (VP (VB run) (ADVP (RB very) (RB fast)) (, ,) (PP (ADVP (RB usually)) (IN for) (NP (DT a) (JJ short) (NN distance))))))#
+984	lope	run	easily	(S1 (S (VP (VB run) (ADVP (RB easily)))))#
+985	slouch	walk	slovenly	(S1 (S (VP (VBP walk) (ADVP (RB slovenly)))))#
+986	clomp	walk	clumsily	(S1 (S (VP (VBP walk) (ADVP (RB clumsily)))))#
+987	parallel-park	park	directly	(S1 (S (VP (VB park) (ADVP (RB directly)) (PP (IN behind) (NP (DT another) (NN vehicle))))))#
+988	schuss	ski	downhill	(S1 (S (VP (VB ski) (ADVP (RB downhill)))))#
+989	zoom	rise	rapidly	(S1 (S (VP (VB rise) (ADVP (RB rapidly)))))#
+990	taxi	travel	slowly	(S1 (S (VP (VB travel) (ADVP (RB slowly)))))#
+991	recommit	send	back	(S1 (S (VP (VB send) (ADVP (RB back) (PP (TO to) (NP (DT a) (NN committee)))))))#
+992	hedgehop	fly	very	(S1 (S (VP (VB fly) (ADVP (RB very) (RB close) (PP (TO to) (NP (DT the) (NN ground)))))))#
+993	flat-hat	fly	very	(S1 (S (VP (VB fly) (ADVP (RB very) (RB close) (PP (TO to) (NP (DT the) (NN ground)))))))#
+994	outride	ride	better	(S1 (S (VP (VB ride) (ADVP (ADVP (RBR better)) (, ,) (ADVP (RBR faster)) (, ,) (CC or) (ADVP (RBR further)) (IN than)))))#
+995	galumph	move	around	(S1 (S (VP (VB move) (ADVP (RB around)) (ADVP (RB heavily) (CC and) (RB clumsily)))))#
+996	vault	bound	vigorously	(S1 (VP (VBN bound) (ADVP (RB vigorously))))#
+997	hop-skip	jump	lightly	(S1 (S (VP (VBP jump) (ADVP (RB lightly)))))#
+998	caper	jump	about	(S1 (S (VP (VB jump) (ADVP (RB about) (RB playfully)))))#
+999	crash-dive	descend	steeply	(S1 (S (VP (VB descend) (ADVP (RB steeply) (CC and) (RB rapidly)))))#
+1000	chandelle	climb	suddenly	(S1 (S (VP (VB climb) (ADVP (RB suddenly) (CC and) (RB steeply)))))#
+1001	flop	fall	suddenly	(S1 (S (VP (VB fall) (ADVP (RB suddenly) (CC and) (RB abruptly)))))#
+1002	plummet	drop	sharply	(S1 (S (VP (VB drop) (ADVP (RB sharply)))))#
+1003	disembark	go	ashore	(S1 (S (VP (VB go) (ADVP (RB ashore)))))#
+1004	debark	go	ashore	(S1 (S (VP (VB go) (ADVP (RB ashore)))))#
+1005	hand	usher	somewhere	(S1 (S (VP (VP (VB guide) (CC or) (VB conduct)) (CC or) (VP (VB usher) (ADVP (RB somewhere))))))#
+1006	dispel	go	away	(S1 (S (S (VP (VBP force) (S (VP (TO to) (VP (VB go) (ADVP (RB away))))))) (: ;) (VP (VBD used) (NP (DT both)) (PP (IN with) (NP (JJ concrete) (CC and) (JJ metaphoric) (NNS meanings))))))#
+1007	banish	drive	away	(S1 (S (VP (VB drive) (ADVP (RB away)))))#
+1008	hound	chase	relentlessly	(S1 (S (VP (VB pursue) (CC or) (VB chase) (ADVP (RB relentlessly)))))#
+1009	hightail	leave	as	(S1 (S (VP (VB leave) (ADVP (ADVP (RB as) (RB fast)) (PP (IN as) (ADJP (JJ possible)))))))#
+1010	decamp	leave	suddenly	(S1 (S (VP (VBP leave) (ADVP (RB suddenly)))))#
+1011	vamoose	leave	suddenly	(S1 (S (VP (VBP leave) (ADVP (RB suddenly)))))#
+1012	scram	leave	immediately	(S1 (S (S (VP (VB leave) (ADVP (RB immediately)))) (: ;) (VP (VBD used) (ADVP (RB usually)) (PP (IN in) (NP (DT the) (JJ imperative) (NN form))))))#
+1013	tarry	leave	slowly	(S1 (S (VP (VB leave) (ADVP (RB slowly) (CC and) (RB hesitantly)))))#
+1014	linger	leave	slowly	(S1 (S (VP (VB leave) (ADVP (RB slowly) (CC and) (RB hesitantly)))))#
+1015	transgress	pass	beyond	(S1 (S (VP (VB pass) (ADVP (RB beyond)) (PRN (-LRB- -LRB-) (NP (NNS limits) (CC or) (NNS boundaries)) (-RRB- -RRB-)))))#
+1016	trespass	pass	beyond	(S1 (S (VP (VB pass) (ADVP (RB beyond)) (PRN (-LRB- -LRB-) (NP (NNS limits) (CC or) (NNS boundaries)) (-RRB- -RRB-)))))#
+1017	overstep	pass	beyond	(S1 (S (VP (VB pass) (ADVP (RB beyond)) (PRN (-LRB- -LRB-) (NP (NNS limits) (CC or) (NNS boundaries)) (-RRB- -RRB-)))))#
+1018	congregate	come	together	(S1 (S (S (VP (VBN come) (ADVP (RB together)))) (, ,) (ADVP (RB usually)) (PP (IN for) (NP (DT a) (NN purpose)))))#
+1019	reconvene	meet	again	(S1 (S (VP (VB meet) (ADVP (RB again)))))#
+1020	huddle	draw	together	(S1 (S (VP (NNP crowd) (CC or) (VP (VB draw) (ADVP (RB together))))))#
+1021	herd	move	together	(S1 (S (VP (VB move) (ADVP (RB together)) (, ,) (PP (IN like) (NP (DT a) (NN herd))))))#
+1022	diverge	draw	apart	(S1 (S (VP (VB move) (CC or) (VB draw) (ADVP (RB apart)))))#
+1023	swerve	turn	sharply	(S1 (S (S (VP (VB turn) (ADVP (RB sharply)))) (: ;) (S (VP (VB change) (NP (NN direction)) (ADVP (RB abruptly))))))#
+1024	trend	turn	sharply	(S1 (S (S (VP (VB turn) (ADVP (RB sharply)))) (: ;) (S (VP (VB change) (NP (NN direction)) (ADVP (RB abruptly))))))#
+1025	hunch	bending	forward	(S1 (S (VP (VB round) (NP (CD one) (POS 's)) (ADVP (RB back)) (PP (IN by) (S (VP (VP (VBG bending) (ADVP (RB forward))) (CC and) (VP (VBG drawing) (NP (DT the) (NNS shoulders)) (ADVP (RB forward)))))))))#
+1026	whirl	revolve	quickly	(S1 (S (VP (VB revolve) (ADVP (RB quickly) (CC and) (RB repeatedly)) (PP (IN around) (NP (NP (CD one) (POS 's)) (JJ own) (NN axis))))))#
+1027	gyrate	revolve	quickly	(S1 (S (VP (VB revolve) (ADVP (RB quickly) (CC and) (RB repeatedly)) (PP (IN around) (NP (NP (CD one) (POS 's)) (JJ own) (NN axis))))))#
+1028	bustle	move	energetically	(S1 (S (VP (VP (VB move)) (CC or) (VP (VB cause) (S (VP (TO to) (VP (VB move) (ADVP (RB energetically) (CC or) (RB busily)))))))))#
+1029	fidget	move	restlessly	(S1 (S (VP (VB move) (ADVP (RB restlessly)))))#
+1030	hotfoot	move	fast	(S1 (S (VP (VB move) (ADVP (RB fast)))))#
+1031	hie	move	fast	(S1 (S (VP (VB move) (ADVP (RB fast)))))#
+1032	shack	walk	draggingly	(S1 (S (VP (VP (VB move) (, ,) (VB proceed)) (, ,) (CC or) (VP (VB walk) (ADVP (RB draggingly) (CC or) (RB slowly))))))#
+1033	flinch	draw	back	(S1 (S (VP (VB draw) (ADVP (RB back)) (, ,) (PP (IN as) (PP (IN with) (NP (NN fear) (CC or) (NN pain)))))))#
+1034	funk	draw	back	(S1 (S (VP (VB draw) (ADVP (RB back)) (, ,) (PP (IN as) (PP (IN with) (NP (NN fear) (CC or) (NN pain)))))))#
+1035	cringe	draw	back	(S1 (S (VP (VB draw) (ADVP (RB back)) (, ,) (PP (IN as) (PP (IN with) (NP (NN fear) (CC or) (NN pain)))))))#
+1036	quail	draw	back	(S1 (S (VP (VB draw) (ADVP (RB back)) (, ,) (PP (IN as) (PP (IN with) (NP (NN fear) (CC or) (NN pain)))))))#
+1037	scoot	move	very	(S1 (S (VP (VB run) (CC or) (VB move) (ADVP (RB very) (RB quickly) (CC or) (RB hastily)))))#
+1038	shuttle	travel	back	(S1 (S (VP (VBP travel) (ADVP (RB back) (CC and) (RB forth)) (PP (IN between) (NP (CD two) (NNS points))))))#
+1039	throng	press	tightly	(S1 (S (VP (VP (VB press) (ADVP (RB tightly) (RB together))) (CC or) (VP (VB cram)))))#
+1040	mob	press	tightly	(S1 (S (VP (VP (VB press) (ADVP (RB tightly) (RB together))) (CC or) (VP (VB cram)))))#
+1041	deviate	turn	aside	(S1 (S (S (VP (VB turn) (ADVP (RB aside)))) (: ;) (S (VP (VB turn) (PRT (RP away)) (PP (IN from))))))#
+1042	trickle	flow	slowly	(S1 (S (S (VP (VB run) (CC or) (VB flow) (ADVP (RB slowly)))) (, ,) (PP (IN as) (PP (IN in) (NP (NNS drops))) (CC or) (PP (IN in) (NP (DT an) (JJ unsteady) (NN stream))))))#
+1043	seep	pass	gradually	(S1 (S (VP (VP (VB pass) (ADVP (RB gradually))) (CC or) (VP (VB leak) (PRT (RP through)) (NP (QP (CC or) (RB as)) (IN if)) (PP (IN through) (NP (JJ small) (NNS openings)))))))#
+1044	inch	advance	slowly	(S1 (S (VP (VB advance) (ADVP (RB slowly)) (, ,) (SBAR (IN as) (IN if) (S (PP (IN by) (NP (NNS inches))))))))#
+1045	abscond	run	away	(S1 (S (S (VP (VB run) (ADVP (RB away)))) (: ;) (S (ADVP (RB usually)) (VP (VBZ includes) (VP (VBG taking) (NP (NP (NN something)) (CC or) (NP (NP (NN somebody)) (ADVP (IN along)))))))))#
+1046	absquatulate	run	away	(S1 (S (S (VP (VB run) (ADVP (RB away)))) (: ;) (S (ADVP (RB usually)) (VP (VBZ includes) (VP (VBG taking) (NP (NP (NN something)) (CC or) (NP (NP (NN somebody)) (ADVP (IN along)))))))))#
+1047	skedaddle	run	away	(S1 (S (VP (VB run) (ADVP (RB away)) (, ,) (SBAR (IN as) (IN if) (S (PP (IN in) (NP (DT a) (NN panic))))))))#
+1048	dispread	spread	abroad	(S1 (S (VP (VBN spread) (ADVP (RB abroad) (CC or) (RB out)))))#
+1049	retransmit	transmit	again	(S1 (S (VP (VB transmit) (ADVP (RB again)))))#
+1050	peregrinate	travel	around	(S1 (S (S (VP (VB travel) (ADVP (RB around)) (, ,) (ADVP (RB through)))) (, ,) (CC or) (ADVP (RB over)) (, ,) (PP (ADVP (RB especially)) (IN on) (NP (NN foot)))))#
+1051	pronate	directed	downwards	(S1 (S (VP (VB turn) (NP (NP (DT the) (NN forearm)) (CC or) (NP (DT the) (NN hand))) (SBAR (IN so) (IN that) (S (NP (DT the) (NN palm)) (VP (VBZ is) (VP (VBN directed) (ADVP (RB downwards)))))))))#
+1052	outdistance	go	far	(S1 (S (VP (VB go) (ADVP (RB far) (RB ahead) (PP (IN of))))))#
+1053	distance	go	far	(S1 (S (VP (VB go) (ADVP (RB far) (RB ahead) (PP (IN of))))))#
+1054	career	move	headlong	(S1 (S (VP (VB move) (ADVP (RB headlong)) (PP (IN at) (NP (JJ high) (NN speed))))))#
+1055	manure	spread	manure	(S1 (S (VP (VBN spread) (ADVP (RB manure)) (, ,) (PP (IN as) (PP (IN for) (NP (NN fertilization)))))))#
+1056	hare	run	quickly	(S1 (S (VP (VB run) (ADVP (RB quickly)) (, ,) (PP (IN like) (NP (DT a) (NN hare))))))#
+1057	evert	turn	inside	(S1 (S (S (VP (VB turn) (ADVP (RB inside)) (ADVP (RB out)))) (: ;) (S (VP (VB turn) (NP (NP (DT the) (JJ inner) (NN surface)) (PP (IN of) (NP (NN outward))))))))#
+1058	supinate	is	downward	(S1 (S (VP (VP (VB turn) (-LRB- -LRB-) (NP (DT the) (NN hand) (CC or) (NN forearm)) (-RRB- -RRB-) (ADVP (RB so)) (SBAR (IN that) (S (NP (DT the) (NN back)) (VP (VBZ is) (ADVP (RB downward) (CC or) (RB backward)))))) (, ,) (CC or) (VP (VB turn) (PRT (RP out)) (PRN (-LRB- -LRB-) (NP (DT the) (NN leg)) (-RRB- -RRB-))))))#
+1059	jackrabbit	go	forward	(S1 (S (VP (VP (VB go) (ADVP (RB forward))) (CC or) (VP (VB start) (PP (IN with) (NP (DT a) (JJ fast) (, ,) (JJ sudden) (NN movement)))))))#
+1060	undergo	pass	through	(S1 (S (VP (VB pass) (ADVP (RB through)))))#
+1061	overexpose	expose	excessively	(S1 (S (VP (VB expose) (ADVP (RB excessively)))))#
+1062	underexpose	expose	insufficiently	(S1 (S (VP (VB expose) (ADVP (RB insufficiently)))))#
+1063	misperceive	perceive	incorrectly	(S1 (S (VP (VBP perceive) (ADVP (RB incorrectly)))))#
+1064	glimpse	see	briefly	(S1 (S (VP (VP (VB catch) (NP (NP (DT a) (NN glimpse)) (PP (IN of)))) (CC or) (VP (VB see) (ADVP (RB briefly))))))#
+1065	stink	smell	badly	(S1 (S (VP (VBP smell) (ADVP (RB badly) (CC and) (RB offensively)))))#
+1066	flaunt	display	proudly	(S1 (S (S (VP (VB display) (ADVP (RB proudly)))) (: ;) (S (VP (VB act) (ADVP (RB ostentatiously) (CC or) (RB pretentiously))))))#
+1067	ostentate	display	proudly	(S1 (S (S (VP (VB display) (ADVP (RB proudly)))) (: ;) (S (VP (VB act) (ADVP (RB ostentatiously) (CC or) (RB pretentiously))))))#
+1068	swank	display	proudly	(S1 (S (S (VP (VB display) (ADVP (RB proudly)))) (: ;) (S (VP (VB act) (ADVP (RB ostentatiously) (CC or) (RB pretentiously))))))#
+1069	rubberneck	stare	curiously	(S1 (S (S (VP (VB strain) (S (VP (TO to) (VP (VB watch)))))) (: ;) (S (VP (VB stare) (ADVP (RB curiously))))))#
+1070	rediscover	discover	again	(S1 (S (VP (VB discover) (ADVP (RB again)))))#
+1071	reorientate	orient	once	(S1 (S (VP (VB orient) (ADVP (RB once) (RB again)) (, ,) (PP (IN after) (NP (DT a) (NN disorientation))))))#
+1072	glimmer	shine	brightly	(S1 (S (VP (VBP shine) (ADVP (RB brightly)) (, ,) (PP (IN like) (NP (NP (DT a) (NN star)) (CC or) (NP (DT a) (NN light)))))))#
+1073	leer	look	suggestively	(S1 (S (S (VP (VB look) (ADVP (RB suggestively) (CC or) (RB obliquely)))) (: ;) (VP (VBP look) (CC or) (VBP gaze) (PP (IN with) (NP (DT a) (ADJP (JJ sly) (, ,) (JJ immodest) (, ,) (CC or) (JJ malign)) (NN expression))))))#
+1074	goggle	look	stupidly	(S1 (S (S (VP (VB look) (PP (IN with) (NP (NN amazement))))) (: ;) (S (VP (VB look) (ADVP (RB stupidly))))))#
+1075	gape	look	stupidly	(S1 (S (S (VP (VB look) (PP (IN with) (NP (NN amazement))))) (: ;) (S (VP (VB look) (ADVP (RB stupidly))))))#
+1076	gawp	look	stupidly	(S1 (S (S (VP (VB look) (PP (IN with) (NP (NN amazement))))) (: ;) (S (VP (VB look) (ADVP (RB stupidly))))))#
+1077	gawk	look	stupidly	(S1 (S (S (VP (VB look) (PP (IN with) (NP (NN amazement))))) (: ;) (S (VP (VB look) (ADVP (RB stupidly))))))#
+1078	peer	look	searchingly	(S1 (S (VP (VB look) (ADVP (RB searchingly)))))#
+1079	peal	sound	loudly	(S1 (S (VP (VB sound) (ADVP (RB loudly) (CC and) (RB sonorously)))))#
+1080	toll	ring	slowly	(S1 (S (VP (VB ring) (ADVP (RB slowly)))))#
+1081	bong	ring	loudly	(S1 (S (VP (VB ring) (ADVP (RB loudly) (CC and) (RB deeply)))))#
+1082	hark	used	mostly	(S1 (S (VP (VB listen) (: ;) (VP (VBN used) (ADVP (RB mostly)) (PP (IN in) (NP (DT the) (NN imperative)))))))#
+1083	harken	used	mostly	(S1 (S (VP (VB listen) (: ;) (VP (VBN used) (ADVP (RB mostly)) (PP (IN in) (NP (DT the) (NN imperative)))))))#
+1084	hearken	used	mostly	(S1 (S (VP (VB listen) (: ;) (VP (VBN used) (ADVP (RB mostly)) (PP (IN in) (NP (DT the) (NN imperative)))))))#
+1085	rescue	take	forcibly	(S1 (S (VP (VB take) (ADVP (RB forcibly)) (PP (IN from) (NP (JJ legal) (NN custody))))))#
+1086	repurchase	had	previously	(S1 (S (VP (VB buy) (SBAR (WHNP (WP what)) (S (VP (VBD had) (ADVP (RB previously)) (VP (VBN been) (VP (VBN sold) (, ,) (VBN lost) (, ,) (CC or) (VBN given) (ADVP (RB away))))))))))#
+1087	discard	cast	away	(S1 (S (VP (VP (VB throw)) (CC or) (VP (VB cast) (ADVP (RB away))))))#
+1088	reallot	allot	again	(S1 (S (VP (VB allot) (ADVP (RB again)))))#
+1089	reapportion	apportion	anew	(S1 (S (VP (VP (VB allocate)) (, ,) (VP (VB distribute)) (, ,) (CC or) (VP (VB apportion) (ADVP (RB anew))))))#
+1090	reallocate	apportion	anew	(S1 (S (VP (VP (VB allocate)) (, ,) (VP (VB distribute)) (, ,) (CC or) (VP (VB apportion) (ADVP (RB anew))))))#
+1091	remainder	sell	cheaply	(S1 (S (VP (VB sell) (ADVP (RB cheaply)) (PP (IN as) (NP (NNS remainders))))))#
+1092	regain	find	back	(S1 (S (S (VP (VP (VB get)) (CC or) (VP (VB find) (ADVP (RB back))))) (: ;) (S (VP (VB recover) (NP (NP (DT the) (NN use)) (PP (IN of)))))))#
+1093	husband	use	cautiously	(S1 (S (VP (VB use) (ADVP (RB cautiously) (CC and) (RB frugally)))))#
+1094	economize	use	cautiously	(S1 (S (VP (VB use) (ADVP (RB cautiously) (CC and) (RB frugally)))))#
+1095	economise	use	cautiously	(S1 (S (VP (VB use) (ADVP (RB cautiously) (CC and) (RB frugally)))))#
+1096	scrounge	look	around	(S1 (S (VP (VB collect) (CC or) (VB look) (ADVP (RB around)) (PP (IN for)) (PRN (-LRB- -LRB-) (NP (NN food)) (-RRB- -RRB-)))))#
+1097	reconquer	conquer	anew	(S1 (S (VP (VB conquer) (ADVP (RB anew)))))#
+1098	pinpoint	locate	exactly	(S1 (S (VP (VBP locate) (ADVP (RB exactly)))))#
+1099	outbid	bid	higher	(S1 (S (VP (VB bid) (ADVP (ADVP (RBR higher)) (PP (IN than) (NP (NNS others)))))))#
+1100	hog	take	greedily	(S1 (S (S (VP (VB take) (ADVP (RB greedily)))) (: ;) (S (VP (VB take) (NP (NP (JJR more)) (PP (IN than) (NP (NP (CD one) (POS 's)) (NN share))))))))#
+1101	hoard	gather	together	(S1 (S (VP (VP (VB get)) (CC or) (VP (VB gather) (ADVP (RB together))))))#
+1102	reimpose	impose	anew	(S1 (S (VP (VB impose) (ADVP (RB anew)))))#
+1103	disinherit	prevent	deliberately	(S1 (S (VP (VB prevent) (ADVP (RB deliberately)) (PRN (-LRB- -LRB-) (PP (IN as) (PP (IN by) (S (VP (VBG making) (NP (DT a) (NN will)))))) (-RRB- -RRB-)) (PP (IN from) (S (VP (VBG inheriting)))))))#
+1104	restock	stock	again	(S1 (S (VP (VB stock) (ADVP (RB again)))))#
+1105	borrow	get	temporarily	(S1 (S (VP (VB get) (ADVP (RB temporarily)))))#
+1106	lend	give	temporarily	(S1 (S (S (VP (VB give) (ADVP (RB temporarily)))) (: ;) (S (VP (VB let) (S (VP (VB have) (PP (IN for) (NP (DT a) (JJ limited) (NN time)))))))))#
+1107	loan	give	temporarily	(S1 (S (S (VP (VB give) (ADVP (RB temporarily)))) (: ;) (S (VP (VB let) (S (VP (VB have) (PP (IN for) (NP (DT a) (JJ limited) (NN time)))))))))#
+1108	amortize	liquidate	gradually	(S1 (S (VP (VB liquidate) (ADVP (RB gradually)))))#
+1109	amortise	liquidate	gradually	(S1 (S (VP (VB liquidate) (ADVP (RB gradually)))))#
+1110	redispose	dispose	anew	(S1 (S (VP (VB dispose) (ADVP (RB anew)))))#
+1111	readmit	admit	again	(S1 (S (VP (VB admit) (ADVP (RB again) (CC or) (RB anew)))))#
+1112	reelect	elect	again	(S1 (S (VP (VB elect) (ADVP (RB again)))))#
+1113	electioneer	work	actively	(S1 (S (VP (VB work) (ADVP (RB actively)) (PP (IN for) (NP (NP (DT a) (JJ political) (NN candidate)) (CC or) (NP (DT a) (NN party)))))))#
+1114	beaver	work	hard	(S1 (S (VP (VB work) (ADVP (RB hard)) (PP (IN on) (NP (NN something))))))#
+1115	collaborate	work	together	(S1 (S (VP (VB work) (ADVP (RB together)) (PP (IN on) (NP (NP (DT a) (JJ common) (NN enterprise)) (PP (IN of) (NP (NN project))))))))#
+1116	cooperate	work	together	(S1 (S (VP (VB work) (ADVP (RB together)) (PP (IN on) (NP (NP (DT a) (JJ common) (NN enterprise)) (PP (IN of) (NP (NN project))))))))#
+1117	coact	act	together	(S1 (S (VP (VB act) (ADVP (RB together)) (, ,) (PP (IN as) (PP (IN of) (NP (NNS organisms)))))))#
+1118	toil	work	hard	(S1 (S (VP (VB work) (ADVP (RB hard)))))#
+1119	travail	work	hard	(S1 (S (VP (VB work) (ADVP (RB hard)))))#
+1120	drudge	work	hard	(S1 (S (VP (VB work) (ADVP (RB hard)))))#
+1121	slave	work	very	(S1 (S (VP (VB work) (ADVP (RB very) (RB hard)) (, ,) (PP (IN like) (NP (DT a) (NN slave))))))#
+1122	misally	ally	inappropriately	(S1 (S (S (VP (VB make) (NP (DT a) (JJ bad) (NN alliance)))) (: ;) (S (VP (VB ally) (ADVP (RB inappropriately))))))#
+1123	reorganize	organize	anew	(S1 (S (VP (VB organize) (ADVP (RB anew)))))#
+1124	reorganise	organize	anew	(S1 (S (VP (VB organize) (ADVP (RB anew)))))#
+1125	expedite	process	fast	(S1 (S (VP (VB process) (ADVP (RB fast) (CC and) (RB efficiently)))))#
+1126	mismanage	manage	badly	(S1 (S (VP (VB manage) (ADVP (RB badly) (CC or) (RB incompetently)))))#
+1127	mishandle	manage	badly	(S1 (S (VP (VB manage) (ADVP (RB badly) (CC or) (RB incompetently)))))#
+1128	misconduct	manage	badly	(S1 (S (VP (VB manage) (ADVP (RB badly) (CC or) (RB incompetently)))))#
+1129	license	authorize	officially	(S1 (S (VP (VB authorize) (ADVP (RB officially)))))#
+1130	licence	authorize	officially	(S1 (S (VP (VB authorize) (ADVP (RB officially)))))#
+1131	decertify	be	no	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB be) (ADVP (RB no) (RB longer)) (VP (VBN approved) (CC or) (VBN accepted))))))))#
+1132	derecognize	be	no	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB be) (ADVP (RB no) (RB longer)) (VP (VBN approved) (CC or) (VBN accepted))))))))#
+1133	derecognise	be	no	(S1 (S (VP (VB cause) (S (VP (TO to) (VP (VB be) (ADVP (RB no) (RB longer)) (VP (VBN approved) (CC or) (VBN accepted))))))))#
+1134	rebury	bury	again	(S1 (S (VP (VB bury) (ADVP (RB again)))))#
+1135	malinger	be	ill	(S1 (S (VP (VB avoid) (NP (NNS responsibilities) (CC and) (NNS duties)) (, ,) (ADVP (RB e.g.)) (, ,) (PP (IN by) (S (VP (VBG pretending) (S (VP (TO to) (VP (VB be) (ADVP (RB ill)))))))))))#
+1136	filibuster	obstruct	deliberately	(S1 (S (VP (VBP obstruct) (ADVP (RB deliberately)) (PP (IN by) (NP (NN delaying))))))#
+1137	gerrymander	divide	unfairly	(S1 (X (S (VP (VBP divide) (ADVP (RB unfairly)))) (CC and) (PP (TO to) (NP (NP (CD one) (POS 's)) (NN advantage))) (: ;) (PP (IN of) (S (VP (VBG voting) (NP (NNS districts)))))))#
+1138	reunify	unify	again	(S1 (S (VP (VB unify) (ADVP (RB again)) (, ,) (PP (IN as) (PP (IN of) (NP (DT a) (NN country)))))))#
+1139	reunite	unify	again	(S1 (S (VP (VB unify) (ADVP (RB again)) (, ,) (PP (IN as) (PP (IN of) (NP (DT a) (NN country)))))))#
+1140	enroll	register	formally	(S1 (S (VP (VB register) (ADVP (RB formally)) (PP (IN as) (NP (DT a) (NN participant) (CC or) (NN member))))))#
+1141	enrol	register	formally	(S1 (S (VP (VB register) (ADVP (RB formally)) (PP (IN as) (NP (DT a) (NN participant) (CC or) (NN member))))))#
+1142	abrogate	revoke	formally	(S1 (S (VP (VB revoke) (ADVP (RB formally)))))#
+1143	jollify	celebrate	noisily	(S1 (S (S (VP (VBP celebrate) (ADVP (RB noisily)) (, ,) (S (ADVP (RB often)) (VP (VBG indulging) (PP (IN in) (NP (NN drinking))))))) (: ;) (S (VP (VBP engage) (PP (IN in) (NP (JJ uproarious) (NNS festivities)))))))#
+1144	imprison	lock	up	(S1 (S (VP (VB lock) (ADVP (RB up) (CC or) (RB confine)) (, ,) (PP (IN in) (CC or) (IN as) (PP (IN in) (NP (DT a) (NN jail)))))))#
+1145	incarcerate	lock	up	(S1 (S (VP (VB lock) (ADVP (RB up) (CC or) (RB confine)) (, ,) (PP (IN in) (CC or) (IN as) (PP (IN in) (NP (DT a) (NN jail)))))))#
+1146	immure	lock	up	(S1 (S (VP (VB lock) (ADVP (RB up) (CC or) (RB confine)) (, ,) (PP (IN in) (CC or) (IN as) (PP (IN in) (NP (DT a) (NN jail)))))))#
+1147	jail	lock	up	(S1 (S (VP (VB lock) (ADVP (RB up) (CC or) (RB confine)) (, ,) (PP (IN in) (CC or) (IN as) (PP (IN in) (NP (DT a) (NN jail)))))))#
+1148	gaol	lock	up	(S1 (S (VP (VB lock) (ADVP (RB up) (CC or) (RB confine)) (, ,) (PP (IN in) (CC or) (IN as) (PP (IN in) (NP (DT a) (NN jail)))))))#
+1149	amerce	imposed	arbitrarily	(S1 (S (VP (VB punish) (PP (IN by) (NP (NP (DT a) (NN fine)) (VP (VBN imposed) (ADVP (RB arbitrarily)) (PP (IN by) (NP (NP (DT the) (NN discretion)) (PP (IN of) (NP (DT the) (NN court)))))))))))#
+1150	victimize	punish	unjustly	(S1 (S (VP (VB punish) (ADVP (RB unjustly)))))#
+1151	victimise	punish	unjustly	(S1 (S (VP (VB punish) (ADVP (RB unjustly)))))#
+1152	wrong	treat	unjustly	(S1 (S (S (VP (VB treat) (ADVP (RB unjustly)))) (: ;) (S (VP (VB do) (ADVP (JJ wrong) (PP (TO to)))))))#
+1153	mistreat	treat	badly	(S1 (S (VP (VB treat) (ADVP (RB badly)))))#
+1154	maltreat	treat	badly	(S1 (S (VP (VB treat) (ADVP (RB badly)))))#
+1155	ill-use	treat	badly	(S1 (S (VP (VB treat) (ADVP (RB badly)))))#
+1156	ill-treat	treat	badly	(S1 (S (VP (VB treat) (ADVP (RB badly)))))#
+1157	misbehave	behave	badly	(S1 (S (VP (VB behave) (ADVP (RB badly)))))#
+1158	misdemean	behave	badly	(S1 (S (VP (VB behave) (ADVP (RB badly)))))#
+1159	footle	act	foolishly	(S1 (S (VP (VB act) (ADVP (RB foolishly)) (, ,) (PP (IN as) (PP (IN by) (S (VP (VBG talking) (NP (NN nonsense)))))))))#
+1160	indict	accuse	formally	(S1 (S (VP (VB accuse) (ADVP (RB formally)) (PP (IN of) (NP (DT a) (NN crime))))))#
+1161	meddle	interfere	unwantedly	(S1 (S (S (VP (VBP intrude) (PP (IN in) (NP (NP (JJ other) (NNS people) (POS 's)) (NNS affairs) (CC or) (NN business))))) (: ;) (S (VP (VBP interfere) (ADVP (RB unwantedly))))))#
+1162	reprieve	relieve	temporarily	(S1 (S (VP (VB relieve) (ADVP (RB temporarily)))))#
+1163	misdo	do	wrongly	(S1 (S (VP (VB do) (ADVP (RB wrongly) (CC or) (RB improperly)))))#
+1164	freelance	work	independently	(S1 (S (VP (VB work) (ADVP (RB independently)) (PP (CC and) (PP (IN on) (NP (JJ temporary) (NNS contracts))) (CONJP (RB rather) (IN than)) (PP (IN for) (NP (DT a) (JJ long-term) (NN employer)))))))#
+1165	misgovern	govern	badly	(S1 (S (VP (VB govern) (ADVP (RB badly)))))#
+1166	frivol	act	frivolously	(S1 (S (VP (VB act) (ADVP (RB frivolously)))))#
+1167	preexist	exist	beforehand	(S1 (S (VP (VB exist) (ADVP (RB beforehand) (CC or) (RB prior)) (PP (TO to) (NP (NP (DT a) (JJ certain) (NN point)) (PP (IN in) (NP (NN time))))))))#
+1168	coexist	exist	together	(S1 (S (VP (VB exist) (ADVP (RB together)))))#
+1169	unlive	live	so	(S1 (S (VP (VB live) (ADVP (RB so)) (SBAR (IN as) (S (VP (TO to) (VP (VB annul) (NP (DT some) (JJ previous) (NN behavior)))))))))#
+1170	outlive	live	longer	(S1 (S (VP (VB live) (ADVP (RBR longer) (IN than)))))#
+1171	outlast	live	longer	(S1 (S (VP (VB live) (ADVP (RBR longer) (IN than)))))#
+1172	resurge	rise	again	(S1 (S (VP (VB rise) (ADVP (RB again)))))#
+1173	overstay	stay	too	(S1 (S (VP (VB stay) (ADVP (RB too) (RB long)))))#
+1174	preponderate	weigh	more	(S1 (S (VP (VBP weigh) (ADVP (RBR more) (RB heavily)))))#
+1175	outbalance	weigh	more	(S1 (S (VP (VBP weigh) (ADVP (RBR more) (RB heavily)))))#
+1176	cohabit	live	together	(S1 (S (NP (NN share) (NN living) (NNS quarters)) (: ;) (ADVP (RB usually)) (VP (VBN said) (PP (IN of) (NP (NP (NNS people)) (SBAR (WHNP (WP who)) (S (VP (VP (VBP are) (RB not) (ADJP (JJ married))) (CC and) (VP (VBP live) (ADVP (RB together)) (PP (IN as) (NP (DT a) (NN couple))))))))))))#
+1177	co-occur	fall	together	(S1 (S (VP (VB go) (PP (IN with)) (, ,) (VP (VB fall) (ADVP (RB together))))))#
+1178	cooccur	fall	together	(S1 (S (VP (VB go) (PP (IN with)) (, ,) (VP (VB fall) (ADVP (RB together))))))#
+1179	overlap	coincide	partially	(S1 (S (VP (VB coincide) (ADVP (RB partially) (CC or) (RB wholly)))))#
+1180	fizzle	end	weakly	(S1 (S (VP (VB end) (ADVP (RB weakly)))))#
+1181	overspread	spread	across	(S1 (S (VP (VB spread) (ADVP (RB across) (CC or) (RB over)))))#
+1182	sojourn	reside	temporarily	(S1 (S (S (VP (VB spend) (NP (NP (DT a) (JJ certain) (NN length)) (PP (IN of) (NP (NN time)))))) (: ;) (S (VP (VB reside) (ADVP (RB temporarily))))))#
+1183	antecede	be	earlier	(S1 (S (S (VP (VB be) (ADVP (RBR earlier) (PP (IN in) (NP (NN time)))))) (: ;) (S (VP (VB go) (ADVP (RB back) (RB further))))))#
+1184	resplend	shine	brightly	(S1 (S (VP (VB be) (ADJP (JJ resplendent) (CC or) (JJ radiant)) (: ;) (S (VP (TO to) (VP (VB shine) (ADVP (RB brightly))))))))#
+1185	mizzle	rain	lightly	(S1 (S (VP (VB rain) (ADVP (RB lightly)))))#
+1186	reignite	ignite	anew	(S1 (S (VP (VB ignite) (ADVP (RB anew)) (, ,) (PP (IN as) (PP (IN of) (NP (NN something) (NN burning)))))))#
