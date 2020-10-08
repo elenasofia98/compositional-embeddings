@@ -12,11 +12,11 @@ from preprocessing.w2v_preprocessing_embedding import PreprocessingWord2VecEmbed
 from writer.writer_utility import ExampleWriter
 
 
-def write_w2v_exaples_from_to(paths, output_path):
+def write_w2v_exaples_from_to(paths, output_path, pretrained_model_path):
     # pretrained_layer_wiki = PreprocessingWord2VecEmbedding("data/enwiki_20180420_300d.txt", binary=False)
     writer = ExampleWriter(example_paths=paths, separator='\t', output_path=output_path,
                            preprocessor=PreprocessingWord2VecEmbedding(
-                               "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin",
+                               pretrained_model_path,
                                binary=True)
                            )
     writer.write_w2v_examples()
@@ -68,9 +68,8 @@ def save(model, test, training):
 
 base = "data/wordnet_definition/n/"
 input_paths = [base + x for x in os.listdir(base)]
-
 path = 'data/google_w2v_example.npz'
-write_w2v_exaples_from_to(input_paths, path)
+write_w2v_exaples_from_to(input_paths, path, "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin")
 
 
 dataset_data, dataset_target = load_dataset_from(path=path)
@@ -120,17 +119,3 @@ print(f'R, current model against additive model:{r}')
 
 
 save(model, (test_data, test_target), (train_data, train_target))
-
-"""
-predictions = model.predict(test_data)
-w2v_model = KeyedVectors.load_word2vec_format("data/GoogleNews-vectors-negative300.bin", binary=True)
-w2v_model.init_sims(replace=True)
-
-for i in range(len(predictions)):
-    closer_to_prediction = w2v_model.most_similar(positive=[predictions[i]])
-    print(closer_to_prediction)
-
-    target = w2v_model.most_similar(positive=[test_target[i]], topn=1)
-    print(f'target={target}')
-    print('---------------------------------------')
-"""
