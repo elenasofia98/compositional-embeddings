@@ -110,7 +110,7 @@ class Tester:
                                                  for x in self.embedded_oracle.oracle.correlations])
 
 
-oracle = CorrelationCouplesOracle('data/CS10_test/a/AN_CS10_test.txt')
+oracle = CorrelationCouplesOracle('data/CS10_test/ALL_CS10_test.txt')
 oracle.collect_correlations(CS10LineReader(), range(1, 6))
 
 print(oracle.correlations)
@@ -121,7 +121,7 @@ embedded_oracle = EmbeddedOracle(oracle,
 tester = Tester(embedded_oracle)
 evaluator = SimilarityEvaluator('cosine_similarity')
 
-model: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor_noun_only.h5')
+model: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor.h5')
 baseline: BaselineAdditiveModel = BaselineAdditiveModel()
 
 print(str(type(model)) + '-->')
