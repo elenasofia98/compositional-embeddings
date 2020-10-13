@@ -52,7 +52,6 @@ class ExampleWriter:
             with parser:
                 while True:
                     words = parser.get_example_from_line_next_line(index_range)
-                    print(words)
                     if not words:
                         break
                     examples += 1

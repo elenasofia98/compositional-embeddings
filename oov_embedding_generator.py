@@ -123,4 +123,4 @@ test_history = model.evaluate(x=test_data, y=test_target)
 r = compare_with_baseline(test_history[1], 'additive', test_data, test_target)
 print(f'R, current model against additive model:{r}')
 
-save('oov_sequential_predictor_noun_only.h5', model, (test_data, test_target), (train_data, train_target))
+save('oov_sequential_predictor.h5', model, (test_data, test_target), (train_data, train_target))

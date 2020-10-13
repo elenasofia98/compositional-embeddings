@@ -51,7 +51,6 @@ class PreprocessingWord2VecEmbedding:
 
     def get_vector_example(self, words):
         try:
-            print(words)
             target, data = words[0], words[1:]
             vectors_example = {'target': self.get_vector(target),
                                'data': [self.get_vector(word) for word in data]}

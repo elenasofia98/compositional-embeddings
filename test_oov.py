@@ -57,7 +57,7 @@ class TestWriter:
                         break
                     data += 1
                     try:
-                        example = self.preprocessor.get_vectors(words[1:])
+                        example = self.preprocessor.get_list_of_vectors(words[1:])
                         saver.add_data(example, words[0])
                     except OOVWordException:
                         errors += 1
@@ -86,8 +86,8 @@ def load_test_from(path):
     return dataset_data, goal_data
 
 
-path = 'data/oov_google_w2v_example.npz'
-write_w2v_test_from_to(['data/oov_definition.txt'], path)
+path = 'data/oov_google_w2v_oov.npz'
+write_w2v_test_from_to(['data/oov/oov_definition.txt'], path)
 
 dataset_data, goal_data = load_test_from(path=path)
 
