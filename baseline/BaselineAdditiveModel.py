@@ -1,5 +1,6 @@
 import numpy as np
 import tensorflow as tf
+from example_to_numpy.example_to_numpy import BadExampleException
 
 class BaselineAdditiveModel:
     def __init__(self):
@@ -7,6 +8,9 @@ class BaselineAdditiveModel:
         self.outputs = []
 
     def process_example(self, target, data):
+        if len(data) != 2:
+            raise BadExampleException
+
         self.targets.append(target)
         self.outputs.append(self.predict(data))
 
