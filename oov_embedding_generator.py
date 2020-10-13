@@ -66,11 +66,18 @@ def save(model_path, model, test, training):
     train_saver.save_numpy_examples('data/train_oov_sequential_predictor.npz')
 
 
-base = "data/wordnet_definition/n/"
-input_paths = [base + x for x in os.listdir(base)]
+def all_descendant_files_of(base):
+    input_paths = []
+    for root, dirs, files in os.walk(base, topdown=False):
+        input_paths.extend([os.path.join(root, x) for x in files])
+    return input_paths
+
+
+base = "data/wordnet_definition/"
+input_paths = all_descendant_files_of(base)
+
 path = 'data/google_w2v_example.npz'
 write_w2v_exaples_from_to(input_paths, path, "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin")
-
 
 dataset_data, dataset_target = load_dataset_from(path=path)
 (test_data, test_target), (train_data, train_target) = split_in(0.10, dataset_data, dataset_target)
@@ -81,7 +88,6 @@ print(f'v{train_data[0][1]}')
 print(np.linalg.norm(train_data[0][1]))
 
 print(train_target[0].shape)
-
 
 WORDS, FEATURES = 2, 300
 
@@ -116,6 +122,5 @@ test_history = model.evaluate(x=test_data, y=test_target)
 
 r = compare_with_baseline(test_history[1], 'additive', test_data, test_target)
 print(f'R, current model against additive model:{r}')
-
 
 save('oov_sequential_predictor_noun_only.h5', model, (test_data, test_target), (train_data, train_target))

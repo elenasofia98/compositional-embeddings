@@ -27,8 +27,14 @@ class OOVExampleException(Exception):
 
 """
 Given file's path containing embeddings in Word2Vec format (binary and not),
-the EmbeddingLayer provides embedding for a single word of for group of words:
-Getters raise exceptions defined before
+the PreprocessingWord2VeEmbedding provides embedding for a single word of for group of words:
+- get_vector method provides, if known, the embedding for a single word
+- get_vector_example provides embeddings for a list of word: the first word is meant to be target, second and third data
+- get_vector_example_couple works as get_vector_example does but returns for each list of words 2 examples:
+  in this method the order in which data words are given is ignored and is computed the first example as defined before 
+  and the second with data words in reverse order
+- get get_list_of_vectors returns embedding for each of the given words
+Getters raise exceptions defined before when one of the given word has no embedding
 """
 
 
@@ -63,3 +69,7 @@ class PreprocessingWord2VecEmbedding:
             return [vectors_example_0, vectors_example_1]
         except OOVWordException:
             raise OOVExampleException()
+
+    def get_list_of_vectors(self, words):
+        vectors = [self.get_vector(word) for word in words]
+        return vectors
