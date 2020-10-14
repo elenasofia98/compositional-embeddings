@@ -65,10 +65,12 @@ class EmbeddedOracle:
         delete = []
         for id in oracle.correlations:
             try:
-                self.oracle.correlations[id]['first_embedded'] = [preprocessor.get_vector(word=word) for word in
-                                                                  oracle.correlations[id]['first']]
-                self.oracle.correlations[id]['second_embedded'] = [preprocessor.get_vector(word=word) for word in
-                                                                   oracle.correlations[id]['second']]
+                self.oracle.correlations[id]['first_embedded'] = np.array([preprocessor.get_vector(word=word)
+                                                                           for word in
+                                                                           oracle.correlations[id]['first']])
+                self.oracle.correlations[id]['second_embedded'] = np.array([preprocessor.get_vector(word=word)
+                                                                            for word in
+                                                                            oracle.correlations[id]['second']])
             except OOVWordException:
                 delete.append(id)
 
@@ -85,38 +87,69 @@ class SimilarityEvaluator:
             raise ValueError('Unknown similarity function')
 
 
+class TestWriter:
+    def __init__(self, path, header):
+        self.create_file(path)
+        self.write_header(header)
+
+        self.separator = '\t'
+
+    def write_header(self, sequence):
+        self.file.write(sequence)
+
+    def create_file(self, path):
+        self.file = open(path, 'w+')
+
+    def write_line(self, index, oracle_line, correlations):
+        oracle_line = self.separator.join([str(x) for x in oracle_line])
+        correlations = self.separator.join([str(x) for x in correlations])
+
+        self.file.write(self.separator.join([str(index), oracle_line, correlations, '#\n']))
+
+    def write_lines(self, lines):
+        self.file.writelines(lines)
+
+    def release(self):
+        self.file.close()
+
+
 class Tester:
     def __init__(self, embedded_oracle: EmbeddedOracle):
         self.embedded_oracle = embedded_oracle
 
-    def test_similarity_of_predictions(self, model, evaluator: SimilarityEvaluator):
-        first_couples_predictions = model.predict(
-            np.array([np.array(self.embedded_oracle.oracle.correlations[x]['first_embedded'])
-                      for x in self.embedded_oracle.oracle.correlations]))
-        second_couple_predictions = model.predict(
-            np.array([np.array(self.embedded_oracle.oracle.correlations[x]['second_embedded'])
-                      for x in self.embedded_oracle.oracle.correlations]))
+    def test_similarity_of_predictions(self, model, evaluator: SimilarityEvaluator, save_on_file=True):
+        similarities = {}
+        header = '\t'.join(['id', 'first_couple', 'second_couple', 'oracle_value', 'model_value', '#\n'])
+        if save_on_file:
+            writer = TestWriter('data/correlations_' + str(type(model).__name__) + '.txt', header)
 
-        similarities = []
-        for i in range(0, len(first_couples_predictions)):
-            similarities.append(
-                evaluator.similarity_function(first_couples_predictions[i], second_couple_predictions[i]).numpy())
+        for i in self.embedded_oracle.oracle.correlations:
+            prediction_1 = model.predict(np.array([self.embedded_oracle.oracle.correlations[i]['first_embedded']]))
+            prediction_2 = model.predict(np.array([self.embedded_oracle.oracle.correlations[i]['second_embedded']]))
+            similarities[i] = evaluator.similarity_function(prediction_1, prediction_2).numpy()[0]
+
+            if save_on_file:
+                line = self.embedded_oracle.oracle.correlations[i]
+                writer.write_line(i, [line['first'], line['second']], [str(line['value']), str(similarities[i])])
+
+        if save_on_file:
+            writer.release()
+
         return similarities
 
-    def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator):
-        predicted_correlation = self.test_similarity_of_predictions(model, evaluator)
+    def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator,
+                                                          save_on_file=True):
+        similarities = self.test_similarity_of_predictions(model, evaluator, save_on_file)
 
-        return spearmanr(predicted_correlation, [self.embedded_oracle.oracle.correlations[x]['value']
-                                                 for x in self.embedded_oracle.oracle.correlations])
+        return spearmanr([similarities[x] for x in similarities], [self.embedded_oracle.oracle.correlations[x]['value']
+                                                                   for x in self.embedded_oracle.oracle.correlations])
 
 
 oracle = CorrelationCouplesOracle('data/CS10_test/ALL_CS10_test.txt')
 oracle.collect_correlations(CS10LineReader(), range(1, 6))
 
-print(oracle.correlations)
-embedded_oracle = EmbeddedOracle(oracle,
-                                 PreprocessingWord2VecEmbedding(
-                                     "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin", binary=True))
+embedded_oracle = EmbeddedOracle(oracle, PreprocessingWord2VecEmbedding(
+    "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin", binary=True))
 
 tester = Tester(embedded_oracle)
 evaluator = SimilarityEvaluator('cosine_similarity')
@@ -124,7 +157,8 @@ evaluator = SimilarityEvaluator('cosine_similarity')
 model: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor.h5')
 baseline: BaselineAdditiveModel = BaselineAdditiveModel()
 
-print(str(type(model)) + '-->')
-print(tester.spearman_correlation_model_predictions_and_oracle(model, evaluator))
-print(str(type(baseline)) + '-->')
-print(tester.spearman_correlation_model_predictions_and_oracle(baseline, evaluator))
+spearman_model = tester.spearman_correlation_model_predictions_and_oracle(model, evaluator)
+spearman_additive = tester.spearman_correlation_model_predictions_and_oracle(baseline, evaluator)
+
+print(str(type(model).__name__) + ' --> ' + str(spearman_model))
+print(str(type(baseline).__name__) + ' --> ' + str(spearman_additive))
