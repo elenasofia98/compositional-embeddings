@@ -66,11 +66,9 @@ class EmbeddedOracle:
         for id in oracle.correlations:
             try:
                 self.oracle.correlations[id]['first_embedded'] = np.array([preprocessor.get_vector(word=word)
-                                                                           for word in
-                                                                           oracle.correlations[id]['first']])
+                                                                for word in oracle.correlations[id]['first']])
                 self.oracle.correlations[id]['second_embedded'] = np.array([preprocessor.get_vector(word=word)
-                                                                            for word in
-                                                                            oracle.correlations[id]['second']])
+                                                                for word in oracle.correlations[id]['second']])
             except OOVWordException:
                 delete.append(id)
 
@@ -104,7 +102,7 @@ class TestWriter:
         oracle_line = self.separator.join([str(x) for x in oracle_line])
         correlations = self.separator.join([str(x) for x in correlations])
 
-        self.file.write(self.separator.join([str(index), oracle_line, correlations, '#\n']))
+        self.file.write(self.separator.join([str(index), oracle_line, correlations, '#\n']) )
 
     def write_lines(self, lines):
         self.file.writelines(lines)
@@ -124,8 +122,19 @@ class Tester:
             writer = TestWriter('data/correlations_' + str(type(model).__name__) + '.txt', header)
 
         for i in self.embedded_oracle.oracle.correlations:
-            prediction_1 = model.predict(np.array([self.embedded_oracle.oracle.correlations[i]['first_embedded']]))
-            prediction_2 = model.predict(np.array([self.embedded_oracle.oracle.correlations[i]['second_embedded']]))
+            if type(model) is BaselineAdditiveModel or type(model) is tf.keras.Sequential:
+                prediction_1 = model.predict(np.array([self.embedded_oracle.oracle.correlations[i]['first_embedded']]))
+                prediction_2 = model.predict(np.array([self.embedded_oracle.oracle.correlations[i]['second_embedded']]))
+            else:
+                prediction_1 = model.predict(
+                    [np.array([self.embedded_oracle.oracle.correlations[i]['first_embedded'][0]]),
+                     np.array([self.embedded_oracle.oracle.correlations[i]['first_embedded'][1]])
+                     ])
+                prediction_2 = model.predict(
+                    [np.array([self.embedded_oracle.oracle.correlations[i]['second_embedded'][0]]),
+                     np.array([self.embedded_oracle.oracle.correlations[i]['second_embedded'][1]])
+                     ])
+
             similarities[i] = evaluator.similarity_function(prediction_1, prediction_2).numpy()[0]
 
             if save_on_file:
@@ -137,15 +146,14 @@ class Tester:
 
         return similarities
 
-    def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator,
-                                                          save_on_file=True):
+    def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator, save_on_file=True):
         similarities = self.test_similarity_of_predictions(model, evaluator, save_on_file)
 
         return spearmanr([similarities[x] for x in similarities], [self.embedded_oracle.oracle.correlations[x]['value']
-                                                                   for x in self.embedded_oracle.oracle.correlations])
+                                                 for x in self.embedded_oracle.oracle.correlations])
 
 
-oracle = CorrelationCouplesOracle('data/CS10_test/ALL_CS10_test.txt')
+oracle = CorrelationCouplesOracle('data/CS10_test/AN_VO_CS10_test.txt')
 oracle.collect_correlations(CS10LineReader(), range(1, 6))
 
 embedded_oracle = EmbeddedOracle(oracle, PreprocessingWord2VecEmbedding(
@@ -154,11 +162,14 @@ embedded_oracle = EmbeddedOracle(oracle, PreprocessingWord2VecEmbedding(
 tester = Tester(embedded_oracle)
 evaluator = SimilarityEvaluator('cosine_similarity')
 
-model: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor.h5')
+sequential: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor.h5')
+functional = tf.keras.models.load_model('oov_functional_predictor.h5')
 baseline: BaselineAdditiveModel = BaselineAdditiveModel()
 
-spearman_model = tester.spearman_correlation_model_predictions_and_oracle(model, evaluator)
+spearman_sequential = tester.spearman_correlation_model_predictions_and_oracle(sequential, evaluator)
+spearman_functional = tester.spearman_correlation_model_predictions_and_oracle(functional, evaluator)
 spearman_additive = tester.spearman_correlation_model_predictions_and_oracle(baseline, evaluator)
 
-print(str(type(model).__name__) + ' --> ' + str(spearman_model))
+print(str(type(sequential).__name__) + ' --> ' + str(spearman_sequential))
+print(str(type(functional).__name__) + ' --> ' + str(spearman_functional))
 print(str(type(baseline).__name__) + ' --> ' + str(spearman_additive))

@@ -4,19 +4,15 @@ import random
 import os
 
 from tensorflow.python.keras.callbacks import History
+from baseline.BaselineAdditiveModel import BaselineAdditiveModel
+from writer.writer_utility import ExampleToNumpy, ExampleWriter, PreprocessingWord2VecEmbedding
 from gensim.models import KeyedVectors
 
-from baseline.BaselineAdditiveModel import BaselineAdditiveModel
-from example_to_numpy.example_to_numpy import ExampleToNumpy
-from preprocessing.w2v_preprocessing_embedding import PreprocessingWord2VecEmbedding
-from writer.writer_utility import ExampleWriter
 
-
-def write_w2v_exaples_from_to(paths, output_path, pretrained_model_path):
-    # pretrained_layer_wiki = PreprocessingWord2VecEmbedding("data/enwiki_20180420_300d.txt", binary=False)
+def write_w2v_exaples_from_to(paths, output_path):
     writer = ExampleWriter(example_paths=paths, separator='\t', output_path=output_path,
                            preprocessor=PreprocessingWord2VecEmbedding(
-                               pretrained_model_path,
+                               "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin",
                                binary=True)
                            )
     writer.write_w2v_examples()
@@ -54,8 +50,8 @@ def compare_with_baseline(model_mse, baseline_type, test_data, test_target):
         return 1 - model_mse / baseline.calculate_mse()
 
 
-def save(model_path, model, test, training):
-    model.save(model_path)
+def save(model, test, training):
+    model.save('oov_sequential_predictor.h5')
 
     (test_data, test_target) = test
     test_saver = ExampleToNumpy(data=test_data, target=test_target)
@@ -77,34 +73,32 @@ base = "data/wordnet_definition/"
 input_paths = all_descendant_files_of(base)
 
 path = 'data/google_w2v_example.npz'
-write_w2v_exaples_from_to(input_paths, path, "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin")
+write_w2v_exaples_from_to(input_paths, path)
+
 
 dataset_data, dataset_target = load_dataset_from(path=path)
 (test_data, test_target), (train_data, train_target) = split_in(0.10, dataset_data, dataset_target)
 
-print(train_data.shape)
-print(train_data[0].shape)
-print(f'v{train_data[0][1]}')
-print(np.linalg.norm(train_data[0][1]))
 
-print(train_target[0].shape)
+FEATURES = 300
 
-WORDS, FEATURES = 2, 300
+first_embedding = tf.keras.layers.Input(shape=(FEATURES, ))
+x1 = tf.keras.layers.Dense(300)(first_embedding)
+x1 = tf.keras.layers.Dense(500, activation='relu')(x1)
+x1 = tf.keras.layers.Dropout(rate=0.15)(x1)
+x1 = tf.keras.layers.Dense(400, activation='tanh')(x1)
 
-model = tf.keras.models.Sequential([
-    tf.keras.layers.Input(shape=(WORDS, FEATURES)),
-    tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(600),
-    tf.keras.layers.Dropout(rate=0.15),
-    tf.keras.layers.Dense(1500, activation='relu'),
-    tf.keras.layers.Dropout(rate=0.15),
-    tf.keras.layers.Dense(2500, activation='relu'),
-    tf.keras.layers.Dropout(rate=0.15),
-    tf.keras.layers.Dense(1000, activation='relu'),
-    tf.keras.layers.Dropout(rate=0.15),
-    tf.keras.layers.Dense(FEATURES)
-])
 
+second_embedding = tf.keras.layers.Input(shape=(FEATURES, ))
+x2 = tf.keras.layers.Dense(300)(second_embedding)
+x2 = tf.keras.layers.Dense(500, activation='relu')(x2)
+x2 = tf.keras.layers.Dropout(rate=0.15)(x2)
+x2 = tf.keras.layers.Dense(400, activation='tanh')(x2)
+
+x = tf.keras.layers.Add()([x1, x2])
+output = tf.keras.layers.Dense(FEATURES)(x)
+
+model = tf.keras.Model(inputs=[first_embedding, second_embedding], outputs=output)
 model.summary()
 
 model.compile(
@@ -116,11 +110,11 @@ model.compile(
 N_EPOCHS = 30
 BATCH_SIZE = 512
 
-history: History = model.fit(x=train_data, y=train_target, epochs=N_EPOCHS, batch_size=BATCH_SIZE)
+history: History = model.fit(x=[train_data[:, 0], train_data[:, 1]], y=train_target, epochs=N_EPOCHS, batch_size=BATCH_SIZE)
 
-test_history = model.evaluate(x=test_data, y=test_target)
+test_history = model.evaluate(x=[test_data[:, 0], test_data[:, 1]], y=test_target)
 
 r = compare_with_baseline(test_history[1], 'additive', test_data, test_target)
-print(f'R, current model against additive model:{r}')
+print(f'R model against additive model:{r}')
 
-save('oov_sequential_predictor.h5', model, (test_data, test_target), (train_data, train_target))
+model.save('oov_functional_predictor.h5')
