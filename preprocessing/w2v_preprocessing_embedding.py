@@ -41,7 +41,7 @@ Getters raise exceptions defined before when one of the given word has no embedd
 class PreprocessingWord2VecEmbedding:
     def __init__(self, pretrained_embeddinds_path: str, binary: bool):
         self.model = KeyedVectors.load_word2vec_format(pretrained_embeddinds_path, binary=binary)
-        self.model.init_sims(replace=True)
+        #self.model.init_sims(replace=True)
 
     def get_vector(self, word: str):
         try:

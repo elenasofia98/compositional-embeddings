@@ -37,6 +37,17 @@ class CS10LineReader(LineReader):
         except ValueError:
             raise UnexpectedValueInLine(line)
 
+class PedersenLineReader(LineReader):
+    def readline(self, line):
+        try:
+            value = float(line[4])
+            first = line[0:2]
+            second = line[2:4]
+
+            return value, first, second
+        except ValueError:
+            raise UnexpectedValueInLine(line)
+
 
 class CorrelationCouplesOracle(Oracle):
     def __init__(self, path):

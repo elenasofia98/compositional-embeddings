@@ -100,7 +100,7 @@ model: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_p
 predictions = model.predict(dataset_data)
 
 w2v_model = KeyedVectors.load_word2vec_format("data/pretrained_embeddings/GoogleNews-vectors-negative300.bin", binary=True)
-w2v_model.init_sims(replace=True)
+#w2v_model.init_sims(replace=True)
 
 for i in range(len(predictions)):
     closer_to_prediction = w2v_model.most_similar(positive=[predictions[i]])
