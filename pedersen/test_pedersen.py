@@ -3,6 +3,7 @@ from word_in_vocabulary import WNManager, Checker
 from nltk.corpus import wordnet as wn
 import random
 
+
 def pick_from(s1, wn_manager: WNManager, checker: Checker ):
     syns = s1.hypernyms() + s1.hyponyms() + s1.instance_hyponyms()
 
@@ -15,7 +16,6 @@ def pick_from(s1, wn_manager: WNManager, checker: Checker ):
             return s2, w2
 
     return None, None
-
 
 
 def oov_similarity(similarity_function, path):
