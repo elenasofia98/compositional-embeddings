@@ -16,6 +16,7 @@ class SynsetCouple:
         self.s2 = s2
         self.w2 = w2
 
+
 class Comparator:
     def __init__(self, couples: list, similarity_function):
         self.couples = couples
@@ -31,7 +32,7 @@ class Comparator:
         for couple in self.couples:
             if type(couple) is SynsetCouple:
                 similarities.append('\t'.join([couple.s1.name(), couple.s2.name(),
-                                               couple.w1, couple.w2, str(self.similarity_function(couple.s1, couple.s2)), '#\n']))
+                                    couple.w1, couple.w2, str(self.similarity_function(couple.s1, couple.s2)), '#\n']))
             else:
                 raise ValueError
         return similarities

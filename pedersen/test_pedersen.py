@@ -34,5 +34,10 @@ def oov_similarity(similarity_function, path):
     comparator = Comparator(couples, similarity_function)
     comparator.write_similarities(path)
 
+    """oov_pedersen = open('oov_pedersen.txt', 'w+')
+    for couple in couples:
+        oov_pedersen.write('\t'.join([couple.s1.name(), couple.w1, '\n']))
+    oov_pedersen.close()"""
+    
 
 oov_similarity(SimilarityFunction.lch, path='lch_oov.txt')
