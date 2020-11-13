@@ -3,6 +3,7 @@ from nltk.corpus.reader import Synset
 
 from enum import Enum
 
+
 class SimilarityFunction(Enum):
     path = wn.path_similarity
     lch = wn.lch_similarity
@@ -24,6 +25,8 @@ class Comparator:
 
     def write_similarities(self, path):
         output = open(path, 'w')
+        header = '\t'.join(['S_OOV', 'S2', 'OOV',  'W2', 'SIMILARITY', '\n'])
+        output.write(header)
         output.writelines(self.get_similarities())
         output.close()
 
