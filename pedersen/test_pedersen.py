@@ -61,12 +61,6 @@ def oov_similarity(similarity_function, path, similar=True):
     comparator = Comparator(couples, similarity_function)
     comparator.write_similarities(path)
 
-    """oov_pedersen = open('oov_pedersen.txt', 'w+')
-    for couple in couples:
-        oov_pedersen.write('\t'.join([couple.s1.name(), couple.w1, '\n']))
-    oov_pedersen.close()
-    """
 
-
-#oov_similarity(SimilarityFunction.lch, path='../data/pedersen_test/lch_oov.txt', similar=True)
-oov_similarity(SimilarityFunction.lch, path='../data/pedersen_test/negative_lch_oov.txt',  similar=False)
+oov_similarity(SimilarityFunction.wup, path='../data/pedersen_test/positive_wup_oov.txt', similar=True)
+oov_similarity(SimilarityFunction.wup, path='../data/pedersen_test/negative_wup_oov.txt',  similar=False)

@@ -78,9 +78,11 @@ class CS10EmbeddedOracle:
         for id in oracle.correlations:
             try:
                 self.oracle.correlations[id]['first_embedded'] = np.array([preprocessor.get_vector(word=word)
-                                                                for word in oracle.correlations[id]['first']])
+                                                                           for word in
+                                                                           oracle.correlations[id]['first']])
                 self.oracle.correlations[id]['second_embedded'] = np.array([preprocessor.get_vector(word=word)
-                                                                for word in oracle.correlations[id]['second']])
+                                                                            for word in
+                                                                            oracle.correlations[id]['second']])
             except OOVWordException:
                 delete.append(id)
 
@@ -97,8 +99,10 @@ class PetersenEmbeddedOracle:
         for id in oracle.correlations:
             try:
                 self.oracle.correlations[id]['first_embedded'] = np.array([preprocessor.get_vector(word=word)
-                                                                for word in oracle.correlations[id]['first']])
-                self.oracle.correlations[id]['second_embedded'] = preprocessor.get_vector(word=oracle.correlations[id]['second'])
+                                                                           for word in
+                                                                           oracle.correlations[id]['first']])
+                self.oracle.correlations[id]['second_embedded'] = preprocessor.get_vector(
+                    word=oracle.correlations[id]['second'])
             except OOVWordException:
                 delete.append(id)
 
@@ -132,7 +136,7 @@ class TestWriter:
         oracle_line = self.separator.join([str(x) for x in oracle_line])
         correlations = self.separator.join([str(x) for x in correlations])
 
-        self.file.write(self.separator.join([str(index), oracle_line, correlations, '#\n']) )
+        self.file.write(self.separator.join([str(index), oracle_line, correlations, '#\n']))
 
     def write_lines(self, lines):
         self.file.writelines(lines)
@@ -144,6 +148,7 @@ class TestWriter:
 class Tester:
     def test_similatity_of_predictions(self, model, evaluator: SimilarityEvaluator, save_on_file=True):
         pass
+
     def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator,
                                                           save_on_file=True):
         pass
@@ -184,11 +189,12 @@ class CS10Tester(Tester):
 
         return similarities
 
-    def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator, save_on_file=True):
+    def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator,
+                                                          save_on_file=True):
         similarities = self.test_similarity_of_predictions(model, evaluator, save_on_file)
 
         return spearmanr([similarities[x] for x in similarities], [self.embedded_oracle.oracle.correlations[x]['value']
-                                                 for x in self.embedded_oracle.oracle.correlations])
+                                                                   for x in self.embedded_oracle.oracle.correlations])
 
 
 class PetersenTester(Tester):
@@ -220,11 +226,22 @@ class PetersenTester(Tester):
 
         return similarities
 
-    def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator, save_on_file=True):
+    def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator,
+                                                          save_on_file=True):
         similarities = self.test_similarity_of_predictions(model, evaluator, save_on_file)
         return spearmanr([similarities[x] for x in similarities], [self.embedded_oracle.oracle.correlations[x]['value']
-                                                 for x in self.embedded_oracle.oracle.correlations])
+                                                                   for x in self.embedded_oracle.oracle.correlations])
 
+
+def append(file1, file2, ouput):
+    with open(file1, 'r') as f1:
+        with open(file2, 'r') as f2:
+            out = open(ouput, 'w')
+            l1 = f1.readlines()
+            l2 = f2.readlines()
+
+            out.writelines(l1 + l2)
+            out.close()
 
 
 def merge(definitions_path, oov_path, output_path):
@@ -244,6 +261,15 @@ def merge(definitions_path, oov_path, output_path):
                 i += 1
             output.close()
 
+
+def write_test_targets(positives_input_path, negatives_input_path, output_path):
+    positive_def = 'data/pedersen_test/positives_def.txt'
+    negative_def = 'data/pedersen_test/negatives_def.txt'
+    merge('data/pedersen_test/oov_pedersen_definition.txt', positives_input_path, positive_def)
+    merge('data/pedersen_test/oov_pedersen_definition.txt', negatives_input_path, negative_def)
+    append(positive_def, negative_def, output_path)
+
+
 """
 oracle = CorrelationCouplesOracle('data/CS10_test/AN_VO_CS10_test.txt')
 oracle.collect_correlations(CS10LineReader(), range(1, 6))
@@ -252,9 +278,9 @@ embedded_oracle = CS10EmbeddedOracle(oracle, PreprocessingWord2VecEmbedding(
     "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin", binary=True))
 """
 
-output_path = 'data/pedersen_test/lch_oov_def.txt'
-merge('data/pedersen_test/oov_pedersen_definition.txt', 'data/pedersen_test/lch_oov.txt', output_path)
-"""merge sui negativi!!"""
+output_path = 'data/pedersen_test/wup_oov_def.txt'
+write_test_targets(positives_input_path='data/pedersen_test/positive_wup_oov.txt',
+                   negatives_input_path='data/pedersen_test/negative_wup_oov.txt', output_path=output_path)
 
 oracle = CorrelationCouplesOracle(output_path)
 oracle.collect_correlations(PedersenLineReader(), range(0, 13))
