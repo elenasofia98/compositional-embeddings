@@ -2,12 +2,19 @@ from nltk.corpus import wordnet as wn
 from nltk.corpus.reader import Synset
 
 from enum import Enum
+from nltk.corpus import wordnet_ic
+import nltk
+nltk.download('wordnet_ic')
 
 
 class SimilarityFunction(Enum):
     path = wn.path_similarity
     lch = wn.lch_similarity
     wup = wn.wup_similarity
+
+    res = lambda x, y: wn.res_similarity(x, y, wordnet_ic.ic('ic-brown.dat'))
+    jcn = lambda x, y: wn.jcn_similarity(x, y, wordnet_ic.ic('ic-brown.dat'))
+    lin = lambda x, y: wn.lin_similarity(x, y, wordnet_ic.ic('ic-brown.dat'))
 
 
 class SynsetCouple:

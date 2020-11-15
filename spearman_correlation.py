@@ -278,9 +278,9 @@ embedded_oracle = CS10EmbeddedOracle(oracle, PreprocessingWord2VecEmbedding(
     "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin", binary=True))
 """
 
-output_path = 'data/pedersen_test/wup_oov_def.txt'
-write_test_targets(positives_input_path='data/pedersen_test/positive_wup_oov.txt',
-                   negatives_input_path='data/pedersen_test/negative_wup_oov.txt', output_path=output_path)
+output_path = 'data/pedersen_test/path_oov_def.txt'
+write_test_targets(positives_input_path='data/pedersen_test/positive_path_oov.txt',
+                   negatives_input_path='data/pedersen_test/negative_path_oov.txt', output_path=output_path)
 
 oracle = CorrelationCouplesOracle(output_path)
 oracle.collect_correlations(PedersenLineReader(), range(0, 13))
