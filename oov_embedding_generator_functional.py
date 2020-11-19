@@ -41,13 +41,13 @@ def split_in(split_test: float, dataset_data, dataset_target):
     return (test_data, test_target), (train_data, train_target)
 
 
-def compare_with_baseline(model_mse, baseline_type, test_data, test_target):
+"""def compare_with_baseline(model_mse, baseline_type, test_data, test_target):
     if baseline_type == 'additive':
         baseline = BaselineAdditiveModel()
         for i in range(0, len(test_data)):
             baseline.process_example(target=test_target[i], data=test_data[i])
 
-        return 1 - model_mse / baseline.calculate_mse()
+        return 1 - model_mse / baseline.calculate_mse()"""
 
 
 def save(model, test, training):
@@ -114,7 +114,7 @@ history: History = model.fit(x=[train_data[:, 0], train_data[:, 1]], y=train_tar
 
 test_history = model.evaluate(x=[test_data[:, 0], test_data[:, 1]], y=test_target)
 
-r = compare_with_baseline(test_history[1], 'additive', test_data, test_target)
-print(f'R model against additive model:{r}')
+"""r = compare_with_baseline(test_history[1], 'additive', test_data, test_target)
+print(f'R model against additive model:{r}')"""
 
 model.save('oov_functional_predictor.h5')

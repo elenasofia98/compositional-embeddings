@@ -3,6 +3,7 @@ from word_in_vocabulary import WNManager, Checker
 from nltk.corpus import wordnet as wn
 import random
 
+
 def pick_from(s1, wn_manager: WNManager, checker: Checker, similar=True):
     if similar:
         return _similar_word_to(s1, wn_manager, checker)

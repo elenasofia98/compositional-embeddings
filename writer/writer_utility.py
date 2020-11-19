@@ -59,7 +59,6 @@ class ExampleWriter:
                         example = self.preprocessor.get_vector_example(words)
                         saver.add_example(example)
                     except OOVExampleException:
-                        print(f'erroneous {words}')
                         errors += 1
 
             tot_example[path] = examples
