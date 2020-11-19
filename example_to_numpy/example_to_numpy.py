@@ -37,3 +37,26 @@ class ExampleToNumpy:
 
     def save_numpy_examples(self, path):
         np.savez(path, data=self.data, target=self.target)
+
+
+class POSAwareExampleToNumpy(ExampleToNumpy):
+    def __init__(self, data=None, target=None, pos=None):
+        super().__init__(data, target)
+        if pos is None:
+            self.pos = []
+        else:
+            self.pos = pos
+
+    def add_example(self, example):
+        if 'target' not in example or 'data' not in example or 'pos' not in example:
+            raise BadExampleException()
+        if len(example['data']) != 2:
+            raise BadExampleException()
+
+        target, data, pos = example['target'], example['data'], example['pos']
+        self.data.append(np.array(data))
+        self.target.append(np.array(target))
+        self.pos.append(np.array(pos))
+
+    def save_numpy_examples(self, path):
+        np.savez(path, data=self.data, pos= self.pos, target=self.target)

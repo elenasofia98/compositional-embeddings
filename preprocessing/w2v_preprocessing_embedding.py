@@ -1,4 +1,6 @@
 from gensim.models import KeyedVectors
+from enum import Enum
+import numpy
 
 """
 Custom Exception for out of vocabulary (oov) word: keep track of that word
@@ -41,7 +43,7 @@ Getters raise exceptions defined before when one of the given word has no embedd
 class PreprocessingWord2VecEmbedding:
     def __init__(self, pretrained_embeddinds_path: str, binary: bool):
         self.model = KeyedVectors.load_word2vec_format(pretrained_embeddinds_path, binary=binary)
-        #self.model.init_sims(replace=True)
+        # self.model.init_sims(replace=True)
 
     def get_vector(self, word: str):
         try:
@@ -72,3 +74,27 @@ class PreprocessingWord2VecEmbedding:
     def get_list_of_vectors(self, words):
         vectors = [self.get_vector(word) for word in words]
         return vectors
+
+
+class POS(Enum):
+    VERB = 'v'
+    ADJ = 'a'
+    NOUN = 'n'
+
+
+class POSAwarePreprocessingWord2VecEmbedding(PreprocessingWord2VecEmbedding):
+    def __init__(self, pretrained_embeddinds_path: str, binary: bool):
+        super().__init__(pretrained_embeddinds_path, binary)
+
+    def get_vector_example(self, words, pos):
+        vectors_example = super().get_vector_example(words)
+        vectors_example['pos'] = self.get_pos_vector(pos)
+        return vectors_example
+
+    def get_pos_vector(self, pos):
+        if pos == POS.VERB:
+            return [0, 0, 1]
+        if pos == POS.ADJ:
+            return [0, 1, 0]
+        else:
+            return [1, 0, 0]

@@ -5,22 +5,25 @@ import os
 
 from tensorflow.python.keras.callbacks import History
 from baseline.BaselineAdditiveModel import BaselineAdditiveModel
-from writer.writer_utility import ExampleToNumpy, ExampleWriter, PreprocessingWord2VecEmbedding
+from writer.writer_utility import ExampleWriter, POSAwareExampleWriter
+from example_to_numpy.example_to_numpy import ExampleToNumpy
+from preprocessing.w2v_preprocessing_embedding import POSAwarePreprocessingWord2VecEmbedding
 from gensim.models import KeyedVectors
 
 
 def write_w2v_exaples_from_to(paths, output_path):
-    writer = ExampleWriter(example_paths=paths, separator='\t', output_path=output_path,
-                           preprocessor=PreprocessingWord2VecEmbedding(
-                               "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin",
-                               binary=True)
-                           )
+    writer = POSAwareExampleWriter(example_paths=paths, separator='\t', output_path=output_path,
+                                   preprocessor=POSAwarePreprocessingWord2VecEmbedding(
+                                       "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin",
+                                       binary=True)
+                                   )
     writer.write_w2v_examples()
 
 
 def load_dataset_from(path):
     with np.load(path, allow_pickle=True) as data:
         dataset_data = data['data']
+        dataset_pos = data['pos']
         dataset_target = data['target']
 
     dataset = list(zip(dataset_data, dataset_target))
@@ -75,21 +78,18 @@ input_paths = all_descendant_files_of(base)
 path = 'data/google_w2v_example.npz'
 write_w2v_exaples_from_to(input_paths, path)
 
-
 dataset_data, dataset_target = load_dataset_from(path=path)
 (test_data, test_target), (train_data, train_target) = split_in(0.10, dataset_data, dataset_target)
 
-
 FEATURES = 300
 
-first_embedding = tf.keras.layers.Input(shape=(FEATURES, ))
+first_embedding = tf.keras.layers.Input(shape=(FEATURES,))
 x1 = tf.keras.layers.Dense(300)(first_embedding)
 x1 = tf.keras.layers.Dense(500, activation='relu')(x1)
 x1 = tf.keras.layers.Dropout(rate=0.15)(x1)
 x1 = tf.keras.layers.Dense(400, activation='tanh')(x1)
 
-
-second_embedding = tf.keras.layers.Input(shape=(FEATURES, ))
+second_embedding = tf.keras.layers.Input(shape=(FEATURES,))
 x2 = tf.keras.layers.Dense(300)(second_embedding)
 x2 = tf.keras.layers.Dense(500, activation='relu')(x2)
 x2 = tf.keras.layers.Dropout(rate=0.15)(x2)
@@ -110,7 +110,8 @@ model.compile(
 N_EPOCHS = 30
 BATCH_SIZE = 512
 
-history: History = model.fit(x=[train_data[:, 0], train_data[:, 1]], y=train_target, epochs=N_EPOCHS, batch_size=BATCH_SIZE)
+history: History = model.fit(x=[train_data[:, 0], train_data[:, 1]], y=train_target, epochs=N_EPOCHS,
+                             batch_size=BATCH_SIZE)
 
 test_history = model.evaluate(x=[test_data[:, 0], test_data[:, 1]], y=test_target)
 
