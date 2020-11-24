@@ -81,6 +81,15 @@ class POS(Enum):
     ADJ = 'a'
     NOUN = 'n'
 
+    @staticmethod
+    def get_pos_vector(pos):
+        if pos == POS.VERB:
+            return [0, 0, 1]
+        if pos == POS.ADJ:
+            return [0, 1, 0]
+        else:
+            return [1, 0, 0]
+
 
 class POSAwarePreprocessingWord2VecEmbedding(PreprocessingWord2VecEmbedding):
     def __init__(self, pretrained_embeddinds_path: str, binary: bool):
@@ -88,13 +97,5 @@ class POSAwarePreprocessingWord2VecEmbedding(PreprocessingWord2VecEmbedding):
 
     def get_vector_example(self, words, pos):
         vectors_example = super().get_vector_example(words)
-        vectors_example['pos'] = self.get_pos_vector(pos)
+        vectors_example['pos'] = POS.get_pos_vector(pos)
         return vectors_example
-
-    def get_pos_vector(self, pos):
-        if pos == POS.VERB:
-            return [0, 0, 1]
-        if pos == POS.ADJ:
-            return [0, 1, 0]
-        else:
-            return [1, 0, 0]

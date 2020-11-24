@@ -12,15 +12,14 @@ def pick_from(s1, wn_manager: WNManager, checker: Checker, similar=True):
 
 
 def _similar_word_to(s1, wn_manager: WNManager, checker: Checker):
-    syns = s1.hypernyms() + s1.hyponyms() + s1.instance_hyponyms()
-    for i in range(0, len(syns)):
-        s2 = random.choice(syns)
-        words = [x for x in s2.lemma_names()
-                 if not wn_manager.is_expression(x) and checker.is_in_vocabulary(x)]
-        if len(words) != 0:
-            w2 = random.choice(words)
-            return s2, w2
-
+    hypernyms = s1.hypernyms()
+    if len(hypernyms) > 0:
+        sisters_syns = hypernyms[0].hyponyms()
+        for i in range(0, len(sisters_syns)):
+            if sisters_syns[i] is not s1:
+                lemma = sisters_syns[i].lemma_names()[0]
+                if not wn_manager.is_expression(lemma) and checker.is_in_vocabulary(lemma):
+                    return sisters_syns[i], lemma
     return None, None
 
 
@@ -28,7 +27,7 @@ ALL_NAMES = [x for x in wn.all_synsets('n')]
 ALL_VERBS = [x for x in wn.all_synsets('v')]
 
 def _unsimilar_word_to(s1, wn_manager: WNManager, checker: Checker):
-    if s1.pos() == 'n':
+    if s1.pos() == wn.NOUN:
         syns = ALL_NAMES
     else:
         syns = ALL_VERBS
@@ -57,7 +56,7 @@ def oov_similarity(similarity_function, path, similar=True):
             if s1.pos() == 'n' or s1.pos() == 'v':
                 s2, w2 = pick_from(s1, wn_manager, checkerGoogleNews, similar=similar)
                 if s2 is not None:
-                    couples.append(SynsetCouple(s1, oov, s2, w2))
+                    couples.append(SynsetCouple(s1, oov, s2, w2, s1.pos()))
 
     comparator = Comparator(couples, similarity_function)
     comparator.write_similarities(path)

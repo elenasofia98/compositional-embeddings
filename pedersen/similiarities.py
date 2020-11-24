@@ -18,11 +18,12 @@ class SimilarityFunction(Enum):
 
 
 class SynsetCouple:
-    def __init__(self, s1: Synset, w1, s2: Synset, w2):
+    def __init__(self, s1: Synset, w1, s2: Synset, w2, s_pos):
         self.s1 = s1
         self.w1 = w1
         self.s2 = s2
         self.w2 = w2
+        self.s_pos = s_pos
 
 
 class Comparator:
@@ -32,7 +33,7 @@ class Comparator:
 
     def write_similarities(self, path):
         output = open(path, 'w')
-        header = '\t'.join(['S_OOV', 'S2', 'OOV',  'W2', 'SIMILARITY', '\n'])
+        header = '\t'.join(['S_OOV', 'S2', 'OOV',  'W2', 'SIMILARITY', 'S_POS', '\n'])
         output.write(header)
         output.writelines(self.get_similarities())
         output.close()
@@ -42,7 +43,7 @@ class Comparator:
         for couple in self.couples:
             if type(couple) is SynsetCouple:
                 similarities.append('\t'.join([couple.s1.name(), couple.s2.name(),
-                                    couple.w1, couple.w2, str(self.similarity_function(couple.s1, couple.s2)), '#\n']))
+                                    couple.w1, couple.w2, str(self.similarity_function(couple.s1, couple.s2)), couple.s_pos, '#\n']))
             else:
                 raise ValueError
         return similarities

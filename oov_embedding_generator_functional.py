@@ -2,11 +2,12 @@ import tensorflow as tf
 import numpy as np
 import random
 import os
+import matplotlib.pyplot as plt
 
 from tensorflow.python.keras.callbacks import History
 from baseline.BaselineAdditiveModel import BaselineAdditiveModel
 from writer.writer_utility import ExampleWriter, POSAwareExampleWriter
-from example_to_numpy.example_to_numpy import ExampleToNumpy
+from example_to_numpy.example_to_numpy import ExampleToNumpy, POSAwareExampleToNumpy
 from preprocessing.w2v_preprocessing_embedding import POSAwarePreprocessingWord2VecEmbedding
 from gensim.models import KeyedVectors
 
@@ -26,22 +27,24 @@ def load_dataset_from(path):
         dataset_pos = data['pos']
         dataset_target = data['target']
 
-    dataset = list(zip(dataset_data, dataset_target))
+    dataset = list(zip(dataset_data, dataset_target, dataset_pos))
     random.shuffle(dataset)
-    dataset_data, dataset_target = zip(*dataset)
-    return dataset_data, dataset_target
+    dataset_data, dataset_target, dataset_pos = zip(*dataset)
+    return dataset_data, dataset_target, dataset_pos
 
 
-def split_in(split_test: float, dataset_data, dataset_target):
+def split_in(split_test: float, dataset_data, dataset_target, dataset_pos):
     TEST_SIZE = int(len(dataset_data) * split_test)
 
     test_data = np.array(dataset_data[0: TEST_SIZE])
     test_target = np.array(dataset_target[0: TEST_SIZE])
+    test_pos = np.array(dataset_pos[0: TEST_SIZE])
 
     train_data = np.array(dataset_data[TEST_SIZE:])
     train_target = np.array(dataset_target[TEST_SIZE:])
+    train_pos = np.array(dataset_pos[TEST_SIZE:])
 
-    return (test_data, test_target), (train_data, train_target)
+    return (test_data, test_target, test_pos), (train_data, train_target, train_pos)
 
 
 """def compare_with_baseline(model_mse, baseline_type, test_data, test_target):
@@ -56,12 +59,12 @@ def split_in(split_test: float, dataset_data, dataset_target):
 def save(model, test, training):
     model.save('oov_sequential_predictor.h5')
 
-    (test_data, test_target) = test
-    test_saver = ExampleToNumpy(data=test_data, target=test_target)
+    (test_data, test_target, test_pos) = test
+    test_saver = POSAwareExampleToNumpy(data=test_data, target=test_target, pos=test_pos)
     test_saver.save_numpy_examples('data/test_oov_sequential_predictor.npz')
 
-    (train_data, train_target) = training
-    train_saver = ExampleToNumpy(data=train_data, target=train_target)
+    (train_data, train_target, train_pos) = training
+    train_saver = POSAwareExampleToNumpy(data=train_data, target=train_target, pos=train_pos)
     train_saver.save_numpy_examples('data/train_oov_sequential_predictor.npz')
 
 
@@ -72,16 +75,29 @@ def all_descendant_files_of(base):
     return input_paths
 
 
+def plot(history):
+    # summarize history for loss
+    plt.plot(history.history['loss'])
+    plt.title('model loss')
+    plt.ylabel('loss')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper left')
+    plt.show()
+
+
 base = "data/wordnet_definition/"
 input_paths = all_descendant_files_of(base)
 
 path = 'data/google_w2v_example.npz'
 write_w2v_exaples_from_to(input_paths, path)
 
-dataset_data, dataset_target = load_dataset_from(path=path)
-(test_data, test_target), (train_data, train_target) = split_in(0.10, dataset_data, dataset_target)
+dataset_data, dataset_target, dataset_pos = load_dataset_from(path=path)
+(test_data, test_target, test_pos), (train_data, train_target, train_pos) = split_in(0.10, dataset_data, dataset_target, dataset_pos)
 
 FEATURES = 300
+N_POS_TAG = 3
+
+#pos_embedding = tf.keras.layers.Embedding(input_dim=N_POS_TAG, output_dim=10)
 
 first_embedding = tf.keras.layers.Input(shape=(FEATURES,))
 x1 = tf.keras.layers.Dense(300)(first_embedding)
@@ -95,10 +111,19 @@ x2 = tf.keras.layers.Dense(500, activation='relu')(x2)
 x2 = tf.keras.layers.Dropout(rate=0.15)(x2)
 x2 = tf.keras.layers.Dense(400, activation='tanh')(x2)
 
-x = tf.keras.layers.Add()([x1, x2])
+
+pos_one_hot = tf.keras.Input(shape=(N_POS_TAG,))
+#x3 = pos_embedding(pos_one_hot)
+#x3 = tf.keras.layers.Flatten()(x3)
+x3 = tf.keras.layers.Dense(300)(pos_one_hot)
+x3 = tf.keras.layers.Dense(500, activation='relu')(x3)
+x3 = tf.keras.layers.Dropout(rate=0.15)(x3)
+x3 = tf.keras.layers.Dense(400, activation='tanh')(x3)
+
+x = tf.keras.layers.Add()([x1, x2, x3])
 output = tf.keras.layers.Dense(FEATURES)(x)
 
-model = tf.keras.Model(inputs=[first_embedding, second_embedding], outputs=output)
+model = tf.keras.Model(inputs=[first_embedding, second_embedding, pos_one_hot], outputs=output)
 model.summary()
 
 model.compile(
@@ -108,12 +133,14 @@ model.compile(
 )
 
 N_EPOCHS = 30
-BATCH_SIZE = 512
+BATCH_SIZE = 32
 
-history: History = model.fit(x=[train_data[:, 0], train_data[:, 1]], y=train_target, epochs=N_EPOCHS,
+history: History = model.fit(x=[train_data[:, 0], train_data[:, 1], train_pos], y=train_target, epochs=N_EPOCHS,
                              batch_size=BATCH_SIZE)
+plot(history)
 
-test_history = model.evaluate(x=[test_data[:, 0], test_data[:, 1]], y=test_target)
+test_history = model.evaluate(x=[test_data[:, 0], test_data[:, 1], test_pos], y=test_target)
+
 
 """r = compare_with_baseline(test_history[1], 'additive', test_data, test_target)
 print(f'R model against additive model:{r}')"""

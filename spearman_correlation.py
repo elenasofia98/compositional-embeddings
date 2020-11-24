@@ -6,14 +6,13 @@ from scipy.stats import spearmanr
 from baseline.BaselineAdditiveModel import BaselineAdditiveModel
 from preprocessing.w2v_preprocessing_embedding import PreprocessingWord2VecEmbedding, OOVWordException
 from writer.writer_utility import Parser
-
-
+from preprocessing.w2v_preprocessing_embedding import POS
 class Oracle:
     def __init__(self):
         self.correlations = {}
 
-    def add_correlations(self, value, first, second):
-        self.correlations[len(self.correlations)] = {'value': value, 'first': first, 'second': second}
+    def add_correlations(self, value, first, second, goal_pos):
+        self.correlations[len(self.correlations)] = {'value': value, 'first': first, 'second': second, 'goal_pos': goal_pos}
 
 
 class UnexpectedValueInLine(ValueError):
@@ -26,7 +25,7 @@ class LineReader:
     def readline(self, line):
         pass
 
-
+"""
 class CS10LineReader(LineReader):
     def readline(self, line):
         try:
@@ -37,7 +36,7 @@ class CS10LineReader(LineReader):
             return value, first, second
         except ValueError:
             raise UnexpectedValueInLine(line)
-
+"""
 
 class PedersenLineReader(LineReader):
     def readline(self, line):
@@ -45,7 +44,9 @@ class PedersenLineReader(LineReader):
             value = float(line[11])
             first = line[2:4]
             second = line[10]
-            return value, first, second
+            goal_pos = line[13]
+            print(value, first, second, goal_pos)
+            return value, first, second, goal_pos
         except ValueError:
             raise UnexpectedValueInLine(line)
 
@@ -64,12 +65,12 @@ class CorrelationCouplesOracle(Oracle):
                     break
 
                 try:
-                    value, first, second = reader.readline(line)
-                    super().add_correlations(value, first, second)
+                    value, first, second, goal_pos = reader.readline(line)
+                    super().add_correlations(value, first, second, goal_pos)
                 except UnexpectedValueInLine:
                     continue
 
-
+"""
 class CS10EmbeddedOracle:
     def __init__(self, oracle: Oracle, preprocessor: PreprocessingWord2VecEmbedding):
         self.oracle = oracle
@@ -89,7 +90,7 @@ class CS10EmbeddedOracle:
         for id in delete:
             if id in self.oracle.correlations:
                 del self.oracle.correlations[id]
-
+"""
 
 class PetersenEmbeddedOracle:
     def __init__(self, oracle: Oracle, preprocessor: PreprocessingWord2VecEmbedding):
@@ -153,7 +154,7 @@ class Tester:
                                                           save_on_file=True):
         pass
 
-
+"""
 class CS10Tester(Tester):
     def __init__(self, embedded_oracle: CS10EmbeddedOracle):
         self.embedded_oracle = embedded_oracle
@@ -195,7 +196,7 @@ class CS10Tester(Tester):
 
         return spearmanr([similarities[x] for x in similarities], [self.embedded_oracle.oracle.correlations[x]['value']
                                                                    for x in self.embedded_oracle.oracle.correlations])
-
+"""
 
 class PetersenTester(Tester):
     def __init__(self, embedded_oracle: PetersenEmbeddedOracle):
@@ -212,7 +213,8 @@ class PetersenTester(Tester):
             else:
                 prediction_1 = model.predict(
                     [np.array([self.embedded_oracle.oracle.correlations[i]['first_embedded'][0]]),
-                     np.array([self.embedded_oracle.oracle.correlations[i]['first_embedded'][1]])
+                     np.array([self.embedded_oracle.oracle.correlations[i]['first_embedded'][1]]),
+                     np.array([POS.get_pos_vector(self.embedded_oracle.oracle.correlations[i]['goal_pos'])])
                      ])
             prediction_2 = self.embedded_oracle.oracle.correlations[i]['second_embedded']
             similarities[i] = evaluator.similarity_function(prediction_1, prediction_2).numpy()[0]
@@ -278,12 +280,12 @@ embedded_oracle = CS10EmbeddedOracle(oracle, PreprocessingWord2VecEmbedding(
     "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin", binary=True))
 """
 
-output_path = 'data/pedersen_test/path_oov_def.txt'
-write_test_targets(positives_input_path='data/pedersen_test/positive_path_oov.txt',
-                   negatives_input_path='data/pedersen_test/negative_path_oov.txt', output_path=output_path)
+output_path = 'data/pedersen_test/wup_oov_def.txt'
+write_test_targets(positives_input_path='data/pedersen_test/positive_wup_oov.txt',
+                   negatives_input_path='data/pedersen_test/negative_wup_oov.txt', output_path=output_path)
 
 oracle = CorrelationCouplesOracle(output_path)
-oracle.collect_correlations(PedersenLineReader(), range(0, 13))
+oracle.collect_correlations(PedersenLineReader(), range(0, 14))
 
 embedded_oracle = PetersenEmbeddedOracle(oracle, preprocessor=PreprocessingWord2VecEmbedding(
     "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin", binary=True))
@@ -291,14 +293,14 @@ embedded_oracle = PetersenEmbeddedOracle(oracle, preprocessor=PreprocessingWord2
 tester = PetersenTester(embedded_oracle)
 evaluator = SimilarityEvaluator('cosine_similarity')
 
-sequential: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor.h5')
+#sequential: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor.h5')
 functional = tf.keras.models.load_model('oov_functional_predictor.h5')
 baseline: BaselineAdditiveModel = BaselineAdditiveModel()
 
-spearman_sequential = tester.spearman_correlation_model_predictions_and_oracle(sequential, evaluator)
+#spearman_sequential = tester.spearman_correlation_model_predictions_and_oracle(sequential, evaluator)
 spearman_functional = tester.spearman_correlation_model_predictions_and_oracle(functional, evaluator)
 spearman_additive = tester.spearman_correlation_model_predictions_and_oracle(baseline, evaluator)
 
-print(str(type(sequential).__name__) + ' --> ' + str(spearman_sequential))
+#print(str(type(sequential).__name__) + ' --> ' + str(spearman_sequential))
 print(str(type(functional).__name__) + ' --> ' + str(spearman_functional))
 print(str(type(baseline).__name__) + ' --> ' + str(spearman_additive))
