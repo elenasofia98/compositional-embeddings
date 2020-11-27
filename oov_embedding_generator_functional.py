@@ -97,7 +97,7 @@ dataset_data, dataset_target, dataset_pos = load_dataset_from(path=path)
 FEATURES = 300
 N_POS_TAG = 3
 
-#pos_embedding = tf.keras.layers.Embedding(input_dim=N_POS_TAG, output_dim=10)
+#pos_embedding = tf.keras.layers.Embedding(input_dim=N_POS_TAG, output_dim=10, sequence_lenght=1)
 
 first_embedding = tf.keras.layers.Input(shape=(FEATURES,))
 x1 = tf.keras.layers.Dense(300)(first_embedding)
@@ -113,9 +113,10 @@ x2 = tf.keras.layers.Dense(400, activation='tanh')(x2)
 
 
 pos_one_hot = tf.keras.Input(shape=(N_POS_TAG,))
+x = tf.keras.layers.Dense(10)(pos_one_hot)
 #x3 = pos_embedding(pos_one_hot)
 #x3 = tf.keras.layers.Flatten()(x3)
-x3 = tf.keras.layers.Dense(300)(pos_one_hot)
+x3 = tf.keras.layers.Dense(300)(x)
 x3 = tf.keras.layers.Dense(500, activation='relu')(x3)
 x3 = tf.keras.layers.Dropout(rate=0.15)(x3)
 x3 = tf.keras.layers.Dense(400, activation='tanh')(x3)

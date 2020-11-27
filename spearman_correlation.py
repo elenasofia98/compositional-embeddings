@@ -52,7 +52,7 @@ class PedersenLineReader(LineReader):
             first = line[2:4]
             second = line[10]
             goal_pos = line[13]
-            print(value, first, second, goal_pos)
+
             return value, first, second, goal_pos
         except ValueError:
             raise UnexpectedValueInLine(line)
@@ -299,7 +299,7 @@ baseline: BaselineAdditiveModel = BaselineAdditiveModel()
 tests_functional = []
 tests_additive = []
 
-for i in range(0, 15):
+for i in range(0, 15 ):
     output_path = 'data/pedersen_test/wup_oov_def.txt'
     write_test_targets(positives_input_path='data/pedersen_test/positive_wup_oov.txt',
                        negatives_input_path='data/pedersen_test/negative_wup_oov.txt', output_path=output_path)
@@ -328,8 +328,15 @@ for i in range(0, 15):
 print(tests_functional)
 print(tests_additive)
 
+with open('data/pedersen_test/results_spearman_test.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['x', 'functional', 'additive'])
+    writer.writerows([[i, tests_functional[i], tests_additive[i]] for i in range(0, len(tests_additive))])
 
 ax = plt.gca()
 ax.scatter([i for i in range(0, len(tests_functional))], tests_functional, color="b")
 ax.scatter([i for i in range(0, len(tests_additive))], tests_additive, color="r")
-
+plt.title('spearman values')
+plt.ylabel('spearman corr. coeff.')
+plt.xlabel('test #')
+plt.show()
