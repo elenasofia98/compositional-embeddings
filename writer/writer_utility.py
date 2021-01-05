@@ -74,6 +74,7 @@ class ExampleWriter:
 class POSAwareExampleWriter(ExampleWriter):
     def __init__(self, example_paths, separator, output_path, preprocessor: POSAwarePreprocessingWord2VecEmbedding):
         super().__init__(example_paths, separator, output_path, preprocessor)
+        self.pos_tags_example = self.get_pos_tags_from_paths()
 
     def write_w2v_examples(self):
         tot_example = {}
@@ -84,7 +85,6 @@ class POSAwareExampleWriter(ExampleWriter):
             examples = 0
             errors = 0
 
-            pos = os.path.normpath(path).split(os.path.sep)[-2]
             index_range = range(1, 4)
             parser = Parser(path, self.separator)
             with parser:
@@ -94,7 +94,7 @@ class POSAwareExampleWriter(ExampleWriter):
                         break
                     examples += 1
                     try:
-                        example = self.preprocessor.get_vector_example(words, pos)
+                        example = self.preprocessor.get_vector_example(words, self.pos_tags_example[path])
                         saver.add_example(example)
                     except OOVExampleException:
                         errors += 1
@@ -106,3 +106,16 @@ class POSAwareExampleWriter(ExampleWriter):
         print(tot_error)
 
         saver.save_numpy_examples(self.output_path)
+
+    def get_pos_tags_from_paths(self):
+        pos_tags_by_path = {}
+        for path in self.example_paths:
+            pos_tags_by_path[path]= self.get_pos_tags_from_path(path)
+        return pos_tags_by_path
+
+
+    def get_pos_tags_from_path(self, path):
+        split = os.path.normpath(path).split(os.path.sep)
+        target_pos = split[-2]
+        basename_split = split[-1].split('_')
+        return {'target_pos': target_pos, 'w1_pos': basename_split[0], 'w2_pos': basename_split[1]}

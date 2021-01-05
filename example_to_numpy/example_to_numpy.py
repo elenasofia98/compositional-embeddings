@@ -40,23 +40,28 @@ class ExampleToNumpy:
 
 
 class POSAwareExampleToNumpy(ExampleToNumpy):
-    def __init__(self, data=None, target=None, pos=None):
+    def __init__(self, data=None, target=None, target_pos=None, w1_pos=None, w2_pos=None):
         super().__init__(data, target)
-        if pos is None:
-            self.pos = []
+        if target_pos is None or w1_pos is None or w2_pos is None:
+            self.target_pos = []
+            self.w1_pos = []
+            self.w2_pos = []
         else:
-            self.pos = pos
+            self.target_pos = target_pos
+            self.w1_pos = w1_pos
+            self.w2_pos = w2_pos
 
     def add_example(self, example):
-        if 'target' not in example or 'data' not in example or 'pos' not in example:
+        if 'target' not in example or 'data' not in example or 'target_pos' not in example or 'w1_pos' not in example or 'w2_pos' not in example:
             raise BadExampleException()
         if len(example['data']) != 2:
             raise BadExampleException()
 
-        target, data, pos = example['target'], example['data'], example['pos']
-        self.data.append(np.array(data))
-        self.target.append(np.array(target))
-        self.pos.append(np.array(pos))
+        self.data.append(np.array(example['data']))
+        self.target.append(np.array(example['target']))
+        self.target_pos.append(np.array(example['target_pos']))
+        self.w1_pos.append(np.array(example['w1_pos']))
+        self.w2_pos.append(np.array(example['w2_pos']))
 
     def save_numpy_examples(self, path):
-        np.savez(path, data=self.data, pos= self.pos, target=self.target)
+        np.savez(path, data=self.data, target_pos=self.target_pos, target=self.target, w1_pos=self.w1_pos, w2_pos=self.w2_pos)
