@@ -44,7 +44,6 @@ class Checker:
                 raise KeyError("Can't map this value to any of known PretrainedEmbeddingModel. Add item to it.")
         Checker.name_to_type_map = name_to_type_map
 
-
     @staticmethod
     def get_instance_from_path(path, binary=None):
         name = os.path.basename(path)
@@ -70,7 +69,7 @@ class KeyedVectorChecker(Checker):
 
 
 class FastTextChecker(Checker):
-    #TODO load_word2vec_format (KeyedVectors) come funziona? perche' ora il modello e' sottoclasse, dovrebbe gestire != gli OOV!
+    # TODO load_word2vec_format (KeyedVectors) come funziona? Non ha gli n-grams..?
     def __init__(self, pretrained_embeddings_path):
         model = FastText.load_fasttext_format(pretrained_embeddings_path)
         self.model: FastTextKeyedVectors = model.wv
@@ -81,9 +80,9 @@ class FastTextChecker(Checker):
             self.model.word_vec(word)
             return True
         except KeyError:
-            #torna false solo quando nessuno degli n-gram e' contenuto nel vocabolario
+            # torna false solo quando nessuno degli n-gram e' contenuto nel vocabolario
             return False
-        #return word in self.model.vocab
+        # return word in self.model.vocab
 
 
 class W2VChecker(KeyedVectorChecker):

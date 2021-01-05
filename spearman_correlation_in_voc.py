@@ -2,7 +2,6 @@ import os
 import random
 from gensim.models import KeyedVectors
 from scipy.stats import spearmanr
-from statistics import mean
 import numpy as np
 from scipy.stats import norm
 import matplotlib.pyplot as plt
@@ -295,8 +294,8 @@ def micro_lists_path_based_pedersen_similarity():
     spearman = {}
 
     evaluator = SimilarityEvaluator('cosine_similarity')
-    pretrained_embeddinds_path = 'data/pretrained_embeddings/GoogleNews-vectors-negative300.bin'
-    model = KeyedVectors.load_word2vec_format(pretrained_embeddinds_path, binary=True)
+    pretrained_embeddings_path = 'data/pretrained_embeddings/GoogleNews-vectors-negative300.bin'
+    model = KeyedVectors.load_word2vec_format(pretrained_embeddings_path, binary=True)
 
     K = 15
     N_TEST = 2000
