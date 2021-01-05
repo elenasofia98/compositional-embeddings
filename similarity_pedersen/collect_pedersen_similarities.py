@@ -8,7 +8,7 @@ import random
 
 
 def randomchoice(list):
-    SEED = 19
+    SEED = 5348
     random.seed(SEED)
     return random.choice(list)
 

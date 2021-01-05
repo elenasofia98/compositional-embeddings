@@ -66,17 +66,14 @@ class KeyedVectorChecker(Checker):
         # self.model.init_sims(replace=True)
 
     def is_in_vocabulary(self, word):
-        try:
-            self.model.word_vec(word)
-            return True
-        except KeyError:
-            return False
+        return word in self.model.vocab
 
 
 class FastTextChecker(Checker):
     #TODO load_word2vec_format (KeyedVectors) come funziona? perche' ora il modello e' sottoclasse, dovrebbe gestire != gli OOV!
     def __init__(self, pretrained_embeddings_path):
-        self.model: FastTextKeyedVectors = (FastText.load_fasttext_format(pretrained_embeddings_path)).wv
+        model = FastText.load_fasttext_format(pretrained_embeddings_path)
+        self.model: FastTextKeyedVectors = model.wv
 
     # TODO decidi se vuoi sapere come sta computando quella roba anche se torna true
     def is_in_vocabulary(self, word):
@@ -84,8 +81,9 @@ class FastTextChecker(Checker):
             self.model.word_vec(word)
             return True
         except KeyError:
-            # dovrebbe tornare false solo quando nessuno degli n-gram e' contenuto nel vocabolario
+            #torna false solo quando nessuno degli n-gram e' contenuto nel vocabolario
             return False
+        #return word in self.model.vocab
 
 
 class W2VChecker(KeyedVectorChecker):
