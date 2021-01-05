@@ -1,6 +1,7 @@
 import os
 import random
-from gensim.models import KeyedVectors
+from gensim.models import KeyedVectors, FastText
+from gensim.models.keyedvectors import FastTextKeyedVectors
 from scipy.stats import spearmanr
 import numpy as np
 from scipy.stats import norm
@@ -288,74 +289,85 @@ def save_clusters(lists, output_path):
     plt.savefig(output_path.split('.')[0] +'_graph.png')
     plt.close()
 
+"""
+    pretrained_embeddings_path = 'data/pretrained_embeddings/cc.en.300.bin'
+    model = FastText.load_fasttext_format(pretrained_embeddings_path)
+    model: FastTextKeyedVectors = model.wv
 
-def micro_lists_path_based_pedersen_similarity():
+    base = 'data/similarity_pedersen_test/_fasttext'
+    destination_dir = 'in_vocabulary_similarities_vocabulary_only/micro_lists/clustered_values'
+"""
+def micro_lists_path_based_pedersen_similarity(model, base, destination_dir):
     similarities_function_names = ['path', 'lch', 'wup', 'res', 'jcn', 'lin']
     spearman = {}
 
     evaluator = SimilarityEvaluator('cosine_similarity')
-    pretrained_embeddings_path = 'data/pretrained_embeddings/GoogleNews-vectors-negative300.bin'
-    model = KeyedVectors.load_word2vec_format(pretrained_embeddings_path, binary=True)
+
+    base = base + '/'
+    destination_dir = destination_dir + '/'
 
     K = 15
     N_TEST = 2000
     TEST_SIZE = 7
-    for measure in similarities_function_names:
-        n_couple_clusters = retrieve_couples_divided_by_value_of_similarity(
-            positive_input_path='data/similarity_pedersen_test/sister_terms/in_voc_sister_terms_positive.txt',
-            negative_input_path='data/similarity_pedersen_test/sister_terms/in_voc_sister_terms_negative.txt',
-            measure_name=measure)
 
-        lenghts_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
-        save_clusters(lenghts_sublists,
-                      output_path='data/similarity_pedersen_test/in_vocabulary_similarities/clusters_n_' + measure + '.txt')
-        """min_len = min([len for (value, len) in lenghts_sublists])
-        max_len = max([len for (value, len) in lenghts_sublists])
-        avg = mean([len for (value, len) in lenghts_sublists])
-        print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
-        print('\n')"""
+    for seed in ['19', '99', '200', '1999', '5348']:
+        for measure in similarities_function_names:
+            seed_dir = destination_dir + 'seed_' + seed + '/'
+            n_couple_clusters = retrieve_couples_divided_by_value_of_similarity(
+                positive_input_path=base + 'sister_terms_vocabulary_only/seed_'+seed+'/in_voc_sister_terms_positive.txt',
+                negative_input_path=base + 'sister_terms_vocabulary_only/seed_'+seed+'/in_voc_sister_terms_negative.txt',
+                measure_name=measure)
 
+            lengths_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
+            save_clusters(lists=lengths_sublists,
+                          output_path=base + 'in_vocabulary_similarities_only/seed_'+seed+'_clusters_n_' + measure + '.txt')
+            """min_len = min([len for (value, len) in lengths_sublists])
+            max_len = max([len for (value, len) in lengths_sublists])
+            avg = mean([len for (value, len) in lengths_sublists])
+            print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
+            print('\n')"""
 
-        k_clusters = Cluster.k_clusters_of_min_diameter(k=K, n_clusters=n_couple_clusters)
-        lenghts_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
-        save_clusters(lenghts_sublists,
-                      output_path='data/similarity_pedersen_test/in_vocabulary_similarities/clusters_k_' + measure + '.txt')
-        """min_len = min([len for (value, len) in lenghts_sublists])
-        max_len = max([len for (value, len) in lenghts_sublists])
-        avg = mean([len for (value, len) in lenghts_sublists])
-        print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
-        print('----------------')"""
+            k_clusters = Cluster.k_clusters_of_min_diameter(k=K, n_clusters=n_couple_clusters)
 
-        ouput_path = 'data/similarity_pedersen_test/in_vocabulary_similarities/micro_lists/'+measure+'_micro_lists_test.txt'
-        tests = collect_test_of_size(n_test=N_TEST, test_size=TEST_SIZE, k_clusters=k_clusters,
-                                     ouput_path=ouput_path)
-        """print('----------------')
-        lenghts_sublists = [len(test) for test in tests]
-        min_len = min(lenghts_sublists)
-        max_len = max(lenghts_sublists)
-        avg = mean(lenghts_sublists)
-        print(lenghts_sublists)
-        print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
-        print('----------------')"""
-        spearman[measure] = []
-        for i in range(0, len(tests)):
-            oracle = InVocCorrelationOracle(path=None)
-            for d in tests[i]:
-                (similarity_value, synset_couple) = d
-                oracle.add_correlations(value=similarity_value, first=synset_couple.w1, second=synset_couple.w2)
-            tester = PetersenInVocTester(oracle=oracle)
+            lengths_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
+            save_clusters(lists=lengths_sublists,
+                          output_path=base + 'in_vocabulary_similarities_only/seed_'+seed+'_clusters_k_' + measure + '.txt')
+            """min_len = min([len for (value, len) in lengths_sublists])
+            max_len = max([len for (value, len) in lengths_sublists])
+            avg = mean([len for (value, len) in lengths_sublists])
+            print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
+            print('----------------')"""
 
-            spearman[measure].append(tester.spearman_correlation_model_predictions_and_oracle(
-                model, evaluator,
-                save_on_file=True,
-                path='data/similarity_pedersen_test/in_vocabulary_similarities/micro_lists/'+measure+'_output_micro_lists_test.txt',
-                mode='a+')
-            )
-        mu, std = gauss_distribution_of(
-            [-x.correlation for x in spearman[measure]],
-            measure,
-            output_path='data/similarity_pedersen_test/in_vocabulary_similarities/micro_lists/'+measure+'_gauss_test.png')
-        print(measure, mu, std)
+            output_path = base + seed_dir + measure+'_micro_lists_test.txt'
+            tests = collect_test_of_size(n_test=N_TEST, test_size=TEST_SIZE, k_clusters=k_clusters,
+                                         ouput_path=output_path)
+            """print('----------------')
+            lengths_sublists = [len(test) for test in tests]
+            min_len = min(lengths_sublists)
+            max_len = max(lengths_sublists)
+            avg = mean(lengths_sublists)
+            print(lengths_sublists)
+            print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
+            print('----------------')"""
+            spearman[measure] = []
+            for i in range(0, len(tests)):
+                oracle = InVocCorrelationOracle(path=None)
+                for d in tests[i]:
+                    (similarity_value, synset_couple) = d
+                    oracle.add_correlations(value=similarity_value, first=synset_couple.w1, second=synset_couple.w2)
+                tester = PetersenInVocTester(oracle=oracle)
+
+                spearman[measure].append(tester.spearman_correlation_model_predictions_and_oracle(
+                    model, evaluator,
+                    save_on_file=True,
+                    path=base + seed_dir + measure + '_output_micro_lists_test.txt',
+                    mode='a+')
+                )
+            mu, std = gauss_distribution_of(
+                [-x.correlation for x in spearman[measure]],
+                measure,
+                output_path=base + seed_dir + measure + '_gauss_test.png')
+            print('\t'.join([seed, measure, str(mu), str(std)]))
 
 
 """
@@ -401,59 +413,6 @@ la len del test finora + quella dei centri ancora disponibili e' minore della si
 6 vs 7
 jcn 0.31320438623210484 0.37332597088335856
 lin 0.41498214285714297 0.3509075692117542
-"""
-
-"""
-Only FIRST Synset given a certain lemma: if both noun and verb synsets are present, they are both taken
-SEED 19
-path 0.20155357142857147 0.3932326253508299
-lch 0.31596428571428575 0.36674518311320015
-wup 0.43269642857142865 0.33991888241152185
-res 0.5838928571428573 0.2789928108758507
-la len del test finora + quella dei centri ancora disponibili e' minore della size del test
-6 vs 7
-jcn 0.35266645996434387 0.37307132141642135
-lin 0.4641250000000001 0.3288071354672579
-
-SEED 99
-path 0.1894107142857143 0.3955288821564084
-lch 0.3189821428571429 0.3747325708837203
-wup 0.4173750000000001 0.3485341346962582
-res 0.5712321428571429 0.28897573725477166
-la len del test finora + quella dei centri ancora disponibili e' minore della size del test
-6 vs 7
-jcn 0.3547619047619048 0.3654897624283194
-lin 0.4528928571428572 0.3405994097296167
-
-SEED 200
-path 0.1769821428571429 0.39868329163392496
-lch 0.30985714285714294 0.3774512132280767
-wup 0.4326428571428572 0.34546073198981503
-res 0.5886964285714287 0.27559705073712243
-la len del test finora + quella dei centri ancora disponibili e' minore della size del test
-6 vs 7
-jcn 0.42530686863410816 0.3544045901944931
-lin 0.4350892857142858 0.3480122009758584
-
-SEED 1999
-path 0.20307142857142862 0.3877318332169748
-lch 0.33937500000000004 0.3641929044063022
-wup 0.4374464285714287 0.3370352956256199
-res 0.5715357142857144 0.29034855680505034
-la len del test finora + quella dei centri ancora disponibili e' minore della size del test
-6 vs 7
-jcn 0.3867830589484865 0.35897016004513116
-lin 0.45512500000000006 0.3319002719152984
-
-SEED 5348
-path 0.1878571428571429 0.39911796885285
-lch 0.3067678571428572 0.3708666590066505
-wup 0.4279642857142858 0.3432562985286532
-res 0.5679642857142859 0.2931914272454161
-la len del test finora + quella dei centri ancora disponibili e' minore della size del test
-6 vs 7
-jcn 0.4063317634746206 0.34119645116506636
-lin 0.4582142857142858 0.34304514934596575
 """
 
 
@@ -589,4 +548,4 @@ def noun_verb_sim_relatedness_diaz_dataset(root):
                                       str(len_test), str(n_distinct_values), '#\n']))
 
 
-noun_verb_sim_relatedness_diaz_dataset('data/similarity_lastra_diaz_test')
+#noun_verb_sim_relatedness_diaz_dataset('data/similarity_lastra_diaz_test')
