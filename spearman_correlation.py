@@ -1,45 +1,18 @@
 import tensorflow as tf
 import numpy as np
-import random
 from scipy.stats import spearmanr
 import matplotlib.pyplot as plt
 import csv
 import os
 
 from similarity_pedersen.collect_pedersen_similarities import *
-from baseline.BaselineAdditiveModel import BaselineAdditiveModel
+from base_model.BaselineAdditiveModel import BaselineAdditiveModel
 from preprocessing.w2v_preprocessing_embedding import PreprocessingWord2VecEmbedding, OOVWordException
-from writer.writer_utility import Parser
+from utility_test.oracle.oracle import POSAwareOracle
+from utility_test.similarity_evaluator.similarity_evaluator import SimilarityEvaluator
+from utility_test.tester.tester import Tester, TestWriter, LineReader, UnexpectedValueInLine
+from writer_reader_of_examples.writer_utility import Parser
 from preprocessing.w2v_preprocessing_embedding import POS
-
-
-class Oracle:
-    def __init__(self):
-        self.correlations = {}
-
-    def add_correlations(self, value, first, second):
-        self.correlations[len(self.correlations)] = {'value': value, 'first': first, 'second': second}
-
-
-class POSAwareOracle(Oracle):
-    def __init__(self):
-        super(POSAwareOracle, self).__init__()
-
-    def add_correlations(self, value, first, second, target_pos, w1_pos, w2_pos):
-        self.correlations[len(self.correlations)] = {'value': value, 'first': first, 'second': second,
-                                                     'target_pos': target_pos, 'w1_pos': w1_pos, 'w2_pos': w2_pos}
-
-
-class UnexpectedValueInLine(ValueError):
-    def __init__(self, line):
-        message = 'Value Error occurred during the reading of line:\n' + str(line)
-        super().__init__(message)
-
-
-class LineReader:
-    def readline(self, line):
-        pass
-
 
 """
 class CS10LineReader(LineReader):
@@ -133,52 +106,6 @@ class PetersenEmbeddedOracle:
                 del self.oracle.correlations[id]
 
 
-class SimilarityEvaluator:
-    def __init__(self, similarity_function):
-        if similarity_function == 'cosine_similarity':
-            self.similarity_function = tf.keras.losses.cosine_similarity
-        else:
-            raise ValueError('Unknown similarity function')
-
-
-class TestWriter:
-    def __init__(self, path, header, mode=None):
-        self.separator = '\t'
-        if mode is None:
-            self.mode = 'w+'
-        else:
-            self.mode = mode
-        self.create_file(path)
-        self.write_header(header)
-
-    def write_header(self, sequence):
-        self.file.write(sequence)
-
-    def create_file(self, path):
-        self.file = open(path, mode=self.mode)
-
-    def write_line(self, index, oracle_line, correlations):
-        oracle_line = self.separator.join([str(x) for x in oracle_line])
-        correlations = self.separator.join([str(x) for x in correlations])
-
-        self.file.write(self.separator.join([str(index), oracle_line, correlations, '#\n']))
-
-    def write_lines(self, lines):
-        self.file.writelines(lines)
-
-    def release(self):
-        self.file.close()
-
-
-class Tester:
-    def test_similatity_of_predictions(self, model, evaluator: SimilarityEvaluator, save_on_file=True):
-        pass
-
-    def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator,
-                                                          save_on_file=True):
-        pass
-
-
 """
 class CS10Tester(Tester):
     def __init__(self, embedded_oracle: CS10EmbeddedOracle):
@@ -188,7 +115,7 @@ class CS10Tester(Tester):
         similarities = {}
         header = '\t'.join(['id', 'first_couple', 'second_couple', 'oracle_value', 'model_value', '#\n'])
         if save_on_file:
-            writer = TestWriter('data/correlations_' + str(type(model).__name__) + '.txt', header)
+            writer_reader_of_examples = TestWriter('data/correlations_' + str(type(model).__name__) + '.txt', header)
 
         for i in self.embedded_oracle.oracle.correlations:
             if type(model) is BaselineAdditiveModel or type(model) is tf.keras.Sequential:
@@ -208,10 +135,10 @@ class CS10Tester(Tester):
 
             if save_on_file:
                 line = self.embedded_oracle.oracle.correlations[i]
-                writer.write_line(i, [line['first'], line['second']], [str(line['value']), str(similarities[i])])
+                writer_reader_of_examples.write_line(i, [line['first'], line['second']], [str(line['value']), str(similarities[i])])
 
         if save_on_file:
-            writer.release()
+            writer_reader_of_examples.release()
 
         return similarities
 
@@ -246,7 +173,7 @@ class PetersenOOVTester(Tester):
                      np.array([POS.get_pos_vector(correlation['target_pos'])])
                      ])
             prediction_2 = self.embedded_oracle.oracle.correlations[i]['second_embedded']
-            similarities[i] = evaluator.similarity_function(prediction_1, prediction_2).numpy()[0]
+            similarities[i] = evaluator.similarity_function(prediction_1, prediction_2)[0]
 
             if save_on_file:
                 line = self.embedded_oracle.oracle.correlations[i]

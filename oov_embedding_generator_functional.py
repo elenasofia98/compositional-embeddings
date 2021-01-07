@@ -5,8 +5,8 @@ import os
 import matplotlib.pyplot as plt
 
 from tensorflow.python.keras.callbacks import History
-from baseline.BaselineAdditiveModel import BaselineAdditiveModel
-from writer.writer_utility import POSAwareExampleWriter
+from base_model.BaselineAdditiveModel import BaselineAdditiveModel
+from writer_reader_of_examples.writer_utility import POSAwareExampleWriter
 from example_to_numpy.example_to_numpy import ExampleToNumpy, POSAwareExampleToNumpy
 from preprocessing.w2v_preprocessing_embedding import POSAwarePreprocessingWord2VecEmbedding
 

@@ -6,7 +6,7 @@ from matplotlib import pyplot
 
 from similarity_pedersen.collect_pedersen_similarities import positive_negative_couples_from
 from similarity_pedersen.similiarities import SynsetCouple
-from spearman_correlation import SimilarityEvaluator
+from utility_test.similarity_evaluator.similarity_evaluator import SimilarityEvaluator
 
 
 def get_examples(model, positive_couples_examples, negative_couples_examples, pos=None):
@@ -32,7 +32,7 @@ def get_examples(model, positive_couples_examples, negative_couples_examples, po
         #couple: SynsetCouple = couple
         if pos is None or couple.s_pos == pos:
             y_true.append(POSITIVE)
-            pred = - evaluator.similarity_function(model.word_vec(couple.w1), model.word_vec(couple.w2)).numpy()
+            pred = - evaluator.similarity_function(model.word_vec(couple.w1), model.word_vec(couple.w2))
             #pred = model.similarity(couple.w1, couple.w2)
             probas_pred.append(pred)
 
@@ -42,7 +42,7 @@ def get_examples(model, positive_couples_examples, negative_couples_examples, po
         #couple: SynsetCouple = couple
         if pos is None or couple.s_pos == pos:
             y_true.append(NEGATIVE)
-            pred = - evaluator.similarity_function(model.word_vec(couple.w1), model.word_vec(couple.w2)).numpy()
+            pred = - evaluator.similarity_function(model.word_vec(couple.w1), model.word_vec(couple.w2))
             #pred = model.similarity(couple.w1, couple.w2)
             probas_pred.append(pred)
 

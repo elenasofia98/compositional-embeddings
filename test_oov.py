@@ -3,7 +3,7 @@ import tensorflow as tf
 from gensim.models import KeyedVectors
 
 from preprocessing.w2v_preprocessing_embedding import PreprocessingWord2VecEmbedding, OOVWordException
-from writer.writer_utility import Parser
+from writer_reader_of_examples.writer_utility import Parser
 
 class BadDataException(Exception):
     def __init__(self):
@@ -24,8 +24,8 @@ class TestToNumpy:
         if len(data) != 2:
             raise BadDataException()
 
-        self.data.append(np.array(data))
-        self.goal.append(goal)
+        self.data.append_fixed_len(np.array(data))
+        self.goal.append_fixed_len(goal)
 
     def save_numpy_examples(self, path):
         np.savez(path, data=self.data, goal=self.goal)

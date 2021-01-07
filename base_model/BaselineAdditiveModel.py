@@ -1,22 +1,17 @@
 import numpy as np
 import tensorflow as tf
-from example_to_numpy.example_to_numpy import BadExampleException
+from base_model.model import BadExampleException, Model
 
-class BaselineAdditiveModel:
+
+class BaselineAdditiveModel(Model):
     def __init__(self):
-        self.targets = []
-        self.outputs = []
+        super(BaselineAdditiveModel, self).__init__()
 
     def process_example(self, target, data):
         if len(data) != 2:
             raise BadExampleException
+        super(BaselineAdditiveModel, self).process_example(target, data)
 
-        self.targets.append(target)
-        self.outputs.append(self.predict(data))
-
-    def calculate_mse(self):
-        self.mse = tf.keras.losses.MeanSquaredError()
-        return self.mse(self.targets, self.outputs).numpy()
 
     def predict(self, x):
         if x.shape == (2, 300):

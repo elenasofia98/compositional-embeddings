@@ -1,10 +1,6 @@
 import numpy as np
 
-
-class BadExampleException(Exception):
-    def __init__(self):
-        message = 'Bad structure for given example: it must contain key and data each composed of 2 word'
-        super().__init__(message)
+from base_model.model import BadExampleException
 
 
 class ExampleToNumpy:
@@ -32,8 +28,8 @@ class ExampleToNumpy:
             raise BadExampleException()
 
         target, data = example['target'], example['data']
-        self.data.append(np.array(data))
-        self.target.append(np.array(target))
+        self.data.append_fixed_len(np.array(data))
+        self.target.append_fixed_len(np.array(target))
 
     def save_numpy_examples(self, path):
         np.savez(path, data=self.data, target=self.target)
@@ -57,11 +53,11 @@ class POSAwareExampleToNumpy(ExampleToNumpy):
         if len(example['data']) != 2:
             raise BadExampleException()
 
-        self.data.append(np.array(example['data']))
-        self.target.append(np.array(example['target']))
-        self.target_pos.append(np.array(example['target_pos']))
-        self.w1_pos.append(np.array(example['w1_pos']))
-        self.w2_pos.append(np.array(example['w2_pos']))
+        self.data.append_fixed_len(np.array(example['data']))
+        self.target.append_fixed_len(np.array(example['target']))
+        self.target_pos.append_fixed_len(np.array(example['target_pos']))
+        self.w1_pos.append_fixed_len(np.array(example['w1_pos']))
+        self.w2_pos.append_fixed_len(np.array(example['w2_pos']))
 
     def save_numpy_examples(self, path):
         np.savez(path, data=self.data, target_pos=self.target_pos, target=self.target, w1_pos=self.w1_pos, w2_pos=self.w2_pos)
