@@ -236,10 +236,10 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
                 negative_input_path=root_data_model + 'sister_terms_vocabulary_only/seed_' + seed + '/in_voc_sister_terms_negative.txt',
                 measure_name=measure)
 
-            """lengths_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
+            lengths_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
             save_clusters(lists=lengths_sublists,
                           output_path=root_data_model + 'in_vocabulary_similarities_vocabulary_only/seed_' + seed + '_clusters_n_' + measure + '.txt')
-            """"""min_len = min([len for (value, len) in lengths_sublists])
+            """min_len = min([len for (value, len) in lengths_sublists])
             max_len = max([len for (value, len) in lengths_sublists])
             avg = mean([len for (value, len) in lengths_sublists])
             print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
@@ -247,10 +247,10 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
 
             k_clusters = ClusterMinDiam.k_clusters_of_min_diameter(k=K, n_clusters=n_couple_clusters)
 
-            """lengths_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
+            lengths_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
             save_clusters(lists=lengths_sublists,
                           output_path=root_data_model + 'in_vocabulary_similarities_vocabulary_only/seed_' + seed + '_clusters_k_' + measure + '.txt')
-            """"""min_len = min([len for (value, len) in lengths_sublists])
+            """min_len = min([len for (value, len) in lengths_sublists])
             max_len = max([len for (value, len) in lengths_sublists])
             avg = mean([len for (value, len) in lengths_sublists])
             print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
@@ -286,13 +286,4 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
             distribution.save(output_path=root_data_model + seed_dir + measure + '_gauss_test.png',
                               title=f"{measure} mini-lists spearman results")
             print('\t'.join([seed, measure, str(distribution.mu), str(distribution.std)]))
-
-
-pretrained_embeddings_path = 'data/pretrained_embeddings/cc.en.300.bin'
-model = FastText.load_fasttext_format(pretrained_embeddings_path)
-model: FastTextKeyedVectors = model.wv
-
-base = 'data/similarity_pedersen_test/_fasttext'
-destination_dir = 'in_vocabulary_similarities_vocabulary_only/micro_lists/clustered_values'
-micro_lists_path_based_pedersen_similarity(model, base, destination_dir)
 

@@ -1,6 +1,6 @@
 from enum import Enum
 
-from similarity_pedersen.similiarities import SynsetCouple, Comparator, SimilarityFunction, SaverSynsetCouples, \
+from similarity_pedersen.pedersen_similarities import SynsetCouple, Comparator, SimilarityFunction, SaverSynsetCouples, \
     ReaderSynsetCouples
 from word_in_vocabulary import WNManager, Checker
 from nltk.corpus import wordnet as wn

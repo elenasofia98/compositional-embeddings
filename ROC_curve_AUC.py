@@ -5,7 +5,7 @@ from gensim.models import KeyedVectors, FastText
 from matplotlib import pyplot
 
 from similarity_pedersen.collect_pedersen_similarities import positive_negative_couples_from
-from similarity_pedersen.similiarities import SynsetCouple
+from similarity_pedersen.pedersen_similarities import SynsetCouple
 from utility_test.similarity_evaluator.similarity_evaluator import SimilarityEvaluator
 
 
