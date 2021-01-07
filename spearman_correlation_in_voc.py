@@ -178,7 +178,7 @@ class Cluster:
         return next
 
     @staticmethod
-    #I send my regards to Pasqui! 2 approx
+    #2 approx
     def _k_clusters_of_min_diameter(k, values):
         centers = [values[0]]
         for i in range(1, k):
