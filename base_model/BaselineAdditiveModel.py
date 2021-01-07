@@ -1,5 +1,4 @@
 import numpy as np
-import tensorflow as tf
 from base_model.model import BadExampleException, Model
 
 
@@ -11,7 +10,6 @@ class BaselineAdditiveModel(Model):
         if len(data) != 2:
             raise BadExampleException
         super(BaselineAdditiveModel, self).process_example(target, data)
-
 
     def predict(self, x):
         if x.shape == (2, 300):

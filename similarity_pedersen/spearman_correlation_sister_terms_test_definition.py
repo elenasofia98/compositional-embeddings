@@ -1,6 +1,5 @@
 import random
-from gensim.models import KeyedVectors, FastText
-from gensim.models.keyedvectors import FastTextKeyedVectors
+from gensim.models import KeyedVectors
 from scipy.stats import spearmanr
 import matplotlib.pyplot as plt
 
@@ -232,13 +231,13 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
         for measure in similarities_function_names:
             seed_dir = destination_dir + 'seed_' + seed + '/'
             n_couple_clusters = retrieve_couples_divided_by_value_of_similarity(
-                positive_input_path=root_data_model + 'sister_terms_vocabulary_only/seed_' + seed + '/in_voc_sister_terms_positive.txt',
-                negative_input_path=root_data_model + 'sister_terms_vocabulary_only/seed_' + seed + '/in_voc_sister_terms_negative.txt',
+                positive_input_path=root_data_model + 'sister_terms/seed_' + seed + '/in_voc_sister_terms_positive.txt',
+                negative_input_path=root_data_model + 'sister_terms/seed_' + seed + '/in_voc_sister_terms_negative.txt',
                 measure_name=measure)
 
             lengths_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
             save_clusters(lists=lengths_sublists,
-                          output_path=root_data_model + 'in_vocabulary_similarities_vocabulary_only/seed_' + seed + '_clusters_n_' + measure + '.txt')
+                          output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_n_' + measure + '.txt')
             """min_len = min([len for (value, len) in lengths_sublists])
             max_len = max([len for (value, len) in lengths_sublists])
             avg = mean([len for (value, len) in lengths_sublists])
@@ -249,7 +248,7 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
 
             lengths_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
             save_clusters(lists=lengths_sublists,
-                          output_path=root_data_model + 'in_vocabulary_similarities_vocabulary_only/seed_' + seed + '_clusters_k_' + measure + '.txt')
+                          output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_k_' + measure + '.txt')
             """min_len = min([len for (value, len) in lengths_sublists])
             max_len = max([len for (value, len) in lengths_sublists])
             avg = mean([len for (value, len) in lengths_sublists])

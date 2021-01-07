@@ -1,6 +1,5 @@
 from nltk.corpus import wordnet as wn
 from nltk.corpus.reader import Synset
-import random
 from enum import Enum
 from nltk.corpus import wordnet_ic
 import nltk
