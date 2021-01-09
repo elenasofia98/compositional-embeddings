@@ -1,7 +1,6 @@
 import os
-
+from nltk.corpus import wordnet as wn
 from gensim.models import KeyedVectors
-
 from utility_test.oracle.oracle import Oracle
 from utility_test.tester.tester import Tester, TestWriter, LineReader, UnexpectedValueInLine
 from utility_test.similarity_evaluator.similarity_evaluator import SimilarityEvaluator
@@ -83,10 +82,8 @@ class LastraDiazTester(Tester):
                                                                        for key in self.oracle.correlations])
 
 
-def diaz_tests(test_type, datasets_path, save_of_file=False):
+def diaz_tests(model: KeyedVectors, test_type, datasets_path, output_path_root, save_of_file=False):
     evaluator = SimilarityEvaluator('cosine_similarity')
-    pretrained_embeddinds_path = 'data/pretrained_embeddings/GoogleNews-vectors-negative300.bin'
-    model = KeyedVectors.load_word2vec_format(pretrained_embeddinds_path, binary=True)
 
     results = {}
     for dataset in os.listdir(path=datasets_path):
@@ -106,7 +103,7 @@ def diaz_tests(test_type, datasets_path, save_of_file=False):
         tester = LastraDiazTester(oracle)
 
         if save_of_file:
-            path = test_type+'_'+dataset_name+'.txt'
+            path = os.path.join(output_path_root, test_type+'_'+dataset_name+'.txt')
         else:
             path = 'diaz_correlations.txt'
 
@@ -125,14 +122,20 @@ def diaz_tests(test_type, datasets_path, save_of_file=False):
     return results
 
 
-def noun_verb_sim_relatedness_diaz_dataset(root, output_path):
+def noun_verb_sim_relatedness_diaz_dataset(model: KeyedVectors, root, output_path_root):
     header = '\t'.join(['DATASET_NAME', 'SPEARMAN_CORR', 'LEN_TEST', 'DISTINCT_VALUES', '#\n'])
-    for test_type in os.listdir(root):
-        results = diaz_tests(test_type,
+
+    tests = os.listdir(root)
+    tests.remove('results')
+
+    for test_type in tests:
+        results = diaz_tests(model,
+                             test_type,
                              datasets_path=os.path.join(root, test_type),
+                             output_path_root=output_path_root,
                              save_of_file=True)
 
-        with open(output_path, mode='a+') as file:
+        with open(os.path.join(output_path_root, test_type), mode='a+') as file:
             file.write(test_type.upper()+'\t#\n')
             file.write(header)
             for dataset_name in results:

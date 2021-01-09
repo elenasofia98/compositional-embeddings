@@ -41,7 +41,7 @@ class Checker:
     def name_to_type(name_to_type_map):
         for name in name_to_type_map:
             if name_to_type_map[name] not in [item.value for item in PretrainedEmbeddingModel]:
-                raise KeyError("Can't map this value to any of known PretrainedEmbeddingModel. Add item to it.")
+                raise KeyError("This value isn't mapped to a known PretrainedEmbeddingModel.")
         Checker.name_to_type_map = name_to_type_map
 
     @staticmethod
