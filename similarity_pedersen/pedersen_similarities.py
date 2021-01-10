@@ -4,7 +4,14 @@ from enum import Enum
 from nltk.corpus import wordnet_ic
 import nltk
 nltk.download('wordnet_ic')
-INFORMATION_CONTENT = wordnet_ic.ic('ic-brown.dat')
+
+
+class InformationContent:
+    INFORMATION_CONTENT = wordnet_ic.ic('ic-brown.dat')
+
+    @staticmethod
+    def set_information_content(name):
+        InformationContent.INFORMATION_CONTENT = wordnet_ic.ic(name)
 
 
 class SimilarityFunction(Enum):
@@ -12,9 +19,9 @@ class SimilarityFunction(Enum):
     lch = wn.lch_similarity
     wup = wn.wup_similarity
 
-    res = lambda x, y: wn.res_similarity(x, y, INFORMATION_CONTENT)
-    jcn = lambda x, y: wn.jcn_similarity(x, y, INFORMATION_CONTENT)
-    lin = lambda x, y: wn.lin_similarity(x, y, INFORMATION_CONTENT)
+    res = lambda x, y: wn.res_similarity(x, y, InformationContent.INFORMATION_CONTENT)
+    jcn = lambda x, y: wn.jcn_similarity(x, y, InformationContent.INFORMATION_CONTENT)
+    lin = lambda x, y: wn.lin_similarity(x, y, InformationContent.INFORMATION_CONTENT)
 
 
 class SynsetCouple:

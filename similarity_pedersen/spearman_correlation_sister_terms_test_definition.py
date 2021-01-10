@@ -2,9 +2,12 @@ import random
 from gensim.models import KeyedVectors
 from scipy.stats import spearmanr
 import matplotlib.pyplot as plt
+import os
+import nltk
 
 from cluster.cluster import ClusterMinDiam
 from similarity_pedersen.collect_pedersen_similarities import voc_sim, retrieve_couples_divided_by_value_of_similarity
+from similarity_pedersen.pedersen_similarities import InformationContent
 from utility_test.distribution.distributions import Gauss
 from utility_test.tester.tester import Tester, TestWriter, LineReader, UnexpectedValueInLine
 from utility_test.oracle.oracle import Oracle
@@ -161,8 +164,8 @@ def collect_test_of_size(n_test, test_size, k_clusters: dict, ouput_path=None):
 
         for j in range(0, test_size):
             if j + len(available_centers) < test_size:
-                print('la len del test finora + quella dei centri ancora disponibili e\' minore della size del test')
-                print(str(j + len(available_centers)) + ' vs ' + str(test_size))
+                """print('la len del test finora + quella dei centri ancora disponibili e\' minore della size del test')
+                print(str(j + len(available_centers)) + ' vs ' + str(test_size))"""
                 exists_available = False
                 break
 
@@ -214,8 +217,9 @@ def save_clusters(lists, output_path):
 """
 
 
-def micro_lists_path_based_pedersen_similarity(model, root_data_model, destination_dir):
-    similarities_function_names = ['path', 'lch', 'wup', 'res', 'jcn', 'lin']
+def micro_lists_path_based_pedersen_similarity(model, root_data_model, destination_dir, similarities_function_names=None):
+    if similarities_function_names is None:
+        similarities_function_names = ['path', 'lch', 'wup', 'res', 'jcn', 'lin']
     spearman = {}
 
     evaluator = SimilarityEvaluator('cosine_similarity')
@@ -230,15 +234,18 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
     for seed in ['19', '99', '200', '1999', '5348']:
         for measure in similarities_function_names:
             seed_dir = destination_dir + 'seed_' + seed + '/'
+            if not os.path.exists(root_data_model + seed_dir):
+                os.mkdir(root_data_model + seed_dir)
+
             n_couple_clusters = retrieve_couples_divided_by_value_of_similarity(
                 positive_input_path=root_data_model + 'sister_terms/seed_' + seed + '/in_voc_sister_terms_positive.txt',
                 negative_input_path=root_data_model + 'sister_terms/seed_' + seed + '/in_voc_sister_terms_negative.txt',
                 measure_name=measure)
 
-            lengths_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
+            """lengths_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
             save_clusters(lists=lengths_sublists,
                           output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_n_' + measure + '.txt')
-            """min_len = min([len for (value, len) in lengths_sublists])
+            """"""min_len = min([len for (value, len) in lengths_sublists])
             max_len = max([len for (value, len) in lengths_sublists])
             avg = mean([len for (value, len) in lengths_sublists])
             print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
@@ -246,10 +253,10 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
 
             k_clusters = ClusterMinDiam.k_clusters_of_min_diameter(k=K, n_clusters=n_couple_clusters)
 
-            lengths_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
+            """lengths_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
             save_clusters(lists=lengths_sublists,
                           output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_k_' + measure + '.txt')
-            """min_len = min([len for (value, len) in lengths_sublists])
+            """"""min_len = min([len for (value, len) in lengths_sublists])
             max_len = max([len for (value, len) in lengths_sublists])
             avg = mean([len for (value, len) in lengths_sublists])
             print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
@@ -286,3 +293,20 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
                               title=f"{measure} mini-lists spearman results")
             print('\t'.join([seed, measure, str(distribution.mu), str(distribution.std)]))
 
+
+def ic_based_measure_on(information_content_root_path, model, root_data_model, destination_dir):
+    for information_content_name in os.listdir(information_content_root_path):
+        print(information_content_name)
+        if information_content_name.split('.')[1] != 'dat' or information_content_name == 'ic-bnc.dat':
+            continue
+
+        ic_dir = os.path.join(destination_dir, information_content_name.split('.')[0])
+        if not os.path.exists(os.path.join(root_data_model, ic_dir)):
+            os.mkdir(os.path.join(root_data_model, ic_dir))
+        _ic_based_measure_on(information_content_name, model, root_data_model, destination_dir=ic_dir)
+
+
+def _ic_based_measure_on(information_content_name, model, root_data_model, destination_dir):
+    InformationContent.set_information_content(information_content_name)
+    micro_lists_path_based_pedersen_similarity(model, root_data_model, destination_dir,
+                                               similarities_function_names=['res', 'jcn', 'lin'])
