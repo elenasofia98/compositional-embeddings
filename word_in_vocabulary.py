@@ -8,6 +8,26 @@ from gensim.scripts.glove2word2vec import glove2word2vec
 from gensim.models.wrappers import FastText
 
 
+class WordInSynset:
+    def __init__(self, word, synset_name, pos):
+        self.word = word
+        self.synset_name = synset_name
+        self.pos = pos
+        self.pos.upper()
+
+    @staticmethod
+    def from_word_and_pos(word, pos):
+        ss = wn.synsets(word, pos=pos)
+        if len(ss) > 0:
+            synset_name = ss[0].name()
+            return WordInSynset(word, synset_name, pos)
+        else:
+            return None
+
+    def equals(self, s):
+        return self.synset_name == s.synset_name and self.word == s.word and self.pos.upper() == s.pos.upper()
+
+
 class PretrainedEmbeddingModel(Enum):
     w2v = 0
     glove = 1
@@ -160,3 +180,55 @@ def writeOOVS(oovs: list, path: str):
     for word in oovs:
         f.write(word + "\n")
     f.close()
+
+
+"""def not_done(syns, done):
+    out_syns= []
+
+    for s in syns:
+        s:WordInSynset = s
+
+        found = False
+        i = 0
+        while not found and i < len(done):
+            #print(done[i].synset_name == s.synset_name, done[i].word == s.word)
+            if s.equals(done[i]):
+                print(found)
+                found = True
+                break
+            i += 1
+        if not found:
+            out_syns.append(s)
+
+    print(len(out_syns))
+    return out_syns
+"""
+
+def find_oov_and_synset(pretrained_embeddings_path, binary=None, pos_tags=None, output_path='oov_in_synset.txt'):
+    if pos_tags is None:
+        pos_tags = ['n', 'v']
+
+    checker = Checker.get_instance_from_path(pretrained_embeddings_path, binary=binary)
+
+    wn_manager = WNManager()
+    words = wn_manager.lemma_from_synsets(allow_expression=False)
+    oov_list = checker.get_OOV(words)
+
+    synsets = []
+    for oov in oov_list:
+        for pos in pos_tags:
+            s = WordInSynset.from_word_and_pos(oov, pos)
+            if s is not None:
+                synsets.append(s)
+
+    """if done is not None:
+        synsets = not_done(synsets, done)
+        print(len(synsets))"""
+
+    with open(output_path, 'w+') as output:
+        header = '\t'.join(['OOV', 'SYN_NAME', 'POS', '#\n'])
+        output.write(header)
+        for s in synsets:
+            output.write('\t'.join([s.word, s.synset_name, s.pos, '#\n']))
+
+    return synsets
