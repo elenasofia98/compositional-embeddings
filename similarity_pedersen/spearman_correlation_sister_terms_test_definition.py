@@ -297,7 +297,7 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
 def ic_based_measure_on(information_content_root_path, model, root_data_model, destination_dir):
     for information_content_name in os.listdir(information_content_root_path):
         print(information_content_name)
-        if information_content_name.split('.')[1] != 'dat' or information_content_name == 'ic-bnc.dat':
+        if information_content_name.split('.')[1] != 'dat':
             continue
 
         ic_dir = os.path.join(destination_dir, information_content_name.split('.')[0])
