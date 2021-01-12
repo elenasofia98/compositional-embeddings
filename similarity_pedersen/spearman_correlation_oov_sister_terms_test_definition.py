@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+from gensim.models import KeyedVectors
 from scipy.stats import spearmanr
 import matplotlib.pyplot as plt
 import csv
@@ -118,24 +119,31 @@ class OOVSisterTermsSimilarity:
         return positive_couples + negative_couples
 
 
+
 class OOVSisterTerms_LineReader(LineReader):
     def readline(self, line):
+        s1_index = 5
+        w1_index = 1
+        s2_index = 9
+        w2_index = 10
+        s_pos_index = 6
+
         try:
-            value = float(line[13])
-            oov = line[1]
-            synset_oov = line[5]
+            value = float(line[11])
+            oov = line[w1_index]
+            synset_oov = line[s1_index]
             first = line[2:4]
-            second = line[10]
-            synset_second = line[9]
-            target_pos = line[6]
-            w1_pos = line[7]
-            w2_pos = line[8]
+            second = line[w2_index]
+            synset_second = line[s2_index]
+            target_pos = line[s_pos_index]
+            w1_pos = line[s_pos_index + 1]
+            w2_pos = line[s_pos_index + 2]
 
             return value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos
         except ValueError:
             raise UnexpectedValueInLine(line)
 
-#TODO
+
 class OOVSisterTerms_POSAwareOracle(POSAwareOOVOracle):
     def __init__(self, path):
         self.path = path
@@ -148,11 +156,12 @@ class OOVSisterTerms_POSAwareOracle(POSAwareOOVOracle):
                                                      'target_pos': target_pos,
                                                      'w1_pos': w1_pos, 'w2_pos': w2_pos}
 
-    def collect_correlations(self, reader: OOVSisterTerms_LineReader, index_range: range):
+    def collect_correlations(self, reader: OOVSisterTerms_LineReader, index_range=range(0, 13)):
         parser = Parser(self.path, '\t')
         with parser:
             while True:
                 line = parser.get_example_from_line_next_line(index_range)
+                print(line)
                 if not line:
                     break
 
@@ -162,3 +171,50 @@ class OOVSisterTerms_POSAwareOracle(POSAwareOOVOracle):
                 except UnexpectedValueInLine:
                     continue
 
+    def remove_correlations_with_oov(self, checker: Checker):
+        del_keys = []
+        for key in self.correlations:
+            correlation = self.correlations[key]
+            if not checker.is_in_vocabulary(correlation['first'][0]) or not checker.is_in_vocabulary(correlation['first'][1]) or not checker.is_in_vocabulary(correlation['second']):
+                del_keys.append(key)
+        for key in del_keys:
+            self.correlations.pop(key)
+
+
+class OOVSisterTerms_POSAwareTester(Tester):
+    def __init__(self, oracle: OOVSisterTerms_POSAwareOracle):
+        self.oracle = oracle
+
+    #TODO ottieni vettore composizionale con somma o 21 o vettore in alto nella gerarchia con Parent o vettore word_vec con fasttext
+    def collect_similarity_of_predictions(self, model, evaluator: SimilarityEvaluator, save_on_file=True,
+                                          path='petersen_correlations.txt', mode=None):
+        similarities = {}
+
+        if save_on_file:
+            header = '\t'.join(['id', 'first', 'second', 'oracle_value', 'model_value', '#\n'])
+            writer = TestWriter(path, header, mode)
+
+        for i in self.oracle.correlations:
+            correlation = self.oracle.correlations[i]
+
+            prediction_1 = model.word_vec(correlation['first'])
+            prediction_2 = model.word_vec(correlation['second'])
+
+            similarities[i] = evaluator.similarity_function(prediction_1, prediction_2)
+
+            if save_on_file:
+                writer.write_line(i, [correlation['first'], correlation['second']],
+                                  [str(correlation['value']), str(similarities[i])])
+
+        if save_on_file:
+            writer.release()
+
+        return similarities
+
+    def spearman_correlation_model_predictions_and_oracle(self, model: KeyedVectors, evaluator: SimilarityEvaluator,
+                                                          save_on_file=True,
+                                                          path='petersen_correlations.txt',
+                                                          mode=None):
+        similarities = self.collect_similarity_of_predictions(model, evaluator, save_on_file, path, mode)
+        return spearmanr([similarities[key] for key in similarities], [self.oracle.correlations[key]['value']
+                                                                       for key in self.oracle.correlations])

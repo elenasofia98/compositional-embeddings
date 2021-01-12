@@ -31,7 +31,7 @@ class CS10LineReader(LineReader):
 class PedersenLineReader(LineReader):
     def readline(self, line):
         try:
-            value = float(line[13])
+            value = float(line[11])
             first = line[2:4]
             second = line[12]
             target_pos = line[6]
