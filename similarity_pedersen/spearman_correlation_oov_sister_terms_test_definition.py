@@ -90,7 +90,7 @@ class OOVSisterTermsSimilarity:
                         w2_index = 10
                         s_pos_index = 6
 
-                        #TODO you can omit this cause they should be ordered in the same way, check if there are issue why this could be not true (errors, exceptions ecc)
+                        #TODO you can omit controls like these cause the lists should be ordered in the same way, check if there are issue why this could be not true (errors, exceptions ecc)
                         for similarity in similarities:
                             if similarity[0] == split[s1_index] and similarity[1] == split[s2_index]:
                                 output_lines.append('\t'.join(split + [similarity[4], '#\n']))
@@ -100,7 +100,7 @@ class OOVSisterTermsSimilarity:
                         split = line.split('\t')
                         split.pop()
 
-                        # TODO you can omit this cause they should be ordered in the same way, check if there are issue why this could be not true (errors, exceptions ecc)
+                        # TODO you can omit controls like these cause the lists should be ordered in the same way, check if there are issue why this could be not true (errors, exceptions ecc)
                         for similarity in similarities:
                             if similarity[0] == split[s1_index] and similarity[1] == split[s2_index]:
                                 output_lines.append('\t'.join(split + [similarity[4], '#\n']))
@@ -111,13 +111,13 @@ class OOVSisterTermsSimilarity:
     def _get_synset_couples(self):
         positive_couples = ReaderSynsetCouples.read(self.positive_input_path,
                                                     s1_index=5, w1_index=1,
-                                                    s2_index=9, w2_index=10, s_pos_index=6)
+                                                    s2_index=9, w2_index=10, s_pos_index=6, exclude_first=False)
         negative_couples = ReaderSynsetCouples.read(self.negative_input_path,
                                                     s1_index=5, w1_index=1,
-                                                    s2_index=9, w2_index=10, s_pos_index=6)
+                                                    s2_index=9, w2_index=10, s_pos_index=6, exclude_first=False)
         return positive_couples + negative_couples
 
-#TODO
+
 class OOVSisterTerms_LineReader(LineReader):
     def readline(self, line):
         try:

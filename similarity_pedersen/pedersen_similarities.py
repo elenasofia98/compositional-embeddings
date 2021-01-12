@@ -83,7 +83,7 @@ class SaverSynsetCouples:
 
 class ReaderSynsetCouples:
     @staticmethod
-    def read(input_path, s1_index=0, w1_index=2, s2_index=1, w2_index=3, s_pos_index=4):
+    def read(input_path, s1_index=0, w1_index=2, s2_index=1, w2_index=3, s_pos_index=4, exclude_first=True):
         couples = []
         first = True
         with open(input_path, 'r') as input:
@@ -92,7 +92,7 @@ class ReaderSynsetCouples:
                 if not line:
                     return couples
 
-                if first:
+                if exclude_first and first:
                     first = False
                     continue
 
