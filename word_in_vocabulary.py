@@ -12,8 +12,7 @@ class WordInSynset:
     def __init__(self, word, synset_name, pos):
         self.word = word
         self.synset_name = synset_name
-        self.pos = pos
-        self.pos.upper()
+        self.pos = pos.upper()
 
     @staticmethod
     def from_word_and_pos(word, pos):
@@ -25,7 +24,7 @@ class WordInSynset:
             return None
 
     def equals(self, s):
-        return self.synset_name == s.synset_name and self.word == s.word and self.pos.upper() == s.pos.upper()
+       return self.synset_name == s.synset_name and self.word == s.word
 
 
 class PretrainedEmbeddingModel(Enum):
@@ -183,26 +182,24 @@ def writeOOVS(oovs: list, path: str):
 
 
 """def not_done(syns, done):
-    out_syns= []
-
+    out_syns = []
+    done_syns = []
     for s in syns:
-        s:WordInSynset = s
-
+        s: WordInSynset = s
         found = False
         i = 0
         while not found and i < len(done):
             #print(done[i].synset_name == s.synset_name, done[i].word == s.word)
             if s.equals(done[i]):
-                print(found)
                 found = True
+                done_syns.append(s)
                 break
             i += 1
         if not found:
             out_syns.append(s)
 
-    print(len(out_syns))
-    return out_syns
-"""
+    return out_syns, done_syns"""
+
 
 def find_oov_and_synset(pretrained_embeddings_path, binary=None, pos_tags=None, output_path='oov_in_synset.txt'):
     if pos_tags is None:
@@ -215,6 +212,7 @@ def find_oov_and_synset(pretrained_embeddings_path, binary=None, pos_tags=None, 
     oov_list = checker.get_OOV(words)
 
     synsets = []
+    #done_syns = []
     for oov in oov_list:
         for pos in pos_tags:
             s = WordInSynset.from_word_and_pos(oov, pos)
@@ -222,9 +220,7 @@ def find_oov_and_synset(pretrained_embeddings_path, binary=None, pos_tags=None, 
                 synsets.append(s)
 
     """if done is not None:
-        synsets = not_done(synsets, done)
-        print(len(synsets))"""
-
+        synsets, done_syns = not_done(synsets, done)"""
     with open(output_path, 'w+') as output:
         header = '\t'.join(['OOV', 'SYN_NAME', 'POS', '#\n'])
         output.write(header)

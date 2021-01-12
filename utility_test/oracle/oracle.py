@@ -21,3 +21,19 @@ class POSAwareOracle(Oracle):
     def add_correlations(self, value, first, second, target_pos, w1_pos, w2_pos):
         self.correlations[len(self.correlations)] = {'value': value, 'first': first, 'second': second,
                                                      'target_pos': target_pos, 'w1_pos': w1_pos, 'w2_pos': w2_pos}
+
+
+class POSAwareOOVOracle(Oracle):
+    """
+    The POSAwareOOVOracle keeps info about POS tag for words
+    in this case the 'first' value indicate the couple of words describing the 'oov' word
+    The similarity 'value' must be computed among 'oov ' and 'second' in this case
+    """
+
+    def __init__(self):
+        super(POSAwareOOVOracle, self).__init__()
+
+    def add_correlations(self, value, oov, first, second, target_pos, w1_pos, w2_pos):
+        self.correlations[len(self.correlations)] = {'value': value, 'oov': oov, 'first': first, 'second': second,
+                                                     'target_pos': target_pos, 'w1_pos': w1_pos,
+                                                     'w2_pos': w2_pos}

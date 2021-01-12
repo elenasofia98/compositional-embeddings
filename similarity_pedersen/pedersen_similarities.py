@@ -23,6 +23,36 @@ class SimilarityFunction(Enum):
     jcn = lambda x, y: wn.jcn_similarity(x, y, InformationContent.INFORMATION_CONTENT)
     lin = lambda x, y: wn.lin_similarity(x, y, InformationContent.INFORMATION_CONTENT)
 
+    @staticmethod
+    def name(similarity_function):
+        if similarity_function == SimilarityFunction.path:
+            return 'path'
+        if similarity_function == SimilarityFunction.lch:
+            return 'lch'
+        if similarity_function == SimilarityFunction.wup:
+            return 'wup'
+        if similarity_function == SimilarityFunction.res:
+            return 'res'
+        if similarity_function == SimilarityFunction.jcn:
+            return 'jcn'
+        if similarity_function == SimilarityFunction.lin:
+            return 'lin'
+
+    @staticmethod
+    def by_name(similarity_function_name):
+        if similarity_function_name == 'path':
+            return SimilarityFunction.path
+        if similarity_function_name == 'lch':
+            return SimilarityFunction.lch
+        if similarity_function_name == 'wup':
+            return SimilarityFunction.wup
+        if similarity_function_name == 'res':
+            return SimilarityFunction.res
+        if similarity_function_name == 'jcn':
+            return SimilarityFunction.jcn
+        if similarity_function_name == 'lin':
+            return SimilarityFunction.lin
+
 
 class SynsetCouple:
     def __init__(self, s1: Synset, w1, s2: Synset, w2, s_pos):
@@ -53,7 +83,7 @@ class SaverSynsetCouples:
 
 class ReaderSynsetCouples:
     @staticmethod
-    def read(input_path):
+    def read(input_path, s1_index=0, w1_index=2, s2_index=1, w2_index=3, s_pos_index=4):
         couples = []
         first = True
         with open(input_path, 'r') as input:
@@ -67,8 +97,9 @@ class ReaderSynsetCouples:
                     continue
 
                 split = line.split('\t')
-                couples.append(SynsetCouple(s1=wn.synset(split[0]), w1=split[2],
-                                            s2=wn.synset(split[1]), w2=split[3], s_pos=split[4]))
+                couples.append(SynsetCouple(s1=wn.synset(split[s1_index]), w1=split[w1_index],
+                                            s2=wn.synset(split[s2_index]), w2=split[w2_index], s_pos=split[s_pos_index]))
+        return couples
 
 
 class Comparator:
@@ -79,16 +110,21 @@ class Comparator:
     def write_similarities(self, path, header):
         output = open(path, 'w+')
         output.write(header)
-        output.writelines(self.get_similarities())
+        output.writelines(self._get_string_similarities())
         output.close()
 
     def get_similarities(self):
         similarities = []
         for couple in self.couples:
             if type(couple) is SynsetCouple:
-                similarities.append(
-                    '\t'.join([couple.s1.name(), couple.s2.name(), couple.w1, couple.w2,
-                               str(self.similarity_function(couple.s1, couple.s2)), couple.s_pos, '#\n']))
+                similarities.append([couple.s1.name(), couple.s2.name(), couple.w1, couple.w2,
+                                     str(self.similarity_function(couple.s1, couple.s2)), couple.s_pos])
             else:
                 raise ValueError
+        return similarities
+
+    def _get_string_similarities(self):
+        similarities = []
+        for similarity in self.get_similarities():
+            similarities.append('\t'.join( similarity + ['#\n']))
         return similarities
