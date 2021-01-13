@@ -1,14 +1,13 @@
 import tensorflow as tf
 import numpy as np
-from gensim.models import KeyedVectors
+from gensim.models import KeyedVectors, FastText
+from gensim.models.keyedvectors import FastTextKeyedVectors
 from scipy.stats import spearmanr
-import matplotlib.pyplot as plt
-import csv
 import os
 
+from base_model.ParentModel import ParentModel
 from similarity_pedersen.collect_pedersen_similarities import *
 from base_model.BaselineAdditiveModel import BaselineAdditiveModel
-from preprocessing.w2v_preprocessing_embedding import PreprocessingWord2VecEmbedding, OOVWordException
 from utility_test.oracle.oracle import POSAwareOracle, Oracle, POSAwareOOVOracle
 from utility_test.similarity_evaluator.similarity_evaluator import SimilarityEvaluator
 from utility_test.tester.tester import Tester, TestWriter, LineReader, UnexpectedValueInLine
@@ -63,9 +62,10 @@ class DefinitionsOOVSisterTerms_Joiner:
 
 
 class OOVSisterTermsSimilarity:
-    def __init__(self, positive_input_path, negative_input_path):
+    def __init__(self, positive_input_path, negative_input_path, normalize_len=False):
         self.positive_input_path = positive_input_path
         self.negative_input_path = negative_input_path
+        self.normalize_len = normalize_len
 
     def compare_according_to(self, similarity_function_name, root_output_dir):
         similarity_function = SimilarityFunction.by_name(similarity_function_name)
@@ -116,6 +116,14 @@ class OOVSisterTermsSimilarity:
         negative_couples = ReaderSynsetCouples.read(self.negative_input_path,
                                                     s1_index=5, w1_index=1,
                                                     s2_index=9, w2_index=10, s_pos_index=6, exclude_first=False)
+
+        if self.normalize_len:
+            if len(positive_couples) <= len(negative_couples):
+                r = len(positive_couples) / len(negative_couples)
+                negative_couples = [x for x in negative_couples if random.uniform(0, 1) <= r]
+            else:
+                r = len(negative_couples) / len(positive_couples)
+                positive_couples = [x for x in negative_couples if random.uniform(0, 1) <= r]
         return positive_couples + negative_couples
 
 
@@ -161,7 +169,6 @@ class OOVSisterTerms_POSAwareOracle(POSAwareOOVOracle):
         with parser:
             while True:
                 line = parser.get_example_from_line_next_line(index_range)
-                print(line)
                 if not line:
                     break
 
@@ -185,36 +192,84 @@ class OOVSisterTerms_POSAwareTester(Tester):
     def __init__(self, oracle: OOVSisterTerms_POSAwareOracle):
         self.oracle = oracle
 
-    #TODO ottieni vettore composizionale con somma o 21 o vettore in alto nella gerarchia con Parent o vettore word_vec con fasttext
-    def collect_similarity_of_predictions(self, model, evaluator: SimilarityEvaluator, save_on_file=True,
-                                          path='petersen_correlations.txt', mode=None):
+    def collect_similarity_of_predictions(self, test_model, evaluator: SimilarityEvaluator,
+                                          save_on_file, path, mode,
+                                          pretrained_embeddings_model):
         similarities = {}
 
         if save_on_file:
-            header = '\t'.join(['id', 'first', 'second', 'oracle_value', 'model_value', '#\n'])
+            header = '\t'.join(['id', 'oov', 'synset_oov', 'first', 'second', 'synset_second', 'target_pos', 'w1_pos', 'w2_pos', 'oracle_value', 'model_value' '#\n'])
             writer = TestWriter(path, header, mode)
 
         for i in self.oracle.correlations:
             correlation = self.oracle.correlations[i]
 
-            prediction_1 = model.word_vec(correlation['first'])
-            prediction_2 = model.word_vec(correlation['second'])
+            prediction_1 = self._predict_according_to(test_model, pretrained_embeddings_model, correlation)
+            prediction_2 = pretrained_embeddings_model.word_vec(correlation['second'])
 
-            similarities[i] = evaluator.similarity_function(prediction_1, prediction_2)
+            similarities[i] = evaluator.similarity_function(np.array(prediction_1), np.array(prediction_2))
 
             if save_on_file:
-                writer.write_line(i, [correlation['first'], correlation['second']],
-                                  [str(correlation['value']), str(similarities[i])])
+                writer.write_free_line(index=i, line=[correlation['oov'], correlation['synset_oov'],
+                                                      '['+ correlation['first'][0] + ' ' + correlation['first'][1]+']',
+                                                      correlation['second'], correlation['synset_second'],
+                                                      correlation['target_pos'], correlation['w1_pos'], correlation['w2_pos'],
+                                                      str(correlation['value']), str(similarities[i])])
 
         if save_on_file:
             writer.release()
 
         return similarities
 
-    def spearman_correlation_model_predictions_and_oracle(self, model: KeyedVectors, evaluator: SimilarityEvaluator,
-                                                          save_on_file=True,
-                                                          path='petersen_correlations.txt',
-                                                          mode=None):
-        similarities = self.collect_similarity_of_predictions(model, evaluator, save_on_file, path, mode)
+    def _predict_according_to(self, test_model, pretrained_embeddings_model, correlation):
+        if isinstance(test_model, ParentModel):
+            pred = test_model.predict(correlation['oov'], pos_tag=correlation['target_pos'].lower())
+            return pred
+
+        if isinstance(test_model, KeyedVectors) or isinstance(test_model, FastTextKeyedVectors):
+            pred = test_model.word_vec(correlation['oov'])
+            return pred
+
+        first_embeddings = np.array([pretrained_embeddings_model.word_vec(word) for word in correlation['first']])
+        if isinstance(test_model, BaselineAdditiveModel):
+            pred = test_model.predict(first_embeddings)
+            return pred
+
+        #TODO mine model
+        """#mine model
+        first_embeddings = np.array([pretrained_embeddings_model.word_vec(word) for word in correlation['first']])"""
+
+    def spearman_correlation_model_predictions_and_oracle(self, test_model, evaluator: SimilarityEvaluator,
+                                                          save_on_file, path, mode,
+                                                          pretrained_embeddings_model: KeyedVectors):
+
+        similarities = self.collect_similarity_of_predictions(test_model, evaluator, save_on_file, path, mode, pretrained_embeddings_model)
         return spearmanr([similarities[key] for key in similarities], [self.oracle.correlations[key]['value']
                                                                        for key in self.oracle.correlations])
+
+
+def oov_similarity_sister_terms(seed, measure, model, model_name, pretrained_embeddings_model):
+    reader = OOVSisterTerms_LineReader()
+    base_dir = 'data/similarity_pedersen_test/oov_sister_terms_with_definitions/seed_' + seed
+    oracle_path = os.path.join( base_dir, 'oov_oracle_' + measure + '.txt')
+
+    oracle = OOVSisterTerms_POSAwareOracle(path=oracle_path)
+    oracle.collect_correlations(reader)
+
+    oracle.remove_correlations_with_oov(
+        Checker.get_instance_from_path('data/pretrained_embeddings/GoogleNews-vectors-negative300.bin', binary=True))
+
+    evaluator = SimilarityEvaluator('cosine_similarity')
+    tester = OOVSisterTerms_POSAwareTester(oracle)
+
+    output_dir = os.path.join(base_dir, model_name+'_model')
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
+    output_path = os.path.join(output_dir, 'oov_oracle_' + measure + '_results.txt')
+
+    spearman = tester.spearman_correlation_model_predictions_and_oracle(test_model=model,
+                                                                        evaluator=evaluator,
+                                                                        save_on_file=True, path=output_path,
+                                                                        mode='w+',
+                                                                        pretrained_embeddings_model=pretrained_embeddings_model)
+    print('\t'.join([seed, model_name, measure, str(spearman.correlation)]))

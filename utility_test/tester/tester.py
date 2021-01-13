@@ -3,11 +3,11 @@ from utility_test.similarity_evaluator.similarity_evaluator import SimilarityEva
 
 class Tester:
     def collect_similarity_of_predictions(self, model, evaluator: SimilarityEvaluator, save_on_file=True,
-                                          path='correlations.txt', mode=None):
+                                          path='correlations.txt', mode=None, pretrained_embeddings_model=None):
         pass
 
     def spearman_correlation_model_predictions_and_oracle(self, model, evaluator: SimilarityEvaluator,
-                                                          save_on_file=True):
+                                                          save_on_file=True, pretrained_embeddings_model=None):
         pass
 
 
@@ -32,6 +32,10 @@ class TestWriter:
         correlations = self.separator.join([str(x) for x in correlations])
 
         self.file.write(self.separator.join([str(index), oracle_line, correlations, '#\n']))
+
+    #TODO find a better name or subclass... if somewhere you're still using the upper one
+    def write_free_line(self, index, line):
+        self.file.write(self.separator.join([str(index)] + line + ['#\n']))
 
     def write_lines(self, lines):
         self.file.writelines(lines)

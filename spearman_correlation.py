@@ -262,7 +262,7 @@ embedded_oracle = CS10EmbeddedOracle(oracle, PreprocessingWord2VecEmbedding(
 
 
 def test():
-    # sequential: tf.keras.models.Sequential = tf.keras.models.load_model('oov_sequential_predictor.h5')
+    # sequential: tf.keras.model_mappings.Sequential = tf.keras.model_mappings.load_model('oov_sequential_predictor.h5')
     evaluator = SimilarityEvaluator('cosine_similarity')
     functional = tf.keras.models.load_model('oov_functional_predictor.h5')
     baseline: BaselineAdditiveModel = BaselineAdditiveModel()
@@ -326,7 +326,7 @@ def tests():
     similarities_function_names = ['path', 'wup', 'lch', 'res', 'jcn', 'lin']
 
     preprocessor = PreprocessingWord2VecEmbedding(
-        "data/pretrained_embeddings/GoogleNews-vectors-negative300.bin", binary=True)
+        'data/pretrained_embeddings/GoogleNews-vectors-negative300.bin', binary=True)
 
     for measure in similarities_function_names:
         tests_functional_by_measures[measure] = []
