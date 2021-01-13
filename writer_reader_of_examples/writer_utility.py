@@ -29,6 +29,7 @@ class Parser:
 
     def get_example_from_line(self, line, index_range):
         splitted = line.split(self.word_separator)
+        print(splitted)
         return [splitted[i] for i in index_range]
 
 

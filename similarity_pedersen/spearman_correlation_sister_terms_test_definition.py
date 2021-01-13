@@ -6,7 +6,7 @@ import os
 import nltk
 
 from cluster.cluster import ClusterMinDiam
-from similarity_pedersen.collect_pedersen_similarities import voc_sim, retrieve_couples_divided_by_value_of_similarity
+from similarity_pedersen.collect_pedersen_similarities import voc_sim, retrieve_in_voc_couples_divided_by_value_of_similarity
 from similarity_pedersen.pedersen_similarities import InformationContent
 from utility_test.distribution.distributions import Gauss
 from utility_test.tester.tester import Tester, TestWriter, LineReader, UnexpectedValueInLine
@@ -217,7 +217,7 @@ def save_clusters(lists, output_path):
 """
 
 
-def micro_lists_path_based_pedersen_similarity(model, root_data_model, destination_dir, similarities_function_names=None):
+def micro_lists_in_voc_pedersen_similarity(model, root_data_model, destination_dir, similarities_function_names=None):
     if similarities_function_names is None:
         similarities_function_names = ['path', 'lch', 'wup', 'res', 'jcn', 'lin']
     spearman = {}
@@ -237,7 +237,7 @@ def micro_lists_path_based_pedersen_similarity(model, root_data_model, destinati
             if not os.path.exists(root_data_model + seed_dir):
                 os.mkdir(root_data_model + seed_dir)
 
-            n_couple_clusters = retrieve_couples_divided_by_value_of_similarity(
+            n_couple_clusters = retrieve_in_voc_couples_divided_by_value_of_similarity(
                 positive_input_path=root_data_model + 'sister_terms/seed_' + seed + '/in_voc_sister_terms_positive.txt',
                 negative_input_path=root_data_model + 'sister_terms/seed_' + seed + '/in_voc_sister_terms_negative.txt',
                 measure_name=measure)
@@ -303,10 +303,7 @@ def ic_based_measure_on(information_content_root_path, model, root_data_model, d
         ic_dir = os.path.join(destination_dir, information_content_name.split('.')[0])
         if not os.path.exists(os.path.join(root_data_model, ic_dir)):
             os.mkdir(os.path.join(root_data_model, ic_dir))
-        _ic_based_measure_on(information_content_name, model, root_data_model, destination_dir=ic_dir)
 
-
-def _ic_based_measure_on(information_content_name, model, root_data_model, destination_dir):
-    InformationContent.set_information_content(information_content_name)
-    micro_lists_path_based_pedersen_similarity(model, root_data_model, destination_dir,
+        InformationContent.set_information_content(information_content_name)
+        micro_lists_in_voc_pedersen_similarity(model, root_data_model, destination_dir,
                                                similarities_function_names=['res', 'jcn', 'lin'])

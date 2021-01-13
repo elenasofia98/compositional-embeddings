@@ -1,10 +1,14 @@
 from enum import Enum
 
 from similarity_pedersen.pedersen_similarities import SynsetCouple, Comparator, SimilarityFunction, SaverSynsetCouples, \
-    ReaderSynsetCouples
+    ReaderSynsetCouples, SynsetOOVCouple
+
+from utility_test.tester.tester import UnexpectedValueInLine
 from word_in_vocabulary import WNManager, Checker
 from nltk.corpus import wordnet as wn
 import random
+
+from writer_reader_of_examples.writer_utility import Parser
 
 
 def randomchoice(list):
@@ -106,8 +110,8 @@ def get_couples_from(words, checker: Checker, similar=True, output_path=None):
     return couples
 
 
-def retrieve_couples_divided_by_value_of_similarity(positive_input_path, negative_input_path, measure_name):
-    similarity_function = similarity_by_name(measure_name)
+def retrieve_in_voc_couples_divided_by_value_of_similarity(positive_input_path, negative_input_path, measure_name):
+    similarity_function = SimilarityFunction.by_name(measure_name)
     ordered_couple = {}
 
     positive_couples = ReaderSynsetCouples.read(positive_input_path)
@@ -125,6 +129,55 @@ def retrieve_couples_divided_by_value_of_similarity(positive_input_path, negativ
         ordered_couple[similarity_value].append(couple)
 
     return ordered_couple
+
+
+class OOVSisterTerms_LineReader(object):
+    def readline(self, line):
+        s1_index = 5
+        w1_index = 1
+        s2_index = 9
+        w2_index = 10
+        s_pos_index = 6
+
+        try:
+            value = float(line[11])
+            oov = line[w1_index]
+            synset_oov = line[s1_index]
+            first = line[2:4]
+            second = line[w2_index]
+            synset_second = line[s2_index]
+            target_pos = line[s_pos_index]
+            w1_pos = line[s_pos_index + 1]
+            w2_pos = line[s_pos_index + 2]
+
+            return value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos
+        except ValueError:
+            raise UnexpectedValueInLine(line)
+
+#TODO it doesn't work
+def retrieve_oov_couples_divided_by_value_of_similarity(input_path):
+    index_range = range(0, 13)
+    parser = Parser(input_path, '\t')
+    reader = OOVSisterTerms_LineReader()
+
+    ordered_couples = {}
+    with parser:
+        while True:
+            line = parser.get_example_from_line_next_line(index_range)
+            if not line:
+                break
+
+            try:
+                value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos = reader.readline(line)
+                s_oov = SynsetOOVCouple(oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos)
+                if value not in ordered_couples.keys():
+                    ordered_couples[value] = []
+
+                ordered_couples[value].append(s_oov)
+            except UnexpectedValueInLine:
+                continue
+
+    return ordered_couples
 
 
 def positive_negative_couples_from(positive_input_path, negative_input_path):
@@ -184,7 +237,7 @@ def voc_couples_and_similarity(similarity_function, similarity_output_path,
                     similarity_output_path, '\t'.join(['S1', 'S2', 'W1', 'W2', 'SIMILARITY', 'S1_POS', '#\n']))
 
 
-def similarity_by_name(measure_name):
+"""def similarity_by_name(measure_name):
     if measure_name == 'wup':
         return SimilarityFunction.wup
     else:
@@ -204,12 +257,12 @@ def similarity_by_name(measure_name):
                             return SimilarityFunction.res
                         else:
                             raise NotImplementedError('Unknown measure name. SimilarityFunction must be customized')
-
+"""
 
 def voc_sim(measure_name, positive_output_file, negative_output_file,
             couples_output_dir='data/similarity_pedersen_test/sister_terms',
             model_path=None, binary=True):
-    similarity = similarity_by_name(measure_name)
+    similarity = SimilarityFunction.by_name(measure_name)
     voc_couples_and_similarity(similarity,
                                similarity_output_path=positive_output_file,
                                similar=True,
@@ -227,7 +280,7 @@ def voc_sim(measure_name, positive_output_file, negative_output_file,
 def oov_sim(measure_name, positive_output_file, negative_output_file,
             couples_output_dir='data/similarity_pedersen_test/sister_terms',
             model_path=None, binary=True):
-    similarity = similarity_by_name(measure_name)
+    similarity = SimilarityFunction.by_name(measure_name)
     oov_couples_and_similarity(similarity,
                                similarity_output_path=positive_output_file,
                                similar=True,

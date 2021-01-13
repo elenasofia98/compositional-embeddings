@@ -1,3 +1,5 @@
+from random import random
+
 import tensorflow as tf
 import numpy as np
 from gensim.models import KeyedVectors, FastText
@@ -6,12 +8,14 @@ from scipy.stats import spearmanr
 import os
 
 from base_model.ParentModel import ParentModel
-from similarity_pedersen.collect_pedersen_similarities import *
+
 from base_model.BaselineAdditiveModel import BaselineAdditiveModel
+from similarity_pedersen.collect_pedersen_similarities import retrieve_oov_couples_divided_by_value_of_similarity
+from similarity_pedersen.pedersen_similarities import SimilarityFunction, Comparator, ReaderSynsetCouples
 from utility_test.oracle.oracle import POSAwareOracle, Oracle, POSAwareOOVOracle
 from utility_test.similarity_evaluator.similarity_evaluator import SimilarityEvaluator
 from utility_test.tester.tester import Tester, TestWriter, LineReader, UnexpectedValueInLine
-from word_in_vocabulary import WordInSynset
+from word_in_vocabulary import WordInSynset, Checker
 from writer_reader_of_examples.writer_utility import Parser
 from preprocessing.w2v_preprocessing_embedding import POS
 
@@ -273,3 +277,75 @@ def oov_similarity_sister_terms(seed, measure, model, model_name, pretrained_emb
                                                                         mode='w+',
                                                                         pretrained_embeddings_model=pretrained_embeddings_model)
     print('\t'.join([seed, model_name, measure, str(spearman.correlation)]))
+
+
+#TODO end this
+def micro_lists_oov_pedersen_similarity(model, root_data_model, destination_dir, similarities_function_names=None):
+    if similarities_function_names is None:
+        similarities_function_names = ['path', 'lch', 'wup', 'res', 'jcn', 'lin']
+    spearman = {}
+    evaluator = SimilarityEvaluator('cosine_similarity')
+
+    root_data_model = root_data_model + '/'
+    destination_dir = destination_dir + '/'
+
+    K = 15
+    N_TEST = 2000
+    TEST_SIZE = 7
+
+    for measure in similarities_function_names:
+        n_couple_clusters = retrieve_oov_couples_divided_by_value_of_similarity(
+            input_path=root_data_model + '/oov_oracle_'+measure+'_results.txt')
+
+        print(n_couple_clusters)
+
+    """lengths_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
+                save_clusters(lists=lengths_sublists,
+                              output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_n_' + measure + '.txt')
+                """"""min_len = min([len for (value, len) in lengths_sublists])
+                max_len = max([len for (value, len) in lengths_sublists])
+                avg = mean([len for (value, len) in lengths_sublists])
+                print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
+                print('\n')"""
+
+    k_clusters = ClusterMinDiam.k_clusters_of_min_diameter(k=K, n_clusters=n_couple_clusters)
+
+    """lengths_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
+    save_clusters(lists=lengths_sublists,
+                  output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_k_' + measure + '.txt')
+    """"""min_len = min([len for (value, len) in lengths_sublists])
+                max_len = max([len for (value, len) in lengths_sublists])
+                avg = mean([len for (value, len) in lengths_sublists])
+                print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
+                print('----------------')"""
+
+    output_path = root_data_model + seed_dir + measure + '_micro_lists_test.txt'
+    tests = collect_test_of_size(n_test=N_TEST, test_size=TEST_SIZE, k_clusters=k_clusters,
+                                 ouput_path=output_path)
+    """print('----------------')
+    lengths_sublists = [len(test) for test in tests]
+    min_len = min(lengths_sublists)
+    max_len = max(lengths_sublists)
+    avg = mean(lengths_sublists)
+    print(lengths_sublists)
+    print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
+    print('----------------')"""
+    spearman[measure] = []
+    for i in range(0, len(tests)):
+        oracle = InVocCorrelationOracle(path=None)
+        for d in tests[i]:
+            (similarity_value, synset_couple) = d
+            oracle.add_correlations(value=similarity_value, first=synset_couple.w1, second=synset_couple.w2)
+        tester = PetersenInVocTester(oracle=oracle)
+
+        spearman[measure].append(tester.spearman_correlation_model_predictions_and_oracle(
+            model, evaluator,
+            save_on_file=True,
+            path=root_data_model + seed_dir + measure + '_output_micro_lists_test.txt',
+            mode='a+')
+        )
+
+    distribution = Gauss(data=[-x.correlation for x in spearman[measure]])
+    distribution.save(output_path=root_data_model + seed_dir + measure + '_gauss_test.png',
+                      title=f"{measure} mini-lists spearman results")
+    print('\t'.join([seed, measure, str(distribution.mu), str(distribution.std)]))
