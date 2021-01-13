@@ -235,7 +235,7 @@ class OOVSisterTerms_POSAwareTester(Tester):
             pred = test_model.predict(first_embeddings)
             return pred
 
-        #TODO mine model
+        #TODO CDS model
         """#mine model
         first_embeddings = np.array([pretrained_embeddings_model.word_vec(word) for word in correlation['first']])"""
 
