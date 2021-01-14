@@ -1,4 +1,4 @@
-from random import random
+import random
 
 import tensorflow as tf
 import numpy as np
@@ -10,8 +10,11 @@ import os
 from base_model.ParentModel import ParentModel
 
 from base_model.BaselineAdditiveModel import BaselineAdditiveModel
+from cluster.cluster import ClusterMinDiam
 from similarity_pedersen.collect_pedersen_similarities import retrieve_oov_couples_divided_by_value_of_similarity
-from similarity_pedersen.pedersen_similarities import SimilarityFunction, Comparator, ReaderSynsetCouples
+from similarity_pedersen.pedersen_similarities import SimilarityFunction, Comparator, ReaderSynsetCouples, \
+    SynsetOOVCouple
+from utility_test.distribution.distributions import Gauss
 from utility_test.oracle.oracle import POSAwareOracle, Oracle, POSAwareOOVOracle
 from utility_test.similarity_evaluator.similarity_evaluator import SimilarityEvaluator
 from utility_test.tester.tester import Tester, TestWriter, LineReader, UnexpectedValueInLine
@@ -37,7 +40,8 @@ class DefinitionsOOVSisterTerms_Joiner:
                         continue
 
                     split = line.split('\t')
-                    oov_s, w2_s2 = WordInSynset(word=split[2], synset_name=split[0], pos=split[4]), WordInSynset(word=split[3], synset_name=split[1], pos=split[4])
+                    oov_s, w2_s2 = WordInSynset(word=split[2], synset_name=split[0], pos=split[4]), WordInSynset(
+                        word=split[3], synset_name=split[1], pos=split[4])
                     sister_terms.append((oov_s, w2_s2))
 
                 definitions = []
@@ -95,7 +99,7 @@ class OOVSisterTermsSimilarity:
                         w2_index = 10
                         s_pos_index = 6
 
-                        #TODO you can omit controls like these cause the lists should be ordered in the same way, check if there are issue why this could be not true (errors, exceptions ecc)
+                        # TODO you can omit controls like these cause the lists should be ordered in the same way, check if there are issue why this could be not true (errors, exceptions ecc)
                         for similarity in similarities:
                             if similarity[0] == split[s1_index] and similarity[1] == split[s2_index]:
                                 output_lines.append('\t'.join(split + [similarity[4], '#\n']))
@@ -129,7 +133,6 @@ class OOVSisterTermsSimilarity:
                 r = len(negative_couples) / len(positive_couples)
                 positive_couples = [x for x in negative_couples if random.uniform(0, 1) <= r]
         return positive_couples + negative_couples
-
 
 
 class OOVSisterTerms_LineReader(LineReader):
@@ -177,8 +180,10 @@ class OOVSisterTerms_POSAwareOracle(POSAwareOOVOracle):
                     break
 
                 try:
-                    value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos = reader.readline(line)
-                    self.add_correlations(value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos)
+                    value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos = reader.readline(
+                        line)
+                    self.add_correlations(value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos,
+                                          w2_pos)
                 except UnexpectedValueInLine:
                     continue
 
@@ -186,7 +191,8 @@ class OOVSisterTerms_POSAwareOracle(POSAwareOOVOracle):
         del_keys = []
         for key in self.correlations:
             correlation = self.correlations[key]
-            if not checker.is_in_vocabulary(correlation['first'][0]) or not checker.is_in_vocabulary(correlation['first'][1]) or not checker.is_in_vocabulary(correlation['second']):
+            if not checker.is_in_vocabulary(correlation['first'][0]) or not checker.is_in_vocabulary(
+                    correlation['first'][1]) or not checker.is_in_vocabulary(correlation['second']):
                 del_keys.append(key)
         for key in del_keys:
             self.correlations.pop(key)
@@ -202,7 +208,9 @@ class OOVSisterTerms_POSAwareTester(Tester):
         similarities = {}
 
         if save_on_file:
-            header = '\t'.join(['id', 'oov', 'synset_oov', 'first', 'second', 'synset_second', 'target_pos', 'w1_pos', 'w2_pos', 'oracle_value', 'model_value' '#\n'])
+            header = '\t'.join(
+                ['id', 'oov', 'synset_oov', 'first', 'second', 'synset_second', 'target_pos', 'w1_pos', 'w2_pos',
+                 'oracle_value', 'model_value' '#\n'])
             writer = TestWriter(path, header, mode)
 
         for i in self.oracle.correlations:
@@ -215,9 +223,11 @@ class OOVSisterTerms_POSAwareTester(Tester):
 
             if save_on_file:
                 writer.write_free_line(index=i, line=[correlation['oov'], correlation['synset_oov'],
-                                                      '['+ correlation['first'][0] + ' ' + correlation['first'][1]+']',
+                                                      '[' + correlation['first'][0] + ' ' + correlation['first'][
+                                                          1] + ']',
                                                       correlation['second'], correlation['synset_second'],
-                                                      correlation['target_pos'], correlation['w1_pos'], correlation['w2_pos'],
+                                                      correlation['target_pos'], correlation['w1_pos'],
+                                                      correlation['w2_pos'],
                                                       str(correlation['value']), str(similarities[i])])
 
         if save_on_file:
@@ -239,7 +249,7 @@ class OOVSisterTerms_POSAwareTester(Tester):
             pred = test_model.predict(first_embeddings)
             return pred
 
-        #TODO CDS model
+        # TODO CDS model
         """#mine model
         first_embeddings = np.array([pretrained_embeddings_model.word_vec(word) for word in correlation['first']])"""
 
@@ -247,7 +257,8 @@ class OOVSisterTerms_POSAwareTester(Tester):
                                                           save_on_file, path, mode,
                                                           pretrained_embeddings_model: KeyedVectors):
 
-        similarities = self.collect_similarity_of_predictions(test_model, evaluator, save_on_file, path, mode, pretrained_embeddings_model)
+        similarities = self.collect_similarity_of_predictions(test_model, evaluator, save_on_file, path, mode,
+                                                              pretrained_embeddings_model)
         return spearmanr([similarities[key] for key in similarities], [self.oracle.correlations[key]['value']
                                                                        for key in self.oracle.correlations])
 
@@ -255,7 +266,7 @@ class OOVSisterTerms_POSAwareTester(Tester):
 def oov_similarity_sister_terms(seed, measure, model, model_name, pretrained_embeddings_model):
     reader = OOVSisterTerms_LineReader()
     base_dir = 'data/similarity_pedersen_test/oov_sister_terms_with_definitions/seed_' + seed
-    oracle_path = os.path.join( base_dir, 'oov_oracle_' + measure + '.txt')
+    oracle_path = os.path.join(base_dir, 'oov_oracle_' + measure + '.txt')
 
     oracle = OOVSisterTerms_POSAwareOracle(path=oracle_path)
     oracle.collect_correlations(reader)
@@ -266,7 +277,7 @@ def oov_similarity_sister_terms(seed, measure, model, model_name, pretrained_emb
     evaluator = SimilarityEvaluator('cosine_similarity')
     tester = OOVSisterTerms_POSAwareTester(oracle)
 
-    output_dir = os.path.join(base_dir, model_name+'_model')
+    output_dir = os.path.join(base_dir, model_name + '_model')
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
     output_path = os.path.join(output_dir, 'oov_oracle_' + measure + '_results.txt')
@@ -279,8 +290,55 @@ def oov_similarity_sister_terms(seed, measure, model, model_name, pretrained_emb
     print('\t'.join([seed, model_name, measure, str(spearman.correlation)]))
 
 
-#TODO end this
-def micro_lists_oov_pedersen_similarity(model, root_data_model, destination_dir, similarities_function_names=None):
+# TODO you can join this and in voc method?
+def collect_test_of_size(n_test, test_size, k_clusters: dict, ouput_path=None):
+    tests = []
+    exists_available = True
+    i = 0
+
+    while i in range(0, n_test) and exists_available:
+        test = []
+        available_centers = [center for center in k_clusters if len(k_clusters[center]) != 0]
+
+        for j in range(0, test_size):
+            if j + len(available_centers) < test_size:
+                print('la len del test finora + quella dei centri ancora disponibili e\' minore della size del test')
+                print(str(j + len(available_centers)) + ' vs ' + str(test_size))
+                exists_available = False
+                break
+
+            center = random.choice(available_centers)
+            available_centers.remove(center)
+
+            d = random.choice(k_clusters[center])
+            test.append(d)
+            k_clusters[center].remove(d)
+
+        if len(test) == test_size:
+            test.sort()
+            tests.append(test)
+        else:
+            break
+        i += 1
+
+    if ouput_path is not None:
+        with open(ouput_path, 'w+') as output:
+            output.write('\t'.join(['TEST_N', 'oov', 'synset_oov', 'first', 'second', 'synset_second', 'target_pos',
+                                    'w1_pos', 'w2_pos', 'value', '#\n']))
+            for i in range(0, len(tests)):
+                for d in tests[i]:
+                    (similarity_value, couple) = d
+                    couple: SynsetOOVCouple = couple
+                    output.write('\t'.join(
+                        [str(i + 1), couple.oov, couple.synset_oov.name(), couple.first[0] + ' ' + couple.first[1],
+                         couple.second, couple.synset_second.name(), couple.target_pos,
+                         couple.w1_pos, couple.w2_pos,
+                         str(similarity_value), '#\n']))
+    return tests
+
+
+def micro_lists_oov_pedersen_similarity(model, pretrained_embeddings_model, root_data_model, destination_dir,
+                                        similarities_function_names=None):
     if similarities_function_names is None:
         similarities_function_names = ['path', 'lch', 'wup', 'res', 'jcn', 'lin']
     spearman = {}
@@ -292,60 +350,72 @@ def micro_lists_oov_pedersen_similarity(model, root_data_model, destination_dir,
     K = 15
     N_TEST = 2000
     TEST_SIZE = 7
-
+    checker = Checker.get_instance_from_path('data/pretrained_embeddings/GoogleNews-vectors-negative300.bin', binary=True)
+    checker.model = pretrained_embeddings_model
     for measure in similarities_function_names:
         n_couple_clusters = retrieve_oov_couples_divided_by_value_of_similarity(
-            input_path=root_data_model + '/oov_oracle_'+measure+'_results.txt')
+            input_path=root_data_model + '/oov_oracle_' + measure + '.txt')
 
-        print(n_couple_clusters)
+        """print('-----------------------------')
+        lengths_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
+        print(lengths_sublists)"""
+        """save_clusters(lists=lengths_sublists,
+                      output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_n_' + measure + '.txt')
+        """"""min_len = min([len for (value, len) in lengths_sublists])
+        max_len = max([len for (value, len) in lengths_sublists])
+        avg = mean([len for (value, len) in lengths_sublists])
+        print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
+        print('\n')"""
 
-    """lengths_sublists = [(value, len(n_couple_clusters[value])) for value in n_couple_clusters]
-                save_clusters(lists=lengths_sublists,
-                              output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_n_' + measure + '.txt')
-                """"""min_len = min([len for (value, len) in lengths_sublists])
-                max_len = max([len for (value, len) in lengths_sublists])
-                avg = mean([len for (value, len) in lengths_sublists])
-                print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
-                print('\n')"""
+        k_clusters = ClusterMinDiam.k_clusters_of_min_diameter(k=K, n_clusters=n_couple_clusters)
 
-    k_clusters = ClusterMinDiam.k_clusters_of_min_diameter(k=K, n_clusters=n_couple_clusters)
+        """lengths_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
+        print(lengths_sublists)
+        print('-----------------------------')"""
+        """save_clusters(lists=lengths_sublists,
+                      output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_k_' + measure + '.txt')
+        """"""min_len = min([len for (value, len) in lengths_sublists])
+                    max_len = max([len for (value, len) in lengths_sublists])
+                    avg = mean([len for (value, len) in lengths_sublists])
+                    print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
+                    print('----------------')"""
 
-    """lengths_sublists = [(value, len(k_clusters[value])) for value in k_clusters]
-    save_clusters(lists=lengths_sublists,
-                  output_path=root_data_model + 'in_vocabulary_similarities/seed_' + seed + '_clusters_k_' + measure + '.txt')
-    """"""min_len = min([len for (value, len) in lengths_sublists])
-                max_len = max([len for (value, len) in lengths_sublists])
-                avg = mean([len for (value, len) in lengths_sublists])
-                print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
-                print('----------------')"""
+        tests = collect_test_of_size(n_test=N_TEST, test_size=TEST_SIZE, k_clusters=k_clusters,
+                                     ouput_path=os.path.join(root_data_model, destination_dir,
+                                                             measure + '_micro_lists_test.txt'))
 
-    output_path = root_data_model + seed_dir + measure + '_micro_lists_test.txt'
-    tests = collect_test_of_size(n_test=N_TEST, test_size=TEST_SIZE, k_clusters=k_clusters,
-                                 ouput_path=output_path)
-    """print('----------------')
-    lengths_sublists = [len(test) for test in tests]
-    min_len = min(lengths_sublists)
-    max_len = max(lengths_sublists)
-    avg = mean(lengths_sublists)
-    print(lengths_sublists)
-    print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
-    print('----------------')"""
-    spearman[measure] = []
-    for i in range(0, len(tests)):
-        oracle = InVocCorrelationOracle(path=None)
-        for d in tests[i]:
-            (similarity_value, synset_couple) = d
-            oracle.add_correlations(value=similarity_value, first=synset_couple.w1, second=synset_couple.w2)
-        tester = PetersenInVocTester(oracle=oracle)
+        """print('----------------')
+        lengths_sublists = [len(test) for test in tests]
+        min_len = min(lengths_sublists)
+        max_len = max(lengths_sublists)
+        avg = mean(lengths_sublists)
+        print(lengths_sublists)
+        print(f'min_len={min_len}, max_len={max_len}, avg={avg}')
+        print('----------------')"""
+        spearman[measure] = []
+        for i in range(0, len(tests)):
+            oracle = OOVSisterTerms_POSAwareOracle(path=None)
+            for d in tests[i]:
+                (similarity_value, couple) = d
+                couple: SynsetOOVCouple = couple
+                oracle.add_correlations(value=similarity_value, oov=couple.oov,
+                                        synset_oov=couple.synset_oov.name(), first=couple.first,
+                                        second=couple.second, synset_second=couple.synset_second.name(),
+                                        target_pos=couple.target_pos, w1_pos=couple.w1_pos, w2_pos=couple.w2_pos)
 
-        spearman[measure].append(tester.spearman_correlation_model_predictions_and_oracle(
-            model, evaluator,
-            save_on_file=True,
-            path=root_data_model + seed_dir + measure + '_output_micro_lists_test.txt',
-            mode='a+')
-        )
+            oracle.remove_correlations_with_oov(checker)
 
-    distribution = Gauss(data=[-x.correlation for x in spearman[measure]])
-    distribution.save(output_path=root_data_model + seed_dir + measure + '_gauss_test.png',
-                      title=f"{measure} mini-lists spearman results")
-    print('\t'.join([seed, measure, str(distribution.mu), str(distribution.std)]))
+            tester: OOVSisterTerms_POSAwareTester = OOVSisterTerms_POSAwareTester(oracle)
+            output_path = os.path.join(root_data_model, destination_dir, measure + '_output_micro_lists_test.txt')
+
+            spearman[measure].append(
+                tester.spearman_correlation_model_predictions_and_oracle(model, evaluator, save_on_file=True,
+                                                                         path=output_path,
+                                                                         mode='a+',
+                                                                         pretrained_embeddings_model=pretrained_embeddings_model)
+            )
+
+        distribution = Gauss(data=[-x.correlation for x in spearman[measure]])
+        distribution.save(output_path=os.path.join(root_data_model, destination_dir, measure + '_gauss_test.png'),
+                          title=f"{measure} mini-lists spearman results")
+        print('\t'.join([measure, str(distribution.mu), str(distribution.std)]))

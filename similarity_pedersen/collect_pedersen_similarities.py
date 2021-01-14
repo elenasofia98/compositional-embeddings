@@ -154,21 +154,20 @@ class OOVSisterTerms_LineReader(object):
         except ValueError:
             raise UnexpectedValueInLine(line)
 
-#TODO it doesn't work
+
 def retrieve_oov_couples_divided_by_value_of_similarity(input_path):
-    index_range = range(0, 13)
-    parser = Parser(input_path, '\t')
     reader = OOVSisterTerms_LineReader()
 
     ordered_couples = {}
-    with parser:
+
+    with open(input_path, 'r+') as input_file:
         while True:
-            line = parser.get_example_from_line_next_line(index_range)
+            line = input_file.readline()
             if not line:
                 break
-
             try:
-                value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos = reader.readline(line)
+                value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos = reader.readline(line.split('\t'))
+
                 s_oov = SynsetOOVCouple(oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos)
                 if value not in ordered_couples.keys():
                     ordered_couples[value] = []

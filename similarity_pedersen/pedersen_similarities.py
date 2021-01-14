@@ -67,7 +67,7 @@ class SynsetOOVCouple:
     def __init__(self, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos):
         self.synset_oov = wn.synset(synset_oov)
         self.oov = oov
-        self.first = {'w1': first[0], 'w2': first[1]}
+        self.first = first
         self.synset_second = wn.synset(synset_second)
         self.second = second
         self.target_pos = target_pos
