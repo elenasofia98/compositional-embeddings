@@ -1,6 +1,7 @@
 import random
 
 import tensorflow as tf
+from tensorflow.python.keras.engine.functional import Functional
 import numpy as np
 from gensim.models import KeyedVectors, FastText
 from gensim.models.keyedvectors import FastTextKeyedVectors
@@ -250,8 +251,16 @@ class OOVSisterTerms_POSAwareTester(Tester):
             return pred
 
         # TODO CDS model
-        """#mine model
-        first_embeddings = np.array([pretrained_embeddings_model.word_vec(word) for word in correlation['first']])"""
+        if isinstance(test_model, Functional):
+            pred = test_model.predict(
+                [np.array([first_embeddings[0]]),
+                 np.array([POS.get_pos_vector(correlation['w1_pos'])]),
+                 np.array([first_embeddings[1]]),
+                 np.array([POS.get_pos_vector(correlation['w2_pos'])]),
+                 np.array([POS.get_pos_vector(correlation['target_pos'])])
+                 ])
+            return pred
+
 
     def spearman_correlation_model_predictions_and_oracle(self, test_model, evaluator: SimilarityEvaluator,
                                                           save_on_file, path, mode,
@@ -338,7 +347,7 @@ def collect_test_of_size(n_test, test_size, k_clusters: dict, ouput_path=None):
 
 
 def micro_lists_oov_pedersen_similarity(model, pretrained_embeddings_model, root_data_model, destination_dir,
-                                        similarities_function_names=None, model_name=None):
+                                        similarities_function_names=None, model_name=None, seed=None):
     if similarities_function_names is None:
         similarities_function_names = ['path', 'lch', 'wup', 'res', 'jcn', 'lin']
     spearman = {}
@@ -418,4 +427,4 @@ def micro_lists_oov_pedersen_similarity(model, pretrained_embeddings_model, root
         distribution = Gauss(data=[-x.correlation for x in spearman[measure]])
         distribution.save(output_path=os.path.join(root_data_model, destination_dir, measure + '_gauss_test.png'),
                           title=f"{measure} mini-lists spearman results")
-        print('\t'.join([model_name, measure, str(distribution.mu), str(distribution.std)]))
+        print('\t'.join([seed, model_name, measure, str(distribution.mu), str(distribution.std)]))
