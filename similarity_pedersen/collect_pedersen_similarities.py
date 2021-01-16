@@ -28,6 +28,8 @@ def _similar_word_to(s1, w1, checker: Checker):
     hypernyms = s1.hypernyms()
     if len(hypernyms) == 0:
         return None, None
+
+    #see hypernyms_sister_term_choice file to justify this
     sister_synss = hypernyms[0].hyponyms()
     if s1 in sister_synss:
         sister_synss.remove(s1)

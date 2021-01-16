@@ -338,7 +338,7 @@ def collect_test_of_size(n_test, test_size, k_clusters: dict, ouput_path=None):
 
 
 def micro_lists_oov_pedersen_similarity(model, pretrained_embeddings_model, root_data_model, destination_dir,
-                                        similarities_function_names=None):
+                                        similarities_function_names=None, model_name=None):
     if similarities_function_names is None:
         similarities_function_names = ['path', 'lch', 'wup', 'res', 'jcn', 'lin']
     spearman = {}
@@ -348,7 +348,7 @@ def micro_lists_oov_pedersen_similarity(model, pretrained_embeddings_model, root
     destination_dir = destination_dir + '/'
 
     K = 15
-    N_TEST = 2000
+    N_TEST = 200
     TEST_SIZE = 7
     checker = Checker.get_instance_from_path('data/pretrained_embeddings/GoogleNews-vectors-negative300.bin', binary=True)
     checker.model = pretrained_embeddings_model
@@ -418,4 +418,4 @@ def micro_lists_oov_pedersen_similarity(model, pretrained_embeddings_model, root
         distribution = Gauss(data=[-x.correlation for x in spearman[measure]])
         distribution.save(output_path=os.path.join(root_data_model, destination_dir, measure + '_gauss_test.png'),
                           title=f"{measure} mini-lists spearman results")
-        print('\t'.join([measure, str(distribution.mu), str(distribution.std)]))
+        print('\t'.join([model_name, measure, str(distribution.mu), str(distribution.std)]))
