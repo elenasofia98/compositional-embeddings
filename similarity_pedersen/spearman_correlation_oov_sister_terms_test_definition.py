@@ -357,8 +357,8 @@ def micro_lists_oov_pedersen_similarity(model, pretrained_embeddings_model, root
     destination_dir = destination_dir + '/'
 
     K = 15
-    N_TEST = 200
-    TEST_SIZE = 7
+    N_TEST = 500
+    TEST_SIZE = 6
     checker = Checker.get_instance_from_path('data/pretrained_embeddings/GoogleNews-vectors-negative300.bin', binary=True)
     checker.model = pretrained_embeddings_model
     for measure in similarities_function_names:

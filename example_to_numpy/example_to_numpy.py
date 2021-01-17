@@ -53,11 +53,12 @@ class POSAwareExampleToNumpy(ExampleToNumpy):
         if len(example['data']) != 2:
             raise BadExampleException()
 
-        self.data.append_fixed_len(np.array(example['data']))
-        self.target.append_fixed_len(np.array(example['target']))
-        self.target_pos.append_fixed_len(np.array(example['target_pos']))
-        self.w1_pos.append_fixed_len(np.array(example['w1_pos']))
-        self.w2_pos.append_fixed_len(np.array(example['w2_pos']))
+        self.data.append(np.array(example['data']))
+        self.target.append(np.array(example['target']))
+        self.target_pos.append(np.array(example['target_pos']))
+        self.w1_pos.append(np.array(example['w1_pos']))
+        self.w2_pos.append(np.array(example['w2_pos']))
 
     def save_numpy_examples(self, path):
-        np.savez(path, data=self.data, target_pos=self.target_pos, target=self.target, w1_pos=self.w1_pos, w2_pos=self.w2_pos)
+        np.savez(path, data=self.data, target_pos=self.target_pos, target=self.target,
+                 w1_pos=self.w1_pos, w2_pos=self.w2_pos)

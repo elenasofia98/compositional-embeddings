@@ -5,10 +5,34 @@ import os
 import matplotlib.pyplot as plt
 
 from tensorflow.python.keras.callbacks import History
-from base_model.BaselineAdditiveModel import BaselineAdditiveModel
+
+from similarity_pedersen.pedersen_similarities import ReaderSynsetCouples, SynsetOOVCouple, ReaderSynsetOOVCouple
 from writer_reader_of_examples.writer_utility import POSAwareExampleWriter
 from example_to_numpy.example_to_numpy import ExampleToNumpy, POSAwareExampleToNumpy
 from preprocessing.w2v_preprocessing_embedding import POSAwarePreprocessingWord2VecEmbedding
+
+
+def write_w2v_example_excluding(test_path, input_paths, output_path):
+    test_couples = ReaderSynsetOOVCouple.read(test_path)
+    test_dict = {'_'.join(couple.first):1 for couple in test_couples}
+
+    paths = []
+    for path in input_paths:
+        new_input_path = path.split('.')[0] + '_test_excluded.txt'
+        paths.append(new_input_path)
+
+        if not os.path.exists(new_input_path):
+            with open(path, 'r+') as input:
+                with open(new_input_path, 'w+') as new_input:
+                    output_lines = []
+                    for line in input.readlines():
+                        split = line.split('\t')
+                        if '_'.join(split[2:4]) not in test_dict:
+                            output_lines.append(line)
+
+                    new_input.writelines(output_lines)
+
+    #write_w2v_exaples_from_to(paths, output_path)
 
 
 def write_w2v_exaples_from_to(paths, output_path):
@@ -18,6 +42,30 @@ def write_w2v_exaples_from_to(paths, output_path):
                                        binary=True)
                                    )
     writer.write_w2v_examples()
+
+
+def write_w2v_example_excluding(test_paths, input_paths, output_path):
+    test_couples = []
+    for test_path in test_paths:
+        test_couples.extend(ReaderSynsetOOVCouple.read(test_path))
+
+    test_dict = {'_'.join(couple.first): 1 for couple in test_couples}
+
+    paths = []
+    for path in input_paths:
+        new_input_path = path.split('.')[0] + '_no_sister_terms_test.txt'
+        paths.append(new_input_path)
+        with open(path, 'r+') as input:
+            with open(new_input_path, 'w+') as new_input:
+                output_lines = []
+                for line in input.readlines():
+                    split = line.split('\t')
+                    if '_'.join(split[2:4]) not in test_dict:
+                        output_lines.append(line)
+
+                new_input.writelines(output_lines)
+
+    write_w2v_exaples_from_to(paths, output_path)
 
 
 def load_dataset_from(path):
@@ -49,19 +97,8 @@ def split_in(split_test: float, dataset_data, dataset_target, dataset_target_pos
     train_w1_pos = np.array(dataset_w1_pos[TEST_SIZE:])
     train_w2_pos = np.array(dataset_w2_pos[TEST_SIZE:])
 
-    return (test_data, test_target, test_target_pos, train_w1_pos, train_w2_pos), (train_data, train_target, train_target_pos, test_w1_pos, test_w2_pos)
-
-
-def save(model, test, training):
-    model.save('oov_sequential_predictor.h5')
-
-    """(test_data, test_target, test_pos) = test
-    test_saver = POSAwareExampleToNumpy(data=test_data, target=test_target, target_pos=test_pos)
-    test_saver.save_numpy_examples('data/test_oov_sequential_predictor.npz')
-
-    (train_data, train_target, train_pos) = training
-    train_saver = POSAwareExampleToNumpy(data=train_data, target=train_target, target_pos=train_pos)
-    train_saver.save_numpy_examples('data/train_oov_sequential_predictor.npz')"""
+    return (test_data, test_target, test_target_pos, train_w1_pos, train_w2_pos), \
+           (train_data, train_target, train_target_pos, test_w1_pos, test_w2_pos)
 
 
 def all_descendant_files_of(base):
@@ -81,13 +118,21 @@ def plot(history):
     plt.show()
 
 
+test_paths = []
+for seed in ['19', '99', '200', '1999', '5348']:
+    for t in ['positive', 'negative']:
+        test_paths.append('data/similarity_pedersen_test/oov_sister_terms_with_definitions/seed_'+seed+'/oov_definition_sister_terms_'+t+'.txt')
+
 base = "data/wordnet_definition/"
 input_paths = all_descendant_files_of(base)
 
-path = 'data/google_w2v_example.npz'
-write_w2v_exaples_from_to(input_paths, path)
+"""dataset_path = 'data/google_w2v_example.npz'
+write_w2v_exaples_from_to(input_paths, dataset_path)"""
 
-dataset_data, dataset_target, dataset_target_pos, dataset_w1_pos, dataset_w2_pos = load_dataset_from(path=path)
+dataset_path = 'data/google_w2v_example_no_sister_terms_test.npz'
+write_w2v_example_excluding(test_paths=test_paths, input_paths=input_paths, output_path=dataset_path)
+
+dataset_data, dataset_target, dataset_target_pos, dataset_w1_pos, dataset_w2_pos = load_dataset_from(path=dataset_path)
 test, train = split_in(0.20, dataset_data, dataset_target, dataset_target_pos, dataset_w1_pos, dataset_w2_pos)
 (test_data, test_target, test_target_pos, train_w1_pos, train_w2_pos) = test
 (train_data, train_target, train_target_pos, test_w1_pos, test_w2_pos) = train
@@ -95,14 +140,13 @@ test, train = split_in(0.20, dataset_data, dataset_target, dataset_target_pos, d
 FEATURES = 300
 N_POS_TAG = 3
 
-#pos_embedding = tf.keras.layers.Embedding(input_dim=N_POS_TAG, output_dim=10, sequence_lenght=1)
+# pos_embedding = tf.keras.layers.Embedding(input_dim=N_POS_TAG, output_dim=10, sequence_lenght=1)
 
 first_embedding = tf.keras.layers.Input(shape=(FEATURES,))
 x1 = tf.keras.layers.Dense(500)(first_embedding)
 x1 = tf.keras.layers.LeakyReLU(alpha=0.5)(x1)
 x1 = tf.keras.layers.Dropout(rate=0.15)(x1)
 x1 = tf.keras.layers.Dense(300)(x1)
-
 
 second_embedding = tf.keras.layers.Input(shape=(FEATURES,))
 x2 = tf.keras.layers.Dense(500)(second_embedding)
@@ -115,7 +159,6 @@ x = tf.keras.layers.Dense(400)(x)
 x = tf.keras.layers.LeakyReLU(alpha=0.5)(x)
 x = tf.keras.layers.Dropout(rate=0.15)(x)
 x = tf.keras.layers.Dense(300)(x)
-
 
 w1_pos_one_hot = tf.keras.Input(shape=(N_POS_TAG,))
 w1_x2 = tf.keras.layers.Dense(100)(w1_pos_one_hot)
@@ -141,9 +184,8 @@ x = tf.keras.layers.LeakyReLU(alpha=0.5)(x)
 x = tf.keras.layers.Dropout(rate=0.15)(x)
 output = tf.keras.layers.Dense(300)(x)
 
-
-
-model = tf.keras.Model(inputs=[first_embedding, w1_pos_one_hot, second_embedding, w2_pos_one_hot, target_pos_one_hot], outputs=output)
+model = tf.keras.Model(inputs=[first_embedding, w1_pos_one_hot, second_embedding, w2_pos_one_hot, target_pos_one_hot],
+                       outputs=output)
 model.summary()
 
 model.compile(
@@ -155,14 +197,15 @@ model.compile(
 N_EPOCHS = 25
 BATCH_SIZE = 64
 
-history: History = model.fit(x=[train_data[:, 0], train_w1_pos, train_data[:, 1], train_w2_pos, train_target_pos], y=train_target, epochs=N_EPOCHS,
+history: History = model.fit(x=[train_data[:, 0], train_w1_pos, train_data[:, 1], train_w2_pos, train_target_pos],
+                             y=train_target, epochs=N_EPOCHS,
                              batch_size=BATCH_SIZE)
 plot(history)
 
-test_history = model.evaluate(x=[test_data[:, 0], test_w1_pos, test_data[:, 1], test_w2_pos, test_target_pos], y=test_target)
-
+test_history = model.evaluate(x=[test_data[:, 0], test_w1_pos, test_data[:, 1], test_w2_pos, test_target_pos],
+                              y=test_target)
 
 """r = compare_with_baseline(test_history[1], 'additive', test_data, test_target)
 print(f'R model against additive model:{r}')"""
 
-model.save('oov_functional_predictor.h5')
+model.save('oov_functional_predictor_no_sister_terms_test.h5')

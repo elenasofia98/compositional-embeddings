@@ -104,7 +104,7 @@ class PetersenInVocTester(Tester):
 
 """
 Ogni volta si ricalcolano sia le coppie che il valore della loro similitudine: con il seed fissato per gli esempi postivi di dimilitudine non ha molto senso
-Risultati inaffidabili a causa della ripetizione frequente di valori per la misura basaata sul path nella tassonomia di wordnet
+Risultati inaffidabili a causa della ripetizione frequente di valori per la misura basaata sul dataset_path nella tassonomia di wordnet
 La cosine similarity assume valori continui invece
 """
 

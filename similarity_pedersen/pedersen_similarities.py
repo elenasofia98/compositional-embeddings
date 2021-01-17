@@ -110,7 +110,32 @@ class ReaderSynsetCouples:
 
                 split = line.split('\t')
                 couples.append(SynsetCouple(s1=wn.synset(split[s1_index]), w1=split[w1_index],
-                                            s2=wn.synset(split[s2_index]), w2=split[w2_index], s_pos=split[s_pos_index]))
+                                            s2=wn.synset(split[s2_index]), w2=split[w2_index],
+                                            s_pos=split[s_pos_index]))
+        return couples
+
+
+class ReaderSynsetOOVCouple:
+    @staticmethod
+    def read(input_path, s1_index=5, w1_index=1, s2_index=9, w2_index=10, first_indexes=[2, 4],
+             s_pos_index=6, w1_pos=7, w2_pos=8, exclude_first=False):
+        couples = []
+        first = True
+        with open(input_path, 'r') as input:
+            while True:
+                line = input.readline()
+                if not line:
+                    return couples
+
+                if exclude_first and first:
+                    first = False
+                    continue
+
+                split = line.split('\t')
+                couples.append(SynsetOOVCouple(oov=split[w1_index], synset_oov=split[s1_index],
+                                               first=split[first_indexes[0]:first_indexes[1]], second=split[w2_index],
+                                               synset_second=split[s2_index], target_pos=split[s_pos_index],
+                                               w1_pos=split[w1_pos], w2_pos=split[w2_pos]))
         return couples
 
 
