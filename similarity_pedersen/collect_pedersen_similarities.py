@@ -29,7 +29,7 @@ def _similar_word_to(s1, w1, checker: Checker):
     if len(hypernyms) == 0:
         return None, None
 
-    #see hypernyms_sister_term_choice file to justify this
+    # see hypernyms_sister_term_choice file to justify this
     sister_synss = hypernyms[0].hyponyms()
     if s1 in sister_synss:
         sister_synss.remove(s1)
@@ -56,7 +56,7 @@ ALL_NAMES = [x for x in wn.all_synsets('n')]
 ALL_VERBS = [x for x in wn.all_synsets('v')]
 
 
-# TODO You need to fix seed? With hight prob. s1 and s2 are unrelated in both noun and verb!
+# TODO You need to fix seed (?) but with high prob. s1 and s2 are unrelated in both noun and verb cases
 def _dissimilar_word_to(s1, w1, checker: Checker):
     if s1.pos() == wn.NOUN:
         syns = ALL_NAMES
@@ -161,14 +161,14 @@ def retrieve_oov_couples_divided_by_value_of_similarity(input_path):
     reader = OOVSisterTerms_LineReader()
 
     ordered_couples = {}
-
     with open(input_path, 'r+') as input_file:
         while True:
             line = input_file.readline()
             if not line:
                 break
             try:
-                value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos = reader.readline(line.split('\t'))
+                value, oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos = reader.readline(
+                    line.split('\t'))
 
                 s_oov = SynsetOOVCouple(oov, synset_oov, first, second, synset_second, target_pos, w1_pos, w2_pos)
                 if value not in ordered_couples.keys():
@@ -259,6 +259,7 @@ def voc_couples_and_similarity(similarity_function, similarity_output_path,
                         else:
                             raise NotImplementedError('Unknown measure name. SimilarityFunction must be customized')
 """
+
 
 def voc_sim(measure_name, positive_output_file, negative_output_file,
             couples_output_dir='data/similarity_pedersen_test/sister_terms',

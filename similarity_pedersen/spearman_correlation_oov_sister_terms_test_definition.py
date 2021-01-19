@@ -133,6 +133,7 @@ class OOVSisterTermsSimilarity:
             else:
                 r = len(negative_couples) / len(positive_couples)
                 positive_couples = [x for x in negative_couples if random.uniform(0, 1) <= r]
+
         return positive_couples + negative_couples
 
 
@@ -238,29 +239,27 @@ class OOVSisterTerms_POSAwareTester(Tester):
 
     def _predict_according_to(self, test_model, pretrained_embeddings_model, correlation):
         if isinstance(test_model, ParentModel):
-            pred = test_model.predict(correlation['oov'], pos_tag=correlation['target_pos'].lower())
-            return pred
+            prediction = test_model.predict(correlation['oov'], pos_tag=correlation['target_pos'].lower())
+            return prediction
 
         if isinstance(test_model, KeyedVectors) or isinstance(test_model, FastTextKeyedVectors):
-            pred = test_model.word_vec(correlation['oov'])
-            return pred
+            prediction = test_model.word_vec(correlation['oov'])
+            return prediction
 
         first_embeddings = np.array([pretrained_embeddings_model.word_vec(word) for word in correlation['first']])
         if isinstance(test_model, BaselineAdditiveModel):
-            pred = test_model.predict(first_embeddings)
-            return pred
+            prediction = test_model.predict(first_embeddings)
+            return prediction
 
-        # TODO CDS model
         if isinstance(test_model, Functional):
-            pred = test_model.predict(
+            prediction = test_model.predict(
                 [np.array([first_embeddings[0]]),
                  np.array([POS.get_pos_vector(correlation['w1_pos'])]),
                  np.array([first_embeddings[1]]),
                  np.array([POS.get_pos_vector(correlation['w2_pos'])]),
                  np.array([POS.get_pos_vector(correlation['target_pos'])])
                  ])
-            return pred
-
+            return prediction
 
     def spearman_correlation_model_predictions_and_oracle(self, test_model, evaluator: SimilarityEvaluator,
                                                           save_on_file, path, mode,
@@ -428,3 +427,96 @@ def micro_lists_oov_pedersen_similarity(model, pretrained_embeddings_model, root
         distribution.save(output_path=os.path.join(root_data_model, destination_dir, measure + '_gauss_test.png'),
                           title=f"{measure} mini-lists spearman results")
         print('\t'.join([seed, model_name, measure, str(distribution.mu), str(distribution.std)]))
+
+
+def couple_model_pretrained_given(model_name, model_mappings):
+    if model_name == 'additive':
+        model = BaselineAdditiveModel()
+        pretrained_embeddings_model = KeyedVectors.load_word2vec_format(model_mappings[model_name][1],
+                                                                        binary=model_mappings[model_name][2])
+        return model, pretrained_embeddings_model
+
+    if model_name == 'parent':
+        model = ParentModel(model_mappings[model_name][1], model_mappings[model_name][2])
+        pretrained_embeddings_model = KeyedVectors.load_word2vec_format(model_mappings[model_name][1],
+                                                                        binary=model_mappings[model_name][2])
+        return model, pretrained_embeddings_model
+
+    if model_name == 'fasttext':
+        model = FastText.load_fasttext_format(model_mappings[model_name][1])
+        model = model.wv
+        print(model)
+        return model, model
+
+    if model_name == 'functional':
+        model = tf.keras.models.load_model('oov_functional_predictor.h5')
+        pretrained_embeddings_model = KeyedVectors.load_word2vec_format(model_mappings[model_name][1],
+                                                                        binary=model_mappings[model_name][2])
+        return model, pretrained_embeddings_model
+
+    if model_name == 'functional_no_test':
+        model = tf.keras.models.load_model('oov_functional_predictor_no_sister_terms_test.h5')
+        pretrained_embeddings_model = KeyedVectors.load_word2vec_format(model_mappings[model_name][1],
+                                                                        binary=model_mappings[model_name][2])
+        return model, pretrained_embeddings_model
+
+
+def test_all_models_on_micro_lists(model_path_mappings, root_data_path, destination_dir,
+                                   similarities_function_names=None, seed=None):
+
+    if similarities_function_names is None:
+        similarities_function_names = ['wup', 'res', 'lin']
+
+    checker = Checker.get_instance_from_path('data/pretrained_embeddings/GoogleNews-vectors-negative300.bin',
+                                             binary=True)
+    evaluator = SimilarityEvaluator('cosine_similarity')
+
+    K = 15
+    N_TEST = 200
+    TEST_SIZE = 7
+
+    spearman = {}
+    for measure in similarities_function_names:
+        spearman[measure] = {}
+        n_couple_clusters = retrieve_oov_couples_divided_by_value_of_similarity(
+            input_path=os.path.join(root_data_path, 'oov_oracle_' + measure + '.txt'))
+
+        k_clusters = ClusterMinDiam.k_clusters_of_min_diameter(k=K, n_clusters=n_couple_clusters)
+
+        tests = collect_test_of_size(n_test=N_TEST, test_size=TEST_SIZE, k_clusters=k_clusters,
+                                     ouput_path=os.path.join(root_data_path, destination_dir,
+                                                             measure + '_micro_lists_test.txt'))
+        for model_name in model_path_mappings:
+            model, pretrained_embeddings_model = couple_model_pretrained_given(model_name, model_path_mappings)
+
+            spearman[measure][model_name] = []
+
+            for i in range(0, len(tests)):
+                oracle = OOVSisterTerms_POSAwareOracle(path=None)
+                for d in tests[i]:
+                    (similarity_value, couple) = d
+                    couple: SynsetOOVCouple = couple
+                    oracle.add_correlations(value=similarity_value, oov=couple.oov,
+                                            synset_oov=couple.synset_oov.name(), first=couple.first,
+                                            second=couple.second, synset_second=couple.synset_second.name(),
+                                            target_pos=couple.target_pos, w1_pos=couple.w1_pos, w2_pos=couple.w2_pos)
+
+                oracle.remove_correlations_with_oov(checker)
+
+                tester: OOVSisterTerms_POSAwareTester = OOVSisterTerms_POSAwareTester(oracle)
+                output_path = os.path.join(root_data_path, destination_dir,
+                                           measure + '_' + model_name + '_output_micro_lists_test.txt')
+
+                spearman[measure][model_name].append(
+                    tester.spearman_correlation_model_predictions_and_oracle(model, evaluator, save_on_file=True,
+                                                                             path=output_path,
+                                                                             mode='a+',
+                                                                             pretrained_embeddings_model=pretrained_embeddings_model)
+                )
+
+            distribution = Gauss(data=[-x.correlation for x in spearman[measure][model_name]])
+            distribution.save(output_path=os.path.join(root_data_path, destination_dir,
+                                                       measure + '_' + model_name + '_gauss_test.png'),
+                              title=f"{measure} mini-lists spearman results")
+            print('\t'.join([seed, measure, model_name, str(distribution.mu), str(distribution.std)]))
+
