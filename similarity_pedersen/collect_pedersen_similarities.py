@@ -1,7 +1,7 @@
 from enum import Enum
 
 from similarity_pedersen.pedersen_similarities import SynsetCouple, Comparator, SimilarityFunction, SaverSynsetCouples, \
-    ReaderSynsetCouples, SynsetOOVCouple
+    ReaderSynsetCouples, SynsetOOVCouple, ReaderSynsetOOVCouple
 
 from utility_test.tester.tester import UnexpectedValueInLine
 from word_in_vocabulary import WNManager, Checker
@@ -132,7 +132,7 @@ def retrieve_in_voc_couples_divided_by_value_of_similarity(positive_input_path, 
 
     return ordered_couple
 
-
+#TODO check pederser similarity and keep only 1 reader
 class OOVSisterTerms_LineReader(object):
     def readline(self, line):
         s1_index = 5
@@ -181,9 +181,15 @@ def retrieve_oov_couples_divided_by_value_of_similarity(input_path):
     return ordered_couples
 
 
-def positive_negative_couples_from(positive_input_path, negative_input_path):
+def positive_negative_in_voc_synset_couples_from(positive_input_path, negative_input_path):
     positive_couples = ReaderSynsetCouples.read(positive_input_path)
     negative_couples = ReaderSynsetCouples.read(negative_input_path)
+    return positive_couples, negative_couples
+
+
+def positive_negative_oov_synset_couples_from(positive_input_path, negative_input_path):
+    positive_couples = ReaderSynsetOOVCouple.read(positive_input_path)
+    negative_couples = ReaderSynsetOOVCouple.read(negative_input_path)
     return positive_couples, negative_couples
 
 
@@ -236,29 +242,6 @@ def voc_couples_and_similarity(similarity_function, similarity_output_path,
 
     compare_couples(couples, similarity_function,
                     similarity_output_path, '\t'.join(['S1', 'S2', 'W1', 'W2', 'SIMILARITY', 'S1_POS', '#\n']))
-
-
-"""def similarity_by_name(measure_name):
-    if measure_name == 'wup':
-        return SimilarityFunction.wup
-    else:
-        if measure_name == 'path':
-            return SimilarityFunction.path
-        else:
-            if measure_name == 'lch':
-                return SimilarityFunction.lch
-            else:
-                if measure_name == 'jcn':
-                    return SimilarityFunction.jcn
-                else:
-                    if measure_name == 'lin':
-                        return SimilarityFunction.lin
-                    else:
-                        if measure_name == 'res':
-                            return SimilarityFunction.res
-                        else:
-                            raise NotImplementedError('Unknown measure name. SimilarityFunction must be customized')
-"""
 
 
 def voc_sim(measure_name, positive_output_file, negative_output_file,

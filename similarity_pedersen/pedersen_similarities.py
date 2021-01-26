@@ -3,6 +3,7 @@ from nltk.corpus.reader import Synset
 from enum import Enum
 from nltk.corpus import wordnet_ic
 import nltk
+
 nltk.download('wordnet_ic')
 
 
@@ -74,6 +75,16 @@ class SynsetOOVCouple:
         self.w1_pos = w1_pos
         self.w2_pos = w2_pos
 
+    def to_dictionary(self):
+        return {'synset_oov': self.synset_oov,
+                'oov': self.oov,
+                'first': self.first,
+                'synset_second': self.synset_second,
+                'second': self.second,
+                'target_pos': self.target_pos,
+                'w1_pos': self.w1_pos,
+                'w2_pos': self.w2_pos}
+
 
 class SaverSynsetCouples:
     @staticmethod
@@ -82,7 +93,7 @@ class SaverSynsetCouples:
             output.write(header)
             for couple in couples:
                 output.write('\t'.join([couple.s1.name(), couple.s2.name(),
-                                    couple.w1, couple.w2, couple.s_pos, '#\n']))
+                                        couple.w1, couple.w2, couple.s_pos, '#\n']))
 
     @staticmethod
     def append(couples, output_path, header):
@@ -90,7 +101,7 @@ class SaverSynsetCouples:
             output.write(header)
             for couple in couples:
                 output.write('\t'.join([couple.s1.name(), couple.s2.name(),
-                                    couple.w1, couple.w2, couple.s_pos, '#\n']))
+                                        couple.w1, couple.w2, couple.s_pos, '#\n']))
 
 
 class ReaderSynsetCouples:
@@ -163,5 +174,5 @@ class Comparator:
     def _get_string_similarities(self):
         similarities = []
         for similarity in self.get_similarities():
-            similarities.append('\t'.join( similarity + ['#\n']))
+            similarities.append('\t'.join(similarity + ['#\n']))
         return similarities

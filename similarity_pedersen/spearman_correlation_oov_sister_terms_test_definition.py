@@ -1,27 +1,21 @@
 import random
 
-import tensorflow as tf
-from tensorflow.python.keras.engine.functional import Functional
 import numpy as np
-from gensim.models import KeyedVectors, FastText
-from gensim.models.keyedvectors import FastTextKeyedVectors
+from gensim.models import KeyedVectors
 from scipy.stats import spearmanr
 import os
 
-from base_model.ParentModel import ParentModel
-
-from base_model.BaselineAdditiveModel import BaselineAdditiveModel
+from base_model.utility import predict_according_to, couple_model_pretrained_given
 from cluster.cluster import ClusterMinDiam
 from similarity_pedersen.collect_pedersen_similarities import retrieve_oov_couples_divided_by_value_of_similarity
 from similarity_pedersen.pedersen_similarities import SimilarityFunction, Comparator, ReaderSynsetCouples, \
     SynsetOOVCouple
 from utility_test.distribution.distributions import Gauss
-from utility_test.oracle.oracle import POSAwareOracle, Oracle, POSAwareOOVOracle
+from utility_test.oracle.oracle import POSAwareOOVOracle
 from utility_test.similarity_evaluator.similarity_evaluator import SimilarityEvaluator
 from utility_test.tester.tester import Tester, TestWriter, LineReader, UnexpectedValueInLine
 from word_in_vocabulary import WordInSynset, Checker
 from writer_reader_of_examples.writer_utility import Parser
-from preprocessing.w2v_preprocessing_embedding import POS
 
 
 class DefinitionsOOVSisterTerms_Joiner:
@@ -218,7 +212,7 @@ class OOVSisterTerms_POSAwareTester(Tester):
         for i in self.oracle.correlations:
             correlation = self.oracle.correlations[i]
 
-            prediction_1 = self._predict_according_to(test_model, pretrained_embeddings_model, correlation)
+            prediction_1 = predict_according_to(test_model, pretrained_embeddings_model, correlation)
             prediction_2 = pretrained_embeddings_model.word_vec(correlation['second'])
 
             similarities[i] = evaluator.similarity_function(np.array(prediction_1), np.array(prediction_2))
@@ -236,30 +230,6 @@ class OOVSisterTerms_POSAwareTester(Tester):
             writer.release()
 
         return similarities
-
-    def _predict_according_to(self, test_model, pretrained_embeddings_model, correlation):
-        if isinstance(test_model, ParentModel):
-            prediction = test_model.predict(correlation['oov'], pos_tag=correlation['target_pos'].lower())
-            return prediction
-
-        if isinstance(test_model, KeyedVectors) or isinstance(test_model, FastTextKeyedVectors):
-            prediction = test_model.word_vec(correlation['oov'])
-            return prediction
-
-        first_embeddings = np.array([pretrained_embeddings_model.word_vec(word) for word in correlation['first']])
-        if isinstance(test_model, BaselineAdditiveModel):
-            prediction = test_model.predict(first_embeddings)
-            return prediction
-
-        if isinstance(test_model, Functional):
-            prediction = test_model.predict(
-                [np.array([first_embeddings[0]]),
-                 np.array([POS.get_pos_vector(correlation['w1_pos'])]),
-                 np.array([first_embeddings[1]]),
-                 np.array([POS.get_pos_vector(correlation['w2_pos'])]),
-                 np.array([POS.get_pos_vector(correlation['target_pos'])])
-                 ])
-            return prediction
 
     def spearman_correlation_model_predictions_and_oracle(self, test_model, evaluator: SimilarityEvaluator,
                                                           save_on_file, path, mode,
@@ -302,8 +272,8 @@ def oov_similarity_sister_terms(seed, measure, model, model_name, pretrained_emb
 def collect_test_of_size(n_test, test_size, k_clusters: dict, ouput_path=None):
     tests = []
     exists_available = True
-    i = 0
 
+    i = 0
     while i in range(0, n_test) and exists_available:
         test = []
         available_centers = [center for center in k_clusters if len(k_clusters[center]) != 0]
@@ -427,38 +397,6 @@ def micro_lists_oov_pedersen_similarity(model, pretrained_embeddings_model, root
         distribution.save(output_path=os.path.join(root_data_model, destination_dir, measure + '_gauss_test.png'),
                           title=f"{measure} mini-lists spearman results")
         print('\t'.join([seed, model_name, measure, str(distribution.mu), str(distribution.std)]))
-
-
-def couple_model_pretrained_given(model_name, model_mappings):
-    if model_name == 'additive':
-        model = BaselineAdditiveModel()
-        pretrained_embeddings_model = KeyedVectors.load_word2vec_format(model_mappings[model_name][1],
-                                                                        binary=model_mappings[model_name][2])
-        return model, pretrained_embeddings_model
-
-    if model_name == 'parent':
-        model = ParentModel(model_mappings[model_name][1], model_mappings[model_name][2])
-        pretrained_embeddings_model = KeyedVectors.load_word2vec_format(model_mappings[model_name][1],
-                                                                        binary=model_mappings[model_name][2])
-        return model, pretrained_embeddings_model
-
-    if model_name == 'fasttext':
-        model = FastText.load_fasttext_format(model_mappings[model_name][1])
-        model = model.wv
-        print(model)
-        return model, model
-
-    if model_name == 'functional':
-        model = tf.keras.models.load_model('oov_functional_predictor.h5')
-        pretrained_embeddings_model = KeyedVectors.load_word2vec_format(model_mappings[model_name][1],
-                                                                        binary=model_mappings[model_name][2])
-        return model, pretrained_embeddings_model
-
-    if model_name == 'functional_no_test':
-        model = tf.keras.models.load_model('oov_functional_predictor_no_sister_terms_test.h5')
-        pretrained_embeddings_model = KeyedVectors.load_word2vec_format(model_mappings[model_name][1],
-                                                                        binary=model_mappings[model_name][2])
-        return model, pretrained_embeddings_model
 
 
 def test_all_models_on_micro_lists(model_path_mappings, root_data_path, destination_dir,
